@@ -5,9 +5,9 @@ class MyAppPlanet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: <String, WidgetBuilder>{
-        '/detail': (_) => DetailPage(),
-      },
+//      routes: <String, WidgetBuilder>{
+//        '/detail': (_) => DetailPage(),
+//      },
       home: HomePage(),
     );
   }
@@ -55,7 +55,7 @@ class HomePageBody extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 24.0),
               sliver: SliverFixedExtentList(
                   delegate: SliverChildBuilderDelegate(
-                          (context, index) => PlanetRow(planets[index]),
+                      (context, index) => PlanetRow(planets[index]),
                       childCount: planets.length),
                   itemExtent: 160.0),
             )
@@ -156,12 +156,14 @@ class PlanetRow extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, "/detail");
+//        Navigator.pushNamed(context, "/detail");
+        Navigator.of(context).push(
+            PageRouteBuilder(pageBuilder: (_, __, ___) => DetailPage(planet)));
       },
       child: Container(
         height: 120.0,
-        margin: EdgeInsets.only(
-            top: 16.0, bottom: 16.0, left: 24.0, right: 24.0),
+        margin:
+            EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0, right: 24.0),
         child: Stack(
           children: <Widget>[
             planetCard,
@@ -181,10 +183,7 @@ class GradientAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double statusBarHeight = MediaQuery
-        .of(context)
-        .padding
-        .top;
+    final double statusBarHeight = MediaQuery.of(context).padding.top;
 
     return Container(
       padding: EdgeInsets.only(top: statusBarHeight),
@@ -214,18 +213,25 @@ class GradientAppBar extends StatelessWidget {
 }
 
 class DetailPage extends StatelessWidget {
+  final Planet planet;
+
+  DetailPage(this.planet);
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Planet Detail"),
-      ),
-
-      body: Center(
-        child: RaisedButton(onPressed: () {
-          Navigator.pop(context);
-        },
-        child: Text("<<< Go Back"),
+    return new Scaffold(
+      body: new Container(
+        constraints: new BoxConstraints.expand(),
+        child: new Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            new Text(planet.name),
+            new Image.asset(
+              planet.image,
+              width: 96.0,
+              height: 96.0,
+            ),
+          ],
         ),
       ),
     );
