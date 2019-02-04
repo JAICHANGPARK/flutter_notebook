@@ -23,8 +23,8 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[
           GradientAppBar("Treva"),
           HomePageBody(),
-          HomePageBody(),
-          HomePageBody(),
+//          HomePageBody(),
+//          HomePageBody(),
         ],
       ),
     );
@@ -34,7 +34,22 @@ class _HomePageState extends State<HomePage> {
 class HomePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return PlanetRow(planets[0]);
+
+    /***
+     * A solution will be to put the ListView inside a Container with a specified height,
+     * but, this height could be different on each device.
+     * We can calculate it, but there is a better solution. Using a Expanded Widget:
+     *
+     * The Expanded Widget ocuppies all the remaining space after calculating the size of
+     * those widgets with specific size, so, it has the ability to give a proper size to the ListView.
+     */
+    return Expanded(
+      child: ListView.builder(
+        itemBuilder: (context, index) => PlanetRow(planets[index]),
+        itemCount: planets.length,
+        padding: EdgeInsets.symmetric(vertical: 16.0),
+      ),
+    );
   }
 }
 
