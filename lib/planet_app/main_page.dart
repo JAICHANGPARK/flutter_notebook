@@ -5,6 +5,9 @@ class MyAppPlanet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: <String, WidgetBuilder>{
+        '/detail': (_) => DetailPage(),
+      },
       home: HomePage(),
     );
   }
@@ -34,7 +37,6 @@ class _HomePageState extends State<HomePage> {
 class HomePageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     /***
      * A solution will be to put the ListView inside a Container with a specified height,
      * but, this height could be different on each device.
@@ -44,11 +46,28 @@ class HomePageBody extends StatelessWidget {
      * those widgets with specific size, so, it has the ability to give a proper size to the ListView.
      */
     return Expanded(
-      child: ListView.builder(
-        itemBuilder: (context, index) => PlanetRow(planets[index]),
-        itemCount: planets.length,
-        padding: EdgeInsets.symmetric(vertical: 16.0),
+      child: Container(
+        color: Color(0xFF736AB7),
+        child: CustomScrollView(
+          scrollDirection: Axis.vertical,
+          slivers: <Widget>[
+            SliverPadding(
+              padding: EdgeInsets.symmetric(vertical: 24.0),
+              sliver: SliverFixedExtentList(
+                  delegate: SliverChildBuilderDelegate(
+                          (context, index) => PlanetRow(planets[index]),
+                      childCount: planets.length),
+                  itemExtent: 160.0),
+            )
+          ],
+        ),
       ),
+
+//      child: ListView.builder(
+//        itemBuilder: (context, index) => PlanetRow(planets[index]),
+//        itemCount: planets.length,
+//        padding: EdgeInsets.symmetric(vertical: 16.0),
+//      ),
     );
   }
 }
@@ -76,7 +95,6 @@ class PlanetRow extends StatelessWidget {
         width: 92.0,
       ),
     );
-
 
     Widget _planetValue({String value, String image}) {
       return new Row(children: <Widget>[
@@ -136,14 +154,20 @@ class PlanetRow extends StatelessWidget {
           ]),
     );
 
-    return Container(
-      height: 120.0,
-      margin: EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0, right: 24.0),
-      child: Stack(
-        children: <Widget>[
-          planetCard,
-          planetThumbnail,
-        ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, "/detail");
+      },
+      child: Container(
+        height: 120.0,
+        margin: EdgeInsets.only(
+            top: 16.0, bottom: 16.0, left: 24.0, right: 24.0),
+        child: Stack(
+          children: <Widget>[
+            planetCard,
+            planetThumbnail,
+          ],
+        ),
       ),
     );
   }
@@ -157,7 +181,10 @@ class GradientAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double statusBarHeight = MediaQuery.of(context).padding.top;
+    final double statusBarHeight = MediaQuery
+        .of(context)
+        .padding
+        .top;
 
     return Container(
       padding: EdgeInsets.only(top: statusBarHeight),
@@ -180,6 +207,25 @@ class GradientAppBar extends StatelessWidget {
               fontWeight: FontWeight.w600,
               fontSize: 36.0,
               fontFamily: 'Poppins'),
+        ),
+      ),
+    );
+  }
+}
+
+class DetailPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Planet Detail"),
+      ),
+
+      body: Center(
+        child: RaisedButton(onPressed: () {
+          Navigator.pop(context);
+        },
+        child: Text("<<< Go Back"),
         ),
       ),
     );
