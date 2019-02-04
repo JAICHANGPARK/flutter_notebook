@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_notebook/CupertinoActionBar.dart';
+import 'package:flutter_notebook/planet_app/main_page.dart';
 
 //void main() => runApp(MyApp());
+//
+//void main() => runApp(CupertinoAlertDemo());
 
-void main() => runApp(CupertinoAlertDemo());
+void main() =>(MyAppPlanet());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
