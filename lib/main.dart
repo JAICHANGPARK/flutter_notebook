@@ -6,7 +6,7 @@ import 'package:flutter_notebook/planet_app/main_page.dart';
 //
 //void main() => runApp(CupertinoAlertDemo());
 
-void main() =>(MyAppPlanet());
+void main() => runApp(MyAppPlanet());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -15,7 +15,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -25,7 +24,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
 
   final String title;
 
