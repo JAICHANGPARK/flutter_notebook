@@ -63,11 +63,6 @@ class HomePageBody extends StatelessWidget {
         ),
       ),
 
-//      child: ListView.builder(
-//        itemBuilder: (context, index) => PlanetRow(planets[index]),
-//        itemCount: planets.length,
-//        padding: EdgeInsets.symmetric(vertical: 16.0),
-//      ),
     );
   }
 }
