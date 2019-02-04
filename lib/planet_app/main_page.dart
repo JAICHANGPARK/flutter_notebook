@@ -89,10 +89,13 @@ class PlanetRow extends StatelessWidget {
     final planetThumbnail = Container(
       margin: EdgeInsets.symmetric(vertical: 16.0),
       alignment: FractionalOffset.centerLeft,
-      child: Image(
-        image: AssetImage(planet.image),
-        height: 92.0,
-        width: 92.0,
+      child: Hero(
+        tag: "planet-hero-${planet.id}",
+        child: Image(
+          image: AssetImage(planet.image),
+          height: 92.0,
+          width: 92.0,
+        ),
       ),
     );
 
@@ -221,15 +224,19 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Container(
+        color: const Color(0xFF736AB7),
         constraints: new BoxConstraints.expand(),
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             new Text(planet.name),
-            new Image.asset(
-              planet.image,
-              width: 96.0,
-              height: 96.0,
+            Hero(
+              tag: "planet-hero-${planet.id}",
+              child: new Image.asset(
+                planet.image,
+                width: 96.0,
+                height: 96.0,
+              ),
             ),
           ],
         ),
