@@ -178,7 +178,7 @@ class PlanetRowSummary extends StatelessWidget {
 
   PlanetRowSummary(this.planet, {this.horizontal = true});
 
-  PlanetRowSummary.vertical(this.planet) :  horizontal = false;
+  PlanetRowSummary.vertical(this.planet) : horizontal = false;
 
   @override
   Widget build(BuildContext context) {
@@ -191,7 +191,8 @@ class PlanetRowSummary extends StatelessWidget {
 
     final planetThumbnail = Container(
       margin: EdgeInsets.symmetric(vertical: 16.0),
-      alignment: horizontal? FractionalOffset.centerLeft : FractionalOffset.center,
+      alignment:
+          horizontal ? FractionalOffset.centerLeft : FractionalOffset.center,
       child: Hero(
         tag: "planet-hero-${planet.id}",
         child: Image(
@@ -211,10 +212,12 @@ class PlanetRowSummary extends StatelessWidget {
     }
 
     final planetCardContent = Container(
-      margin: EdgeInsets.fromLTRB(76.0, 16, 16, 16),
+      margin: EdgeInsets.fromLTRB(
+          horizontal ? 76.0 : 16.0, horizontal ? 16.0 : 42.0, 16.0, 16.0),
       constraints: BoxConstraints.expand(),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment:
+            horizontal ? CrossAxisAlignment.start : CrossAxisAlignment.center,
         children: <Widget>[
           new Container(height: 4.0),
           new Text(
@@ -229,12 +232,18 @@ class PlanetRowSummary extends StatelessWidget {
               width: 18.0,
               color: new Color(0xff00c6ff)),
           new Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               new Expanded(
+                  flex: horizontal ? 1 : 0,
                   child: _planetValue(
                       value: planet.distance,
                       image: 'assets/img/ic_distance.png')),
+              Container(
+                width: 32.0,
+              ),
               new Expanded(
+                  flex: horizontal ? 1 : 0,
                   child: _planetValue(
                       value: planet.gravity,
                       image: 'assets/img/ic_gravity.png'))
@@ -246,8 +255,9 @@ class PlanetRowSummary extends StatelessWidget {
 
     final planetCard = Container(
       child: planetCardContent,
-      height: 124.0,
-      margin: EdgeInsets.only(left: 46.0),
+      height: horizontal ? 124.0 : 154.0,
+      margin:
+          horizontal ? EdgeInsets.only(left: 46.0) : EdgeInsets.only(top: 72.0),
       decoration: BoxDecoration(
           color: Color(0xFF333366),
           shape: BoxShape.rectangle,
@@ -261,15 +271,19 @@ class PlanetRowSummary extends StatelessWidget {
     );
 
     return GestureDetector(
-      onTap: () {
-//        Navigator.pushNamed(context, "/detail");
-        Navigator.of(context).push(
-            PageRouteBuilder(pageBuilder: (_, __, ___) => DetailPage(planet)));
-      },
+      onTap: horizontal
+          ? () => Navigator.of(context).push(PageRouteBuilder(
+              pageBuilder: (_, __, ___) => DetailPage(planet),
+              transitionsBuilder: (context, animation, _, child) =>
+                  FadeTransition(
+                    opacity: animation,
+                    child: child,
+                  )))
+          : null,
       child: Container(
         height: 120.0,
         margin:
-        EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0, right: 24.0),
+            EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0, right: 24.0),
         child: Stack(
           children: <Widget>[
             planetCard,
@@ -280,7 +294,6 @@ class PlanetRowSummary extends StatelessWidget {
     );
   }
 }
-
 
 class GradientAppBar extends StatelessWidget {
   final String title;
@@ -324,8 +337,16 @@ class DetailPage extends StatelessWidget {
 
   DetailPage(this.planet);
 
+
+
   @override
   Widget build(BuildContext context) {
+
+
+    final baseTextStyle = TextStyle(fontFamily: 'Poppins');
+    final headerTextStyle = baseTextStyle.copyWith(
+        color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w600);
+
 
     Container _getBackground() {
       return Container(
@@ -338,36 +359,48 @@ class DetailPage extends StatelessWidget {
       );
     }
 
-    Container _getGradient(){
+    Container _getGradient() {
       return Container(
         margin: EdgeInsets.only(top: 190.0),
         height: 110.0,
         decoration: BoxDecoration(
-          gradient: LinearGradient(colors: <Color>[
-
-            Color(0x00736ab7),
-            Color(0xff736ab7),
-
-          ],
+          gradient: LinearGradient(
+            colors: <Color>[
+              Color(0x00736ab7),
+              Color(0xff736ab7),
+            ],
             stops: [0.0, 0.5],
             begin: FractionalOffset(0.0, 0.0),
             end: FractionalOffset(0.0, 1.0),
           ),
         ),
-
-
       );
     }
 
-    Widget _getContent(){
+    Widget _getContent() {
+      final _overviewTile = "Overview".toUpperCase();
       return ListView(
         padding: EdgeInsets.fromLTRB(0.0, 72.0, 0.0, 32.0),
         children: <Widget>[
+          PlanetRowSummary(
+            planet,
+            horizontal: false,
+          ),
 
+          Container(padding: EdgeInsets.symmetric(horizontal: 32.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(_overviewTile, style: headerTextStyle,)
+              ],
+
+            ),
+          )
         ],
-
       );
     }
+
+
 
     return new Scaffold(
       body: new Container(
@@ -401,14 +434,14 @@ class DetailPage extends StatelessWidget {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
+class Separator extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 8.0),
+      height: 2.0,
+      width: 18.0,
+      color: Color(0xff00c6ff),
+    );
+  }
+}
