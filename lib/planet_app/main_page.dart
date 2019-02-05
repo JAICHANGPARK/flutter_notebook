@@ -184,6 +184,7 @@ class PlanetRowSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(horizontal);
     final baseTextStyle = TextStyle(fontFamily: 'Poppins');
     final headerTextStyle = baseTextStyle.copyWith(
         color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w600);
@@ -283,7 +284,7 @@ class PlanetRowSummary extends StatelessWidget {
                   )))
           : null,
       child: Container(
-        height: 120.0,
+//        height: 120.0,
         margin:
             EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0, right: 24.0),
         child: Stack(
