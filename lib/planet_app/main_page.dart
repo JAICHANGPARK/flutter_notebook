@@ -50,14 +50,16 @@ class HomePageBody extends StatelessWidget {
         color: Color(0xFF736AB7),
         child: CustomScrollView(
           scrollDirection: Axis.vertical,
+          shrinkWrap: false,
           slivers: <Widget>[
             SliverPadding(
               padding: EdgeInsets.symmetric(vertical: 24.0),
-              sliver: SliverFixedExtentList(
+              sliver: SliverList(
                   delegate: SliverChildBuilderDelegate(
-                      (context, index) => PlanetRow(planets[index]),
+                      (context, index) => PlanetRowSummary(planets[index]),
                       childCount: planets.length),
-                  itemExtent: 160.0),
+//                  itemExtent: 160.0),
+              ),
             )
           ],
         ),
@@ -274,7 +276,7 @@ class PlanetRowSummary extends StatelessWidget {
       onTap: horizontal
           ? () => Navigator.of(context).push(PageRouteBuilder(
               pageBuilder: (_, __, ___) => DetailPage(planet),
-              transitionsBuilder: (context, animation, _, child) =>
+              transitionsBuilder: (context, animation, secondaryAnimation, child) =>
                   FadeTransition(
                     opacity: animation,
                     child: child,
@@ -334,19 +336,13 @@ class GradientAppBar extends StatelessWidget {
 
 class DetailPage extends StatelessWidget {
   final Planet planet;
-
   DetailPage(this.planet);
-
-
 
   @override
   Widget build(BuildContext context) {
-
-
     final baseTextStyle = TextStyle(fontFamily: 'Poppins');
     final headerTextStyle = baseTextStyle.copyWith(
         color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w600);
-
 
     Container _getBackground() {
       return Container(
@@ -386,21 +382,39 @@ class DetailPage extends StatelessWidget {
             planet,
             horizontal: false,
           ),
-
-          Container(padding: EdgeInsets.symmetric(horizontal: 32.0),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 32.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(_overviewTile, style: headerTextStyle,)
-              ],
+                Text(
+                  _overviewTile,
+                  style: headerTextStyle,
+                ),
+                Separator(),
 
+                Text(planet.description, style: TextStyle(
+                  fontFamily: 'Poppins',
+                  color: Color(0xffb6b2df),
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.w400,
+                ),)
+              ],
             ),
           )
         ],
       );
     }
 
+    Container _getToolbar(BuildContext context){
+      return Container(
+        margin: EdgeInsets.only(
+          top: MediaQuery.of(context).padding.top,
+        ),
 
+        child: BackButton(color: Colors.white,),
+      );
+    }
 
     return new Scaffold(
       body: new Container(
@@ -412,6 +426,7 @@ class DetailPage extends StatelessWidget {
             _getBackground(),
             _getGradient(),
             _getContent(),
+            _getToolbar(context),
           ],
         ),
 
