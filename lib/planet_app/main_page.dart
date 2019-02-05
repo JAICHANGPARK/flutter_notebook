@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          GradientAppBar("Treva"),
+          GradientAppBar("Live Coding"),
           HomePageBody(),
 //          HomePageBody(),
 //          HomePageBody(),
@@ -62,7 +62,6 @@ class HomePageBody extends StatelessWidget {
           ],
         ),
       ),
-
     );
   }
 }
@@ -173,6 +172,116 @@ class PlanetRow extends StatelessWidget {
   }
 }
 
+class PlanetRowSummary extends StatelessWidget {
+  final Planet planet;
+  final bool horizontal;
+
+  PlanetRowSummary(this.planet, {this.horizontal = true});
+
+  PlanetRowSummary.vertical(this.planet) :  horizontal = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final baseTextStyle = TextStyle(fontFamily: 'Poppins');
+    final headerTextStyle = baseTextStyle.copyWith(
+        color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.w600);
+    final regularTextStyle = baseTextStyle.copyWith(
+        color: Color(0xffb6b2df), fontSize: 9.0, fontWeight: FontWeight.w400);
+    final subHeaderTextStyle = regularTextStyle.copyWith(fontSize: 12.0);
+
+    final planetThumbnail = Container(
+      margin: EdgeInsets.symmetric(vertical: 16.0),
+      alignment: horizontal? FractionalOffset.centerLeft : FractionalOffset.center,
+      child: Hero(
+        tag: "planet-hero-${planet.id}",
+        child: Image(
+          image: AssetImage(planet.image),
+          height: 92.0,
+          width: 92.0,
+        ),
+      ),
+    );
+
+    Widget _planetValue({String value, String image}) {
+      return new Row(children: <Widget>[
+        new Image.asset(image, height: 12.0),
+        new Container(width: 8.0),
+        new Text(planet.gravity, style: regularTextStyle),
+      ]);
+    }
+
+    final planetCardContent = Container(
+      margin: EdgeInsets.fromLTRB(76.0, 16, 16, 16),
+      constraints: BoxConstraints.expand(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          new Container(height: 4.0),
+          new Text(
+            planet.name,
+            style: headerTextStyle,
+          ),
+          new Container(height: 10.0),
+          new Text(planet.location, style: subHeaderTextStyle),
+          new Container(
+              margin: new EdgeInsets.symmetric(vertical: 8.0),
+              height: 2.0,
+              width: 18.0,
+              color: new Color(0xff00c6ff)),
+          new Row(
+            children: <Widget>[
+              new Expanded(
+                  child: _planetValue(
+                      value: planet.distance,
+                      image: 'assets/img/ic_distance.png')),
+              new Expanded(
+                  child: _planetValue(
+                      value: planet.gravity,
+                      image: 'assets/img/ic_gravity.png'))
+            ],
+          )
+        ],
+      ),
+    );
+
+    final planetCard = Container(
+      child: planetCardContent,
+      height: 124.0,
+      margin: EdgeInsets.only(left: 46.0),
+      decoration: BoxDecoration(
+          color: Color(0xFF333366),
+          shape: BoxShape.rectangle,
+          borderRadius: BorderRadius.circular(8.0),
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+                color: Colors.black12,
+                blurRadius: 10.0,
+                offset: Offset(0.0, 10.0))
+          ]),
+    );
+
+    return GestureDetector(
+      onTap: () {
+//        Navigator.pushNamed(context, "/detail");
+        Navigator.of(context).push(
+            PageRouteBuilder(pageBuilder: (_, __, ___) => DetailPage(planet)));
+      },
+      child: Container(
+        height: 120.0,
+        margin:
+        EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0, right: 24.0),
+        child: Stack(
+          children: <Widget>[
+            planetCard,
+            planetThumbnail,
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
 class GradientAppBar extends StatelessWidget {
   final String title;
   final double barHeight = 66.0;
@@ -217,25 +326,89 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    Container _getBackground() {
+      return Container(
+        child: Image.network(
+          planet.picture,
+          fit: BoxFit.cover,
+          height: 300.0,
+        ),
+        constraints: BoxConstraints.expand(height: 300.0),
+      );
+    }
+
+    Container _getGradient(){
+      return Container(
+        margin: EdgeInsets.only(top: 190.0),
+        height: 110.0,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(colors: <Color>[
+
+            Color(0x00736ab7),
+            Color(0xff736ab7),
+
+          ],
+            stops: [0.0, 0.5],
+            begin: FractionalOffset(0.0, 0.0),
+            end: FractionalOffset(0.0, 1.0),
+          ),
+        ),
+
+
+      );
+    }
+
+    Widget _getContent(){
+      return ListView(
+        padding: EdgeInsets.fromLTRB(0.0, 72.0, 0.0, 32.0),
+        children: <Widget>[
+
+        ],
+
+      );
+    }
+
     return new Scaffold(
       body: new Container(
         color: const Color(0xFF736AB7),
         constraints: new BoxConstraints.expand(),
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+
+        child: Stack(
           children: <Widget>[
-            new Text(planet.name),
-            Hero(
-              tag: "planet-hero-${planet.id}",
-              child: new Image.asset(
-                planet.image,
-                width: 96.0,
-                height: 96.0,
-              ),
-            ),
+            _getBackground(),
+            _getGradient(),
+            _getContent(),
           ],
         ),
+
+//        child: new Column(
+//          mainAxisAlignment: MainAxisAlignment.center,
+//          children: <Widget>[
+//            new Text(planet.name),
+//            Hero(
+//              tag: "planet-hero-${planet.id}",
+//              child: new Image.asset(
+//                planet.image,
+//                width: 96.0,
+//                height: 96.0,
+//              ),
+//            ),
+//          ],
+//        ),
       ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
