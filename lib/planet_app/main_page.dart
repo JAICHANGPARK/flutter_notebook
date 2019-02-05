@@ -5,6 +5,7 @@ class MyAppPlanet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
 //      routes: <String, WidgetBuilder>{
 //        '/detail': (_) => DetailPage(),
 //      },
@@ -284,9 +285,8 @@ class PlanetRowSummary extends StatelessWidget {
                   )))
           : null,
       child: Container(
-//        height: 120.0,
-        margin:
-            EdgeInsets.only(top: 16.0, bottom: 16.0, left: 24.0, right: 24.0),
+//        height: 120.0, //TODO <<------- Stuck Point
+        margin:EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
         child: Stack(
           children: <Widget>[
             planetCard,
