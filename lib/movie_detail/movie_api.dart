@@ -9,13 +9,9 @@ final Movie testMovie = Movie(
     rating: 9.0,
     starRating: 4,
     categories: ['Action', 'Fantasy', 'SF'],
-    storyline: "Once home to the most advanced civilization on Earth, "
-        "the city of Atlantis is now an underwater kingdom ruled by the power-hungry King Orm."
-        " With a vast army at his disposal, Orm plans to conquer the remaining oceanic people "
-        "-- and then the surface world. Standing in his way is Aquaman, "
-        "Orm's half-human, half-Atlantean brother and true heir to the throne. "
-        "With help from royal counselor Vulko, Aquaman must retrieve the legendary "
-        "Trident of Atlan and embrace his destiny as protector of the deep.",
+    storyline: 'Once home to the most advanced civilization on Earth, '
+        'the city of Atlantis is now an underwater kingdom ruled by the power-hungry King Orm.'
+        'With a vast army at his disposal, Orm plans to conquer the remaining oceanic people',
     photoUrls: [
       "https://image.tmdb.org/t/p/w533_and_h300_bestv2/4rbszAcobxhioUNHcrbzCaLMFQc.jpg",
       "https://image.tmdb.org/t/p/w500_and_h282_face/yCiIZ2dLUODlhdKYRaesRDjCyfu.jpg",
