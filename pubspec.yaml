@@ -21,6 +21,8 @@ dependencies:
   cupertino_icons: ^0.1.2
 
   http:
+  after_layout:
+  fluttertoast:
 
 dev_dependencies:
   flutter_test:
@@ -77,6 +79,8 @@ flutter:
     - assets/img/mercury.png
     - assets/img/ic_distance.png
     - assets/img/ic_gravity.png
+    - assets/img/my_qr_code.png
+    - assets/img/corners.png
 
 
   fonts:
@@ -86,3 +90,17 @@ flutter:
           weight: 600
         - asset: assets/fonts/Poppins-Regular.ttf
           weight: 400
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/fidibo_app_concept/book_home_page.dart';
 
 class MainHeaderTest extends StatelessWidget {
   @override
@@ -36,7 +37,14 @@ class MainHeaderTest extends StatelessWidget {
                   Icons.arrow_forward,
                   color: Colors.grey,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => BookHomePage()));
+
+
+
+
+                },
               ),
             ],
           )
@@ -45,3 +53,17 @@ class MainHeaderTest extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

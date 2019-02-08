@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/fidibo_app_concept/book_detail_page.dart';
 
 
 
@@ -41,17 +42,27 @@ class MainMidInformation extends StatelessWidget {
         ),
         Positioned(
           right: 16.0,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: 200,
-              width: 120.0,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(16.0),
-                  image: DecorationImage(
-                      image: NetworkImage(
-                          "https://marketplace.canva.com/MACAEgi3V4g/1/0/thumbnail_large/canva-happy-kid-children-book-MACAEgi3V4g.jpg"),
-                      fit: BoxFit.cover)),
+          child: InkWell(
+            onTap: (){
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context)=>BookDetailPage())
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Hero(
+                tag: "book_img",
+                child: Container(
+                  height: 200,
+                  width: 120.0,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16.0),
+                      image: DecorationImage(
+                          image: NetworkImage(
+                              "https://marketplace.canva.com/MACAEgi3V4g/1/0/thumbnail_large/canva-happy-kid-children-book-MACAEgi3V4g.jpg"),
+                          fit: BoxFit.cover)),
+                ),
+              ),
             ),
           ),
         ),
