@@ -1,8 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_notebook/flight_demo_hero/model/ticket.dart';
 import 'package:flutter_notebook/flight_demo_hero/theme.dart';
 import 'package:flutter_notebook/flight_demo_hero/ticket_card_widget.dart';
-
+import 'package:after_layout/after_layout.dart';
 class TicketDetail extends StatefulWidget {
   final Ticket ticket;
 
@@ -12,7 +14,8 @@ class TicketDetail extends StatefulWidget {
   _TicketDetailState createState() => _TicketDetailState();
 }
 
-class _TicketDetailState extends State<TicketDetail> {
+class _TicketDetailState extends State<TicketDetail>
+with AfterLayoutMixin<TicketDetail>{
   bool showCorner = false;
 
   @override
@@ -55,7 +58,7 @@ class _TicketDetailState extends State<TicketDetail> {
               child: Stack(children: <Widget>[
                 getCorners(),
                 Image.asset(
-                  "assets/img/my_qr_code.png",
+                  "assets/img/qrcode.png",
                   width: 140.0,
                 )
               ]),
@@ -69,12 +72,12 @@ class _TicketDetailState extends State<TicketDetail> {
 
   Widget getCorners() {
     return AnimatedPositioned(
-      duration: Duration(milliseconds: 300),
+      duration: Duration(milliseconds: 500),
       left: showCorner ? 0 : 30,
       top: showCorner ? 0 : 30,
       width: showCorner ? 140 : 80,
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
+        duration: Duration(milliseconds: 500),
         width: showCorner ? 140 : 80,
         height: showCorner ? 140 : 80,
         child: Column(
@@ -91,16 +94,58 @@ class _TicketDetailState extends State<TicketDetail> {
                   quarterTurns: 0,
                   child: Image.asset("assets/img/corners.png", width: 25.0,),
                 ),
-
-                
+                RotatedBox(
+                  quarterTurns: 1,
+                  child: Image.asset("assets/img/corners.png", width: 25.0,)
+                )
               ],
-            )
+            ),
+
+            Spacer(),
+
+            Row(
+              mainAxisSize: showCorner ? MainAxisSize.max : MainAxisSize.min,
+              mainAxisAlignment:  MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                RotatedBox(
+                  quarterTurns: 3,
+                  child: Image.asset("assets/img/corners.png", width: 25.0,),
+                ),
+                RotatedBox(
+                    quarterTurns: 2,
+                    child: Image.asset("assets/img/corners.png", width: 25.0,)
+                )
+              ],
+            ),
+
           ],
         ),
       ),
     );
   }
+
+  @override
+  void afterFirstLayout(BuildContext context) {
+    startTimer();
+  }
+
+  startTimer(){
+    var duration = Duration(milliseconds: 300);
+    Timer(duration, showCorners);
+  }
+
+  showCorners(){
+    setState(() {
+      showCorner = true;
+    });
+  }
+
+
+
 }
+
+
+
 
 
 

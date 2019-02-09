@@ -81,6 +81,7 @@ flutter:
     - assets/img/ic_gravity.png
     - assets/img/my_qr_code.png
     - assets/img/corners.png
+    - assets/img/qrcode.png
 
 
   fonts:

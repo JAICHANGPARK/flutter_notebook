@@ -19,12 +19,14 @@ class TicketListPage extends StatelessWidget {
     ticket.boardingTIme = "9:50";
 
     return Scaffold(
-      backgroundColor: Colors.white,
+//      backgroundColor: Colors.white,
       appBar: CustomAppBar(title: 'Plane Ticket'),
       body: SingleChildScrollView(
+
         scrollDirection: Axis.vertical,
         child: Column(
           children: <Widget>[
+
             SizedBox(
               height: 20.0,
             ),
@@ -36,10 +38,10 @@ class TicketListPage extends StatelessWidget {
               scrollDirection: Axis.vertical,
               shrinkWrap: true,
               children: <Widget>[
-                TicketCardWidget(ticket: ticket),
-//                Hero(
-//                  tag: ticket.id, child: TicketCardWidget(ticket : ticket),
-//                )
+//                TicketCardWidget(ticket: ticket),
+                Hero(
+                  tag: ticket.id, child: TicketCardWidget(ticket : ticket),
+                )
               ],
             )
           ],
