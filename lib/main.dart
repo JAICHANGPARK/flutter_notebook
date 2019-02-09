@@ -5,6 +5,7 @@ import 'package:flutter_notebook/fidibo_app_concept/main_page.dart';
 import 'package:flutter_notebook/flight_demo_hero/main_page.dart';
 import 'package:flutter_notebook/goutmet_takeapp/main_page.dart';
 import 'package:flutter_notebook/planet_app/main_page.dart';
+import 'package:flutter_notebook/reading_book_part1/page/page/main_page.dart';
 
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
@@ -15,8 +16,9 @@ import 'package:flutter_notebook/planet_app/main_page.dart';
 
 //void main() => runApp(GourmetPage());
 
+//void main() => runApp(FlightDemoHero());
 
-void main() => runApp(FlightDemoHero());
+void main() => runApp(BookReaderApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
