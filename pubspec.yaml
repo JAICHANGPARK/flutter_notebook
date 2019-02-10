@@ -25,6 +25,8 @@ dependencies:
   fluttertoast:
   auto_size_text:
 
+  flutter_blue:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
