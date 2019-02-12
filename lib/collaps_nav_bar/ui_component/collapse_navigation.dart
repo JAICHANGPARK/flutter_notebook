@@ -10,13 +10,15 @@ class CollapsingNavigationDrawer extends StatefulWidget {
 
 class _CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
     with SingleTickerProviderStateMixin {
-  double maxWidth = 250.0;
-  double minWidth = 60.0;
+  double maxWidth = 220.0;
+  double minWidth = 70.0;
 
   bool isCollapsed = false;
 
   AnimationController _animationController;
   Animation<double> widthAnimation;
+
+  int currentSelectedIndex = 0;
 
   @override
   void initState() {
@@ -24,8 +26,8 @@ class _CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
 
     super.initState();
 
-    _animationController = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 300));
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
 
     widthAnimation = Tween<double>(begin: maxWidth, end: minWidth)
         .animate(_animationController);
@@ -39,52 +41,70 @@ class _CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
   }
 
   Widget getWidget(context, widget) {
-    return Container(
-      width: widthAnimation.value,
-      color: drawerBackgroundColor,
-      child: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 50.0,
-          ),
-          CollapsingListTile(
-            title: "Dreamwalker",
-            icon: Icons.person,
-            animationController: _animationController,
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, counter) {
-                return CollapsingListTile(
-                  title: navigationItems[counter].title,
-                  icon: navigationItems[counter].icon,
-                  animationController: _animationController,
-                );
+    return Material(
+      elevation: 80.0,
+      child: Container(
+        width: widthAnimation.value,
+        color: drawerBackgroundColor,
+        child: Column(
+          children: <Widget>[
+//          SizedBox(
+//            height: 50.0,
+//          ),
+            CollapsingListTile(
+              title: "Dreamwalker",
+              icon: Icons.person,
+              animationController: _animationController,
+            ),
+            Divider(
+              color: Colors.grey,
+              height: 40.0,
+            ),
+            Expanded(
+              child: ListView.separated(
+                separatorBuilder: (context, counter) {
+                  return Divider(
+                    color: Colors.grey,
+                    height: 12.0,
+                  );
+                },
+                itemBuilder: (context, counter) {
+                  return CollapsingListTile(
+                    onTap: () {
+                      setState(() {
+                        currentSelectedIndex = counter;
+                      });
+                    },
+                    isSelected: currentSelectedIndex == counter,
+                    title: navigationItems[counter].title,
+                    icon: navigationItems[counter].icon,
+                    animationController: _animationController,
+                  );
+                },
+                itemCount: navigationItems.length,
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                setState(() {
+                  isCollapsed = !isCollapsed;
+                  isCollapsed
+                      ? _animationController.forward()
+                      : _animationController.reverse();
+                });
               },
-              itemCount: navigationItems.length,
+              child: AnimatedIcon(
+                icon: AnimatedIcons.close_menu,
+                progress: _animationController,
+                color: Colors.white,
+                size: 50.0,
+              ),
             ),
-          ),
-          InkWell(
-            onTap: () {
-              setState(() {
-                isCollapsed = !isCollapsed;
-                isCollapsed
-                    ? _animationController.forward()
-                    : _animationController.reverse();
-              });
-            },
-            child: AnimatedIcon(
-
-              icon: AnimatedIcons.close_menu,
-              progress: _animationController,
-              color: Colors.white,
-              size: 50.0,
+            SizedBox(
+              height: 50.0,
             ),
-          ),
-          SizedBox(
-            height: 50.0,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -94,50 +114,6 @@ class _CollapsingNavigationDrawerState extends State<CollapsingNavigationDrawer>
     return AnimatedBuilder(
         animation: _animationController,
         builder: (context, widget) => getWidget(context, widget));
-//    return Container(
-//      width: widthAnimation.value,
-//      color: drawerBackgroundColor,
-//      child: Column(
-//        children: <Widget>[
-//          SizedBox(
-//            height: 50.0,
-//          ),
-//          CollapsingListTile(
-//            title: "Dreamwalker",
-//            icon: Icons.person,
-//          ),
-//          Expanded(
-//            child: ListView.builder(
-//              itemBuilder: (context, counter) {
-//                return CollapsingListTile(
-//                  title: navigationItems[counter].title,
-//                  icon: navigationItems[counter].icon,
-//                );
-//              },
-//              itemCount: navigationItems.length,
-//            ),
-//          ),
-//          InkWell(
-//            onTap: (){
-//              setState(() {
-//                isCollapsed = !isCollapsed;
-//                isCollapsed ? _animationController.forward()
-//                    : _animationController.reverse();
-//              });
-//            },
-//            child: Icon(
-//              Icons.chevron_left,
-//              color: Colors.white,
-//              size: 50.0,
-//            ),
-//          ),
-//
-//          SizedBox(
-//            height: 50.0,
-//          ),
-//        ],
-//      ),
-//    );
   }
 }
 
@@ -145,15 +121,21 @@ class CollapsingListTile extends StatefulWidget {
   final String title;
   final IconData icon;
   final AnimationController animationController;
+  final bool isSelected;
+  final Function onTap;
 
-  CollapsingListTile({this.title, this.icon, this.animationController});
+  CollapsingListTile(
+      {this.title,
+      this.icon,
+      this.animationController,
+      this.isSelected = false,
+      this.onTap});
 
   @override
   _CollapsingListTileState createState() => _CollapsingListTileState();
 }
 
 class _CollapsingListTileState extends State<CollapsingListTile> {
-
   Animation<double> _widthAnimation, _sizedBoxAnimation;
 
   @override
@@ -161,37 +143,48 @@ class _CollapsingListTileState extends State<CollapsingListTile> {
     // TODO: implement initState
     super.initState();
 
-    _widthAnimation = Tween<double>(
-        begin: 250, end: 70.0
-    ).animate(widget.animationController);
+    _widthAnimation = Tween<double>(begin: 220, end: 80.0)
+        .animate(widget.animationController);
 
-    _sizedBoxAnimation = Tween<double>(
-        begin: 10, end: 0.0
-    ).animate(widget.animationController);
+    _sizedBoxAnimation =
+        Tween<double>(begin: 10, end: 0.0).animate(widget.animationController);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: _widthAnimation.value,
-      margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-      child: Row(
-        children: <Widget>[
-        Icon(
-        widget.icon,
-        color: Colors.white30,
-        size: 38.0,
+    return InkWell(
+      onTap: widget.onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(16.0)),
+          color: widget.isSelected
+              ? Colors.transparent.withOpacity(0.3)
+              : Colors.transparent,
+        ),
+        width: _widthAnimation.value,
+        margin: EdgeInsets.symmetric(horizontal: 8.0),
+        padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+        child: Row(
+          children: <Widget>[
+            Icon(
+              widget.icon,
+              color: widget.isSelected ? selectedColor : Colors.white30,
+              size: 38.0,
+            ),
+            SizedBox(
+              width: _sizedBoxAnimation.value,
+            ),
+            (_widthAnimation.value >= 220)
+                ? Text(
+                    widget.title,
+                    style: widget.isSelected
+                        ? listTitleSelectedTextStyle
+                        : listTitleDefaultTextStyle,
+                  )
+                : Container(),
+          ],
+        ),
       ),
-      SizedBox(
-        width: _sizedBoxAnimation.value,
-      ),
-
-      (_widthAnimation.value >= 220) ? Text(
-        widget.title,
-        style: listTitleDefaultTextStyle,
-      ) :
-      Container(),
-      ],
-    ),);
+    );
   }
 }

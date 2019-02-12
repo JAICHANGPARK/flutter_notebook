@@ -13,5 +13,5 @@ TextStyle listTitleSelectedTextStyle = TextStyle(
   fontWeight: FontWeight.w600,
 );
 
-Color selectedColor = Colors.redAccent;
-Color drawerBackgroundColor = Colors.indigo;
+Color selectedColor = Colors.cyanAccent;
+Color drawerBackgroundColor = Colors.red;
