@@ -26,11 +26,10 @@ class _MainPageState extends State<MainPage> {
   final LocalAuthentication _localAuthentication = LocalAuthentication();
   bool _canCheckBiometric = false;
   String _authorizedOrNot = "Not Authorized";
-  List<BiometricType> _availableBiometrics = List<BiometricType>();
+  List<BiometricType> _availableBiometricTypes = List<BiometricType>();
 
   Future<void> _checkBiometric() async {
     bool canCheckBiometric = false;
-
     try {
       canCheckBiometric = await _localAuthentication.canCheckBiometrics;
     } on PlatformException catch (e) {
@@ -44,11 +43,10 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  Future<void> _getListOfBiometricType() async {
-    List<BiometricType> listOfBiometric;
-
+  Future<void> _getListOfBiometricTypes() async {
+    List<BiometricType> listofBiometrics;
     try {
-      listOfBiometric = await _localAuthentication.getAvailableBiometrics();
+      listofBiometrics = await _localAuthentication.getAvailableBiometrics();
     } on PlatformException catch (e) {
       print(e);
     }
@@ -56,16 +54,15 @@ class _MainPageState extends State<MainPage> {
     if (!mounted) return;
 
     setState(() {
-      _availableBiometrics = listOfBiometric;
+      _availableBiometricTypes = listofBiometrics;
     });
   }
 
   Future<void> _authorizeNow() async {
-    String isAuthorized = "Not Authorized";
-
+    bool isAuthorized = false;
     try {
-      await _localAuthentication.authenticateWithBiometrics(
-        localizedReason: "Pls authenticate to complete your transaction",
+      isAuthorized = await _localAuthentication.authenticateWithBiometrics(
+        localizedReason: "Please authenticate to complete your transaction",
         useErrorDialogs: true,
         stickyAuth: true,
       );
@@ -76,7 +73,11 @@ class _MainPageState extends State<MainPage> {
     if (!mounted) return;
 
     setState(() {
-      _availableBiometrics = listOfBiometric;
+      if (isAuthorized) {
+        _authorizedOrNot = "Authorized";
+      } else {
+        _authorizedOrNot = "Not Authorized";
+      }
     });
   }
 
@@ -99,9 +100,9 @@ class _MainPageState extends State<MainPage> {
               color: Colors.red,
               colorBrightness: Brightness.light,
             ),
-            Text("List Of Biometric : ${_availableBiometrics.toString()}"),
+            Text("List Of Biometric : ${_availableBiometricTypes.toString()}"),
             RaisedButton(
-              onPressed: _getListOfBiometricType,
+              onPressed: _getListOfBiometricTypes,
               child: Text("List of Biometric Types"),
               color: Colors.red,
               colorBrightness: Brightness.light,
