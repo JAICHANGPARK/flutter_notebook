@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_notebook/CupertinoActionBar.dart';
-import 'package:flutter_notebook/ble_101/ble_main_page.dart';
-import 'package:flutter_notebook/collaps_nav_bar/main_page.dart';
-import 'package:flutter_notebook/curve_draw/curve_main.dart';
-import 'package:flutter_notebook/fidibo_app_concept/main_page.dart';
-import 'package:flutter_notebook/flight_demo_hero/main_page.dart';
-import 'package:flutter_notebook/goutmet_takeapp/main_page.dart';
-import 'package:flutter_notebook/planet_app/main_page.dart';
-import 'package:flutter_notebook/reading_book_part1/page/page/main_page.dart';
+import 'package:flutter_notebook/finger_print/main_page.dart';
+
 
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
@@ -22,7 +15,7 @@ import 'package:flutter_notebook/reading_book_part1/page/page/main_page.dart';
 
 //void main() => runApp(BookReaderApp());
 
-void main() => runApp(CollapsMainPage());
+void main() => runApp(FingerMainPage());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
