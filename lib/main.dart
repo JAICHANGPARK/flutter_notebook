@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_notebook/finger_print/main_page.dart';
 
+import 'dart:async';
+import 'dart:convert';
 
-//void main() => runApp(MyApp());
+import 'package:flutter_notebook/model/coin_market.dart';
+
+import 'package:http/http.dart' as http;
+
+void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
 //void main() => runApp(MyAppPlanet());
 
@@ -15,7 +21,7 @@ import 'package:flutter_notebook/finger_print/main_page.dart';
 
 //void main() => runApp(BookReaderApp());
 
-void main() => runApp(FingerMainPage());
+//void main() => runApp(FingerMainPage());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -26,83 +32,150 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(),
     );
   }
 }
 
+Future<List<CoinMarket>> fetchListCoin() async {
+  var response = await http.get('https://api.coinmarketcap.com/v1/ticker/');
+
+//  print(response.body);
+
+  if (response.statusCode == 200) {
+    List coins = json.decode(response.body);
+    return coins.map((coin) => new CoinMarket.fromJson(coin)).toList();
+  } else {
+    throw Exception('Failed Fetch List Coin');
+  }
+}
+
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  var list;
+  var refreshKey = GlobalKey<RefreshIndicatorState>();
 
-  void _incrementCounter() {
+  Future<Null> refreshListCoin() async {
+    refreshKey.currentState?.show(atTop: false);
+    await Future.delayed(Duration(seconds: 2));
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
+      list = fetchListCoin();
     });
+    return null;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    refreshListCoin();
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
+        appBar: AppBar(
+          backgroundColor: Colors.grey,
+          title: Text('Coin Tracker'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.refresh,
+              ),
+              onPressed: refreshListCoin,
+            )
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        body: Center(
+          child: RefreshIndicator(
+              key: refreshKey,
+              child: FutureBuilder<List<CoinMarket>>(
+                  future: list,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      List<CoinMarket> coins = snapshot.data;
+                      return ListView(
+                          children: coins
+                              .map((coin) => Padding(
+                            padding: EdgeInsets.all(16.0),
+                                      child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: <Widget>[
+                                      Row(
+                                        children: <Widget>[
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              Container(
+                                                padding: EdgeInsets.only(
+                                                    left: 8.0, bottom: 8.0),
+                                                width: 56.0,
+                                                height: 56.0,
+                                                child: Image.network(
+                                                  'https://res.cloudinary.com/dxi90ksom/image/upload/${coin.symbol.toLowerCase()}.png',
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              Container(
+                                                padding: EdgeInsets.all(4.0),
+                                                child: Text(
+                                                    '${coin.symbol} | ${coin.name}'),
+                                              )
+                                            ],
+                                          ),
+                                          Expanded(
+                                            child: Container(
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.end,
+                                                children: <Widget>[
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.all(8.0),
+                                                    child: Text(
+                                                        '\$${double.parse(coin.priceUsd).toStringAsFixed(2)}'),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Container(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: <Widget>[
+                                            Text(
+                                              '1h: ${coin.percentChange1h}%',
+                                            ),
+                                            Text(
+                                                '24h: ${coin.percentChange24h}%'),
+                                            Text('7d: ${coin.percentChange7d}%')
+                                          ],
+                                        ),
+                                      ),
+                                      Divider(),
+                                    ],
+                                  )))
+                              .toList());
+                    } else if (snapshot.hasError) {
+                      return Text('Error');
+                    }
+
+                    return CircularProgressIndicator();
+                  }),
+              onRefresh: refreshListCoin),
+        ));
   }
 }
