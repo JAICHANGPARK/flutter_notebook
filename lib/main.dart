@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/currence_ui/main_page.dart';
 import 'package:flutter_notebook/finger_print/main_page.dart';
 
 import 'dart:async';
@@ -87,6 +88,29 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: refreshListCoin,
             )
           ],
+        ),
+        drawer: Drawer(
+          
+          child: ListView(
+            children: <Widget>[
+              UserAccountsDrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Colors.red
+                  ),
+                  accountName: Text("Dreamwalker"),
+                  accountEmail: Text("aristojeff@gmail.com")),
+
+              ListTile(
+                leading: Icon(Icons.monetization_on),
+                title: Text("Currence"),
+                onTap: (){
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context)=>CurrencyAppPage())
+                  );
+                },
+              )
+            ],
+          ),
         ),
         body: Center(
           child: RefreshIndicator(
