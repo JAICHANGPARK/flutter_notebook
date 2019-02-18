@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_notebook/currence_ui/main_page.dart';
 import 'package:flutter_notebook/finger_print/main_page.dart';
 
@@ -6,10 +7,18 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_notebook/model/coin_market.dart';
+import 'package:flutter_notebook/tip_calculator/main_page.dart';
 
 import 'package:http/http.dart' as http;
 
-void main() => runApp(MyApp());
+void main(){
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  runApp(TipCalculatorApp());
+}
+//void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
 //void main() => runApp(MyAppPlanet());
 
