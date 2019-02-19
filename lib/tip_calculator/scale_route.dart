@@ -26,7 +26,13 @@ class ScaleRoute extends PageRouteBuilder {
               end: 1.0,
             ).animate(CurvedAnimation(
                     parent: animation,
-                    curve: Interval(0.5, 1.0, curve: Curves.decelerate)))),
+                    curve: Interval(0.5, 1.0, curve: Curves.decelerate,
+                    )
+                ),
+                ),
+              child: child,
+            ),
+
           );
         });
 }

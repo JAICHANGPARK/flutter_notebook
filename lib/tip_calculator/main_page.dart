@@ -66,7 +66,6 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-
     setupDeviceLocale();
     if (Platform.isIOS) {
       activateWatchConnection();
@@ -104,14 +103,35 @@ class _MainPageState extends State<MainPage> {
                 RaisedButton(
                   elevation: 0.0,
                   onPressed: () async {
-                    var value = await Navigator.push(context,
-                    ScaleRoute(widget : NumberPad(
-                      billTotal,
-                      normalStyle : Theme.of(context).textTheme.display2,
-                      errorStyle : Theme.of(context).accentTextTheme.display2
-                    )));
-                    if(value != null){
-//                      calculateBill(value);
+                    var value = await Navigator.of(context).push(ScaleRoute(
+                      widget: NumberPad(billTotal,
+                          normalStyle: Theme.of(context).textTheme.display2,
+                          errorStyle:
+                              Theme.of(context).accentTextTheme.display2),
+                    )
+
+//                    var value = await Navigator.push(
+//                        context,
+//                        ScaleRoute(
+//                          widget: NumberPad(billTotal,
+//                              normalStyle: Theme.of(context).textTheme.display2,
+//                              errorStyle:
+//                                  Theme.of(context).accentTextTheme.display2),
+//                        )
+//                        MaterialPageRoute(
+//                            builder: (context) => NumberPad(billTotal,
+//                                normalStyle:
+//                                    Theme.of(context).textTheme.display2,
+//                                errorStyle:
+//                                    Theme.of(context).accentTextTheme.display2))
+////                    MaterialPageRoute((context) => NumberPad(
+////                      billTotal,
+////                      normalStyle : Theme.of(context).textTheme.display2,
+////                      errorStyle : Theme.of(context).accentTextTheme.display2
+////                    ))
+                        );
+                    if (value != null) {
+                      calculateBill(value);
                     }
                   },
                   color: Colors.orange,
