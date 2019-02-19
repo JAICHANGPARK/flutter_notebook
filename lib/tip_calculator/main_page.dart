@@ -269,9 +269,9 @@ class _MainPageState extends State<MainPage> {
                 ),
               ),
             ),
-//            Text("Thanks for watching Today :) ", style: TextStyle(
-//              fontSize: 30.0
-//            ),)
+            Text("Thanks for watching Today :) ", style: TextStyle(
+              fontSize: 30.0
+            ),)
           ],
         ),
       ),
