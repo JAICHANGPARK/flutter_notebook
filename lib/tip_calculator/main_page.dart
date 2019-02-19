@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_notebook/tip_calculator/colors.dart';
+import 'package:flutter_notebook/tip_calculator/number_pad.dart';
+import 'package:flutter_notebook/tip_calculator/scale_route.dart';
 import 'package:intl/intl.dart';
 
 class TipCalculatorApp extends StatelessWidget {
@@ -65,9 +67,9 @@ class _MainPageState extends State<MainPage> {
     // TODO: implement initState
     super.initState();
 
-//    setupDeviceLocale();
+    setupDeviceLocale();
     if (Platform.isIOS) {
-//      activateWatchConnection();
+      activateWatchConnection();
     }
   }
 
@@ -102,15 +104,15 @@ class _MainPageState extends State<MainPage> {
                 RaisedButton(
                   elevation: 0.0,
                   onPressed: () async {
-//                    var value = await Navigator.push(context,
-//                    ScaleRoute(widget : NumberPad(
-//                      billTotal,
-//                      normalStyle : Theme.of(context).textTheme.display2,
-//                      errorStyle : Theme.of(context).accentTextTheme.display2
-//                    )));
-//                    if(value != null){
-////                      calculateBill(value);
-//                    }
+                    var value = await Navigator.push(context,
+                    ScaleRoute(widget : NumberPad(
+                      billTotal,
+                      normalStyle : Theme.of(context).textTheme.display2,
+                      errorStyle : Theme.of(context).accentTextTheme.display2
+                    )));
+                    if(value != null){
+//                      calculateBill(value);
+                    }
                   },
                   color: Colors.orange,
                   child: Text(
@@ -199,13 +201,13 @@ class _MainPageState extends State<MainPage> {
                           onPressed: () {
                             if (tipPercent > 0) {
                               tipPercent--;
-                            calculateBill(null);
+                              calculateBill(null);
                             }
                           },
                           icon: Icon(Icons.remove_circle),
                         ),
                         IconButton(
-                          iconSize: 50.0,
+                            iconSize: 50.0,
                             icon: Icon(Icons.add_circle),
                             onPressed: () {
                               tipPercent++;
@@ -215,7 +217,6 @@ class _MainPageState extends State<MainPage> {
                             })
                       ],
                     ),
-
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
@@ -227,40 +228,38 @@ class _MainPageState extends State<MainPage> {
                         IconButton(
                             iconSize: 50.0,
                             icon: Icon(Icons.remove_circle),
-                            onPressed: (){
-                              if(tipSplit > 1){
-                                tipSplit --;
+                            onPressed: () {
+                              if (tipSplit > 1) {
+                                tipSplit--;
                                 calculateBill(null);
                               }
                             }),
-
                         IconButton(
-                          iconSize: 50.0,
+                            iconSize: 50.0,
                             icon: Icon(Icons.add_circle),
-                            onPressed: (){
-                              if(tipSplit < 50){
-                                tipSplit ++;
+                            onPressed: () {
+                              if (tipSplit < 50) {
+                                tipSplit++;
                                 calculateBill(null);
                               }
                             })
                       ],
                     ),
-
                   ],
                 ),
               ),
             ),
-            Text("Thanks for watching Today :) ", style: TextStyle(
-              fontSize: 30.0
-            ),)
+//            Text("Thanks for watching Today :) ", style: TextStyle(
+//              fontSize: 30.0
+//            ),)
           ],
         ),
       ),
     );
-
   }
-  calculateBill(double total){
-    total = (total?? billTotal);
+
+  calculateBill(double total) {
+    total = (total ?? billTotal);
     setState(() {
       billTotal = total;
       billTotalController.text = "${formatter.format(billTotal)}";
@@ -270,11 +269,11 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  activateWatchConnection() async{
+  activateWatchConnection() async {
     await platform.invokeMethod("activateSession");
-    stream.receiveBroadcastStream().listen((value){
+    stream.receiveBroadcastStream().listen((value) {
       List result = value;
-      if(result[0] != null){
+      if (result[0] != null) {
         tipPercent = int.tryParse(result[0]['tip']);
         tipSplit = int.tryParse(result[0]['split']);
         billTotal = double.tryParse(result[0]['bill']);
@@ -283,27 +282,13 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  setupDeviceLocale() async{
+  setupDeviceLocale() async {
     List locales = await platform.invokeMethod("perferredLanguages");
     debugPrint("$locales");
-
+    if (locales.length > 0) {
+      formatter = NumberFormat.simpleCurrency(locale: locales[0]);
+    }
+    billTotalController.text = formatter.format(0.0);
+    setState(() {});
   }
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
