@@ -8,6 +8,7 @@ import 'dart:convert';
 
 import 'package:flutter_notebook/model/coin_market.dart';
 import 'package:flutter_notebook/tip_calculator/main_page.dart';
+import 'package:flutter_notebook/wechat_sticker_clone/main_page.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -16,7 +17,7 @@ void main(){
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(TipCalculatorApp());
+  runApp(WeChatStickerPackClone());
 }
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
