@@ -46,13 +46,60 @@ class _StickerDetailPageState extends State<StickerDetailPage> {
                   onPressed: () {}),
             ]),
         body: Container(
-
-
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                Text("Continue NexT Episode"),
-                Text("Thanks for watching "),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Align(
+                          alignment: Alignment.topCenter,
+                          child: Container(
+                            height: 40.0,
+                            width: 40.0,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/146/grinning-face_1f600.png"),
+                                    fit: BoxFit.cover)),
+                          ),
+                        ),
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            'Couple Love Sticker Pack2',
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 22.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 16.0,
+                          ),
+                          Text(
+                            "WAStikerApp",
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.grey.withOpacity(0.8)),
+                          ),
+                          Text(
+                            "751 Ko",
+                            style: TextStyle(
+                                fontSize: 20.0,
+                                color: Colors.grey.withOpacity(0.8)),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
                 Align(
                   alignment: Alignment.topCenter,
                   child: GridView.count(
@@ -70,25 +117,29 @@ class _StickerDetailPageState extends State<StickerDetailPage> {
                     }),
                   ),
                 ),
-
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Container(
                     height: 60.0,
                     width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.green
-                    ),
+                    decoration: BoxDecoration(color: Colors.green),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Icon(Icons.call, color: Colors.white,),
-                        SizedBox(width: 16.0,),
-                        Text('ADD TO WHATSAPP', style: TextStyle(
+                        Icon(
+                          Icons.call,
                           color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20.0
-                        ),)
+                        ),
+                        SizedBox(
+                          width: 16.0,
+                        ),
+                        Text(
+                          'ADD TO WHATSAPP',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20.0),
+                        )
                       ],
                     ),
                   ),
@@ -96,7 +147,6 @@ class _StickerDetailPageState extends State<StickerDetailPage> {
               ],
             ),
           ),
-        )
-    );
+        ));
   }
 }
