@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_notebook/currence_ui/main_page.dart';
-import 'package:flutter_notebook/finger_print/main_page.dart';
 
 import 'dart:async';
 import 'dart:convert';
-
-import 'package:flutter_notebook/model/coin_market.dart';
-import 'package:flutter_notebook/tip_calculator/main_page.dart';
-import 'package:flutter_notebook/wechat_sticker_clone/main_page.dart';
-
 import 'package:http/http.dart' as http;
+
+import 'package:flutter_notebook/currence_ui/main_page.dart';
+import 'package:flutter_notebook/mine_game/main_page.dart';
+import 'package:flutter_notebook/model/coin_market.dart';
 
 void main(){
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(WeChatStickerPackClone());
+  runApp(MineGame());
 }
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());

@@ -85,6 +85,18 @@ flutter:
     - assets/img/my_qr_code.png
     - assets/img/corners.png
     - assets/img/qrcode.png
+    - assets/mine/0.png
+    - assets/mine/1.png
+    - assets/mine/2.png
+    - assets/mine/3.png
+    - assets/mine/4.png
+    - assets/mine/5.png
+    - assets/mine/6.png
+    - assets/mine/7.png
+    - assets/mine/8.png
+    - assets/mine/bomb.png
+    - assets/mine/facingDown.png
+    - assets/mine/flagged.png
 
 
   fonts:
