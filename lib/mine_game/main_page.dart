@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_notebook/mine_game/board_square.dart';
+import 'package:flutter_notebook/mine_game/splash.dart';
 
 enum ImageType {
   zero,
@@ -308,7 +309,8 @@ class _MainPageState extends State<MainPage> {
                     ),
                     backgroundColor: Colors.yellowAccent,
                   ),
-                )
+                ),
+                Text("Thanks for watching today")
               ],
             ),
           ),
@@ -343,37 +345,40 @@ class _MainPageState extends State<MainPage> {
                 }
               }
 
-              return InkWell(
-                // Opens square
-                onTap: () {
-                  if (board[rowNumber][columnNumber].hasBomb) {
-                    _handleGameOver();
-                  }
-                  if (board[rowNumber][columnNumber].bombsAround == 0) {
-                    _handleTap(rowNumber, columnNumber);
-                  } else {
-                    setState(() {
-                      openedSquares[position] = true;
-                      squaresLeft = squaresLeft - 1;
-                    });
-                  }
+              return Splash(
+                onTap: (){},
+                child: InkWell(
+                  // Opens square
+                  onTap: () {
+                    if (board[rowNumber][columnNumber].hasBomb) {
+                      _handleGameOver();
+                    }
+                    if (board[rowNumber][columnNumber].bombsAround == 0) {
+                      _handleTap(rowNumber, columnNumber);
+                    } else {
+                      setState(() {
+                        openedSquares[position] = true;
+                        squaresLeft = squaresLeft - 1;
+                      });
+                    }
 
-                  if (squaresLeft <= bombCount) {
-                    _handleWin();
-                  }
-                },
-                // Flags square
-                onLongPress: () {
-                  if (openedSquares[position] == false) {
-                    setState(() {
-                      flaggedSquares[position] = true;
-                    });
-                  }
-                },
-                splashColor: Colors.grey,
-                child: Container(
-                  color: Colors.grey,
-                  child: image,
+                    if (squaresLeft <= bombCount) {
+                      _handleWin();
+                    }
+                  },
+                  // Flags square
+                  onLongPress: () {
+                    if (openedSquares[position] == false) {
+                      setState(() {
+                        flaggedSquares[position] = true;
+                      });
+                    }
+                  },
+                  splashColor: Colors.grey,
+                  child: Container(
+                    color: Colors.grey,
+                    child: image,
+                  ),
                 ),
               );
             },
