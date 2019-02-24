@@ -186,6 +186,48 @@ class _MainPageState extends State<MainPage> {
     setState(() {});
   }
 
+  void _handleGameOver() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Game Over'),
+            content: Text('You Stepped on a mine ;|'),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: () {
+                  _initAllGame();
+                  Navigator.pop(context);
+                },
+                child: Text("Play Again"),
+              )
+            ],
+          );
+        });
+  }
+
+  void _handleWin() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Congratulations! :)"),
+            content: Text("You Win"),
+            actions: <Widget>[
+              FlatButton(
+                onPressed: (){
+                  _initAllGame();
+                },
+                child: Text("Play again"),
+
+              )
+            ],
+
+
+          );
+        });
+  }
+
   Image getImage(ImageType type) {
     switch (type) {
       case ImageType.zero:
@@ -264,21 +306,26 @@ class _MainPageState extends State<MainPage> {
                       color: Colors.black,
                       size: 40.0,
                     ),
+                    backgroundColor: Colors.yellowAccent,
                   ),
                 )
               ],
             ),
           ),
+          // The grid of squares
           GridView.builder(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: columnCount),
+              crossAxisCount: columnCount,
+            ),
             itemBuilder: (context, position) {
+              // Get row and column number of square
               int rowNumber = (position / columnCount).floor();
               int columnNumber = (position % columnCount);
 
               Image image;
+
               if (openedSquares[position] == false) {
                 if (flaggedSquares[position] == true) {
                   image = getImage(ImageType.flagged);
@@ -286,18 +333,43 @@ class _MainPageState extends State<MainPage> {
                   image = getImage(ImageType.facingDown);
                 }
               } else {
-                // openedSquares[position] == true
                 if (board[rowNumber][columnNumber].hasBomb) {
                   image = getImage(ImageType.bomb);
                 } else {
-                  image = getImage(getImageTypeFromNumber(
-                      board[rowNumber][columnNumber].bombsAround));
+                  image = getImage(
+                    getImageTypeFromNumber(
+                        board[rowNumber][columnNumber].bombsAround),
+                  );
                 }
               }
 
               return InkWell(
-                onTap: () {},
-                onLongPress: () {},
+                // Opens square
+                onTap: () {
+                  if (board[rowNumber][columnNumber].hasBomb) {
+                    _handleGameOver();
+                  }
+                  if (board[rowNumber][columnNumber].bombsAround == 0) {
+                    _handleTap(rowNumber, columnNumber);
+                  } else {
+                    setState(() {
+                      openedSquares[position] = true;
+                      squaresLeft = squaresLeft - 1;
+                    });
+                  }
+
+                  if (squaresLeft <= bombCount) {
+                    _handleWin();
+                  }
+                },
+                // Flags square
+                onLongPress: () {
+                  if (openedSquares[position] == false) {
+                    setState(() {
+                      flaggedSquares[position] = true;
+                    });
+                  }
+                },
                 splashColor: Colors.grey,
                 child: Container(
                   color: Colors.grey,
@@ -306,7 +378,7 @@ class _MainPageState extends State<MainPage> {
               );
             },
             itemCount: rowCount * columnCount,
-          )
+          ),
         ],
       ),
     );
