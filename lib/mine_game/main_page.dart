@@ -36,29 +36,25 @@ class _MainPageState extends State<MainPage> {
   int rowCount = 18;
   int columnCount = 10;
 
-  //Make 2D LIST
   List<List<BoardSquare>> board;
+  List<bool> openedSquares;
 
-  // Probability
+  List<bool> flaggedSquares;
+
   int bombProbability = 3;
   int maxProbability = 15;
 
-  int bombCount = 0; // bombCount is a Variable to store the
-  //number of bombs on the board
-
+  int bombCount = 0;
   int squaresLeft;
-
-  List<bool> openedSquares;
-  List<bool> flaggedSquares;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _initAllGame();
   }
 
   void _initAllGame() {
+    // Initialise all squares to having no bombs
     board = List.generate(rowCount, (i) {
       return List.generate(columnCount, (j) {
         return BoardSquare();
@@ -68,12 +64,15 @@ class _MainPageState extends State<MainPage> {
     openedSquares = List.generate(rowCount * columnCount, (i) {
       return false;
     });
-    flaggedSquares = List.generate(rowCount * columnCount, (i) => false);
 
-    bombCount = 0;
+    flaggedSquares = List.generate(rowCount * columnCount, (i) {
+      return false;
+    });
+
+    bombCount = 0; // Resets bomb count
     squaresLeft = rowCount * columnCount;
 
-    Random random = Random();
+    Random random = new Random(); // Randomly generate bombs
     for (int i = 0; i < rowCount; i++) {
       for (int j = 0; j < columnCount; j++) {
         int randomNumber = random.nextInt(maxProbability);
@@ -84,6 +83,7 @@ class _MainPageState extends State<MainPage> {
       }
     }
 
+    // Check bombs around and assign numbers
     for (int i = 0; i < rowCount; i++) {
       for (int j = 0; j < columnCount; j++) {
         if (i > 0 && j > 0) {
@@ -135,6 +135,7 @@ class _MainPageState extends State<MainPage> {
         }
       }
     }
+
     setState(() {});
   }
 
@@ -145,29 +146,40 @@ class _MainPageState extends State<MainPage> {
     int position = (i * columnCount) + j;
     openedSquares[position] = true;
     squaresLeft = squaresLeft - 1;
+
     if (i > 0) {
       if (!board[i - 1][j].hasBomb &&
           openedSquares[((i - 1) * columnCount) + j] != true) {
-        if (board[i][j].bombsAround == 0) _handleTap(i - 1, j);
+        if (board[i][j].bombsAround == 0) {
+          _handleTap(i - 1, j);
+        }
       }
     }
+
     if (j > 0) {
       if (!board[i][j - 1].hasBomb &&
           openedSquares[(i * columnCount) + j - 1] != true) {
-        if (board[i][j].bombsAround == 0) _handleTap(i, j - 1);
+        if (board[i][j].bombsAround == 0) {
+          _handleTap(i, j - 1);
+        }
       }
     }
+
     if (j < columnCount - 1) {
       if (!board[i][j + 1].hasBomb &&
           openedSquares[(i * columnCount) + j + 1] != true) {
-        if (board[i][j].bombsAround == 0) _handleTap(i, j + 1);
+        if (board[i][j].bombsAround == 0) {
+          _handleTap(i, j + 1);
+        }
       }
     }
 
     if (i < rowCount - 1) {
       if (!board[i + 1][j].hasBomb &&
           openedSquares[((i + 1) * columnCount) + j] != true) {
-        if (board[i][j].bombsAround == 0) _handleTap(i + 1, j);
+        if (board[i][j].bombsAround == 0) {
+          _handleTap(i + 1, j);
+        }
       }
     }
 
@@ -258,42 +270,42 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
           GridView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: columnCount),
-              itemBuilder: (context, position) {
-                int rowNumber = (position / columnCount).floor();
-                int columnNumber = (position % columnCount);
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: columnCount),
+            itemBuilder: (context, position) {
+              int rowNumber = (position / columnCount).floor();
+              int columnNumber = (position % columnCount);
 
-                Image image;
-                if (openedSquares[position] == false) {
-                  if (flaggedSquares[position] == true) {
-                    image = getImage(ImageType.flagged);
-                  } else {
-                    image = getImage(ImageType.facingDown);
-                  }
+              Image image;
+              if (openedSquares[position] == false) {
+                if (flaggedSquares[position] == true) {
+                  image = getImage(ImageType.flagged);
                 } else {
-                  // openedSquares[position] == true
-                  if (board[rowNumber][columnNumber].hasBomb) {
-                    image = getImage(ImageType.bomb);
-                  } else {
-                    image = getImage(getImageTypeFromNumber(
-                        board[rowNumber][columnNumber].bombsAround));
-                  }
+                  image = getImage(ImageType.facingDown);
                 }
+              } else {
+                // openedSquares[position] == true
+                if (board[rowNumber][columnNumber].hasBomb) {
+                  image = getImage(ImageType.bomb);
+                } else {
+                  image = getImage(getImageTypeFromNumber(
+                      board[rowNumber][columnNumber].bombsAround));
+                }
+              }
 
-                return InkWell(
-                  onTap: (){},
-                  onLongPress: (){},
-                  splashColor: Colors.grey,
-                  child: Container(
-                    color: Colors.grey,
-                    child: image,
-                  ),
-                );
-              },
-              itemCount: rowCount * columnCount,
+              return InkWell(
+                onTap: () {},
+                onLongPress: () {},
+                splashColor: Colors.grey,
+                child: Container(
+                  color: Colors.grey,
+                  child: image,
+                ),
+              );
+            },
+            itemCount: rowCount * columnCount,
           )
         ],
       ),
