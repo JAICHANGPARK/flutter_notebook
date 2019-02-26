@@ -310,7 +310,7 @@ class _MainPageState extends State<MainPage> {
                     backgroundColor: Colors.yellowAccent,
                   ),
                 ),
-                Text("Thanks for watching today")
+//                Text("Thanks for watching today")
               ],
             ),
           ),

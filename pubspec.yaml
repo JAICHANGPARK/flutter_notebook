@@ -97,6 +97,12 @@ flutter:
     - assets/mine/bomb.png
     - assets/mine/facingDown.png
     - assets/mine/flagged.png
+    - assets/img/picone.jpeg
+    - assets/img/pictwo.jpeg
+    - assets/img/picthree.jpeg
+    - assets/img/picfour.jpeg
+    - assets/img/picfive.jpeg
+    - assets/img/picsix.jpeg
 
 
   fonts:
@@ -106,6 +112,10 @@ flutter:
           weight: 600
         - asset: assets/fonts/Poppins-Regular.ttf
           weight: 400
+
+    - family : Montserrat
+      fonts:
+        - asset : assets/fonts/Montserrat-Regular.ttf
 
 
 
