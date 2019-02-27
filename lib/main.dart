@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_notebook/fruits_app/main_page.dart';
+import 'package:flutter_notebook/profile_ui_one/main_page.dart';
 
 import 'dart:async';
 import 'dart:convert';
@@ -15,7 +16,7 @@ void main(){
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(FruitsApp());
+  runApp(ProfilePageApp());
 }
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());

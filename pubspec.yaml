@@ -103,6 +103,12 @@ flutter:
     - assets/img/picfour.jpeg
     - assets/img/picfive.jpeg
     - assets/img/picsix.jpeg
+    - assets/profile/picone.jpeg
+    - assets/profile/pictwo.jpeg
+    - assets/profile/picthree.jpeg
+    - assets/profile/picfour.jpeg
+    - assets/profile/picfive.jpeg
+    - assets/profile/picsix.jpeg
 
 
   fonts:
