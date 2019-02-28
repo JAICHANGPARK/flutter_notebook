@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/card_stack_view_01/main_page.dart';
 import 'package:flutter_notebook/currence_ui/main_page.dart';
 import 'package:flutter_notebook/model/coin_market.dart';
 import 'dart:async';
@@ -13,7 +14,7 @@ void main(){
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(ParallaxImageApp());
+  runApp(CardStackApp());
 }
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
