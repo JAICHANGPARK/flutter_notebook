@@ -109,6 +109,13 @@ flutter:
     - assets/profile/picfour.jpeg
     - assets/profile/picfive.jpeg
     - assets/profile/picsix.jpeg
+    - assets/burger/burger1.jpg
+    - assets/burger/burger2.jpg
+    - assets/burger/burger3.jpg
+    - assets/burger/burger4.jpg
+
+
+
 
 
   fonts:
@@ -122,6 +129,10 @@ flutter:
     - family : Montserrat
       fonts:
         - asset : assets/fonts/Montserrat-Regular.ttf
+        - asset : assets/fonts/Montserrat-ExtraBold.ttf
+          weight : 700
+        - asset : assets/fonts/Montserrat-SemiBold.ttf
+          weight : 500
 
 
 
