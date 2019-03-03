@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_notebook/bugger_app_01/main_page.dart';
-import 'package:flutter_notebook/card_stack_view_01/main_page.dart';
-import 'package:flutter_notebook/currence_ui/main_page.dart';
-import 'package:flutter_notebook/model/coin_market.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-import 'package:flutter_notebook/parallax_image_01/main_page.dart';
+import 'package:flutter_notebook/currence_ui/main_page.dart';
+import 'package:flutter_notebook/model/coin_market.dart';
+import 'package:flutter_notebook/my_movie_app/main_page.dart';
+
 
 void main(){
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(MyBurgerApp());
+  runApp(MyMovieApp());
 }
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
