@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/music_player_01/main_page.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -14,7 +15,7 @@ void main(){
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(MyMovieApp());
+  runApp(MyMusicApp());
 }
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
