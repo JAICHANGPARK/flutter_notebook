@@ -25,6 +25,7 @@ dependencies:
   fluttertoast:
   auto_size_text:
   local_auth:
+  fluttery_seekbar:
 
 
 dev_dependencies:
