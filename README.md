@@ -7,7 +7,7 @@
 3. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/currence_ui
 4. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/wechat_sticker_clone
 5. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/profile_ui_one
-
+6. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/music_player_01
 
 ## Getting Started
 
