@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/ml_kit_text/main_page.dart';
 import 'package:flutter_notebook/music_player_01/main_page.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -15,7 +16,7 @@ void main(){
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(MyMusicApp());
+  runApp(MyMLKit());
 }
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());

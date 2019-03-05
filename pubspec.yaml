@@ -24,8 +24,10 @@ dependencies:
   after_layout:
   fluttertoast:
   auto_size_text:
-  local_auth:
   fluttery_seekbar:
+  local_auth:
+  firebase_ml_vision: ^0.2.1
+  image_picker:
 
 
 dev_dependencies:
