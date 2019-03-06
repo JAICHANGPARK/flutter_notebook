@@ -26,7 +26,7 @@ dependencies:
   auto_size_text:
   fluttery_seekbar:
   local_auth:
-  firebase_ml_vision: ^0.2.1
+  firebase_ml_vision:
   image_picker:
 
 
