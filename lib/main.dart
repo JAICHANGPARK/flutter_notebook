@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_notebook/bugger_app_02/main_page.dart';
+import 'package:flutter_notebook/food_app_01/main_page.dart';
 import 'package:flutter_notebook/ml_kit_text/main_page.dart';
 import 'package:flutter_notebook/music_player_01/main_page.dart';
 import 'dart:async';
@@ -17,7 +18,7 @@ void main(){
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(MyBuggerApp2());
+  runApp(UserRequestFoodApp());
 }
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
