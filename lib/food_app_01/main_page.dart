@@ -37,8 +37,6 @@ class _MainPageState extends State<MainPage> {
           ),
         ),
         body: SingleChildScrollView(
-
-
           scrollDirection: Axis.vertical,
           child: Container(
             height: MediaQuery.of(context).size.height,
@@ -63,7 +61,9 @@ class _MainPageState extends State<MainPage> {
                             children: <Widget>[
                               Text(
                                 "Salad",
-                                style: TextStyle(fontFamily: 'Montserrat'),
+                                style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.black),
                               ),
                               Icon(
                                 Icons.fiber_manual_record,
@@ -78,12 +78,10 @@ class _MainPageState extends State<MainPage> {
                             children: <Widget>[
                               Text(
                                 "Bread",
-                                style: TextStyle(fontFamily: 'Montserrat'),
+                                style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.grey),
                               ),
-                              Icon(
-                                Icons.fiber_manual_record,
-                                size: 10,
-                              )
                             ],
                           ),
                         ),
@@ -93,12 +91,10 @@ class _MainPageState extends State<MainPage> {
                             children: <Widget>[
                               Text(
                                 "Drink",
-                                style: TextStyle(fontFamily: 'Montserrat'),
+                                style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.grey),
                               ),
-                              Icon(
-                                Icons.fiber_manual_record,
-                                size: 10,
-                              )
                             ],
                           ),
                         )
@@ -208,53 +204,133 @@ class _MainPageState extends State<MainPage> {
                         borderRadius: BorderRadius.circular(17.0),
                         image: DecorationImage(
                             fit: BoxFit.cover,
-                            colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.4), BlendMode.darken),
+                            colorFilter: ColorFilter.mode(
+                                Colors.black.withOpacity(0.4),
+                                BlendMode.darken),
                             image: NetworkImage(
                                 "https://cdn.pixabay.com/photo/2017/02/15/10/38/background-2068211_960_720.jpg"))),
                   ),
                 ),
-
                 Positioned(
                   top: 430,
                   left: 16.0,
                   child: Container(
-                    height: 150,
+                    height: 300,
                     width: MediaQuery.of(context).size.width,
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        SizedBox(height: 16.0,),
-
+                        SizedBox(
+                          height: 16.0,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
-                            Text("Popular", style: TextStyle(
-                              fontSize: 24,
-                              color: Colors.black,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.normal
-                            ),),
+                            Text(
+                              "Popular",
+                              style: TextStyle(
+                                  fontSize: 24,
+                                  color: Colors.black,
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.normal),
+                            ),
                             Padding(
-                              padding: const EdgeInsets.only(right: 24.0, top: 16.0),
+                              padding:
+                                  const EdgeInsets.only(right: 24.0, top: 16.0),
                               child: IconButton(
-                                onPressed: (){},
-                                icon: Icon(Icons.more_horiz, color: Colors.grey,),
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.more_horiz,
+                                  color: Colors.grey,
+                                ),
                               ),
                             )
                           ],
                         ),
-                        SizedBox(height: 16.0,),
+                        SizedBox(
+                          height: 8.0,
+                        ),
                         Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
+                          padding: const EdgeInsets.all(8.0),
                           child: Container(
-                            height: 60,
-                            width: MediaQuery.of(context).size.width,
+                            height: 70,
+                            width: MediaQuery.of(context).size.width - 60,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8.0),
-                              color: Colors.orange
+                                borderRadius: BorderRadius.circular(8.0),
+                                color: Colors.orange,
+                                image: DecorationImage(
+                                    colorFilter: ColorFilter.mode(
+                                        Colors.black.withOpacity(0.5),
+                                        BlendMode.darken
+                                    ),
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/01/19/16/56/cooking-utensils-1149464_960_720.jpg"),
+                                    fit: BoxFit.cover)),
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text("Selection of light food", style:
+                                    TextStyle(color: Colors.white
+                                    ,letterSpacing: 1.2
+                                    ),),
+                                  SizedBox(height: 4.0,),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Icon(Icons.star,color: Colors.white, size: 15.0,),
+                                      Icon(Icons.star,color: Colors.white,size: 15.0,),
+                                      Icon(Icons.star,color: Colors.white,size: 15.0,),
+                                      Icon(Icons.star,color: Colors.white,size: 15.0,),
+                                      Icon(Icons.star_border,color: Colors.white,size: 15.0,)
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 70,
+                            width: MediaQuery.of(context).size.width - 60,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8.0),
+                                color: Colors.orange,
+                                image: DecorationImage(
+                                    colorFilter: ColorFilter.mode(
+                                      Colors.black.withOpacity(0.5),
+                                      BlendMode.darken
+                                    ),
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/11/22/23/45/bread-1851249_960_720.jpg"),
+                                    fit: BoxFit.cover)),
+
+                            child: Center(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text("Since the drinks", style:
+                                  TextStyle(color: Colors.white
+                                      ,letterSpacing: 1.2
+                                  ),),
+                                  SizedBox(height: 4.0,),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Icon(Icons.star,color: Colors.white, size: 15.0,),
+                                      Icon(Icons.star,color: Colors.white,size: 15.0,),
+                                      Icon(Icons.star,color: Colors.white,size: 15.0,),
+                                      Icon(Icons.star,color: Colors.white,size: 15.0,),
+                                      Icon(Icons.star_border,color: Colors.white,size: 15.0,)
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         )
-
                       ],
                     ),
                   ),
@@ -265,13 +341,3 @@ class _MainPageState extends State<MainPage> {
         ));
   }
 }
-
-
-
-
-
-
-
-
-
-
