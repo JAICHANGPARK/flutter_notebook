@@ -261,8 +261,7 @@ class _MainPageState extends State<MainPage> {
                                 image: DecorationImage(
                                     colorFilter: ColorFilter.mode(
                                         Colors.black.withOpacity(0.5),
-                                        BlendMode.darken
-                                    ),
+                                        BlendMode.darken),
                                     image: NetworkImage(
                                         "https://cdn.pixabay.com/photo/2016/01/19/16/56/cooking-utensils-1149464_960_720.jpg"),
                                     fit: BoxFit.cover)),
@@ -270,19 +269,43 @@ class _MainPageState extends State<MainPage> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  Text("Selection of light food", style:
-                                    TextStyle(color: Colors.white
-                                    ,letterSpacing: 1.2
-                                    ),),
-                                  SizedBox(height: 4.0,),
+                                  Text(
+                                    "Selection of light food",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        letterSpacing: 1.2),
+                                  ),
+                                  SizedBox(
+                                    height: 4.0,
+                                  ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
-                                      Icon(Icons.star,color: Colors.white, size: 15.0,),
-                                      Icon(Icons.star,color: Colors.white,size: 15.0,),
-                                      Icon(Icons.star,color: Colors.white,size: 15.0,),
-                                      Icon(Icons.star,color: Colors.white,size: 15.0,),
-                                      Icon(Icons.star_border,color: Colors.white,size: 15.0,)
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.white,
+                                        size: 15.0,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.white,
+                                        size: 15.0,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.white,
+                                        size: 15.0,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.white,
+                                        size: 15.0,
+                                      ),
+                                      Icon(
+                                        Icons.star_border,
+                                        color: Colors.white,
+                                        size: 15.0,
+                                      )
                                     ],
                                   )
                                 ],
@@ -300,30 +323,52 @@ class _MainPageState extends State<MainPage> {
                                 color: Colors.orange,
                                 image: DecorationImage(
                                     colorFilter: ColorFilter.mode(
-                                      Colors.black.withOpacity(0.5),
-                                      BlendMode.darken
-                                    ),
+                                        Colors.black.withOpacity(0.5),
+                                        BlendMode.darken),
                                     image: NetworkImage(
                                         "https://cdn.pixabay.com/photo/2016/11/22/23/45/bread-1851249_960_720.jpg"),
                                     fit: BoxFit.cover)),
-
                             child: Center(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
-                                  Text("Since the drinks", style:
-                                  TextStyle(color: Colors.white
-                                      ,letterSpacing: 1.2
-                                  ),),
-                                  SizedBox(height: 4.0,),
+                                  Text(
+                                    "Since the drinks",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        letterSpacing: 1.2),
+                                  ),
+                                  SizedBox(
+                                    height: 4.0,
+                                  ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
-                                      Icon(Icons.star,color: Colors.white, size: 15.0,),
-                                      Icon(Icons.star,color: Colors.white,size: 15.0,),
-                                      Icon(Icons.star,color: Colors.white,size: 15.0,),
-                                      Icon(Icons.star,color: Colors.white,size: 15.0,),
-                                      Icon(Icons.star_border,color: Colors.white,size: 15.0,)
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.white,
+                                        size: 15.0,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.white,
+                                        size: 15.0,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.white,
+                                        size: 15.0,
+                                      ),
+                                      Icon(
+                                        Icons.star,
+                                        color: Colors.white,
+                                        size: 15.0,
+                                      ),
+                                      Icon(
+                                        Icons.star_border,
+                                        color: Colors.white,
+                                        size: 15.0,
+                                      )
                                     ],
                                   )
                                 ],
