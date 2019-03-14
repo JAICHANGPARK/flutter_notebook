@@ -1,7 +1,12 @@
 
 
 
+import 'dart:async';
+import 'dart:io';
+
+import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class MyMLKitBarcode extends StatelessWidget {
   @override
@@ -18,6 +23,43 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  File pickedImage;
+  bool isImageLoaded = false;
+  var _result = "";
+  Future pickImage() async{
+    var tempStore = await ImagePicker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      pickedImage = tempStore;
+      isImageLoaded = true;
+    });
+  }
+  Future readText() async{
+    FirebaseVisionImage ourImage = FirebaseVisionImage.fromFile(pickedImage);
+    TextRecognizer recognizer = FirebaseVision.instance.textRecognizer();
+    VisionText readText = await recognizer.processImage(ourImage);
+    for(TextBlock block in readText.blocks){
+      for(TextLine line in block.lines){
+        for(TextElement element in line.elements){
+          print(element.text);
+        }
+      }
+    }
+  }
+
+  Future decode() async{
+    FirebaseVisionImage ourImage = FirebaseVisionImage.fromFile(pickedImage);
+    BarcodeDetector barcodeDetector = FirebaseVision.instance.barcodeDetector();
+    List barcodes = await barcodeDetector.detectInImage(ourImage);
+
+    for(Barcode readableCode in barcodes){
+      print(readableCode.displayValue);
+      setState(() {
+        _result = readableCode.displayValue;
+      });
+
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +70,41 @@ class _MainPageState extends State<MainPage> {
         elevation: 0.0,
         backgroundColor: Colors.white,
       ),
-      body: Container(),
+      body: Column(
+        children: <Widget>[
+          Text(_result),
+
+          SizedBox(height: 120,),
+          isImageLoaded? Center(child:
+            Container(
+              height: 200.0,
+              width: 300.0,
+              decoration: BoxDecoration(
+                image: DecorationImage(image:
+                FileImage(pickedImage),
+                fit: BoxFit.cover)
+              ),
+            ),):
+              Container(),
+
+          SizedBox(height: 10.0,),
+          RaisedButton(
+            child: Text('Picked an image'),
+            onPressed: pickImage,
+          ),
+          SizedBox(height: 10.0,),
+          RaisedButton(
+            child: Text("Read Text"),
+            onPressed: readText,
+          ),
+          SizedBox(height: 20.0,),
+          RaisedButton(
+            child: Text("Read Barcode"),
+            onPressed: decode,
+          )
+
+        ],
+      ),
     );
   }
 }
