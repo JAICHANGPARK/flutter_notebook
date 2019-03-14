@@ -18,7 +18,7 @@ void main(){
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(UserRequestFoodApp());
+  runApp(MyMLKit());
 }
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());

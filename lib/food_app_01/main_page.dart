@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_notebook/food_app_01/detail_page.dart';
+import 'package:flutter_notebook/food_app_01/section_page.dart';
 
 class UserRequestFoodApp extends StatelessWidget {
   @override
@@ -260,63 +261,70 @@ class _MainPageState extends State<MainPage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            height: 70,
-                            width: MediaQuery.of(context).size.width - 60,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8.0),
-                                color: Colors.orange,
-                                image: DecorationImage(
-                                    colorFilter: ColorFilter.mode(
-                                        Colors.black.withOpacity(0.5),
-                                        BlendMode.darken),
-                                    image: NetworkImage(
-                                        "https://cdn.pixabay.com/photo/2016/01/19/16/56/cooking-utensils-1149464_960_720.jpg"),
-                                    fit: BoxFit.cover)),
-                            child: Center(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: <Widget>[
-                                  Text(
-                                    "Selection of light food",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        letterSpacing: 1.2),
-                                  ),
-                                  SizedBox(
-                                    height: 4.0,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: <Widget>[
-                                      Icon(
-                                        Icons.star,
-                                        color: Colors.white,
-                                        size: 15.0,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        color: Colors.white,
-                                        size: 15.0,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        color: Colors.white,
-                                        size: 15.0,
-                                      ),
-                                      Icon(
-                                        Icons.star,
-                                        color: Colors.white,
-                                        size: 15.0,
-                                      ),
-                                      Icon(
-                                        Icons.star_border,
-                                        color: Colors.white,
-                                        size: 15.0,
-                                      )
-                                    ],
-                                  )
-                                ],
+                          child: InkWell(
+                            onTap: (){
+                              Navigator.of(context).push(
+                                MaterialPageRoute(builder: (context)=>SectionPage())
+                              );
+                            },
+                            child: Container(
+                              height: 70,
+                              width: MediaQuery.of(context).size.width - 60,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  color: Colors.orange,
+                                  image: DecorationImage(
+                                      colorFilter: ColorFilter.mode(
+                                          Colors.black.withOpacity(0.5),
+                                          BlendMode.darken),
+                                      image: NetworkImage(
+                                          "https://cdn.pixabay.com/photo/2016/01/19/16/56/cooking-utensils-1149464_960_720.jpg"),
+                                      fit: BoxFit.cover)),
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: <Widget>[
+                                    Text(
+                                      "Selection of light food",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          letterSpacing: 1.2),
+                                    ),
+                                    SizedBox(
+                                      height: 4.0,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.white,
+                                          size: 15.0,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.white,
+                                          size: 15.0,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.white,
+                                          size: 15.0,
+                                        ),
+                                        Icon(
+                                          Icons.star,
+                                          color: Colors.white,
+                                          size: 15.0,
+                                        ),
+                                        Icon(
+                                          Icons.star_border,
+                                          color: Colors.white,
+                                          size: 15.0,
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ),
