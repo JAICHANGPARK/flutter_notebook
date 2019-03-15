@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_notebook/bugger_app_02/main_page.dart';
+import 'package:flutter_notebook/droid_knight_2019_kr/main_page.dart';
 import 'package:flutter_notebook/food_app_01/main_page.dart';
 import 'package:flutter_notebook/ml_kit_text/barcode_page.dart';
 import 'package:flutter_notebook/ml_kit_text/main_page.dart';
@@ -19,7 +20,9 @@ void main(){
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(MyMLKitBarcode());
+  runApp(
+
+      DroidKnightHomePage());
 }
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());

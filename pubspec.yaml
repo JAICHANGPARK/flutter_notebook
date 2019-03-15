@@ -29,6 +29,9 @@ dependencies:
   firebase_ml_vision:
   image_picker:
 
+  path_provider: 0.4.1
+  url_launcher: ^5.0.1
+  rxdart: ^0.20.0
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +81,8 @@ flutter:
   # see https://flutter.io/custom-fonts/#from-packages
 
   assets:
+    - assets/json/
+    - assets/img_droid_knights/
     - assets/img/mars.png
     - assets/img/neptune.png
     - assets/img/moon.png
