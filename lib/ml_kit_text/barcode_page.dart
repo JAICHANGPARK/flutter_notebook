@@ -6,6 +6,7 @@ import 'dart:io';
 
 import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/ml_kit_text/face_page.dart';
 import 'package:image_picker/image_picker.dart';
 
 class MyMLKitBarcode extends StatelessWidget {
@@ -64,6 +65,17 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.tag_faces, color: Colors.black,),
+            onPressed: (){
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context)=> MyFaceMlKit())
+              );
+
+            },
+          )
+        ],
         title: Text("ML KIT BARCODE", style: TextStyle(
           color: Colors.black
         ),),
@@ -73,7 +85,6 @@ class _MainPageState extends State<MainPage> {
       body: Column(
         children: <Widget>[
           Text(_result),
-
           SizedBox(height: 120,),
           isImageLoaded? Center(child:
             Container(
