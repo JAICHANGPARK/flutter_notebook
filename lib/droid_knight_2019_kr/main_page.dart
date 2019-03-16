@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/pages/indo_page.dart';
+import 'package:flutter_notebook/droid_knight_2019_kr/pages/track_page.dart';
 
 class DroidKnightHomePage extends StatelessWidget {
   @override
@@ -45,9 +46,9 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
       body: TabBarView(
           controller: _tabController,
           children: <Widget>[
-//            TrackScreen('assets/json/schedule_track1.json'),
-//            TrackScreen('assets/json/schedule_track2.json'),
-//            TrackScreen('assets/json/schedule_track3.json')
+            TrackScreen('assets/json/schedule_track1.json'),
+            TrackScreen('assets/json/schedule_track2.json'),
+            TrackScreen('assets/json/schedule_track3.json')
           ]),
     );
   }
