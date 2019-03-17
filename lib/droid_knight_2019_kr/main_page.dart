@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/droid_knight_2019_kr/app_res/strings.dart';
+import 'package:flutter_notebook/droid_knight_2019_kr/const/route.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/pages/indo_page.dart';
+import 'package:flutter_notebook/droid_knight_2019_kr/pages/splash_page.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/pages/track_page.dart';
+
 
 class DroidKnightHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "DroidKnights",
+      title: Strings.DROID_KNIGHTS,
       theme: ThemeData(
           primaryColor: Color(0xff000000),
           accentColor: Color(0xff40d225),
           indicatorColor: Color(0xff40d225),
           primaryColorLight: Color(0xff96ce7e)),
-      home: MainPage(),
+//      home: MainPage(),
+      routes: {
+        Routes.SPLASH : (_) => SplashScreen(),
+        Routes.HOME : (_) => MainPage()
+      },
     );
   }
 }
