@@ -14,7 +14,8 @@ import 'package:flutter_notebook/droid_knight_2019_kr/pages/track_page.dart';
 class DroidKnightHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return Platform.isAndroid ?
+    MaterialApp(
       title: Strings.DROID_KNIGHTS,
       theme: ThemeData(
           primaryColor: Color(0xff000000),
@@ -26,6 +27,15 @@ class DroidKnightHomePage extends StatelessWidget {
         Routes.SPLASH : (_) => SplashScreen(),
         Routes.HOME : (_) => MainPageV2()
       },
+    ):
+    CupertinoApp(
+      title: Strings.DROID_KNIGHTS,
+      theme: CupertinoThemeData(
+          primaryColor: Color(0xff000000),
+          primaryContrastingColor: Color(0xff40d225),
+          scaffoldBackgroundColor: Color(0xff40d225),
+          barBackgroundColor:  Color(0xff000000),
+      ),
     );
   }
 }

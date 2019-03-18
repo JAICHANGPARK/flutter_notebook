@@ -18,7 +18,7 @@ class TabBloc implements BlocBase{
   }
   @override
   void dispose() {
-  
+
   }
 
 }
