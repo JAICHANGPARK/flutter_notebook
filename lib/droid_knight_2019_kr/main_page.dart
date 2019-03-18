@@ -1,5 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/app_res/strings.dart';
+import 'package:flutter_notebook/droid_knight_2019_kr/bloc/bloc_provider.dart';
+import 'package:flutter_notebook/droid_knight_2019_kr/bloc/tab_bloc.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/const/route.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/pages/indo_page.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/pages/splash_page.dart';
@@ -19,11 +24,72 @@ class DroidKnightHomePage extends StatelessWidget {
 //      home: MainPage(),
       routes: {
         Routes.SPLASH : (_) => SplashScreen(),
-        Routes.HOME : (_) => MainPage()
+        Routes.HOME : (_) => MainPageV2()
       },
     );
   }
 }
+
+class MainPageV2 extends StatelessWidget {
+
+  Widget createAndroidWidget(TabBloc _tabBloc, var snapshot){
+    return Scaffold(
+      body: bodyPages(snapshot.data),
+      bottomNavigationBar: BottomNavigationBar(
+          onTap: (int index ) => _tabBloc.changeBottomTab(index),
+          currentIndex: snapshot.data,
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.info), title: Text('Info')),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.schedule), title: Text("Schedule"))
+          ]),
+
+    );
+  }
+  Widget createIosWidget(){
+    return CupertinoTabScaffold(
+      backgroundColor: Color(0xff112030),
+      tabBar: CupertinoTabBar(items: [
+        BottomNavigationBarItem(
+            icon: Icon(Icons.info), title: Text('Info')),
+        BottomNavigationBarItem(
+            icon: Icon(Icons.schedule), title: Text("Schedule"))
+      ]),
+      tabBuilder: (context, index){
+        return CupertinoTabView(
+          builder: (context){
+            return bodyPages(index);
+          },
+        );
+      },
+    );
+  }
+
+  Widget bodyPages(index){
+    switch(index){
+      case 0:
+        return InfoPage();
+      case 1:
+        return SchedulePage();
+
+    }
+  }
+  @override
+  Widget build(BuildContext context) {
+    final _tabBloc = BlocProvider.of<TabBloc>(context);
+
+    return StreamBuilder(
+      stream: _tabBloc.$bottomTab,
+      builder: (context, snapshot){
+        if(!snapshot.hasData)return Container();
+        return Platform.isAndroid ? createAndroidWidget(_tabBloc, snapshot)
+            : createIosWidget();
+      },
+    );
+  }
+}
+
 
 class MainPage extends StatefulWidget {
   @override

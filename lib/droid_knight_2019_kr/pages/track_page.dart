@@ -3,6 +3,52 @@ import 'package:flutter_notebook/droid_knight_2019_kr/model/schedule_service.dar
 import 'package:flutter_notebook/droid_knight_2019_kr/model/track_schedule.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/pages/session_detail_page.dart';
 
+class SchedulePage extends StatelessWidget {
+  static final int ITEMVIEW_TYPE_NORMAL = 0;
+  static final int ITEMVIEW_TYPE_SESSION = 1;
+
+  Widget scheduleAppbar() {
+    return TabBar(
+      labelColor: Color(0xff40d225),
+      unselectedLabelColor: Colors.grey,
+      indicatorColor: Color(0xff40d225),
+      tabs: <Widget>[
+        Tab(
+          text: "Track1",
+        ),
+        Tab(
+          text: "Track2",
+        ),
+        Tab(
+          text: "Track3",
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Image.asset(
+            'assets/img_droid_knights/dk_appbar_title.png',
+            fit: BoxFit.fitHeight,
+            height: 25.0,
+          ),
+          bottom: scheduleAppbar(),
+        ),
+        body: TabBarView(children: <Widget>[
+          TrackScreen('assets/json/schedule_track1.json'),
+          TrackScreen('assets/json/schedule_track2.json'),
+          TrackScreen('assets/json/schedule_track3.json')
+        ]),
+      ),
+    );
+  }
+}
+
 class TrackScreen extends StatefulWidget {
   final String filePath;
 
@@ -67,11 +113,9 @@ class _TrackScreenState extends State<TrackScreen> {
                       ? Image.asset('assets/img_droid_knights/dk_profile.png')
                           .image
                       : NetworkImage(datas[i].avatarUrl)),
-
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 6.0),
               ),
-
               Flexible(
                 child: Container(
                   constraints: BoxConstraints(minHeight: 60.0),
@@ -87,10 +131,8 @@ class _TrackScreenState extends State<TrackScreen> {
                       ),
                       Text(
                         datas[i].name,
-                        style: TextStyle(
-                          color: Color(0xffa5b495),
-                          fontSize: 12.0
-                        ),
+                        style:
+                            TextStyle(color: Color(0xffa5b495), fontSize: 12.0),
                       )
                     ],
                   ),
@@ -101,35 +143,23 @@ class _TrackScreenState extends State<TrackScreen> {
         ),
         onTap: () => showDetailPage(context, i),
       );
-    }else{
+    } else {
       return ListTile(
         leading: Text(
           datas[i].time,
           style: TextStyle(
-            color: Theme.of(context).primaryColorLight,
-            fontSize: 12.0
-          ),
+              color: Theme.of(context).primaryColorLight, fontSize: 12.0),
         ),
-        title: Text(datas[i].title,
-        style: TextStyle(color:
-        Theme.of(context).accentColor, fontSize: 16.0),),
+        title: Text(
+          datas[i].title,
+          style:
+              TextStyle(color: Theme.of(context).accentColor, fontSize: 16.0),
+        ),
       );
     }
   }
 
-  showDetailPage(context, i){
+  showDetailPage(context, i) {
     Navigator.of(context).push(SessionDetailDialog(datas[i]));
   }
-
 }
-
-
-
-
-
-
-
-
-
-
-

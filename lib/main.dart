@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_notebook/bugger_app_02/main_page.dart';
+import 'package:flutter_notebook/droid_knight_2019_kr/bloc/bloc_provider.dart';
+import 'package:flutter_notebook/droid_knight_2019_kr/bloc/tab_bloc.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/main_page.dart';
 import 'package:flutter_notebook/food_app_01/main_page.dart';
 import 'package:flutter_notebook/ml_kit_text/barcode_page.dart';
@@ -15,15 +17,22 @@ import 'package:flutter_notebook/model/coin_market.dart';
 import 'package:flutter_notebook/my_movie_app/main_page.dart';
 
 
-void main(){
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
-  ]);
-  runApp(
+void main() => runApp(
+  BlocProvider<TabBloc>(
+    bloc: TabBloc(),
+    child: DroidKnightHomePage(),
+  )
+);
 
-      DroidKnightHomePage());
-}
+//void main(){
+//  SystemChrome.setPreferredOrientations([
+//    DeviceOrientation.portraitUp,
+//    DeviceOrientation.portraitDown,
+//  ]);
+//  runApp(
+//
+//      DroidKnightHomePage());
+//}
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
 //void main() => runApp(MyAppPlanet());
