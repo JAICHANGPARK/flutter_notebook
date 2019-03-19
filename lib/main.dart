@@ -8,6 +8,7 @@ import 'package:flutter_notebook/food_app_01/main_page.dart';
 import 'package:flutter_notebook/ml_kit_text/barcode_page.dart';
 import 'package:flutter_notebook/ml_kit_text/main_page.dart';
 import 'package:flutter_notebook/music_player_01/main_page.dart';
+import 'package:flutter_notebook/piano_app/main_page.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -17,22 +18,20 @@ import 'package:flutter_notebook/model/coin_market.dart';
 import 'package:flutter_notebook/my_movie_app/main_page.dart';
 
 
-void main() => runApp(
-  BlocProvider<TabBloc>(
-    bloc: TabBloc(),
-    child: DroidKnightHomePage(),
-  )
-);
+//void main() => runApp(
+//  BlocProvider<TabBloc>(
+//    bloc: TabBloc(),
+//    child: DroidKnightHomePage(),
+//  )
+//);
 
-//void main(){
-//  SystemChrome.setPreferredOrientations([
-//    DeviceOrientation.portraitUp,
-//    DeviceOrientation.portraitDown,
-//  ]);
-//  runApp(
-//
-//      DroidKnightHomePage());
-//}
+void main(){
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight,
+  ]);
+  runApp(PianoApp());
+}
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
 //void main() => runApp(MyAppPlanet());

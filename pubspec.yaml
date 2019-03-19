@@ -33,6 +33,9 @@ dependencies:
   url_launcher: ^5.0.1
   rxdart: ^0.20.0
 
+  flutter_midi:
+  tonic: ^0.2.3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -81,6 +84,7 @@ flutter:
   # see https://flutter.io/custom-fonts/#from-packages
 
   assets:
+    - assets/sound/Wii_Grand_Piano.sf2
     - assets/json/
     - assets/img_droid_knights/
     - assets/img/mars.png
