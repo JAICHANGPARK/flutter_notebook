@@ -8,6 +8,7 @@ import 'package:flutter_notebook/food_app_01/main_page.dart';
 import 'package:flutter_notebook/ml_kit_text/barcode_page.dart';
 import 'package:flutter_notebook/ml_kit_text/main_page.dart';
 import 'package:flutter_notebook/music_player_01/main_page.dart';
+import 'package:flutter_notebook/national_app/main_page.dart';
 import 'package:flutter_notebook/piano_app/main_page.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -27,10 +28,10 @@ import 'package:flutter_notebook/my_movie_app/main_page.dart';
 
 void main(){
   SystemChrome.setPreferredOrientations([
-    DeviceOrientation.landscapeLeft,
-    DeviceOrientation.landscapeRight,
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.portraitUp,
   ]);
-  runApp(PianoApp());
+  runApp(NGApp());
 }
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
