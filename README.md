@@ -13,6 +13,9 @@
 9. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/droid_knight_2019_kr
 10. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/national_app
 
+11. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/bugger_app_01
+12. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/bugger_app_02
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
