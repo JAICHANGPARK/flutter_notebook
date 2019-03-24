@@ -19,4 +19,4 @@ String desc =
     "Lace-up closure Cushioned footbed CLOUDFOAM midsole provides responsive padding Durable ADIWEAR™ rubber sole.";
 
 const String SHOES_IMG = "assets/img/shoes_01.png";
-const String DEGREE_IMG = "https://github.com/devefy/Flutter-Adidas-Shoes-Ecommerce-App-UI/blob/master/assets/360.png";
+const String DEGREE_IMG = "https://github.com/devefy/Flutter-Adidas-Shoes-Ecommerce-App-UI/blob/master/assets/360.png?raw=true";

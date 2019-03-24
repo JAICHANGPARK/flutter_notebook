@@ -211,8 +211,9 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
                     fontSize: screenAwareSize(10, context),
                     fontFamily: 'Montserrat'),
               ),
-              crossFadeState: isExpanded ? CrossFadeState.showSecond :
-              CrossFadeState.showFirst,
+              crossFadeState: isExpanded
+                  ? CrossFadeState.showSecond
+                  : CrossFadeState.showFirst,
               duration: kThemeAnimationDuration,
             ),
           ),
@@ -223,13 +224,16 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
             ),
             child: GestureDetector(
               onTap: _expand,
-              child: Text(isExpanded ? "less" : "More...",
-              style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.w700
-              ),),
+              child: Text(
+                isExpanded ? "less" : "More...",
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+              ),
             ),
           ),
-          SizedBox(height: 12.0,),
+          SizedBox(
+            height: 12.0,
+          ),
           Padding(
             padding: EdgeInsets.only(
               left: 15.0,
@@ -238,18 +242,20 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text("Size",
-                style: TextStyle(
-                  color: Color(0xff949598),
-                  fontSize: 10.0,
-                  fontFamily: 'Montserrat'
-                ),),
-                Text("Quantity",
+                Text(
+                  "Size",
                   style: TextStyle(
                       color: Color(0xff949598),
                       fontSize: 10.0,
-                      fontFamily: 'Montserrat'
-                  ),),
+                      fontFamily: 'Montserrat'),
+                ),
+                Text(
+                  "Quantity",
+                  style: TextStyle(
+                      color: Color(0xff949598),
+                      fontSize: 10.0,
+                      fontFamily: 'Montserrat'),
+                ),
               ],
             ),
           ),
@@ -265,15 +271,16 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
                   height: 38.0,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
-                    children: sizeNumList.map((item){
+                    children: sizeNumList.map((item) {
                       var index = sizeNumList.indexOf(item);
                       return GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           setState(() {
                             currentSizeIndex = index;
                           });
                         },
-                        child:  sizeItem(item, index == currentSizeIndex, context),
+                        child:
+                            sizeItem(item, index == currentSizeIndex, context),
                       );
                     }).toList(),
                   ),
@@ -284,9 +291,8 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
                     width: 100.0,
                     height: 30.0,
                     decoration: BoxDecoration(
-                      color: Color(0xff525663),
-                      borderRadius: BorderRadius.circular(5.0)
-                    ),
+                        color: Color(0xff525663),
+                        borderRadius: BorderRadius.circular(5.0)),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
@@ -297,12 +303,13 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
                             child: Container(
                               height: double.infinity,
                               child: Center(
-                                child: Text("-",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20.0,
-                                  fontFamily: 'Montserrat'
-                                ),),
+                                child: Text(
+                                  "-",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 20.0,
+                                      fontFamily: 'Montserrat'),
+                                ),
                               ),
                             ),
                           ),
@@ -315,12 +322,13 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
                             child: Container(
                               height: double.infinity,
                               child: Center(
-                                child: Text(_counter.toString(),
+                                child: Text(
+                                  _counter.toString(),
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
-                                      fontFamily: 'Montserrat'
-                                  ),),
+                                      fontFamily: 'Montserrat'),
+                                ),
                               ),
                             ),
                           ),
@@ -333,17 +341,17 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
                             child: Container(
                               height: double.infinity,
                               child: Center(
-                                child: Text("+",
+                                child: Text(
+                                  "+",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 20.0,
-                                      fontFamily: 'Montserrat'
-                                  ),),
+                                      fontFamily: 'Montserrat'),
+                                ),
                               ),
                             ),
                           ),
                         )
-
                       ],
                     ),
                   ),
@@ -351,17 +359,22 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
               ],
             ),
           ),
-          SizedBox(height: 8.0,),
+          SizedBox(
+            height: 8.0,
+          ),
           Padding(
             padding: EdgeInsets.only(left: 18.0),
-            child: Text("Select Color",style:
-              TextStyle(
-                color: Color(0xff949598),
-                fontSize: 10.0,
-                fontFamily: 'Montserrat'
-              ),),
+            child: Text(
+              "Select Color",
+              style: TextStyle(
+                  color: Color(0xff949598),
+                  fontSize: 10.0,
+                  fontFamily: 'Montserrat'),
+            ),
           ),
-          SizedBox(height: 8.0,),
+          SizedBox(
+            height: 8.0,
+          ),
           Container(
             width: double.infinity,
             margin: EdgeInsets.only(left: 20.0),
@@ -370,20 +383,92 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
               children: colorSelector(),
             ),
           ),
-          SizedBox(height: 8.0,),
+          SizedBox(
+            height: 8.0,
+          ),
           Padding(
             padding: EdgeInsets.only(left: 20.0),
-            child: Text("Price",
-            style: TextStyle(
-              color: Color(0xff949598),
-              fontFamily: 'Montserrat'
-            ),),
+            child: Text(
+              "Price",
+              style:
+                  TextStyle(color: Color(0xff949598), fontFamily: 'Montserrat'),
+            ),
           ),
-
           Container(
-            width: ,
-          )
+            width: double.infinity,
+            height: 120.0,
+            child: Stack(
+              alignment: Alignment.topCenter,
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(left: 22.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 18.0),
+                        child: Row(
+                          children: <Widget>[
+                            Text(
+                              "\$",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 26.0,
+                                fontFamily: 'Montserrat',
+                              ),
+                            ),
+                            SizedBox(
+                              width: 4.0,
+                            ),
+                            Text(
+                              "80",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 35.0,
+                                  fontFamily: 'Montserrat'),
+                            )
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10.0,
+                      ),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: MaterialButton(
+                          onPressed: () {},
+                          color: Color(0xfffb382f),
+                          padding: EdgeInsets.symmetric(vertical: 14.0),
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Padding(
+                                padding: EdgeInsets.only(
+                              left: 35.0,
+                            ),
+                              child: Text("Add to Cart",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15.0
+                              ),),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Positioned(
+                  right: -40.0,
+                  bottom: -60.0,
+                  child: Image.network("https://github.com/devefy/Flutter-Adidas-Shoes-Ecommerce-App-UI/blob/master/assets/cart.png?raw=true",
+                  width: 190, height: 155, fit: BoxFit.cover,),
 
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
@@ -396,20 +481,21 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
         width: 30.0,
         height: 30.0,
         decoration: BoxDecoration(
-          color: isSelected? Color(0xfffc3930) : Color(0xFF525663),
-          borderRadius: BorderRadius.circular(5.0),
-          boxShadow: [
-            BoxShadow(
-              color: isSelected ? Colors.black.withOpacity(0.5) : Colors.black12,
-              offset: Offset(0.0, 10.0),
-              blurRadius: 10.0
-            ),
-          ]
-        ),
+            color: isSelected ? Color(0xfffc3930) : Color(0xFF525663),
+            borderRadius: BorderRadius.circular(5.0),
+            boxShadow: [
+              BoxShadow(
+                  color: isSelected
+                      ? Colors.black.withOpacity(0.5)
+                      : Colors.black12,
+                  offset: Offset(0.0, 10.0),
+                  blurRadius: 10.0),
+            ]),
         child: Center(
-          child: Text(item, style: TextStyle(
-            color: Colors.white, fontFamily: 'Montserrat'
-          ),),
+          child: Text(
+            item,
+            style: TextStyle(color: Colors.white, fontFamily: 'Montserrat'),
+          ),
         ),
       ),
     );
@@ -424,10 +510,7 @@ class _ProductScreenBottomPartState extends State<ProductScreenBottomPart> {
       ),
     );
   }
-
 }
-
-
 
 class MClipper extends CustomClipper<Path> {
   @override
@@ -437,7 +520,7 @@ class MClipper extends CustomClipper<Path> {
     path.lineTo(0.0, size.height);
     path.lineTo(size.width * 0.2, size.height);
     path.lineTo(size.width, size.height * 0.2);
-    path.lineTo(size.width , 0.0);
+    path.lineTo(size.width, 0.0);
     path.close();
 
     return path;
