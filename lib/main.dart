@@ -11,6 +11,7 @@ import 'package:flutter_notebook/ml_kit_text/main_page.dart';
 import 'package:flutter_notebook/music_player_01/main_page.dart';
 import 'package:flutter_notebook/national_app/main_page.dart';
 import 'package:flutter_notebook/piano_app/main_page.dart';
+import 'package:flutter_notebook/shoes_app_01/main_page.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -32,7 +33,7 @@ void main(){
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(FashionApp());
+  runApp(ShoesApp());
 }
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
