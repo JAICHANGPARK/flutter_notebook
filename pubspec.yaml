@@ -86,6 +86,7 @@ flutter:
   assets:
     - assets/sound/Wii_Grand_Piano.sf2
     - assets/json/
+    - assets/img/
     - assets/img_droid_knights/
     - assets/img/mars.png
     - assets/img/neptune.png
