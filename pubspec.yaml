@@ -30,11 +30,17 @@ dependencies:
   image_picker:
 
   path_provider: 0.4.1
-  url_launcher: ^5.0.1
+
   rxdart: ^0.20.0
 
   flutter_midi:
   tonic: ^0.2.3
+
+  html: ^0.13.4+1
+#  feedparser: ^0.0.2
+  webfeed: ^0.4.2
+  url_launcher:
+
 
 dev_dependencies:
   flutter_test:
