@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/shoes_app_02/ui/card_product.dart';
 
 class BrandApp extends StatelessWidget {
   @override
@@ -41,7 +42,9 @@ class _MainPageState extends State<MainPage> {
                     height: 62.0,
                   ),
                 ),
-              )
+              ),
+              ProductCard(0xfffaecfb, 'assets/shoes_01.png', "Boost ", "\$799.9", "\$299.9"),
+
             ],
           ),
         ),
