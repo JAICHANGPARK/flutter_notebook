@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_notebook/shoes_app_02/ui/card_product.dart';
+import 'package:flutter_notebook/shoes_app_02/ui/custom_icon.dart';
 
 class BrandApp extends StatelessWidget {
   @override
@@ -18,8 +19,11 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
   List<Widget> bottomNavigationIconList = [
-    Icon(Icons.home),
-    Icon(Icons.shopping_cart),
+//    Icon(Icons.home),
+//    Icon(Icons.shopping_cart),
+    Icon(CustomIcons.favorite, size: 32,),
+    Icon(CustomIcons.cart, size: 32.0,),
+
   ];
 
   @override
@@ -43,8 +47,9 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ),
               ),
-              ProductCard(0xfffaecfb, 'assets/shoes_01.png', "Boost ", "\$799.9", "\$299.9"),
-
+              ProductCard(0xfffaecfb, 'assets/img/shoes_01.png', "Boost ", "\$799.9", "\$299.9"),
+              SizedBox(height: 32.0,),
+              ProductCard(0xfffaecfb, 'assets/img/shoes_01.png', "Boost ", "\$799.9", "\$299.9"),
             ],
           ),
         ),
@@ -83,7 +88,7 @@ class _MainPageState extends State<MainPage> {
       decoration: BoxDecoration(
         boxShadow: param1 ? [
           BoxShadow(
-            color: Colors.black12.withOpacity(0.02),
+            color: Colors.black12.withOpacity(0.1),
             offset: Offset(0.0, 5.0),
             blurRadius: 10.0
           )
