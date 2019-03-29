@@ -25,7 +25,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(),
+//      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 30),
@@ -33,15 +33,65 @@ class _MainPageState extends State<MainPage> {
             children: <Widget>[
               Align(
                 alignment: Alignment.center,
-                child: Image.network(src),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 30, bottom: 25),
+                  child: Image.network(
+                    "https://avatars2.githubusercontent.com/u/19484515?s=460&v=4",
+                    width: 62,
+                    height: 62.0,
+                  ),
+                ),
               )
             ],
           ),
         ),
       ),
+      bottomNavigationBar: Container(
+        height: 70.0,
+        decoration: BoxDecoration(color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12.withOpacity(0.065),
+            offset: Offset(0.0, -7.0),
+            blurRadius: 10.0
+          )
+        ]),
+        child: Row(
+          children: bottomNavigationIconList.map((item){
+            var index = bottomNavigationIconList.indexOf(item);
+            return Expanded(
+              child: GestureDetector(
+                onTap: (){
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
+                child: bottomNavigationItem(item, index == _currentIndex),
+              ),
+            );
+          }).toList(),
+        ),
+      ),
     );
   }
+
+  bottomNavigationItem(Widget item, bool param1) {
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: param1 ? [
+          BoxShadow(
+            color: Colors.black12.withOpacity(0.02),
+            offset: Offset(0.0, 5.0),
+            blurRadius: 10.0
+          )
+        ] : [],
+      ),
+      child: item,
+    );
+
+  }
 }
+
 
 
 
