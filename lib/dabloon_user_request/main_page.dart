@@ -17,6 +17,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   TabController _tabController;
   TabController _tabDetailController;
+  int pageIndex = 0;
 
   @override
   void initState() {
@@ -29,7 +30,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xfafafafa),
       body: Stack(
         children: <Widget>[
           Positioned(
@@ -46,7 +47,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(top: 28),
+                    padding: const EdgeInsets.only(top: 28, left: 16.0),
                     child: IconButton(
                       icon: Icon(
                         Icons.arrow_back_ios,
@@ -70,6 +71,112 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                 ],
               ),
             ),
+          ),
+          Positioned(
+            top: 240,
+            left: 0,
+            right: 0,
+            child: Column(
+              children: <Widget>[
+                Container(
+                  height: 80,
+                  width: MediaQuery.of(context).size.width,
+//                  color: Colors.blue,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 24.0),
+                        child: Row(
+                          children: <Widget>[
+                            Text(
+                              "Browse",
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Text(
+                              "All Coins",
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  color: Colors.grey.withOpacity(0.5)),
+                            )
+                          ],
+                        ),
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.filter_list,
+                          color: Colors.grey,
+                          size: 32,
+                        ),
+                        onPressed: () {
+                          Scaffold.of(context).showSnackBar(
+                              new SnackBar(content: Text("Filter Pressed")));
+                        },
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height / 2,
+                  width: double.infinity,
+                  child: TabBarView(
+                    controller: _tabController,
+                    children: <Widget>[
+                      ListView(
+                        scrollDirection: Axis.vertical,
+                        children: <Widget>[
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Container(
+                              height: 100,
+                              width: MediaQuery.of(context).size.width - 48,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(17.0),
+                                  color: Colors.white),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  SizedBox(width: 16,),
+                                  Container(
+                                    height: 80,
+                                    width: 80,
+                                    color: Colors.pink,
+                                  ),
+                                  SizedBox(width: 16.0,),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text("Pharnabazus Coin"),
+                                      Text("400 BC")
+                                    ],
+                                  ),
+                                  IconButton(
+                                    onPressed: (){},
+                                    icon: Icon(Icons.more_vert,
+                                    color: Colors.grey,
+                                    size: 40,),
+                                  )
+                                ],
+                              ),
+
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           )
         ],
       ),
@@ -80,6 +187,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     return TabBar(
       onTap: (int value) {
         print(value);
+        pageIndex = value;
       },
       controller: _tabController,
       indicatorColor: Colors.transparent,
@@ -125,6 +233,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
     return TabBar(
       onTap: (int value) {
         print(value);
+        setState(() {});
       },
       controller: _tabDetailController,
       indicatorColor: Colors.transparent,
@@ -132,44 +241,56 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
       unselectedLabelColor: Colors.grey.withOpacity(0.7),
       isScrollable: true,
       tabs: <Widget>[
-        Tab(
-          child: Text(
-            "All",
-            style: TextStyle(
-                fontFamily: 'Montserrat',
-                letterSpacing: 1.2,
-                fontWeight: FontWeight.bold,
-                fontSize: 18),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Tab(
+            child: Text(
+              "All",
+              style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  letterSpacing: 1.2,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18),
+            ),
           ),
         ),
-        Tab(
-          child: Text(
-            "Rare",
-            style: TextStyle(
-                fontFamily: 'Montserrat',
-                letterSpacing: 1.2,
-                fontWeight: FontWeight.bold,
-                fontSize: 18),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Tab(
+            child: Text(
+              "Rare",
+              style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  letterSpacing: 1.2,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18),
+            ),
           ),
         ),
-        Tab(
-          child: Text(
-            "Greek",
-            style: TextStyle(
-                fontFamily: 'Montserrat',
-                letterSpacing: 1.2,
-                fontWeight: FontWeight.bold,
-                fontSize: 18),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Tab(
+            child: Text(
+              "Greek",
+              style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  letterSpacing: 1.2,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18),
+            ),
           ),
         ),
-        Tab(
-          child: Text(
-            "Roman",
-            style: TextStyle(
-                fontFamily: 'Montserrat',
-                letterSpacing: 1.2,
-                fontWeight: FontWeight.bold,
-                fontSize: 18),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Tab(
+            child: Text(
+              "Roman",
+              style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  letterSpacing: 1.2,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18),
+            ),
           ),
         )
       ],
