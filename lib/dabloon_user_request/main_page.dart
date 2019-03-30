@@ -124,7 +124,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                   ),
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.height / 2,
+                  height: MediaQuery.of(context).size.height,
                   width: double.infinity,
                   child: TabBarView(
                     controller: _tabController,
@@ -169,7 +169,86 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                               ),
 
                             ),
-                          )
+                          ),
+                          SizedBox(height: 16,),
+                          Padding(
+                            padding:
+                            const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Container(
+                              height: 100,
+                              width: MediaQuery.of(context).size.width - 48,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(17.0),
+                                  color: Colors.white),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  SizedBox(width: 16,),
+                                  Container(
+                                    height: 80,
+                                    width: 80,
+                                    color: Colors.pink,
+                                  ),
+                                  SizedBox(width: 16.0,),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text("Pharnabazus Coin"),
+                                      Text("400 BC")
+                                    ],
+                                  ),
+                                  IconButton(
+                                    onPressed: (){},
+                                    icon: Icon(Icons.more_vert,
+                                      color: Colors.grey,
+                                      size: 40,),
+                                  )
+                                ],
+                              ),
+
+                            ),
+                          ),
+                          SizedBox(height: 16,),
+                          Padding(
+                            padding:
+                            const EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Container(
+                              height: 100,
+                              width: MediaQuery.of(context).size.width - 48,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(17.0),
+                                  color: Colors.white),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  SizedBox(width: 16,),
+                                  Container(
+                                    height: 80,
+                                    width: 80,
+                                    color: Colors.pink,
+                                  ),
+                                  SizedBox(width: 16.0,),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text("Pharnabazus Coin"),
+                                      Text("400 BC")
+                                    ],
+                                  ),
+                                  IconButton(
+                                    onPressed: (){},
+                                    icon: Icon(Icons.more_vert,
+                                      color: Colors.grey,
+                                      size: 40,),
+                                  )
+                                ],
+                              ),
+
+                            ),
+                          ),
+                          SizedBox(height: 16,),
                         ],
                       )
                     ],
