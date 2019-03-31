@@ -1,0 +1,31 @@
+
+import 'package:flutter/material.dart';
+
+class LiveChatApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MainPage(),
+    );
+  }
+}
+
+class MainPage extends StatefulWidget {
+  @override
+  _MainPageState createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
+        title: Text("Chat App"),
+      ),
+      body: Container(
+        color: Colors.deepOrange,
+      ),
+    );
+  }
+}
