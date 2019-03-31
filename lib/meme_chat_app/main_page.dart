@@ -15,7 +15,7 @@ class LiveChatApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Memechat',
+      title: 'RealTime Chat App',
       theme: defaultTargetPlatform == TargetPlatform.iOS
           ? kIOSTheme
           : kDefaultTheme,
@@ -45,6 +45,7 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
     FirebaseAuth.instance.signInAnonymously().then((user) {
       fireBaseSubscription = _messagesReference.onChildAdded.listen((Event event) {
         var val = event.snapshot.value;
+
         _addMessage(
             name: val['sender']['name'],
             senderImageUrl: val['sender']['imageUrl'],
@@ -102,6 +103,7 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
         textOverlay: textOverlay,
         animationController: animationController);
     setState(() {
+      print("메세지 받았어요");
       _messages.insert(0, message);
     });
     if (imageUrl != null) {
@@ -171,7 +173,7 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: PlatformAdaptiveAppBar(
-          title: Text('Memechat'),
+          title: Text('RealTime Chat'),
           platform: Theme.of(context).platform,
         ),
         body: Column(children: [
