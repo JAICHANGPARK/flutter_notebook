@@ -1,73 +1,72 @@
+// Copyright 2017, the Flutter project authors.  Please see the AUTHORS file
+// for details. All rights reserved. Use of this source code is governed by a
+// BSD-style license that can be found in the LICENSE file.
+
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_notebook/meme_chat_app/platform_adaptive.dart';
+import 'package:flutter/foundation.dart';
 
-class ImageEditPage extends MaterialPageRoute<String> {
-  ImageEditPage(File imageFile)
+import 'platform_adaptive.dart';
+
+class TypeMemeRoute extends MaterialPageRoute<String> {
+  TypeMemeRoute(File imageFile)
       : super(
-            fullscreenDialog: true,
-            builder: (BuildContext context) {
-              return new ImageEditDialog(imageFile: imageFile);
-            });
+      fullscreenDialog: true,
+      builder: (BuildContext context) {
+        return new TypeMemeDialog(imageFile: imageFile);
+      });
 }
 
-class ImageEditDialog extends StatefulWidget {
-  final imageFile;
+class TypeMemeDialog extends StatefulWidget {
+  final File imageFile;
 
-  ImageEditDialog({this.imageFile});
+  TypeMemeDialog({this.imageFile});
 
   @override
-  _ImageEditDialogState createState() => _ImageEditDialogState();
+  State<StatefulWidget> createState() => new TypeMemeDialogState();
 }
 
-class _ImageEditDialogState extends State<ImageEditDialog> {
+// Represents the states of typing text onto an image to make a meme.
+class TypeMemeDialogState extends State<TypeMemeDialog> {
   String _text = '';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: new PlatformAdaptiveAppbar(
-        title: Text("Wow?"),
+    return new Scaffold(
+      appBar: new PlatformAdaptiveAppBar(
+        title: new Text("New meme"),
         platform: Theme.of(context).platform,
         actions: <Widget>[
-          FlatButton(
-            child: Text(
-              "SEND",
-              style: TextStyle(
+          new FlatButton(
+            child: new Text('SEND',
+                style: new TextStyle(
                   color: defaultTargetPlatform == TargetPlatform.iOS
                       ? Colors.black
-                      : Colors.white),
-            ),
+                      : Colors.white,
+                )),
             onPressed: () => Navigator.pop(context, _text),
-          )
+          ),
         ],
       ),
-      body: Column(
+      body: new Column(
         children: <Widget>[
-          Flexible(
-            child: SingleChildScrollView(
+          new Flexible(
+            child: new SingleChildScrollView(
               child: new Stack(
-                children: <Widget>[
-                  new Image.file(
-                    widget.imageFile,
-                    width: 250,
-                  ),
+                children: [
+                  new Image.file(widget.imageFile, width: 250.0),
                   new Positioned.fill(
-                      child: new Container(
-                    alignment: FractionalOffset.topCenter,
-                    child: Text(
-                      _text,
-                      style: TextStyle(
-                        fontFamily: 'Anton',
-                        fontSize: 37.5,
-                        color: Colors.white,
-                      ),
-                      softWrap: true,
-                      textAlign: TextAlign.center,
-                    ),
-                  ))
+                    child: new Container(
+                        alignment: FractionalOffset.topCenter,
+                        child: new Text(_text,
+                            style: const TextStyle(
+                                fontFamily: 'Anton',
+                                fontSize: 37.5,
+                                color: Colors.white),
+                            softWrap: true,
+                            textAlign: TextAlign.center)),
+                  ),
                 ],
                 alignment: FractionalOffset.topCenter,
               ),
@@ -76,16 +75,14 @@ class _ImageEditDialogState extends State<ImageEditDialog> {
           new Container(
             margin: new EdgeInsets.symmetric(horizontal: 16.0),
             child: new TextField(
-              decoration: InputDecoration(
-                hintText: "Input Your Mood",
-              ),
-              onChanged: (String text){
+              decoration: const InputDecoration(hintText: 'Meme text'),
+              onChanged: (String text) {
                 setState(() {
                   _text = text;
                 });
               },
             ),
-          )
+          ),
         ],
       ),
     );
