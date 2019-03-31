@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/basic_for_basic/main_page.dart';
 import 'package:flutter_notebook/bugger_app_02/main_page.dart';
 import 'package:flutter_notebook/dabloon_user_request/main_page.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/bloc/bloc_provider.dart';
@@ -40,7 +41,7 @@ void main(){
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(LiveChatApp());
+  runApp(BasicForBasic());
 
 }
 //void main() => runApp(MyApp());
