@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_notebook/basic_for_basic/event_ui/check_box.dart';
 import 'package:flutter_notebook/basic_for_basic/event_ui/drop_down.dart';
 import 'package:flutter_notebook/basic_for_basic/event_ui/radio_page.dart';
+import 'package:flutter_notebook/basic_for_basic/event_ui/slider_page.dart';
 import 'package:flutter_notebook/basic_for_basic/sliver_page/main_page.dart';
 
 class BasicForBasic extends StatelessWidget {
@@ -28,10 +29,15 @@ class _MainPageState extends State<MainPage> {
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
-            DrawerHeader(
-              child: Text("Hello"),
-              decoration: BoxDecoration(color: Colors.blue),
+            UserAccountsDrawerHeader
+              (
+              accountEmail: Text("Dreamwalker"),
+              accountName: Text("User"),
+              decoration: BoxDecoration(
+                color: Colors.blueGrey
+              ),
             ),
+          
             ListTile(
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context){
@@ -63,6 +69,13 @@ class _MainPageState extends State<MainPage> {
                         MaterialPageRoute(builder: (context)=>DropDownPage()));
                   },
                   title: Text("Dropdown"),
+                ),
+                ListTile(
+                  onTap: (){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context)=>SliderPage()));
+                  },
+                  title: Text("Slider"),
                 )
               ],
             )
