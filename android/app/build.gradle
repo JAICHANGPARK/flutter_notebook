@@ -69,7 +69,7 @@ dependencies {
 //    androidTestImplementation 'androidx.test:runner:1.1.2-alpha01'
 //    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.2-alpha01'
 //
-//    api "androidx.core:core:1.1.0-alpha04"
+    api "androidx.core:core:1.1.0-alpha04"
 
     implementation 'com.google.firebase:firebase-core:16.0.7'
     implementation 'com.google.firebase:firebase-auth:16.1.0'

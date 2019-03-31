@@ -40,10 +40,10 @@ class ChatScreenState extends State<ChatScreen> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+
     _googleSignIn.signInSilently();
     FirebaseAuth.instance.signInAnonymously().then((user) {
-      fireBaseSubscription =
-          _messagesReference.onChildAdded.listen((Event event) {
+      fireBaseSubscription = _messagesReference.onChildAdded.listen((Event event) {
         var val = event.snapshot.value;
         _addMessage(
             name: val['sender']['name'],
