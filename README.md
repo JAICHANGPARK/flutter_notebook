@@ -16,6 +16,11 @@
 11. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/bugger_app_01
 12. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/bugger_app_02
 
+# Flutter Live Coding 
+
+Visit My Live Coding in Youtube
+https://www.youtube.com/playlist?list=PLnz10ftgq9R_A2b2rmHyuT7u4AbmG2PWJ
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
