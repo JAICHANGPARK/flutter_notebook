@@ -16,6 +16,7 @@ import 'package:flutter_notebook/piano_app/main_page.dart';
 import 'package:flutter_notebook/rss_parse_app/main_page.dart';
 import 'package:flutter_notebook/shoes_app_01/main_page.dart';
 import 'package:flutter_notebook/shoes_app_02/main_page.dart';
+import 'package:flutter_notebook/tab_bar_test/main_page.dart';
 import 'package:flutter_notebook/wip_app_user_request/main_page.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -38,7 +39,8 @@ void main(){
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(DabloonUserRequestApp());
+  runApp(TabBarTestApp());
+
 }
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
