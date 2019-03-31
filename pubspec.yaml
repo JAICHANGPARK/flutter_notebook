@@ -41,6 +41,11 @@ dependencies:
   webfeed: ^0.4.2
   url_launcher:
 
+  firebase_storage: any
+  firebase_database: any
+  firebase_auth: any
+  google_sign_in: any
+
 
 dev_dependencies:
   flutter_test:
@@ -157,6 +162,10 @@ flutter:
     - family: CustomIcon
       fonts:
         - asset: assets/fonts/CustomIcon.ttf
+
+    - family: Anton
+      fonts:
+        - asset : assets/fonts/Anton-Regular.ttf
 
 
 
