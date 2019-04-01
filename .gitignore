@@ -72,4 +72,4 @@ build/
 android/app/google-services.json
 *.sf2
 
-lib/nima/
+lib/nima
