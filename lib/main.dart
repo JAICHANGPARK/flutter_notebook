@@ -8,6 +8,7 @@ import 'package:flutter_notebook/droid_knight_2019_kr/bloc/tab_bloc.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/main_page.dart';
 import 'package:flutter_notebook/fashion_app_01/main_page.dart';
 import 'package:flutter_notebook/food_app_01/main_page.dart';
+import 'package:flutter_notebook/history_of_everyting/main.dart';
 import 'package:flutter_notebook/login_ui_01/login_page_01.dart';
 import 'package:flutter_notebook/meme_chat_app/main_page.dart';
 import 'package:flutter_notebook/ml_kit_text/barcode_page.dart';
@@ -41,7 +42,7 @@ void main(){
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(BasicForBasic());
+  runApp(HistoryOfEverything());
 
 }
 //void main() => runApp(MyApp());
