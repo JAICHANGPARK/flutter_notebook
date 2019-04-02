@@ -28,24 +28,32 @@ class MenuPage extends StatelessWidget {
       ),
 //      body: MainMenuWidget(),
     body: Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: ListView(
+        scrollDirection: Axis.vertical,
+        padding: EdgeInsets.all(16),
         children: <Widget>[
           Text("History Of Everything",
           style: TextStyle(fontSize: 32),),
-          Text("DoList 2019.04.02"),
-          Text("1. Create Search Magander \n 2. Added Timeline code \n"
+          Text("DoList 2019.04.02", style: TextStyle(fontSize: 32),),
+          Text("1. Create Search Magander \n2. Added Timeline code \n"
               "3. Create Timeline_utils",
             style: TextStyle(fontSize: 32),),
-          Text("Todo List 2019.04.02",
+          Divider(height: 20, color: Colors.black,),
+          Text("Todo List",
             style: TextStyle(fontSize: 32),),
           Text("-----\nDependency \n",
             style: TextStyle(fontSize: 32),),
           Text("1. BLoC Pattern",
             style: TextStyle(fontSize: 32),),
-          Text("2. Timeline ",
+          Text("2. Timeline Code line 1375...",
             style: TextStyle(fontSize: 32),),
-          Text("3. ...?",
+          Text("3. Create Tick Code",
+            style: TextStyle(fontSize: 32),
+          ),
+          Text("4. Create timeline Render Wiget ",
+            style: TextStyle(fontSize: 32),
+          ),
+          Text("5. Create timeline Widget Wiget ",
             style: TextStyle(fontSize: 32),
           )
 
