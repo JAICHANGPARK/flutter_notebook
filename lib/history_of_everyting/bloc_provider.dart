@@ -16,6 +16,7 @@ class BlocProvider extends InheritedWidget {
       : timeline = t ?? Timeline(platform),
         favoritesBloc = fb ?? FavoritesBloc(),
         super(key: key, child: child){
+    
 
     //TODo Create Timeline dart file and set init
     // ToDo Timeline Setting
