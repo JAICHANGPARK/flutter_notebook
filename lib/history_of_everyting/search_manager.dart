@@ -20,8 +20,41 @@ class SearchManager{
 
   _fill(List<TimelineEntry> entries){
     _queryMap.clear();
-    
+    for(TimelineEntry e in entries){
+      String label = e.label;
+      int len = label.length;
+      for(int i = 0; i< len; i++){
+        for(int j = i + 1; j <= len; j++){
+          String substring = label.substring(i,j).toLowerCase();
+          if(_queryMap.containsKey(substring)){
+            Set<TimelineEntry> labels = _queryMap[substring];
+            labels.add(e);
+          }else{
+            _queryMap.putIfAbsent(substring, ()=> Set.from([e]));
+          }
+        }
+      }
+    }
+  }
+
+  Set<TimelineEntry> performSearch(String query){
+    if(_queryMap.containsKey(query)) return _queryMap[query];
+    else if(query.isNotEmpty) return Set();
+
+    Iterable<String> keys = _queryMap
+
   }
 
 
+
 }
+
+
+
+
+
+
+
+
+
+
