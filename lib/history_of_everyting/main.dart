@@ -33,7 +33,7 @@ class MenuPage extends StatelessWidget {
         children: <Widget>[
           Text("History Of Everything",
           style: TextStyle(fontSize: 32),),
-          Text("Todo List",
+          Text("Todo List 2019.04.02",
             style: TextStyle(fontSize: 32),),
           Text("-----\nDependency \n",
             style: TextStyle(fontSize: 32),),
