@@ -32,11 +32,10 @@ class MenuPage extends StatelessWidget {
         scrollDirection: Axis.vertical,
         padding: EdgeInsets.all(16),
         children: <Widget>[
-          Text("History Of Everything",
+          Text("User Request History Of Everything",
           style: TextStyle(fontSize: 32),),
-          Text("DoList 2019.04.02", style: TextStyle(fontSize: 32),),
-          Text("1. Create Search Magander \n2. Added Timeline code \n"
-              "3. Create Timeline_utils",
+          Text("DoList 2019.04.03", style: TextStyle(fontSize: 32),),
+          Text("1.",
             style: TextStyle(fontSize: 32),),
           Divider(height: 20, color: Colors.black,),
           Text("Todo List",
