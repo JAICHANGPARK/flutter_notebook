@@ -1,7 +1,11 @@
 import 'dart:ui';
 
 
-import 'package:flare_flutter/flare_actor.dart';
+import 'package:flutter_notebook/flare_2dm/flare.dart' as flare;
+import 'package:flutter_notebook/flare_2dm/flare/animation/actor_animation.dart' as flare;
+import 'package:flutter_notebook/flare_2dm/flare/math/aabb.dart' as flare;
+import 'package:flutter_notebook/flare_2dm/flare/math/vec2d.dart' as flare;
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
