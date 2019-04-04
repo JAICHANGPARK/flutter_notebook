@@ -45,8 +45,8 @@ dependencies:
   firebase_auth: any
   google_sign_in: any
 
-  flare_flutter: any
-  flare_dart: any
+#  flare_flutter: any
+#  flare_dart: any
 
   shared_preferences:
   intl: ">=0.14.0"
