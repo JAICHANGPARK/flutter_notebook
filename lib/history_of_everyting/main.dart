@@ -24,7 +24,8 @@ class MenuPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("History ~~"),
+        title: Text("History of everything w/ Flare"),
+        backgroundColor: Colors.blueGrey,
       ),
 //      body: MainMenuWidget(),
     body: Center(
@@ -35,7 +36,8 @@ class MenuPage extends StatelessWidget {
           Text("User Request History Of Everything",
           style: TextStyle(fontSize: 32),),
           Text("DoList 2019.04.04", style: TextStyle(fontSize: 32),),
-          Text("1.",
+          Text("1. main menu _ collapisble .dart \n 2. create favorite page\n"
+              "3. create data model in Menu",
             style: TextStyle(fontSize: 32),),
           Divider(height: 20, color: Colors.black,),
           Text("Todo List",
@@ -43,9 +45,6 @@ class MenuPage extends StatelessWidget {
           Text("-----\nDependency \n",
             style: TextStyle(fontSize: 32),),
           Text("1. Create Main menu Widget",
-            style: TextStyle(fontSize: 32),
-          ),
-          Text("2. Create Main menu Widget",
             style: TextStyle(fontSize: 32),
           ),
 

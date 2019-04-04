@@ -11,10 +11,6 @@ class BlocProvider extends InheritedWidget {
   final FavoritesBloc favoritesBloc;
   final Timeline timeline;
 
-  /// This widget is initialized when the app boots up, and thus loads the resources.
-  /// The timeline.json file contains all the entries' data.
-  /// Once those entries have been loaded, load also all the favorites.
-  /// Lastly use the entries' references to load a local dictionary for the [SearchManager].
   BlocProvider(
       {Key key,
         FavoritesBloc fb,
