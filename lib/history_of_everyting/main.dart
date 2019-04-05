@@ -33,11 +33,10 @@ class MenuPage extends StatelessWidget {
         scrollDirection: Axis.vertical,
         padding: EdgeInsets.all(16),
         children: <Widget>[
-          Text("User Request History Of Everything",
+          Text("User Request History Of Everything (Part5)",
           style: TextStyle(fontSize: 32),),
-          Text("DoList 2019.04.04", style: TextStyle(fontSize: 32),),
-          Text("1. main menu _ collapisble .dart \n 2. create favorite page\n"
-              "3. create data model in Menu",
+          Text("DoList 2019.04.05", style: TextStyle(fontSize: 32),),
+          Text("1.Imported Assets",
             style: TextStyle(fontSize: 32),),
           Divider(height: 20, color: Colors.black,),
           Text("Todo List",

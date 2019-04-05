@@ -140,8 +140,7 @@ class _TimelineWidgetState extends State<TimelineWidget> {
 
         Navigator.of(context)
             .push(MaterialPageRoute(
-            builder: (BuildContext context) =>
-                ArticleWidget(article: _touchedBubble.entry)))
+            builder: (BuildContext context) => ArticleWidget(article: _touchedBubble.entry)))
             .then((v) => widget.timeline.isActive = true);
       }
     } else if (_touchedEntry != null) {
