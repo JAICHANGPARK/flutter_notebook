@@ -10,6 +10,7 @@ import 'package:flutter_notebook/history_of_everyting/timeline/ticks.dart';
 import 'package:flutter_notebook/history_of_everyting/timeline/timeline.dart';
 import 'package:flutter_notebook/history_of_everyting/timeline/timeline_entry.dart';
 import 'package:flutter_notebook/history_of_everyting/timeline/timeline_utils.dart';
+import 'package:flutter_notebook/history_of_everyting/utils/colors.dart';
 import 'package:intl/intl.dart';
 
 import 'package:flutter_notebook/nima/nima.dart' as nima;

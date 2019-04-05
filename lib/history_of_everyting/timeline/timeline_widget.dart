@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import 'package:flutter_notebook/flare_2dm/flare_actor.dart';
+import 'package:flutter_notebook/history_of_everyting/article/article_widget.dart';
 import 'package:flutter_notebook/history_of_everyting/bloc_provider.dart';
 import 'package:flutter_notebook/history_of_everyting/main_menu/menu_data.dart';
 import 'package:flutter_notebook/history_of_everyting/timeline/timeline.dart';

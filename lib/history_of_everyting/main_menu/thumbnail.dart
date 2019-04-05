@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/history_of_everyting/article/timeline_entry_widget.dart';
 import 'package:flutter_notebook/history_of_everyting/timeline/timeline_entry.dart';
 
 class ThumbnailWidget extends StatelessWidget {
