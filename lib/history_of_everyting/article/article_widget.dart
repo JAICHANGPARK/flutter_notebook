@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/widgets.dart';
@@ -9,11 +8,11 @@ import 'package:flutter_notebook/history_of_everyting/bloc_provider.dart';
 import 'package:flutter_notebook/history_of_everyting/timeline/timeline_entry.dart';
 import 'package:flutter_notebook/history_of_everyting/utils/colors.dart';
 
-
 /// This widget will paint the article page.
 /// It stores a reference to the [TimelineEntry] that contains the relevant information.
 class ArticleWidget extends StatefulWidget {
   final TimelineEntry article;
+
   ArticleWidget({this.article, Key key}) : super(key: key);
 
   @override
@@ -23,18 +22,19 @@ class ArticleWidget extends StatefulWidget {
 /// The [State] for the [ArticleWidget] will change based on the [article]
 /// parameter that's used to build it.
 /// It is stateful because we rely on some information like the title, subtitle, and the article
-/// contents to change when a new article is displayed. Moreover the [FlareWidget]s that are used 
+/// contents to change when a new article is displayed. Moreover the [FlareWidget]s that are used
 /// on this page (i.e. the top [TimelineEntryWidget] the favorite button) rely on life-cycle parameters.
 class _ArticleWidgetState extends State<ArticleWidget> {
   /// The information for the current page.
   String _articleMarkdown = "";
   String _title = "";
   String _subTitle = "";
+
   /// This page uses the `flutter_markdown` package, and thus needs its styles to be defined
   /// with a custom objects. This is created in [initState()].
   MarkdownStyleSheet _markdownStyleSheet;
 
-  /// Whether the [FlareActor] favorite button is active or not. 
+  /// Whether the [FlareActor] favorite button is active or not.
   /// Triggers a Flare animation upon change.
   bool _isFavorite = false;
 
@@ -114,15 +114,15 @@ class _ArticleWidgetState extends State<ArticleWidget> {
 
   /// This widget is wrapped in a [Scaffold] to have the classic Material Design visual layout structure.
   /// It uses the [BlocProvider] to find out if this element is part of the favorites, to have the icon properly set up.
-  /// A [SingleChildScrollView] contains a [Column] that lays out the [TimelineEntryWidget] on top, and the [MarkdownBody] 
-  /// right below it. 
+  /// A [SingleChildScrollView] contains a [Column] that lays out the [TimelineEntryWidget] on top, and the [MarkdownBody]
+  /// right below it.
   /// A [GestureDetector] is used to control the [TimelineEntryWidget], if it allows it (...try Amelia Earhart or Newton!)
   @override
   Widget build(BuildContext context) {
     EdgeInsets devicePadding = MediaQuery.of(context).padding;
     List<TimelineEntry> favs = BlocProvider.favorites(context).favorites;
     bool isFav = favs.any(
-            (TimelineEntry te) => te.label.toLowerCase() == _title.toLowerCase());
+        (TimelineEntry te) => te.label.toLowerCase() == _title.toLowerCase());
     return Scaffold(
         body: Container(
             color: Color.fromRGBO(255, 255, 255, 1),
@@ -144,7 +144,7 @@ class _ArticleWidgetState extends State<ArticleWidget> {
                 Expanded(
                     child: SingleChildScrollView(
                         padding:
-                        EdgeInsets.only(left: 20, right: 20, bottom: 30),
+                            EdgeInsets.only(left: 20, right: 20, bottom: 30),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -176,7 +176,7 @@ class _ArticleWidgetState extends State<ArticleWidget> {
                                 Expanded(
                                   child: Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                          CrossAxisAlignment.start,
                                       children: [
                                         Text(_title,
                                             textAlign: TextAlign.left,
@@ -205,6 +205,7 @@ class _ArticleWidgetState extends State<ArticleWidget> {
                                           width: 60.0,
                                           padding: EdgeInsets.all(15.0),
                                           color: Colors.white,
+
                                           /// Check out the widget at:
                                           /// https://www.2dimensions.com/a/pollux/files/flare/heart-simple/preview
                                           child: FlareActor(

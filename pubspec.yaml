@@ -39,6 +39,7 @@ dependencies:
   webfeed: ^0.4.2
   url_launcher:
 
+  firebase_core: 0.3.1+1
   firebase_ml_vision:
   firebase_storage: any
   firebase_database: any
@@ -52,6 +53,7 @@ dependencies:
   intl: ">=0.14.0"
   flutter_markdown:
   share: ^0.5.3
+
 
 
 
