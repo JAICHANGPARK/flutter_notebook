@@ -1,15 +1,9 @@
 import 'dart:ui';
 
 
-import 'package:flutter_notebook/flare_2dm/flare.dart' as flare;
-import 'package:flutter_notebook/flare_2dm/flare/animation/actor_animation.dart' as flare;
-import 'package:flutter_notebook/flare_2dm/flare/math/aabb.dart' as flare;
-import 'package:flutter_notebook/flare_2dm/flare/math/vec2d.dart' as flare;
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
 import 'package:flutter_notebook/flare_2dm/flare_actor.dart';
 import 'package:flutter_notebook/history_of_everyting/article/article_widget.dart';
 import 'package:flutter_notebook/history_of_everyting/bloc_provider.dart';
@@ -19,7 +13,6 @@ import 'package:flutter_notebook/history_of_everyting/timeline/timeline_entry.da
 import 'package:flutter_notebook/history_of_everyting/timeline/timeline_render_widget.dart';
 import 'package:flutter_notebook/history_of_everyting/timeline/timeline_utils.dart';
 import 'package:flutter_notebook/history_of_everyting/utils/colors.dart';
-
 
 
 typedef ShowMenuCallback();
@@ -141,7 +134,8 @@ class _TimelineWidgetState extends State<TimelineWidget> {
 
         Navigator.of(context)
             .push(MaterialPageRoute(
-            builder: (BuildContext context) => ArticleWidget(article: _touchedBubble.entry)))
+            builder: (BuildContext context) =>
+                ArticleWidget(article: _touchedBubble.entry)))
             .then((v) => widget.timeline.isActive = true);
       }
     } else if (_touchedEntry != null) {

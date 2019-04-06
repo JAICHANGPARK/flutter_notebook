@@ -2,22 +2,22 @@ import 'dart:math';
 import 'dart:ui';
 import "dart:ui" as ui;
 
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_notebook/history_of_everyting/timeline/timeline_entry.dart';
 import 'package:flutter_notebook/nima/nima.dart' as nima;
 import 'package:flutter_notebook/nima/nima/actor_image.dart' as nima;
-import 'package:flutter_notebook/nima/nima/animation/actor_animation.dart'
-    as nima;
+import 'package:flutter_notebook/nima/nima/animation/actor_animation.dart' as nima;
 import 'package:flutter_notebook/nima/nima/math/aabb.dart' as nima;
 import 'package:flutter_notebook/nima/nima/math/vec2d.dart' as nima;
 
 import 'package:flutter_notebook/flare_2dm/flare.dart' as flare;
-import 'package:flutter_notebook/flare_2dm/flare/animation/actor_animation.dart'
-    as flare;
+import 'package:flutter_notebook/flare_2dm/flare/animation/actor_animation.dart' as flare;
 import 'package:flutter_notebook/flare_2dm/flare/math/aabb.dart' as flare;
 import 'package:flutter_notebook/flare_2dm/flare/math/vec2d.dart' as flare;
+
 
 /// This widget renders a single [TimelineEntry]. It relies on a [LeafRenderObjectWidget]
 /// so it can implement a custom [RenderObject] and update it accordingly.
@@ -25,7 +25,6 @@ class TimelineEntryWidget extends LeafRenderObjectWidget {
   /// A flag is used to animate the widget only when needed.
   final bool isActive;
   final TimelineEntry timelineEntry;
-
   /// If this widget also has a custom controller, the [interactOffset]
   /// parameter can be used to detect motion effects and alter the [FlareActor] accordingly.
   final Offset interactOffset;
@@ -59,6 +58,7 @@ class TimelineEntryWidget extends LeafRenderObjectWidget {
   }
 }
 
+
 /// When extending a [RenderBox] we provide a custom set of instructions for the widget being rendered.
 ///
 /// In particular this means overriding the [paint()] and [hitTestSelf()] methods to render the loaded
@@ -77,9 +77,8 @@ class VignetteRenderObject extends RenderBox {
   TimelineEntry _timelineEntry;
   nima.FlutterActor _nimaActor;
   flare.FlutterActorArtboard _flareActor;
-
-//  FlareInteractionController _flareController;
-//  NimaInteractionController _nimaController;
+  FlareInteractionController _flareController;
+  NimaInteractionController _nimaController;
 
   /// Called whenever a new [TimelineEntry] is being set.
   updateActor() {
@@ -99,8 +98,8 @@ class VignetteRenderObject extends RenderBox {
         _nimaActor.advance(0.0);
         if (asset.filename == "assets/Newton/Newton_v2.nma") {
           /// Newton uses a custom controller! =)
-//          _nimaController = NewtonController();
-//          _nimaController.initialize(_nimaActor);
+          _nimaController = NewtonController();
+          _nimaController.initialize(_nimaActor);
         }
       } else if (asset is TimelineFlare && asset.actor != null) {
         /// Instance [_flareActor] through the actor reference in the asset
@@ -110,8 +109,8 @@ class VignetteRenderObject extends RenderBox {
         _flareActor.advance(0.0);
         if (asset.filename == "assets/Amelia_Earhart/Amelia_Earhart.flr") {
           /// Amelia Earhart uses a custom controller too..!
-//          _flareController = AmeliaController();
-//          _flareController.initialize(_flareActor);
+          _flareController = AmeliaController();
+          _flareController.initialize(_flareActor);
         }
       }
     }
@@ -130,7 +129,6 @@ class VignetteRenderObject extends RenderBox {
   }
 
   TimelineEntry get timelineEntry => _timelineEntry;
-
   set timelineEntry(TimelineEntry value) {
     if (_timelineEntry == value) {
       return;
@@ -141,8 +139,8 @@ class VignetteRenderObject extends RenderBox {
     updateRendering();
   }
 
-  bool get isActive => _isActive;
 
+  bool get isActive => _isActive;
   set isActive(bool value) {
     if (_isActive == value) {
       return;
@@ -270,16 +268,12 @@ class VignetteRenderObject extends RenderBox {
           renderOffset.dy +
               renderSize.height / 2.0 +
               (alignment.y * renderSize.height / 2.0));
-
       /// 3. Scale depending on the [fit].
       canvas.scale(scaleX, -scaleY);
-
       /// 4. Move the canvas to the correct [_nimaActor] position calculated above.
       canvas.translate(x, y);
-
       /// 5. perform the drawing operations.
       _nimaActor.draw(canvas, 1.0);
-
       /// 6. Restore the canvas' original transform state.
       canvas.restore();
     } else if (asset is TimelineFlare && _flareActor != null) {
@@ -349,16 +343,12 @@ class VignetteRenderObject extends RenderBox {
           renderOffset.dy +
               renderSize.height / 2.0 +
               (alignment.y * renderSize.height / 2.0));
-
       /// 3. Scale depending on the [fit].
       canvas.scale(scaleX, scaleY);
-
       /// 4. Move the canvas to the correct [_flareActor] position calculated above.
       canvas.translate(x, y);
-
       /// 5. perform the drawing operations.
       _flareActor.draw(canvas);
-
       /// 6. Restore the canvas' original transform state.
       canvas.restore();
     }
@@ -391,188 +381,184 @@ class VignetteRenderObject extends RenderBox {
         if (asset.loop) {
           asset.animationTime %= asset.animation.duration;
         }
-
         /// Apply the current time to the [asset] animation.
         asset.animation.apply(asset.animationTime, _nimaActor, 1.0);
-//        if (_nimaController != null) {
-//          nima.Vec2D localTouchPosition;
-//          if (interactOffset != null) {
-//            nima.AABB bounds = asset.setupAABB;
-//            double contentHeight = bounds[3] - bounds[1];
-//            double contentWidth = bounds[2] - bounds[0];
-//            double x = -bounds[0] -
-//                contentWidth / 2.0 -
-//                (alignment.x * contentWidth / 2.0);
-//            double y = -bounds[1] -
-//                contentHeight / 2.0 +
-//                (alignment.y * contentHeight / 2.0);
-//
-//            double scaleX = 1.0, scaleY = 1.0;
-//
-//            switch (fit) {
-//              case BoxFit.fill:
-//                scaleX = size.width / contentWidth;
-//                scaleY = size.height / contentHeight;
-//                break;
-//              case BoxFit.contain:
-//                double minScale =
-//                min(size.width / contentWidth, size.height / contentHeight);
-//                scaleX = scaleY = minScale;
-//                break;
-//              case BoxFit.cover:
-//                double maxScale =
-//                max(size.width / contentWidth, size.height / contentHeight);
-//                scaleX = scaleY = maxScale;
-//                break;
-//              case BoxFit.fitHeight:
-//                double minScale = size.height / contentHeight;
-//                scaleX = scaleY = minScale;
-//                break;
-//              case BoxFit.fitWidth:
-//                double minScale = size.width / contentWidth;
-//                scaleX = scaleY = minScale;
-//                break;
-//              case BoxFit.none:
-//                scaleX = scaleY = 1.0;
-//                break;
-//              case BoxFit.scaleDown:
-//                double minScale =
-//                min(size.width / contentWidth, size.height / contentHeight);
-//                scaleX = scaleY = minScale < 1.0 ? minScale : 1.0;
-//                break;
-//            }
-//            double dx = interactOffset.dx -
-//                (_renderOffset.dx +
-//                    size.width / 2.0 +
-//                    (alignment.x * size.width / 2.0));
-//            double dy = interactOffset.dy -
-//                (_renderOffset.dy +
-//                    size.height / 2.0 +
-//                    (alignment.y * size.height / 2.0));
-//            dx /= scaleX;
-//            dy /= -scaleY;
-//            dx -= x;
-//            dy -= y;
-//
-//            /// Use this logic to evaluate the correct touch position that will
-//            /// be passed down to [NimaInteractionController.advance()].
-//            localTouchPosition = nima.Vec2D.fromValues(dx, dy);
-//          }
-//          /// This custom [NimaInteractionController] uses [localTouchPosition] to perform its calculations.
-//          _nimaController.advance(_nimaActor, localTouchPosition, elapsed);
-//        }
-//        _nimaActor.advance(elapsed);
-//      } else if (asset is TimelineFlare && _flareActor != null) {
-//        /// Some [TimelineFlare] assets have a custom intro that's played
-//        /// when they're painted for the first time.
-//        if (_firstUpdate) {
-//          if (asset.intro != null) {
-//            asset.animation = asset.intro;
-//            asset.animationTime = -1.0;
-//          }
-//          _firstUpdate = false;
-//        }
-//        asset.animationTime += elapsed;
-//        if (asset.idleAnimations != null) {
-//          /// If an [idleAnimation] is set up, the current time is calculated and applied to it.
-//          double phase = 0.0;
-//          for (flare.ActorAnimation animation in asset.idleAnimations) {
-//            animation.apply((asset.animationTime + phase) % animation.duration,
-//                _flareActor, 1.0);
-//            phase += 0.16;
-//          }
-//        } else {
-//          if (asset.intro == asset.animation &&
-//              asset.animationTime >= asset.animation.duration) {
-//            asset.animationTime -= asset.animation.duration;
-//            asset.animation = asset.idle;
-//          }
-//          if (asset.loop && asset.animationTime >= 0) {
-//            asset.animationTime %= asset.animation.duration;
-//          }
-//          /// Apply the current time to this [ActorAnimation].
-//          asset.animation.apply(asset.animationTime, _flareActor, 1.0);
-//        }
-//        if (_flareController != null) {
-//          flare.Vec2D localTouchPosition;
-//          if (interactOffset != null) {
-//            flare.AABB bounds = asset.setupAABB;
-//            double contentWidth = bounds[2] - bounds[0];
-//            double contentHeight = bounds[3] - bounds[1];
-//            double x = -bounds[0] -
-//                contentWidth / 2.0 -
-//                (alignment.x * contentWidth / 2.0);
-//            double y = -bounds[1] -
-//                contentHeight / 2.0 +
-//                (alignment.y * contentHeight / 2.0);
-//
-//            double scaleX = 1.0, scaleY = 1.0;
-//
-//            switch (fit) {
-//              case BoxFit.fill:
-//                scaleX = size.width / contentWidth;
-//                scaleY = size.height / contentHeight;
-//                break;
-//              case BoxFit.contain:
-//                double minScale =
-//                min(size.width / contentWidth, size.height / contentHeight);
-//                scaleX = scaleY = minScale;
-//                break;
-//              case BoxFit.cover:
-//                double maxScale =
-//                max(size.width / contentWidth, size.height / contentHeight);
-//                scaleX = scaleY = maxScale;
-//                break;
-//              case BoxFit.fitHeight:
-//                double minScale = size.height / contentHeight;
-//                scaleX = scaleY = minScale;
-//                break;
-//              case BoxFit.fitWidth:
-//                double minScale = size.width / contentWidth;
-//                scaleX = scaleY = minScale;
-//                break;
-//              case BoxFit.none:
-//                scaleX = scaleY = 1.0;
-//                break;
-//              case BoxFit.scaleDown:
-//                double minScale =
-//                min(size.width / contentWidth, size.height / contentHeight);
-//                scaleX = scaleY = minScale < 1.0 ? minScale : 1.0;
-//                break;
-//            }
-//            double dx = interactOffset.dx -
-//                (_renderOffset.dx +
-//                    size.width / 2.0 +
-//                    (alignment.x * size.width / 2.0));
-//            double dy = interactOffset.dy -
-//                (_renderOffset.dy +
-//                    size.height / 2.0 +
-//                    (alignment.y * size.height / 2.0));
-//            dx /= scaleX;
-//            dy /= scaleY;
-//            dx -= x;
-//            dy -= y;
-//            /// Use this logic to evaluate the correct touch position that will
-//            /// be passed down to [FlareInteractionController.advance()].
-//            localTouchPosition = flare.Vec2D.fromValues(dx, dy);
-//          }
-//          /// Perform the actual [advance()]ing.
-//          _flareController.advance(_flareActor, localTouchPosition, elapsed);
-//        }
-//        /// Advance the [FlutterActorArtboard].
-//        _flareActor.advance(elapsed);
-//      }
-//    }
+        if (_nimaController != null) {
+          nima.Vec2D localTouchPosition;
+          if (interactOffset != null) {
+            nima.AABB bounds = asset.setupAABB;
+            double contentHeight = bounds[3] - bounds[1];
+            double contentWidth = bounds[2] - bounds[0];
+            double x = -bounds[0] -
+                contentWidth / 2.0 -
+                (alignment.x * contentWidth / 2.0);
+            double y = -bounds[1] -
+                contentHeight / 2.0 +
+                (alignment.y * contentHeight / 2.0);
 
-        /// Invalidate the current widget visual state and let Flutter paint it again.
-        markNeedsPaint();
+            double scaleX = 1.0, scaleY = 1.0;
 
-        /// Schedule a new frame to update again - but only if needed.
-        if (isActive && !_isFrameScheduled) {
-          _isFrameScheduled = true;
-          SchedulerBinding.instance.scheduleFrameCallback(beginFrame);
+            switch (fit) {
+              case BoxFit.fill:
+                scaleX = size.width / contentWidth;
+                scaleY = size.height / contentHeight;
+                break;
+              case BoxFit.contain:
+                double minScale =
+                min(size.width / contentWidth, size.height / contentHeight);
+                scaleX = scaleY = minScale;
+                break;
+              case BoxFit.cover:
+                double maxScale =
+                max(size.width / contentWidth, size.height / contentHeight);
+                scaleX = scaleY = maxScale;
+                break;
+              case BoxFit.fitHeight:
+                double minScale = size.height / contentHeight;
+                scaleX = scaleY = minScale;
+                break;
+              case BoxFit.fitWidth:
+                double minScale = size.width / contentWidth;
+                scaleX = scaleY = minScale;
+                break;
+              case BoxFit.none:
+                scaleX = scaleY = 1.0;
+                break;
+              case BoxFit.scaleDown:
+                double minScale =
+                min(size.width / contentWidth, size.height / contentHeight);
+                scaleX = scaleY = minScale < 1.0 ? minScale : 1.0;
+                break;
+            }
+            double dx = interactOffset.dx -
+                (_renderOffset.dx +
+                    size.width / 2.0 +
+                    (alignment.x * size.width / 2.0));
+            double dy = interactOffset.dy -
+                (_renderOffset.dy +
+                    size.height / 2.0 +
+                    (alignment.y * size.height / 2.0));
+            dx /= scaleX;
+            dy /= -scaleY;
+            dx -= x;
+            dy -= y;
+
+            /// Use this logic to evaluate the correct touch position that will
+            /// be passed down to [NimaInteractionController.advance()].
+            localTouchPosition = nima.Vec2D.fromValues(dx, dy);
+          }
+          /// This custom [NimaInteractionController] uses [localTouchPosition] to perform its calculations.
+          _nimaController.advance(_nimaActor, localTouchPosition, elapsed);
         }
+        _nimaActor.advance(elapsed);
+      } else if (asset is TimelineFlare && _flareActor != null) {
+        /// Some [TimelineFlare] assets have a custom intro that's played
+        /// when they're painted for the first time.
+        if (_firstUpdate) {
+          if (asset.intro != null) {
+            asset.animation = asset.intro;
+            asset.animationTime = -1.0;
+          }
+          _firstUpdate = false;
+        }
+        asset.animationTime += elapsed;
+        if (asset.idleAnimations != null) {
+          /// If an [idleAnimation] is set up, the current time is calculated and applied to it.
+          double phase = 0.0;
+          for (flare.ActorAnimation animation in asset.idleAnimations) {
+            animation.apply((asset.animationTime + phase) % animation.duration,
+                _flareActor, 1.0);
+            phase += 0.16;
+          }
+        } else {
+          if (asset.intro == asset.animation &&
+              asset.animationTime >= asset.animation.duration) {
+            asset.animationTime -= asset.animation.duration;
+            asset.animation = asset.idle;
+          }
+          if (asset.loop && asset.animationTime >= 0) {
+            asset.animationTime %= asset.animation.duration;
+          }
+          /// Apply the current time to this [ActorAnimation].
+          asset.animation.apply(asset.animationTime, _flareActor, 1.0);
+        }
+        if (_flareController != null) {
+          flare.Vec2D localTouchPosition;
+          if (interactOffset != null) {
+            flare.AABB bounds = asset.setupAABB;
+            double contentWidth = bounds[2] - bounds[0];
+            double contentHeight = bounds[3] - bounds[1];
+            double x = -bounds[0] -
+                contentWidth / 2.0 -
+                (alignment.x * contentWidth / 2.0);
+            double y = -bounds[1] -
+                contentHeight / 2.0 +
+                (alignment.y * contentHeight / 2.0);
+
+            double scaleX = 1.0, scaleY = 1.0;
+
+            switch (fit) {
+              case BoxFit.fill:
+                scaleX = size.width / contentWidth;
+                scaleY = size.height / contentHeight;
+                break;
+              case BoxFit.contain:
+                double minScale =
+                min(size.width / contentWidth, size.height / contentHeight);
+                scaleX = scaleY = minScale;
+                break;
+              case BoxFit.cover:
+                double maxScale =
+                max(size.width / contentWidth, size.height / contentHeight);
+                scaleX = scaleY = maxScale;
+                break;
+              case BoxFit.fitHeight:
+                double minScale = size.height / contentHeight;
+                scaleX = scaleY = minScale;
+                break;
+              case BoxFit.fitWidth:
+                double minScale = size.width / contentWidth;
+                scaleX = scaleY = minScale;
+                break;
+              case BoxFit.none:
+                scaleX = scaleY = 1.0;
+                break;
+              case BoxFit.scaleDown:
+                double minScale =
+                min(size.width / contentWidth, size.height / contentHeight);
+                scaleX = scaleY = minScale < 1.0 ? minScale : 1.0;
+                break;
+            }
+            double dx = interactOffset.dx -
+                (_renderOffset.dx +
+                    size.width / 2.0 +
+                    (alignment.x * size.width / 2.0));
+            double dy = interactOffset.dy -
+                (_renderOffset.dy +
+                    size.height / 2.0 +
+                    (alignment.y * size.height / 2.0));
+            dx /= scaleX;
+            dy /= scaleY;
+            dx -= x;
+            dy -= y;
+            /// Use this logic to evaluate the correct touch position that will
+            /// be passed down to [FlareInteractionController.advance()].
+            localTouchPosition = flare.Vec2D.fromValues(dx, dy);
+          }
+          /// Perform the actual [advance()]ing.
+          _flareController.advance(_flareActor, localTouchPosition, elapsed);
+        }
+        /// Advance the [FlutterActorArtboard].
+        _flareActor.advance(elapsed);
       }
+    }
+
+    /// Invalidate the current widget visual state and let Flutter paint it again.
+    markNeedsPaint();
+    /// Schedule a new frame to update again - but only if needed.
+    if (isActive && !_isFrameScheduled) {
+      _isFrameScheduled = true;
+      SchedulerBinding.instance.scheduleFrameCallback(beginFrame);
     }
   }
 }

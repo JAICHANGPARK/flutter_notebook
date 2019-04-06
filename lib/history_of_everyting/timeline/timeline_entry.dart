@@ -7,10 +7,8 @@ import 'package:flutter_notebook/flare_2dm/flare/animation/actor_animation.dart'
 import 'package:flutter_notebook/flare_2dm/flare/math/aabb.dart' as flare;
 import 'package:flutter_notebook/flare_2dm/flare/math/vec2d.dart' as flare;
 import 'package:flutter_notebook/nima/nima.dart' as nima;
-import 'package:flutter_notebook/nima/nima/animation/actor_animation.dart'
-    as nima;
+import 'package:flutter_notebook/nima/nima/animation/actor_animation.dart' as nima;
 import 'package:flutter_notebook/nima/nima/math/aabb.dart' as nima;
-
 
 /// An object representing the renderable assets loaded from `timeline.json`.
 ///
@@ -64,7 +62,6 @@ class TimelineFlare extends TimelineAnimatedAsset {
   flare.ActorAnimation idle;
   List<flare.ActorAnimation> idleAnimations;
   flare.AABB setupAABB;
-
 }
 
 /// A label for [TimelineEntry].
@@ -80,6 +77,7 @@ class TimelineEntry {
 
   /// Used to calculate how many lines to draw for the bubble in the timeline.
   int lineCount = 1;
+
   ///
   String _label;
   String articleFilename;
@@ -91,6 +89,7 @@ class TimelineEntry {
   /// eras are grouped into spanning eras and events are placed into the eras they belong to.
   TimelineEntry parent;
   List<TimelineEntry> children;
+
   /// All the timeline entries are also linked together to easily access the next/previous event.
   /// After a couple of seconds of inactivity on the timeline, a previous/next entry button will appear
   /// to allow the user to navigate faster between adjacent events.
@@ -122,6 +121,7 @@ class TimelineEntry {
   }
 
   String get label => _label;
+
   /// Some labels already have newline characters to adjust their alignment.
   /// Detect the occurrence and add information regarding the line-count.
   set label(String value) {
@@ -160,7 +160,7 @@ class TimelineEntry {
       double v = (valueAbs / 100000000.0).floorToDouble() / 10.0;
 
       label = (valueAbs / 1000000000)
-          .toStringAsFixed(v == v.floorToDouble() ? 0 : 1) +
+              .toStringAsFixed(v == v.floorToDouble() ? 0 : 1) +
           " Billion";
     } else if (valueAbs > 1000000) {
       double v = (valueAbs / 100000.0).floorToDouble() / 10.0;
@@ -168,7 +168,7 @@ class TimelineEntry {
           (valueAbs / 1000000).toStringAsFixed(v == v.floorToDouble() ? 0 : 1) +
               " Million";
     } else if (valueAbs > 10000) // N.B. < 10,000
-        {
+    {
       double v = (valueAbs / 100.0).floorToDouble() / 10.0;
       label =
           (valueAbs / 1000).toStringAsFixed(v == v.floorToDouble() ? 0 : 1) +
