@@ -51,6 +51,7 @@ dependencies:
   shared_preferences:
   intl: ">=0.14.0"
   flutter_markdown:
+  share: ^0.5.3
 
 
 
