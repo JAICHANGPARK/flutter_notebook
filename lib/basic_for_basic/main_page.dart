@@ -129,7 +129,9 @@ class _MainPageState extends State<MainPage> {
           ],
         ),
       ),
-      body: Container(),
+      body: Center(
+        child: Text("Basic For Basic"),
+      ),
     );
   }
 }
