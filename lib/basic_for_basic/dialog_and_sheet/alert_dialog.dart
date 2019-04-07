@@ -1,14 +1,13 @@
 
 
-
 import 'package:flutter/material.dart';
 
-class SimpleCustomDialog extends StatefulWidget {
+class AlertDialogPage extends StatefulWidget {
   @override
   _SimpleCustomDialogState createState() => _SimpleCustomDialogState();
 }
 
-class _SimpleCustomDialogState extends State<SimpleCustomDialog> {
+class _SimpleCustomDialogState extends State<AlertDialogPage> {
 
   String _msg ;
 
@@ -23,7 +22,7 @@ class _SimpleCustomDialogState extends State<SimpleCustomDialog> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Simple Custom Dialog"),
+        title: Text("Alert Dialog"),
         centerTitle: true,
       ),
       body: Column(
@@ -46,7 +45,7 @@ class _SimpleCustomDialogState extends State<SimpleCustomDialog> {
             onPressed: buttonPressed,
             padding: EdgeInsets.all(10),
             child: Text("Tap And Show Dialog",
-            style: TextStyle(color: Colors.black),),
+              style: TextStyle(color: Colors.black),),
           )
 
         ],
@@ -56,21 +55,33 @@ class _SimpleCustomDialogState extends State<SimpleCustomDialog> {
 
   void buttonPressed() {
     showDialog(context: context,
-      builder: (context) => Container(
-
-        color: Colors.white70,
-        child: Text("Hello world",
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 28.0,
-          decorationStyle: TextDecorationStyle.solid
-        ),),
-      )
-    );
+        builder: (BuildContext context) =>
+        AlertDialog(
+          title: Text("Hello World"),
+          content: Text("Flutter Live Coding Show "),
+          semanticLabel: "Simple Test",
+          actions: <Widget>[
+            FlatButton(
+              child: Text("Cancel"),
+              onPressed: (){
+                Navigator.pop<String>(context, "Cancel");
+              },
+            ),
+            FlatButton(
+              child: const Text("OK"),
+              onPressed: ()=>Navigator.pop<String>(context, "OK"),
+            )
+          ],
+        )
+    ).then<void>((value) => resultAlert(value));
   }
 
 
-
+  void resultAlert(String value){
+    setState(() {
+      _msg = 'user selected : $value';
+    });
+  }
 
 
 
