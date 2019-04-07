@@ -42,7 +42,7 @@ void main(){
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(HistoryOfEverything());
+  runApp(BasicForBasic());
 
 }
 //void main() => runApp(MyApp());

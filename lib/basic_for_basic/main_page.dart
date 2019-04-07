@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/basic_for_basic/dialog_and_sheet/simple_dialog.dart';
 import 'package:flutter_notebook/basic_for_basic/event_ui/check_box.dart';
 import 'package:flutter_notebook/basic_for_basic/event_ui/drop_down.dart';
 import 'package:flutter_notebook/basic_for_basic/event_ui/radio_page.dart';
@@ -76,6 +77,21 @@ class _MainPageState extends State<MainPage> {
                         MaterialPageRoute(builder: (context)=>SliderPage()));
                   },
                   title: Text("Slider"),
+                )
+              ],
+            ),
+            ExpansionTile(
+              title: Text("Dialog & Bottom sheet"),
+              children: <Widget>[
+                ListTile(
+                  title: Text("Dialog"),
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder:
+                    (context) => SimpleCustomDialog()));
+                  },
+                ),
+                ListTile(
+                  title: Text("AlertDialog"),
                 )
               ],
             )
