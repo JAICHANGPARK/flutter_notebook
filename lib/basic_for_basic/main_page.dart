@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_notebook/basic_for_basic/dialog_and_sheet/alert_dialog.dart';
+import 'package:flutter_notebook/basic_for_basic/dialog_and_sheet/modal_bottom_sheet.dart';
 import 'package:flutter_notebook/basic_for_basic/dialog_and_sheet/simple_dialog.dart';
 import 'package:flutter_notebook/basic_for_basic/dialog_and_sheet/simple_is_best.dart';
 import 'package:flutter_notebook/basic_for_basic/event_ui/check_box.dart';
@@ -119,7 +120,7 @@ class _MainPageState extends State<MainPage> {
                   title: Text("Simple Modal Bottom Sheet"),
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder:
-                        (context) => SimpleOptionDialogPage()
+                        (context) => ModalBottomSheets()
                     ));
                   },
                 ),
