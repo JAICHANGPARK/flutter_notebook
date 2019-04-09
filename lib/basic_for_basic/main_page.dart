@@ -8,6 +8,7 @@ import 'package:flutter_notebook/basic_for_basic/event_ui/drop_down.dart';
 import 'package:flutter_notebook/basic_for_basic/event_ui/radio_page.dart';
 import 'package:flutter_notebook/basic_for_basic/event_ui/slider_page.dart';
 import 'package:flutter_notebook/basic_for_basic/paint_ui/draw_circle_page.dart';
+import 'package:flutter_notebook/basic_for_basic/paint_ui/text_paragraph_page.dart';
 import 'package:flutter_notebook/basic_for_basic/sliver_page/main_page.dart';
 
 class BasicForBasic extends StatelessWidget {
@@ -144,7 +145,7 @@ class _MainPageState extends State<MainPage> {
                   title: Text("Text Paragraph"),
                   onTap: (){
                     Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=>)
+                    MaterialPageRoute(builder: (context)=> TextParagraphPage())
                     );
                   },
                 )

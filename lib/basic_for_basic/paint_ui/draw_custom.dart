@@ -34,8 +34,8 @@ class _DrawCirclePageState extends State<DrawCustomDrawPage> {
 class MyRenderBoxWidget extends SingleChildRenderObjectWidget {
   @override
   RenderObject createRenderObject(BuildContext context) {
-    // TODO: implement createRenderObject
-    return _MyRenderBox();
+  // TODO: implement createRenderObject
+  return _MyRenderBox();
   }
 }
 
