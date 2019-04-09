@@ -125,6 +125,22 @@ class _MainPageState extends State<MainPage> {
                   },
                 ),
               ],
+            ),
+
+            ExpansionTile(
+              title: Text("Paint "),
+              children: <Widget>[
+                ListTile(
+                  title: Text("Draw Circle"),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SimpleCustomDialog()));
+                  },
+                ),
+
+              ],
             )
           ],
         ),
