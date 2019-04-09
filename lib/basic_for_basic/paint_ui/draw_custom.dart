@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter_notebook/basic_for_basic/paint_ui/draw_custom.dart';
 
-class DrawCirclePage extends StatefulWidget {
+import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+
+class DrawCustomDrawPage extends StatefulWidget {
   @override
   _DrawCirclePageState createState() => _DrawCirclePageState();
 }
 
-class _DrawCirclePageState extends State<DrawCirclePage> {
+class _DrawCirclePageState extends State<DrawCustomDrawPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
-            onPressed: (){
-              Navigator.push(context,
-              MaterialPageRoute(builder: (context)=> DrawCustomDrawPage()));
+            onPressed: () {
+
             },
             icon: Icon(Icons.near_me),
           )
         ],
-        title: Text("Draw Circle "),
+        title: Text("Draw Custom Paint "),
         centerTitle: true,
       ),
       body: Center(
@@ -54,22 +54,41 @@ class _MyRenderBox extends RenderBox {
     int dy = offset.dy.toInt();
 
     Paint paint = Paint();
-    paint..style = PaintingStyle.fill;
-    paint..color = Color.fromARGB(150, 0, 200, 255);
-
-    canvas.drawCircle(Offset(dx + 150.0, dy + 150.0), 100, paint);
 
     paint..style = PaintingStyle.stroke;
     paint.color = Colors.orange;
-    paint..strokeWidth = 10.0;
-    Rect rect = Rect.fromLTWH(dx + 100.0, dy + 200.0, 200, 200);
-    canvas.drawOval(rect, paint);
-    rect = Rect.fromLTWH(dx + 120.0, dy + 220.0, 150, 150);
-    canvas.drawOval(rect, paint);
+    paint..strokeWidth = 5.0;
+    for (var i = 0; i <= 10; i++) {
+      Rect rect = Rect.fromLTRB(
+          dx + 50.0 + 30.0 * i,
+          dy + 50.0,
+          dx + 50.0,
+          dy + 250.0 - 20 * i);
+      canvas.drawLine(rect.topLeft, rect.bottomRight, paint);
+    }
 
-    paint.color = Colors.red;
-    rect = Rect.fromLTWH(dx + 100.0, dy + 100.0, 200, 150);
-    canvas.drawOval(rect, paint);
-
+    for (var i = 0; i <= 10; i++) {
+      Rect rect = Rect.fromLTRB(
+          dx + 50.0 + 30.0 * i,
+          dy + 50.0,
+          dx + 50.0,
+          dy + 250.0 - 20 * i);
+      canvas.drawLine(rect.bottomLeft, rect.topRight, paint);
+    }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

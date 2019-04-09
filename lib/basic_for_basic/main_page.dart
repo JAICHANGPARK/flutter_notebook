@@ -140,6 +140,14 @@ class _MainPageState extends State<MainPage> {
                             builder: (context) => DrawCirclePage()));
                   },
                 ),
+                ListTile(
+                  title: Text("Text Paragraph"),
+                  onTap: (){
+                    Navigator.push(context,
+                    MaterialPageRoute(builder: (context)=>)
+                    );
+                  },
+                )
 
               ],
             )
