@@ -8,6 +8,7 @@ import 'package:flutter_notebook/basic_for_basic/event_ui/drop_down.dart';
 import 'package:flutter_notebook/basic_for_basic/event_ui/radio_page.dart';
 import 'package:flutter_notebook/basic_for_basic/event_ui/slider_page.dart';
 import 'package:flutter_notebook/basic_for_basic/paint_ui/draw_circle_page.dart';
+import 'package:flutter_notebook/basic_for_basic/paint_ui/image_drawing.dart';
 import 'package:flutter_notebook/basic_for_basic/paint_ui/text_paragraph_page.dart';
 import 'package:flutter_notebook/basic_for_basic/sliver_page/main_page.dart';
 
@@ -148,8 +149,12 @@ class _MainPageState extends State<MainPage> {
                     MaterialPageRoute(builder: (context)=> TextParagraphPage())
                     );
                   },
+                ),
+                ListTile(
+                  title: Text("Image ?"),
+                  onTap: ()=> Navigator.push(context,
+                  MaterialPageRoute(builder: (context)=> ImageDrawingPage())),
                 )
-
               ],
             )
           ],
