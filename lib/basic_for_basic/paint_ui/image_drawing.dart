@@ -76,14 +76,26 @@ class _RenderBox extends RenderBox {
 //      canvas.drawImage(_image, off, paint);\
       canvas.drawImageRect(_image, rect0, rect, paint);
     }
+    Path path = Path();
+    Rect r = Rect.fromLTWH(dx + 25.0, dy + 25.0, 100.0, 100.0);
+    path.addOval(r);
+
+    r = Rect.fromLTWH(dx + 320.0, dy + 100.0, 100.0, 100.0);
+    path.addOval(r);
+    canvas.save();
+    canvas.drawPath(path, paint);
+    for(var i = 50 ; i <= 1000 ; i = i + 20){
+      r = Rect.fromLTWH(dx + i.toDouble(), dy + i.toDouble(), 30.0, 30.0);
+      path.addOval(r);
+      canvas.save();
+      canvas.drawPath(path, paint);
+    }
+
+    paint..color = Colors.red;
+    paint..style = PaintingStyle.fill;
+    r = Rect.fromLTWH(dx + 25.0, dy + 200.0, 100.0, 100.0);
+    path.addOval(r);
+    canvas.drawPath(path, paint);
+    canvas.restore();
   }
 }
-
-
-
-
-
-
-
-
-
