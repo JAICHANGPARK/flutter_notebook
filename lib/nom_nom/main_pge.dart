@@ -1,6 +1,8 @@
 
 
 import 'package:flutter/material.dart';
+import 'places.dart';
+import 'dart:ui';
 
 
 class NomNomApp extends StatelessWidget {
@@ -36,7 +38,7 @@ class _NomNomPageState extends State<NomNomPage> {
       ),
       body: Center(
         child: new ListView(
-          children: _places.map((places)=> new Text((places))).toList();
+          children: _places.map((places)=> new Text((places))).toList()
         ),
       ),
     );

@@ -16,6 +16,7 @@ import 'package:flutter_notebook/ml_kit_text/main_page.dart';
 import 'package:flutter_notebook/music_player_01/main_page.dart';
 import 'package:flutter_notebook/national_app/main_page.dart';
 import 'package:flutter_notebook/nom_nom/main_pge.dart';
+import 'package:flutter_notebook/nom_nom/places.dart';
 import 'package:flutter_notebook/piano_app/main_page.dart';
 import 'package:flutter_notebook/rss_parse_app/main_page.dart';
 import 'package:flutter_notebook/shoes_app_01/main_page.dart';
@@ -39,11 +40,12 @@ import 'package:flutter_notebook/my_movie_app/main_page.dart';
 //);
 
 void main(){
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitDown,
-    DeviceOrientation.portraitUp,
-  ]);
-  runApp(NomNomApp());
+  getPlaces(33.9850, -118.4695);
+//  SystemChrome.setPreferredOrientations([
+//    DeviceOrientation.portraitDown,
+//    DeviceOrientation.portraitUp,
+//  ]);
+//  runApp(NomNomApp());
 
 }
 //void main() => runApp(MyApp());
