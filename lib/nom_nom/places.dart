@@ -7,10 +7,6 @@ import 'package:http/http.dart' as http;
 
 var key = Keys.key;
 
-void main() {
-  getPlaces(33.9850, -118.4695);
-}
-
 class Place {
   final String name;
   final double rating;
@@ -22,11 +18,11 @@ class Place {
         address = jsonMap['address'];
 }
 
-getPlaces(double lat, double lng) {
-  getPlacesFromNetwork(lat, lng);
+Future<Stream<Place>> getPlaces(double lat, double lng) {
+  return key.length > 0 ? getPlacesFromNetwork(lat, lng) : getPlacesFromAsset();
 }
 
-getPlacesFromNetwork(double lat, double lng) async {
+Future<Stream<Place>> getPlacesFromNetwork(double lat, double lng) async {
   var url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json' +
       '?location=$lat,$lng' +
       '&radius=500&type=restaurant' +
@@ -41,6 +37,13 @@ getPlacesFromNetwork(double lat, double lng) async {
       .expand((jsonBody) => (jsonBody as Map)['results'])
       .map((jsonPlace) => new Place.fromJson(jsonPlace));
 
+}
+
+Future<Stream<Place>> getPlacesFromAsset() async{
+  return new Stream.fromFuture(rootBundle.loadString('assets/places.json'))
+      .transform(json.decoder)
+      .expand((jsonBody) => (jsonBody as Map)['results'])
+      .map((jsonPlace) => new Place.fromJson(jsonPlace));
 }
 
 
