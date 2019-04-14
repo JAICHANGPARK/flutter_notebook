@@ -129,7 +129,9 @@ class ElementTile extends StatelessWidget implements PreferredSizeWidget {
           gradient: LinearGradient(colors: element.colors),
           backgroundBlendMode: BlendMode.multiply),
       child: RawMaterialButton(
-        onPressed: !isLarge ? () {} : () {},
+        onPressed: !isLarge ? () => Navigator.of(context).push(
+          MaterialPageRoute(builder: (_)=> DetailPage(element))
+        ) : null,
         fillColor: Colors.grey[800],
         disabledElevation: 10.0,
         padding: kGutterInset * 2.0,
@@ -153,6 +155,51 @@ class ElementTile extends StatelessWidget implements PreferredSizeWidget {
   }
 }
 
+class DetailPage extends StatelessWidget {
+  final ElementData element;
+
+  DetailPage(this.element);
+
+  @override
+  Widget build(BuildContext context) {
+    final _listItems = <Widget>[
+      ListTile(
+        leading: Icon(Icons.category),
+        title: Text(element.category.toUpperCase()),
+      ),
+      ListTile(
+        leading: Icon(Icons.info),
+        title: Text(element.extract),
+        subtitle: Text(element.source),
+      ),
+      ListTile(
+        leading: Icon(Icons.fiber_smart_record),
+        title: Text(element.atomicWeight),
+        subtitle: Text('Atomic Weight'),
+      ),
+    ].expand((widget) => [widget, Divider()]).toList();
+    return Scaffold(
+      backgroundColor: Color.lerp(Colors.grey[850], element.colors[0], 0.07),
+      appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.favorite_border),
+            onPressed: (){
+
+            },
+          )
+        ],
+        backgroundColor: Color.lerp(Colors.grey[850], element.colors[1], 0.2),
+        bottom: ElementTile(element, isLarge: true,),
+
+      ),
+      body: ListView(
+        padding: EdgeInsets.only(top: 24),
+        children: _listItems,
+      ),
+    );
+  }
+}
 
 
 
