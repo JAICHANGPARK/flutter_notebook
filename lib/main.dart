@@ -48,7 +48,7 @@ void main(){
     DeviceOrientation.portraitUp,
   ]);
   
-  final gridList = rootBundle.loadString('assets/elementsGrid.json')
+  final gridList = rootBundle.loadString('assets/elements/elementsGrid.json')
   .then((source)=> jsonDecode(source)['elements'] as List)
   .then((list)=> list.map((json) => json != null ? ElementData.fromJson(json) : null).toList());
   
