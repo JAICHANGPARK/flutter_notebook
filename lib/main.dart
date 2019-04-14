@@ -40,12 +40,12 @@ import 'package:flutter_notebook/my_movie_app/main_page.dart';
 //);
 
 void main(){
-  getPlaces(33.9850, -118.4695);
-//  SystemChrome.setPreferredOrientations([
-//    DeviceOrientation.portraitDown,
-//    DeviceOrientation.portraitUp,
-//  ]);
-//  runApp(NomNomApp());
+//  getPlaces(33.9850, -118.4695);
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.portraitUp,
+  ]);
+  runApp(NomNomApp());
 
 }
 //void main() => runApp(MyApp());
