@@ -6,6 +6,7 @@ import 'package:flutter_notebook/dabloon_user_request/main_page.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/bloc/bloc_provider.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/bloc/tab_bloc.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/main_page.dart';
+import 'package:flutter_notebook/elements_app/main_page.dart';
 import 'package:flutter_notebook/fashion_app_01/main_page.dart';
 import 'package:flutter_notebook/food_app_01/main_page.dart';
 import 'package:flutter_notebook/history_of_everyting/main.dart';
@@ -45,7 +46,7 @@ void main(){
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(NomNomApp());
+  runApp(ElementsApp());
 
 }
 //void main() => runApp(MyApp());
