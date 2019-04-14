@@ -7,6 +7,7 @@ import 'package:flutter_notebook/droid_knight_2019_kr/bloc/bloc_provider.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/bloc/tab_bloc.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/main_page.dart';
 import 'package:flutter_notebook/elements_app/main_page.dart';
+import 'package:flutter_notebook/elements_app/model/element_data.dart';
 import 'package:flutter_notebook/fashion_app_01/main_page.dart';
 import 'package:flutter_notebook/food_app_01/main_page.dart';
 import 'package:flutter_notebook/history_of_everyting/main.dart';
@@ -46,7 +47,13 @@ void main(){
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(ElementsApp());
+  
+  final gridList = rootBundle.loadString('assets/elementsGrid.json')
+  .then((source)=> jsonDecode(source)['elements'] as List)
+  .then((list)=> list.map((json) => json != null ? ElementData.fromJson(json) : null).toList());
+  
+  
+  runApp(ElementsApp(gridList));
 
 }
 //void main() => runApp(MyApp());
