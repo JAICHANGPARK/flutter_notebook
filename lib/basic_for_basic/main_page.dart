@@ -156,12 +156,20 @@ class _MainPageState extends State<MainPage> {
                   MaterialPageRoute(builder: (context)=> ImageDrawingPage())),
                 )
               ],
+            ),
+            ListTile(
+              title: Text("Database"),
+              onTap: (){},
             )
           ],
         ),
       ),
       body: Center(
-        child: Text("Basic For Basic"),
+        child: Text("Basic For Basic", style:
+         TextStyle(
+           fontSize: 32,
+           fontWeight: FontWeight.bold
+         ) , ),
       ),
     );
   }

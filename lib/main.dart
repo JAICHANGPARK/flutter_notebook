@@ -48,12 +48,13 @@ void main(){
     DeviceOrientation.portraitUp,
   ]);
   
-  final gridList = rootBundle.loadString('assets/elements/elementsGrid.json')
-  .then((source)=> jsonDecode(source)['elements'] as List)
-  .then((list)=> list.map((json) => json != null ? ElementData.fromJson(json) : null).toList());
+//  final gridList = rootBundle.loadString('assets/elements/elementsGrid.json')
+//  .then((source)=> jsonDecode(source)['elements'] as List)
+//  .then((list)=> list.map((json) => json != null ? ElementData.fromJson(json) : null).toList());
+//
   
-  
-  runApp(ElementsApp(gridList));
+//  runApp(ElementsApp(gridList));
+  runApp(BasicForBasic());
 
 }
 //void main() => runApp(MyApp());
