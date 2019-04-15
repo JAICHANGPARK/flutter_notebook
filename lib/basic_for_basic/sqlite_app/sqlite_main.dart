@@ -155,16 +155,32 @@ class _ListPageState extends State<ListPage> {
   }
 
   void getItems() async {
-    
 
+    List<Widget> list = <Widget>[];
+    String dbPath = await getDatabasesPath();
+    String path = join(dbPath, "mydata.db");
+    Database database = await openDatabase(path, version: 1,
+        onCreate: (Database db, int version) async {
+          await db.execute("create table if not exists mydata "
+              "id INTEGER PRIMARY KEY,"
+              "name TEXT,"
+              "mail TEXT,"
+              "tel TEXT");
+        });
 
-
-
-
-
-
-
-
+      List<Map> result = await database.rawQuery("select * from mydata");
+      for(Map item in result){
+        list.add(
+          ListTile(
+            title: Text(item['name']),
+            subtitle: Text(item['mail'] + ' ' + item['tel']),
+          )
+        );
+      }
+      
+      setState(() {
+        _items = list;
+      });
 
 
 
