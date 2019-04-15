@@ -11,6 +11,7 @@ import 'package:flutter_notebook/basic_for_basic/paint_ui/draw_circle_page.dart'
 import 'package:flutter_notebook/basic_for_basic/paint_ui/image_drawing.dart';
 import 'package:flutter_notebook/basic_for_basic/paint_ui/text_paragraph_page.dart';
 import 'package:flutter_notebook/basic_for_basic/sliver_page/main_page.dart';
+import 'package:flutter_notebook/basic_for_basic/sqlite_app/sqlite_main.dart';
 
 class BasicForBasic extends StatelessWidget {
   @override
@@ -110,26 +111,26 @@ class _MainPageState extends State<MainPage> {
                             builder: (context) => AlertDialogPage()));
                   },
                 ),
-
                 ListTile(
                   title: Text("Single Choose Dialog"),
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder:
-                    (context) => SimpleOptionDialogPage()
-                    ));
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SimpleOptionDialogPage()));
                   },
                 ),
                 ListTile(
                   title: Text("Simple Modal Bottom Sheet"),
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder:
-                        (context) => ModalBottomSheets()
-                    ));
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ModalBottomSheets()));
                   },
                 ),
               ],
             ),
-
             ExpansionTile(
               title: Text("Paint "),
               children: <Widget>[
@@ -144,44 +145,36 @@ class _MainPageState extends State<MainPage> {
                 ),
                 ListTile(
                   title: Text("Text Paragraph"),
-                  onTap: (){
-                    Navigator.push(context,
-                    MaterialPageRoute(builder: (context)=> TextParagraphPage())
-                    );
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => TextParagraphPage()));
                   },
                 ),
                 ListTile(
                   title: Text("Image ?"),
-                  onTap: ()=> Navigator.push(context,
-                  MaterialPageRoute(builder: (context)=> ImageDrawingPage())),
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ImageDrawingPage())),
                 )
               ],
             ),
             ListTile(
               title: Text("Database"),
-              onTap: (){},
+              onTap: () => Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SqlitePage())),
             )
           ],
         ),
       ),
       body: Center(
-        child: Text("Basic For Basic", style:
-         TextStyle(
-           fontSize: 32,
-           fontWeight: FontWeight.bold
-         ) , ),
+        child: Text(
+          "Basic For Basic",
+          style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+        ),
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
