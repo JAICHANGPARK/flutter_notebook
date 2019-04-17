@@ -56,6 +56,15 @@ dependencies:
 
   sqflite: ^1.1.5
 
+  dio: ^2.0.9
+  flutter_swiper: ^1.1.4
+  flutter_screenutil: ^0.5.1
+  flutter_easyrefresh: ^1.2.7
+  provide: ^1.0.2
+  fluro: ^1.4.0
+  flutter_html: ^0.9.6
+
+
 
 
 
