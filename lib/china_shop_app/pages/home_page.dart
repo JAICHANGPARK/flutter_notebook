@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_notebook/china_shop_app/router/application.dart';
 import 'package:flutter_notebook/china_shop_app/router/routes.dart';
+import 'package:flutter_notebook/china_shop_app/service/service_method.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -70,6 +71,9 @@ class _HomePageState extends State<HomePage> {
                   children: <Widget>[
                     SwiperDiy(swiperDataList: swiper),
                     TopNavigator(navigatorList: navigatorList),
+                    AdBanner(adPicture: adPicture),
+                    LeaderPhone(leaderImage : leaderImage,
+                    leaderPhone : leaderPhone),
                   ],
                 ),
               );
@@ -109,7 +113,6 @@ class SwiperDiy extends StatelessWidget {
     );
   }
 }
-
 class TopNavigator extends StatelessWidget {
   final List navigatorList;
 
@@ -151,3 +154,63 @@ class TopNavigator extends StatelessWidget {
     );
   }
 }
+class AdBanner extends StatelessWidget {
+  final String adPicture;
+  AdBanner({this.adPicture});
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Image.network(adPicture),
+    );
+  }
+}
+class LeaderPhone extends StatelessWidget {
+  final String leaderImage;
+  final String leaderPhone;
+
+  LeaderPhone({this.leaderImage, this.leaderPhone});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: InkWell(
+        onTap: _launchUrl,
+        child: Image.network(leaderImage),
+      ),
+    );
+  }
+
+  _launchUrl()  async{
+    String url = 'tel:' + leaderPhone;
+    if(await canLaunch(url)){
+      await launch(url);
+    }else{
+      throw 'url不能进行访问，异常';
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
