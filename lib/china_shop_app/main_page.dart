@@ -9,7 +9,7 @@ import './router/application.dart';
 
 class ChinaShopApp extends StatelessWidget {
   final router = Router();
-//  Routes.configureRoutes(router);
+//Routes.configureRoutes(router);
 //  Application.router = router;
 
   @override
