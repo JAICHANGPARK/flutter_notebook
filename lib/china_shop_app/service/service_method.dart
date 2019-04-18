@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter_notebook/china_shop_app/config/service_url.dart';
+
 
 Future request(url, {formData})async{
   try{
@@ -26,3 +28,23 @@ Future request(url, {formData})async{
     return print('error');
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

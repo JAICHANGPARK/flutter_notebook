@@ -55,8 +55,9 @@ void main(){
 //
   
 //  runApp(ElementsApp(gridList));
-  runApp(ChinaShopApp());
+//  runApp(ChinaShopApp());
 
+  runApp(BasicForBasic());
 }
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());

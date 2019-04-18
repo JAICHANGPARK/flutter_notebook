@@ -171,8 +171,8 @@ class _MainPageState extends State<MainPage> {
       ),
       body: Center(
         child: Text(
-          "Basic For Basic",
-          style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+          "Coding....Shop App ",
+          style: TextStyle(fontSize: 38, fontWeight: FontWeight.bold),
         ),
       ),
     );
