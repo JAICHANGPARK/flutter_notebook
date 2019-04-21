@@ -22,6 +22,7 @@ import 'package:flutter_notebook/national_app/main_page.dart';
 import 'package:flutter_notebook/nom_nom/main_pge.dart';
 import 'package:flutter_notebook/nom_nom/places.dart';
 import 'package:flutter_notebook/piano_app/main_page.dart';
+import 'package:flutter_notebook/restaurant_review_app/main_page.dart';
 import 'package:flutter_notebook/rss_parse_app/main_page.dart';
 import 'package:flutter_notebook/shoes_app_01/main_page.dart';
 import 'package:flutter_notebook/shoes_app_02/main_page.dart';
@@ -56,7 +57,7 @@ void main(){
 //
   
 //  runApp(ElementsApp(gridList));
-  runApp(CakeAndCloneApp());
+  runApp(RestaurantReviewCloneApp());
 
 //  runApp(BasicForBasic());
 }
