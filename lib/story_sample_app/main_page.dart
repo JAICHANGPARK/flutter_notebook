@@ -123,6 +123,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
+
               Stack(
                 children: <Widget>[
                   CardScrollWidget(currentPage),
