@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_notebook/onboarding_app/model/data.dart';
+import 'package:flutter_notebook/onboarding_app/page_indicator.dart';
 import 'package:gradient_text/gradient_text.dart';
 
 class OnboardingClone extends StatelessWidget {
@@ -80,9 +81,12 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                     var y = 1.0;
 
                     if (_controller.position.haveDimensions) {
+                      print("_controller.page : ${_controller.page}");
+
                       delta = _controller.page - index;
+                      print("delta.abs().clamp(0.0, 1.0) : ${delta.abs().clamp(0.0, 1.0)}");
                       y = 1 - delta.abs().clamp(0.0, 1.0);
-                      print(delta);
+                      print("delta : $delta");
                       print("Y : $y");
                     }
                     return Column(
@@ -133,7 +137,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                           ),
                           child: Transform(
                             transform: Matrix4.translationValues(
-                                0, 60.0 * (1-y), 0),
+                                0, 50.0 * (1-y), 0),
                             child: Text(page.body,
                             style: TextStyle(fontSize: 20.0,
                             fontFamily: 'Montserrat',
@@ -148,10 +152,25 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
             ),
             Positioned(
               left: 30.0,
-              bottom: 55.0,
+              bottom: 50.0,
               child: Container(
-
+                  width: 160.0,
+                child: PageIndicator(currentPage, pageList.length),
               ),
+            ),
+            Positioned(
+              right: 30.0,
+              bottom: 30,
+              child: ScaleTransition(scale: animation,
+              child: lastPage ?
+                FloatingActionButton(
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Icons.arrow_forward,
+                    color: Colors.black,
+                  ),
+                  onPressed: (){},
+                ): Container(),),
             )
           ],
         ),
