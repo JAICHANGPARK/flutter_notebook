@@ -18,6 +18,7 @@
 13. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/history_of_everyting
 14. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/basic_for_basic
 15. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/nom_nom
+16. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/story_sample_app
 
 # Flutter Live Coding 
 
