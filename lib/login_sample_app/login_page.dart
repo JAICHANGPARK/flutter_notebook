@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/login_sample_app/CustomIcons.dart';
 import 'package:flutter_notebook/login_sample_app/ui/form_card.dart';
+import 'package:flutter_notebook/login_sample_app/ui/social_icon.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginPageStudyClone extends StatelessWidget {
@@ -90,19 +92,156 @@ class _MainPageState extends State<MainPage> {
                         width: ScreenUtil.getInstance().setWidth(110),
                         height: ScreenUtil.getInstance().setHeight(110),
                       ),
-                      Text("DREAMWALKER",
-                      style: TextStyle(
-                        fontFamily: 'Montserrat',
-                        fontSize: ScreenUtil.getInstance().setSp(46),
-                        letterSpacing: 0.6,
-                        fontWeight: FontWeight.bold,
-                      ),)
+                      Text(
+                        "DREAMWALKER",
+                        style: TextStyle(
+                          fontFamily: 'Montserrat',
+                          fontSize: ScreenUtil.getInstance().setSp(46),
+                          letterSpacing: 0.6,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
                     ],
                   ),
                   SizedBox(
                     height: ScreenUtil.getInstance().setHeight(180.0),
                   ),
                   FormCard(),
+                  SizedBox(
+                    height: ScreenUtil.getInstance().setHeight(40),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          SizedBox(
+                            width: 12.0,
+                          ),
+                          GestureDetector(
+                            onTap: _radio,
+                            child: radioButton(_isSelected),
+                          ),
+                          SizedBox(
+                            width: 8.0,
+                          ),
+                          Text(
+                            "Remember me",
+                            style: TextStyle(
+                                fontSize: 12.0, fontFamily: 'Montserrat'),
+                          )
+                        ],
+                      ),
+                      InkWell(
+                        child: Container(
+                          width: ScreenUtil.getInstance().setWidth(330),
+                          height: ScreenUtil.getInstance().setHeight(100),
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(colors: [
+                                Color(0xff17ead9),
+                                Color(0xff6078ea),
+                              ]),
+                              borderRadius: BorderRadius.circular(6.0),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color(0xff6078ea).withOpacity(0.3),
+                                    offset: Offset(0.0, 8.0),
+                                    blurRadius: 8.0)
+                              ]),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () {},
+                              child: Center(
+                                child: Text(
+                                  "SIGNIN",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'Montserrat',
+                                      fontSize: 18.0,
+                                      letterSpacing: 1.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: ScreenUtil.getInstance().setHeight(40),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      horizontalLine(),
+                      Text(
+                        'Social Login',
+                        style: TextStyle(
+                            fontSize: 16.0, fontFamily: "Poppins-Medium"),
+                      ),
+                      horizontalLine(),
+                    ],
+                  ),
+                  SizedBox(
+                    height: ScreenUtil.getInstance().setHeight(40.0),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      SocialIcon(
+                        colors: [
+                          Color(0xFF102397),
+                          Color(0xFF187adf),
+                          Color(0xFF00eaf8),
+                        ],
+                        iconData: CustomIcons.facebook,
+                        onPressed: () {},
+                      ),
+                      SocialIcon(
+                        colors: [
+                          Color(0xFFff4f38),
+                          Color(0xFFff355d),
+                        ],
+                        iconData: CustomIcons.googlePlus,
+                        onPressed: () {},
+                      ),
+                      SocialIcon(
+                        colors: [
+                          Color(0xFF17ead9),
+                          Color(0xFF6078ea),
+                        ],
+                        iconData: CustomIcons.twitter,
+                        onPressed: () {},
+                      ),
+                      SocialIcon(
+                        colors: [
+                          Color(0xFF00c6fb),
+                          Color(0xFF005bea),
+                        ],
+                        iconData: CustomIcons.linkedin,
+                        onPressed: () {},
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: ScreenUtil.getInstance().setHeight(30.0),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text("New User? ",
+                      style: TextStyle(fontFamily: 'Montserrat'),),
+                      InkWell(
+                        onTap: (){},
+                        child: Text('SignUp',
+                        style: TextStyle(
+                          color: Color(0xff5d74e3),
+                          fontFamily: 'Montserrat'
+                        ),),
+                      )
+                    ],
+                  )
                 ],
               ),
             ),
