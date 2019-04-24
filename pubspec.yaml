@@ -228,6 +228,10 @@ flutter:
       fonts:
         - asset: assets/fonts/CustomIcon.ttf
 
+    - family: CustomIcons
+      fonts:
+        - asset: assets/fonts/CustomIcons.ttf
+
     - family: Anton
       fonts:
         - asset : assets/fonts/Anton-Regular.ttf
