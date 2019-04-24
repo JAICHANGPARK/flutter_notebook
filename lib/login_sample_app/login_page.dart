@@ -61,7 +61,8 @@ class _MainPageState extends State<MainPage> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      resizeToAvoidBottomPadding: true,
+//      resizeToAvoidBottomPadding: true,
+      resizeToAvoidBottomInset: true,
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -81,12 +82,11 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
           SingleChildScrollView(
-            
+            scrollDirection: Axis.vertical,
             child: Padding(
               padding: EdgeInsets.only(left: 28.0, right: 28.0, top: 60.0),
-              child: Flex(
-                direction: Axis.vertical,
-                mainAxisSize: MainAxisSize.min,
+              child: Column(
+
                 children: <Widget>[
                   Row(
                     children: <Widget>[
@@ -233,15 +233,18 @@ class _MainPageState extends State<MainPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text("New User? ",
-                      style: TextStyle(fontFamily: 'Montserrat'),),
+                      Text(
+                        "New User? ",
+                        style: TextStyle(fontFamily: 'Montserrat'),
+                      ),
                       InkWell(
-                        onTap: (){},
-                        child: Text('SignUp',
-                        style: TextStyle(
-                          color: Color(0xff5d74e3),
-                          fontFamily: 'Montserrat'
-                        ),),
+                        onTap: () {},
+                        child: Text(
+                          'SignUp',
+                          style: TextStyle(
+                              color: Color(0xff5d74e3),
+                              fontFamily: 'Montserrat'),
+                        ),
                       )
                     ],
                   )
