@@ -57,7 +57,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
     ScreenUtil.instance =
-        ScreenUtil(width: 750, height: 1334, allowFontScaling: true);
+        ScreenUtil(width: 750, height: 1280, allowFontScaling: true);
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -81,9 +81,12 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
           SingleChildScrollView(
+            
             child: Padding(
               padding: EdgeInsets.only(left: 28.0, right: 28.0, top: 60.0),
-              child: Column(
+              child: Flex(
+                direction: Axis.vertical,
+                mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   Row(
                     children: <Widget>[
