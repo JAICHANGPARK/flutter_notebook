@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/video_game_app/ui/landing_page.dart';
 
 class VideoGameAppClone extends StatelessWidget {
   @override
@@ -7,20 +8,9 @@ class VideoGameAppClone extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue
       ),
-      home: MainPage(
-      ),
+      home: LandingPage()
     );
   }
 }
-class MainPage extends StatefulWidget {
-  @override
-  _MainPageState createState() => _MainPageState();
-}
 
-class _MainPageState extends State<MainPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold();
-  }
-}
 

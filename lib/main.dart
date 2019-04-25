@@ -30,6 +30,7 @@ import 'package:flutter_notebook/shoes_app_01/main_page.dart';
 import 'package:flutter_notebook/shoes_app_02/main_page.dart';
 import 'package:flutter_notebook/story_sample_app/main_page.dart';
 import 'package:flutter_notebook/tab_bar_test/main_page.dart';
+import 'package:flutter_notebook/video_game_app/main_page.dart';
 import 'package:flutter_notebook/wip_app_user_request/main_page.dart';
 import 'dart:async';
 import 'dart:convert';
@@ -60,7 +61,7 @@ void main(){
 //
   
 //  runApp(ElementsApp(gridList));
-  runApp(LoginPageStudyClone());
+  runApp(VideoGameAppClone());
 
 //  runApp(BasicForBasic());
 }
