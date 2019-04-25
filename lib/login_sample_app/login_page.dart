@@ -61,8 +61,8 @@ class _MainPageState extends State<MainPage> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-//      resizeToAvoidBottomPadding: true,
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomPadding: false,
+//      resizeToAvoidBottomInset: true,
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
