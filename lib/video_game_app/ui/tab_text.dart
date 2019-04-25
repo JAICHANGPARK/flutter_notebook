@@ -1,8 +1,5 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_notebook/video_game_app/styles/text_styles.dart';
-
 
 class TabText extends StatelessWidget {
   final bool isSelected;
@@ -13,13 +10,15 @@ class TabText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Transform.rotate(angle: -1.58,
-    child: InkWell(
-      onTap: onTabTap,
-      child: Text(
-        text,
-        style: isSelected ? selectedTabStyle : defaultTabStyle,
+    return Transform.rotate(
+      angle: -1.58,
+      child: InkWell(
+        onTap: onTabTap,
+        child: Text(
+          text,
+          style: isSelected ? selectedTabStyle : defaultTabStyle,
+        ),
       ),
-    ),);
+    );
   }
 }
