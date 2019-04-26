@@ -21,7 +21,7 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
     super.initState();
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 1000));
-    _animation = Tween<Offset>(begin: Offset(0.0, 0.0), end: Offset(-0.50, 0))
+    _animation = Tween<Offset>(begin: Offset(0.0, 0.0), end: Offset(-0.10, 0))
         .animate(_controller);
     _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
   }
@@ -72,20 +72,25 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
               ),
             ),
           ),
-          FutureBuilder(
-              future: playAnimation(),
-              builder: (context, snapshot) {
-                return FadeTransition(
-                  opacity: _fadeAnimation,
-                  child: SlideTransition(
-                    position: _animation,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: getList(selectedTabIndex),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 65.0
+            ),
+            child: FutureBuilder(
+                future: playAnimation(),
+                builder: (context, snapshot) {
+                  return FadeTransition(
+                    opacity: _fadeAnimation,
+                    child: SlideTransition(
+                      position: _animation,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: getList(selectedTabIndex),
+                      ),
                     ),
-                  ),
-                );
-              })
+                  );
+                }),
+          )
         ],
       ),
     );
@@ -106,6 +111,7 @@ class _HorizontalTabLayoutState extends State<HorizontalTabLayout>
         ForumCard(forum: pubgForum),
       ],
       [
+        ForumCard(forum: pubgForum),
         ForumCard(forum: fortniteForum),
         ForumCard(forum: fortniteForum),
         ForumCard(forum: fortniteForum),
