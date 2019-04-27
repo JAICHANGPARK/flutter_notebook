@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_notebook/video_game_app/model/forum.dart';
+import 'package:flutter_notebook/video_game_app/model/topic.dart';
 import 'package:flutter_notebook/video_game_app/styles/coclors.dart';
 import 'package:flutter_notebook/video_game_app/styles/text_styles.dart';
 import 'package:flutter_notebook/video_game_app/ui/app_background.dart';
@@ -129,24 +130,128 @@ class _DetailsPageState extends State<DetailsPage>
                 color: Colors.white,
                 child: Padding(
                   padding:
-                      const EdgeInsets.only(top: 32.0,
-                          left: 16.0,
-                          right: 16.0),
+                      const EdgeInsets.only(top: 32.0, left: 16.0, right: 16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
                         "Topics",
                         style: subHeadingStyle.copyWith(fontSize: 26.0),
+                      ),
+                      Expanded(
+                        child: SlideTransition(position: _offsetAnimation,
+                        child: ListView(
+                          shrinkWrap: true,
+                          children: <Widget>[
+                            TopicsTile(topic: widget.forum.topics[0]),
+                            TopicsTile(topic: widget.forum.topics[1]),
+                          ],
+                        ),
+                        ),
                       )
                     ],
                   ),
                 ),
               ),
             ),
+          ),
+          Positioned(
+            bottom: 260,
+            right: 20,
+            child: ScaleTransition(scale: _scaleAnimation,
+            child: Material(
+              elevation: 10.0,
+              child: Padding(padding: 
+              const EdgeInsets.all(20.0),
+              child: Text(widget.forum.rank,
+              style: rankStyle,),),
+              color: Colors.white,
+              shape: CircleBorder(),
+            ),),
           )
         ],
       ),
     );
   }
 }
+
+class TopicsTile extends StatelessWidget {
+  final Topic topic;
+  TopicsTile({this.topic});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Column(
+        children: <Widget>[
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                topic.question,
+                style: topicQuestionTextStyle,
+              ),
+              Container(
+                padding:
+                const EdgeInsets.symmetric(horizontal: 8.0,
+                vertical: 4.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  color: primaryColor
+                ),
+                child: Text(topic.answerCount,
+                style: topicAnswerCountTextStyle,),
+              )
+            ],
+          ),
+          SizedBox(height: 4.0,),
+          Padding(
+            padding: const EdgeInsets.only(right: 24.0),
+            child: Text(topic.recentAnswer,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: topicAnswerTextStyle,),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
