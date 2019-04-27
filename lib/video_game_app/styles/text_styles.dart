@@ -52,6 +52,23 @@ final TextStyle forumNameTextStyle = TextStyle(
   fontWeight: FontWeight.w800
 );
 
+final TextStyle topicQuestionTextStyle = TextStyle(
+  color: Colors.black,
+  fontSize: 20.0,
+  fontWeight: FontWeight.w800
+);
+
+final TextStyle topicAnswerTextStyle = TextStyle(
+  color: Colors.blueGrey,
+  fontSize: 18.0,
+  fontWeight: FontWeight.w200
+);
+
+final TextStyle topicAnswerCountTextStyle = TextStyle(
+  color: Colors.white,
+  fontWeight: FontWeight.w700,
+  fontSize: 16.0
+);
 
 
 
