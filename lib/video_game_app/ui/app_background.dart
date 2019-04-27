@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_notebook/video_game_app/styles/coclors.dart';
 
 class AppBackground extends StatelessWidget {
+  final Color firstColor, secondColor, thirdColor;
+
+  AppBackground({this.firstColor, this.secondColor, this.thirdColor});
+
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -21,7 +26,7 @@ class AppBackground extends StatelessWidget {
                 height: height,
                 width: height,
                 decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: firstCircleColor),
+                    shape: BoxShape.circle, color: firstColor),
               ),
             ),
             Positioned(
@@ -31,7 +36,7 @@ class AppBackground extends StatelessWidget {
                 height: width * 1.6,
                 width: width * 1.6,
                 decoration: BoxDecoration(
-                    shape: BoxShape.circle, color: secondCircleColor),
+                    shape: BoxShape.circle, color: secondColor),
               ),
             ),
             Positioned(
@@ -42,7 +47,7 @@ class AppBackground extends StatelessWidget {
                 width: width *0.6,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: thirdCircleColor
+                  color: thirdColor
                 ),
               ),
             )

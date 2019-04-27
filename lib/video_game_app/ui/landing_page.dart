@@ -15,7 +15,11 @@ class LandingPage extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           child: Stack(
             children: <Widget>[
-              AppBackground(),
+              AppBackground(
+                firstColor: firstCircleColor,
+                secondColor: secondCircleColor,
+                thirdColor: thirdCircleColor,
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
