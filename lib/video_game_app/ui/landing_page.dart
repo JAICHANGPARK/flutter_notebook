@@ -10,57 +10,61 @@ class LandingPage extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Stack(
-          children: <Widget>[
-            AppBackground(),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                SizedBox(
-                  height: 50.0,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 20.0),
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: Material(
-                      elevation: 10.0,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Icon(
-                          Icons.apps,
-                          color: primaryColor,
+        child: Container(
+
+          width: MediaQuery.of(context).size.width,
+          child: Stack(
+            children: <Widget>[
+              AppBackground(),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(
+                    height: 50.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20.0),
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Material(
+                        elevation: 10.0,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(
+                            Icons.apps,
+                            color: primaryColor,
+                          ),
                         ),
+                        color: Colors.white,
+                        shape: CircleBorder(),
                       ),
-                      color: Colors.white,
-                      shape: CircleBorder(),
                     ),
                   ),
-                ),
-                HeadingSubHeadingWidget(),
-                SizedBox(
-                  height: 20,
-                ),
-                HorizontalTabLayout(),
-                Spacer(),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 60.0, vertical: 30.0),
-                    child: Text(
-                      "New Topic",
-                      style: buttonStyle,
-                    ),
-                    decoration: BoxDecoration(
-                        color: primaryColor,
-                        borderRadius:
-                            BorderRadius.only(topLeft: Radius.circular(40.0))),
+                  HeadingSubHeadingWidget(),
+                  SizedBox(
+                    height: 20,
                   ),
-                )
-              ],
-            ),
-          ],
+                  HorizontalTabLayout(),
+
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 60.0, vertical: 30.0),
+                      child: Text(
+                        "New Topic",
+                        style: buttonStyle,
+                      ),
+                      decoration: BoxDecoration(
+                          color: primaryColor,
+                          borderRadius:
+                              BorderRadius.only(topLeft: Radius.circular(40.0))),
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
