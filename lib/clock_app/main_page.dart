@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_notebook/clock_app/pages/first_tab.dart';
+import 'package:flutter_notebook/clock_app/pages/second_tabs.dart';
 
 class ClockAppCloneStudy extends StatelessWidget {
   @override
@@ -81,7 +82,9 @@ class _MainPageState extends State<MainPage> {
               Center(
                 child: FirstTab(),
               ),
-              Center(),
+              Center(
+                child: SecondTab(),
+              ),
               Text("ThirdScreen")
             ],
           ),
