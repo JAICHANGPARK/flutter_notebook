@@ -4,6 +4,7 @@ import 'package:flutter_notebook/basic_for_basic/main_page.dart';
 import 'package:flutter_notebook/bugger_app_02/main_page.dart';
 import 'package:flutter_notebook/cake_and_pastries/main_page.dart';
 import 'package:flutter_notebook/china_shop_app/main_page.dart';
+import 'package:flutter_notebook/clock_app/main_page.dart';
 import 'package:flutter_notebook/dabloon_user_request/main_page.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/bloc/bloc_provider.dart';
 import 'package:flutter_notebook/droid_knight_2019_kr/bloc/tab_bloc.dart';
@@ -61,7 +62,7 @@ void main(){
 //
   
 //  runApp(ElementsApp(gridList));
-  runApp(VideoGameAppClone());
+  runApp(ClockAppCloneStudy());
 
 //  runApp(BasicForBasic());
 }
