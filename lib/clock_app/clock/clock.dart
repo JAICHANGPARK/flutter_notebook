@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_notebook/clock_app/clock/clock_dial_painter.dart';
 import 'package:flutter_notebook/clock_app/clock/clock_face.dart';
+import 'package:flutter_notebook/clock_app/clock/clock_hand.dart';
 import 'package:flutter_notebook/clock_app/clock/clock_text.dart';
 
 typedef TimeProducer = DateTime Function();
@@ -93,7 +94,8 @@ class _ClockState extends State<Clock> {
                 clockText : widget.clockText
               ),
             ),
-          )
+          ),
+          new ClockHands(dateTime : dateTime),
         ],
       ),
     );
