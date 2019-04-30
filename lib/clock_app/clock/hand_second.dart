@@ -12,7 +12,6 @@ class SecondHandPainter extends CustomPainter{
     secondHandPaint.style = PaintingStyle.stroke;
     secondHandPaint.strokeWidth = 4.0;
     secondHandPaint.strokeCap = StrokeCap.round;
-
     secondHandPointsPaint.color = Color(0xffff0764);
     secondHandPointsPaint.style = PaintingStyle.fill;
   }

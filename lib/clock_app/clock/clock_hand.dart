@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/clock_app/clock/hand_hour.dart';
+import 'package:flutter_notebook/clock_app/clock/hand_minute.dart';
 import 'package:flutter_notebook/clock_app/clock/hand_second.dart';
 
 class ClockHands extends StatelessWidget {
@@ -18,14 +20,14 @@ class ClockHands extends StatelessWidget {
         child: new Stack(
           fit: StackFit.expand,
           children: <Widget>[
-//            new CustomPaint(painter: HourHandPainter(
-//              hours: dateTime.hour,
-//              minutes : dateTime.minute
-//            ),),
-//            new CustomPaint(painter: MinuteHandPainter(
-//                minutes : dateTime.minute,
-//                seconds : dateTime.second
-//            ),),
+            new CustomPaint(painter: HourHandPainter(
+              hours: dateTime.hour,
+              minutes : dateTime.minute
+            ),),
+            new CustomPaint(painter: MinuteHandPainter(
+                minutes : dateTime.minute,
+                seconds : dateTime.second
+            ),),
             new CustomPaint(painter: SecondHandPainter(
                 second : dateTime.second
             ),),
