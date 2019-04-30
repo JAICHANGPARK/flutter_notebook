@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/clock_app/clock/clock_dial_painter.dart';
 import 'package:flutter_notebook/clock_app/clock/clock_face.dart';
 import 'package:flutter_notebook/clock_app/clock/clock_text.dart';
 
@@ -83,6 +84,15 @@ class _ClockState extends State<Clock> {
           ClockFace(
             clockText: widget.clockText,
             dateTime: dateTime,
+          ),
+          Container(
+            padding: EdgeInsets.all(25),
+            width: double.infinity,
+            child: CustomPaint(
+              painter: new ClockDialPainter(
+                clockText : widget.clockText
+              ),
+            ),
           )
         ],
       ),
