@@ -1,0 +1,5 @@
+
+enum ClockText{
+  roman,
+  arabic
+}
