@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var selectedItem = 'All Products';
+  var selectedItem = 'All products';
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.only(left: 15, top: 15, bottom: 10),
             child: Container(
-              height: MediaQuery.of(context).size.height - 300,
+              height: MediaQuery.of(context).size.height - 280,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
@@ -120,6 +120,22 @@ class _HomePageState extends State<HomePage> {
                       productName: "シルバー ニードル ハイボール",
                       productType: "ICED",
                       price: "¥1,800"),
+
+                  _buildCoffeeItem(
+                      imgPath:
+                      "https://d3vgbguy0yofad.cloudfront.net/resource/products/images/4524785344105_1_l.jpg",
+                      productName: "ストロベリーベリーマッチフラペチーノ",
+                      productType: "ICED",
+                      price: "¥640"),
+
+                  _buildCoffeeItem(
+                      imgPath:
+                      "https://d3vgbguy0yofad.cloudfront.net/resource/products/images/4524785377592_1_l.jpg",
+                      productName: "ストロベリーベリーマッチフラペチーノ",
+                      productType: "ICED",
+                      price: "¥640"),
+
+
                 ],
               ),
             ),
@@ -193,6 +209,42 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     height: 0.4,
                     color: Colors.grey.withOpacity(0.4),
+                  ),
+                ),
+                SizedBox(
+                  height: 15.0,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        price,
+                        style: TextStyle(
+                            fontFamily: 'Raleway',
+                            fontWeight: FontWeight.bold,
+                            fontSize: 19.0
+                        ),
+                      ),
+                      InkWell(
+                        onTap: (){},
+                        child: Container(
+                          height: 40.0,
+                          width: 40.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15.0),
+                            color: Colors.grey.withOpacity(0.2)
+                          ),
+                          child: Center(
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
                   ),
                 )
               ],
