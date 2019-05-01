@@ -1,6 +1,6 @@
 # flutter_notebook
 
-## Contain
+## Contain 
 
 
 1. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/fidibo_app_concept
@@ -42,5 +42,6 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 # More
+visit my other flutter project
 
 https://github.com/JAICHANGPARK/Flutter_Dock
