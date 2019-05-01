@@ -29,6 +29,7 @@ import 'package:flutter_notebook/restaurant_review_app/main_page.dart';
 import 'package:flutter_notebook/rss_parse_app/main_page.dart';
 import 'package:flutter_notebook/shoes_app_01/main_page.dart';
 import 'package:flutter_notebook/shoes_app_02/main_page.dart';
+import 'package:flutter_notebook/starbucks_app/main_page.dart';
 import 'package:flutter_notebook/story_sample_app/main_page.dart';
 import 'package:flutter_notebook/tab_bar_test/main_page.dart';
 import 'package:flutter_notebook/video_game_app/main_page.dart';
@@ -62,7 +63,7 @@ void main(){
 //
   
 //  runApp(ElementsApp(gridList));
-  runApp(ClockAppCloneStudy());
+  runApp(StarbucksAppClone());
 
 //  runApp(BasicForBasic());
 }

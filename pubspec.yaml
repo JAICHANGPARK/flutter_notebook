@@ -235,6 +235,9 @@ flutter:
     - family: Anton
       fonts:
         - asset : assets/fonts/Anton-Regular.ttf
+    - family: Raleway
+      fonts:
+        - asset: assets/fonts/Raleway-Regular.ttf
 
 
 
