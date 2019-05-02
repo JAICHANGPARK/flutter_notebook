@@ -1,46 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_notebook/basic_for_basic/main_page.dart';
-import 'package:flutter_notebook/bugger_app_02/main_page.dart';
-import 'package:flutter_notebook/cake_and_pastries/main_page.dart';
-import 'package:flutter_notebook/china_shop_app/main_page.dart';
-import 'package:flutter_notebook/clock_app/main_page.dart';
-import 'package:flutter_notebook/dabloon_user_request/main_page.dart';
-import 'package:flutter_notebook/droid_knight_2019_kr/bloc/bloc_provider.dart';
-import 'package:flutter_notebook/droid_knight_2019_kr/bloc/tab_bloc.dart';
-import 'package:flutter_notebook/droid_knight_2019_kr/main_page.dart';
-import 'package:flutter_notebook/elements_app/main_page.dart';
-import 'package:flutter_notebook/elements_app/model/element_data.dart';
-import 'package:flutter_notebook/fashion_app_01/main_page.dart';
-import 'package:flutter_notebook/food_app_01/main_page.dart';
-import 'package:flutter_notebook/history_of_everyting/main.dart';
-import 'package:flutter_notebook/login_sample_app/login_page.dart';
-import 'package:flutter_notebook/login_ui_01/login_page_01.dart';
-import 'package:flutter_notebook/meme_chat_app/main_page.dart';
-import 'package:flutter_notebook/ml_kit_text/barcode_page.dart';
-import 'package:flutter_notebook/ml_kit_text/main_page.dart';
-import 'package:flutter_notebook/music_player_01/main_page.dart';
-import 'package:flutter_notebook/national_app/main_page.dart';
-import 'package:flutter_notebook/nom_nom/main_pge.dart';
-import 'package:flutter_notebook/nom_nom/places.dart';
-import 'package:flutter_notebook/onboarding_app/main_page.dart';
-import 'package:flutter_notebook/piano_app/main_page.dart';
-import 'package:flutter_notebook/restaurant_review_app/main_page.dart';
-import 'package:flutter_notebook/rss_parse_app/main_page.dart';
-import 'package:flutter_notebook/shoes_app_01/main_page.dart';
-import 'package:flutter_notebook/shoes_app_02/main_page.dart';
-import 'package:flutter_notebook/starbucks_app/main_page.dart';
-import 'package:flutter_notebook/story_sample_app/main_page.dart';
-import 'package:flutter_notebook/tab_bar_test/main_page.dart';
-import 'package:flutter_notebook/video_game_app/main_page.dart';
-import 'package:flutter_notebook/wip_app_user_request/main_page.dart';
+
+import 'package:flutter_notebook/pizza_app_study/main_page.dart';
+
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 import 'package:flutter_notebook/currence_ui/main_page.dart';
 import 'package:flutter_notebook/model/coin_market.dart';
-import 'package:flutter_notebook/my_movie_app/main_page.dart';
+
 
 
 //void main() => runApp(
@@ -63,7 +32,7 @@ void main(){
 //
   
 //  runApp(ElementsApp(gridList));
-  runApp(StarbucksAppClone());
+  runApp(PizzaAppClone());
 
 //  runApp(BasicForBasic());
 }

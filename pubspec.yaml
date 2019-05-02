@@ -66,6 +66,7 @@ dependencies:
 
   rect_getter: ^0.0.1
   gradient_text: ^1.0.2
+  flutter_statusbarcolor: any
 
 
 
@@ -204,6 +205,7 @@ flutter:
     - assets/Fire/
 
     - assets/elements/elementsGrid.json
+    - assets/img/pizza/
 
 
 
@@ -238,6 +240,9 @@ flutter:
     - family: Raleway
       fonts:
         - asset: assets/fonts/Raleway-Regular.ttf
+    - family: slabo
+      fonts:
+        - asset: assets/fonts/slabo.ttf
 
 
 
