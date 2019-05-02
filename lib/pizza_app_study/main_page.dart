@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/pizza_app_study/models/pizza.dart';
 
 class PizzaAppClone extends StatelessWidget {
   @override
@@ -152,10 +153,16 @@ Widget pizzaShowCase(){
     padding: const EdgeInsets.symmetric(vertical: 30),
     child: ListView.builder(
         scrollDirection: Axis.horizontal,
-//        itemCount: ,
+        itemCount: pizzaList.pizzas.length,
         itemBuilder: (context, index){
-
-
+          return ListOfPizzas(
+            name: pizzaList.pizzas[index].name,
+            image: pizzaList.pizzas[index].image,
+            price: pizzaList.pizzas[index].price,
+            background: pizzaList.pizzas[index].background,
+            foreground: pizzaList.pizzas[index].foreground,
+            pizzaObject: pizzaList.pizzas[index],
+          );
     }),
   );
 }
@@ -168,13 +175,46 @@ class ListOfPizzas extends StatelessWidget {
   final Pizza pizzaObject;
 
 
-  ListOfPizzas(this.foreground, this.background, this.price, this.name,
-      this.image, this.pizzaObject);
+  ListOfPizzas({this.foreground, this.background, this.price, this.name,
+    this.image, this.pizzaObject});
 
   @override
   Widget build(BuildContext context) {
 
-    return Container();
+    return Row(
+      children: <Widget>[
+        GestureDetector(
+          onTap: (){},
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 35,
+            horizontal: 20),
+            width: 225,
+            decoration: BoxDecoration(
+              color: background,
+              borderRadius: BorderRadius.circular(40),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(height: 180,
+                child: Image.asset(image),),
+                SizedBox(height: 30,),
+                RichText(
+                  softWrap: true,
+                  text: TextSpan(
+                    style: TextStyle(
+                      color: foreground,
+                      fontSize: 25,
+                      fontFamily: 'slabo'
+                    )
+                  ),
+                )
+              ],
+            ),
+          ),
+        )
+      ],
+    );
   }
 }
 
