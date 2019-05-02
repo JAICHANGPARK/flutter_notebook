@@ -229,18 +229,53 @@ class ListOfPizzas extends StatelessWidget {
                         color: foreground,
                         fontFamily: "slabo"
                       ),),
+                    ),
+                    StatefulFavIcon(
+                      foreground: foreground,
                     )
                   ],
-
                 )
               ],
             ),
           ),
-        )
+        ),
+        SizedBox(width: 40,)
       ],
     );
   }
 }
+class StatefulFavIcon extends StatefulWidget {
+  final Color foreground;
+  StatefulFavIcon({this.foreground});
+
+  @override
+  _StatefulFavIconState createState() => _StatefulFavIconState();
+}
+
+class _StatefulFavIconState extends State<StatefulFavIcon> {
+  bool _isFav;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _isFav = false;
+  }
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: (){
+        setState(() {
+          _isFav = !_isFav;
+        });
+      },
+      child: Icon(
+        _isFav ? Icons.favorite : Icons.favorite_border,
+        color: widget.foreground,
+      ),
+    );
+  }
+}
+
 
 
 
