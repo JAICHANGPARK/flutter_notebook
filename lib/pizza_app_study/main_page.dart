@@ -121,14 +121,63 @@ Widget tabs(){
             , preferredSize: Size.fromHeight(20)),
       ),
       body: TabBarView(children: <Widget>[
-
+        pizzaShowCase(),
+        Center(
+          child: Text("Rolls Tab",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 15
+          ),),
+        ),
+        Center(
+          child: Text("Burger Tab",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 15
+            ),),
+        ),
+        Center(
+          child: Text("Sandwiches  Tab",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 15
+            ),),
+        )
       ]),
     )),
   );
 }
 Widget pizzaShowCase(){
-  
+  return Container(
+    padding: const EdgeInsets.symmetric(vertical: 30),
+    child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+//        itemCount: ,
+        itemBuilder: (context, index){
+
+
+    }),
+  );
 }
+class ListOfPizzas extends StatelessWidget {
+  final Color foreground;
+  final Color background;
+  final double price;
+  final String name;
+  final String image;
+  final Pizza pizzaObject;
+
+
+  ListOfPizzas(this.foreground, this.background, this.price, this.name,
+      this.image, this.pizzaObject);
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Container();
+  }
+}
+
 
 
 
