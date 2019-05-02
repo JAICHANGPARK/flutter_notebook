@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: CustomBottomBar(),
       body: Container(
         width: double.infinity,
         padding: const EdgeInsets.only(left: 50, right: 30),
@@ -276,6 +277,64 @@ class _StatefulFavIconState extends State<StatefulFavIcon> {
   }
 }
 
+class CustomBottomBar extends StatelessWidget {
+  final double _size = 60;
+  final double _padding = 17;
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomAppBar(
+      color: Colors.transparent,
+      elevation: 0.0,
+      child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 29),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          Container(
+            height:  _size + 15,
+            width: _size + 15,
+            padding: EdgeInsets.all(_padding),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50)
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+              child: Image.network("https://avatars2.githubusercontent.com/u/19484515?s=460&v=4",
+              fit: BoxFit.cover,),
+            ),
+          ),
+          Container(
+            height: _size,
+            width: _size,
+            padding: EdgeInsets.all(_padding),
+            child: Image.asset("assets/pizza/home_icon.png",
+            fit: BoxFit.contain,),
+          ),
+          Container(
+            height: _size,
+            width: _size,
+            padding: EdgeInsets.all(_padding),
+            child: Image.asset("assets/pizza/search_icon.png",
+              fit: BoxFit.contain,),
+          ),
+          Container(
+            height: _size,
+            width: _size,
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(50)
+            ),
+            padding: EdgeInsets.all(_padding),
+            child: Image.asset("assets/pizza/bag_icon.png",
+              fit: BoxFit.contain,),
+          )
+        ],
+      ),
+      ),
+    );
+  }
+}
 
 
 
