@@ -23,7 +23,7 @@ class PizzaList{
 
 PizzaList pizzaList = PizzaList(pizzas: [
   Pizza(
-    image: "assets/img/pizza/pizza.png",
+    image: "assets/pizza/pizza.png",
     starRating: 4.5,
     name: "Buffalo Blue Cheese Chicken",
     desc:
@@ -33,7 +33,7 @@ PizzaList pizzaList = PizzaList(pizzas: [
     price: 13.00,
   ),
   Pizza(
-    image: "assets/img/pizza/sweet_and_tangy.png",
+    image: "assets/pizza/sweet_and_tangy.png",
     starRating: 4.5,
     name: "Sweet & Tangy Chicken",
     desc:
@@ -43,7 +43,7 @@ PizzaList pizzaList = PizzaList(pizzas: [
     price: 12.99,
   ),
   Pizza(
-    image: "assets/img/pizza/jamaican_jerk_veg.png",
+    image: "assets/pizza/jamaican_jerk_veg.png",
     starRating: 4.5,
     name: "Jamaican \nJerk Veg",
     desc:
@@ -53,7 +53,7 @@ PizzaList pizzaList = PizzaList(pizzas: [
     price: 12.99,
   ),
   Pizza(
-    image: "assets/img/pizza/aussie_barbeque_veg.png",
+    image: "assets/pizza/aussie_barbeque_veg.png",
     starRating: 4.5,
     name: "Aussie Barbeque Veg",
     desc:
@@ -63,7 +63,7 @@ PizzaList pizzaList = PizzaList(pizzas: [
     price: 12.99,
   ),
   Pizza(
-    image: "assets/img/pizza/indi_tandoori_paneer.png",
+    image: "assets/pizza/indi_tandoori_paneer.png",
     starRating: 4.5,
     name: "Indi Tandoori Paneer",
     desc:
@@ -73,7 +73,7 @@ PizzaList pizzaList = PizzaList(pizzas: [
     price: 12.99,
   ),
   Pizza(
-    image: "assets/img/pizza/african_peri_peri.png",
+    image: "assets/pizza/african_peri_peri.png",
     starRating: 4.5,
     name: "African Saucy\nPeri Peri",
     desc:

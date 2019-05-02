@@ -206,8 +206,32 @@ class ListOfPizzas extends StatelessWidget {
                       color: foreground,
                       fontSize: 25,
                       fontFamily: 'slabo'
-                    )
+                    ),
+                    children: [
+                      TextSpan(text: name),
+                      TextSpan(
+                        text: "\nPizza",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w800
+                        )
+                      )
+                    ]
                   ),
+                ),
+                SizedBox(height: 40,),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text("\$$price",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 20,
+                        color: foreground,
+                        fontFamily: "slabo"
+                      ),),
+                    )
+                  ],
+
                 )
               ],
             ),
