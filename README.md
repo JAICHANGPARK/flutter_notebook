@@ -22,6 +22,7 @@
 17. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/onboarding_app
 18. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/login_sample_app
 19. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/video_game_app
+20. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/starbucks_app
 
 # Flutter Live Coding 
 
