@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/pizza_app_study/detail_page.dart';
 import 'package:flutter_notebook/pizza_app_study/models/pizza.dart';
 
 class PizzaAppClone extends StatelessWidget {
@@ -185,7 +186,12 @@ class ListOfPizzas extends StatelessWidget {
     return Row(
       children: <Widget>[
         GestureDetector(
-          onTap: (){},
+          onTap: (){
+            Navigator.push(context,
+            MaterialPageRoute(builder: (context)=>
+            Details(pizzaObject))
+            );
+          },
           child: Container(
             padding: const EdgeInsets.symmetric(vertical: 35,
             horizontal: 20),
