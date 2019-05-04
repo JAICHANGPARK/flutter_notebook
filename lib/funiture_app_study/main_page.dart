@@ -106,7 +106,7 @@ class _MainPageState extends State<MainPage> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: SizedBox(
-                  height: height * 0.6,
+                  height: height * 0.65,
                   child: ListView.builder(
                       physics: BouncingScrollPhysics(),
                       itemCount: images.length,
@@ -178,7 +178,7 @@ class _MainPageState extends State<MainPage> {
                                           Text(
                                             price[index] + " \$",
                                             style: TextStyle(
-                                                fontSize: 20,
+                                                fontSize: 18,
                                                 color: (index % 2 == 0)
                                                     ? Color(0xff2a2d3f)
                                                     : Colors.white),
@@ -200,9 +200,48 @@ class _MainPageState extends State<MainPage> {
         },
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
           selectedItemColor: Colors.black,
-          onTap: ,
-          items: []),
+          onTap: (index){
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.panorama_horizontal),
+              title: Container(
+                height: 0.0,
+              )
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.bookmark_border),
+                title: Container(
+                  height: 0.0,
+                )
+            ),
+          ]),
+      floatingActionButton: Container(
+        width: 65,
+        height: 65,
+        decoration: BoxDecoration(
+          color: Color(0xfffa7b58),
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xfff78a6c).withOpacity(0.6),
+              offset: Offset(0.0, 10.0),
+              blurRadius: 10.0
+            )
+          ]
+        ),
+        child: RawMaterialButton(onPressed: (){},
+        shape: CircleBorder(),
+        child: Icon(Icons.add,
+        size: 35,
+        color: Colors.white,),),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
