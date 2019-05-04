@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/funiture_app_study/main_page.dart';
 
 import 'package:flutter_notebook/pizza_app_study/main_page.dart';
 
@@ -32,7 +33,7 @@ void main(){
 //
   
 //  runApp(ElementsApp(gridList));
-  runApp(PizzaAppClone());
+  runApp(FunitureAppStudy());
 
 //  runApp(BasicForBasic());
 }
