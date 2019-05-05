@@ -31,6 +31,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
+  
   runApp(Provider<AppStateModel>(
     builder: (context) => AppStateModel()..loadProducts(),
     child: CupertinoStoreApp(),
