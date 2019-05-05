@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_notebook/cupertino_store_app/ui/product_list_tab.dart';
-import 'package:flutter_notebook/cupertino_store_app/ui/search_tab.dart';
-import 'package:flutter_notebook/cupertino_store_app/ui/shopping_cart_tab.dart';
+import 'package:flutter_notebook/cupertino_store_app/ui/tabs/product_list_tab.dart';
+import 'package:flutter_notebook/cupertino_store_app/ui/tabs/search_tab.dart';
+import 'package:flutter_notebook/cupertino_store_app/ui/tabs/shopping_cart_tab.dart';
 
 class CupertinoStoreApp extends StatelessWidget {
   @override
