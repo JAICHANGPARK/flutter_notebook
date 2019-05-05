@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_notebook/cupertino_store_app/app.dart';
+import 'package:flutter_notebook/cupertino_store_app/model/app_state_model.dart';
 import 'package:flutter_notebook/funiture_app_study/main_page.dart';
 
 import 'package:flutter_notebook/pizza_app_study/main_page.dart';
@@ -11,8 +12,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter_notebook/currence_ui/main_page.dart';
 import 'package:flutter_notebook/model/coin_market.dart';
-
-
+import 'package:provider/provider.dart';
 
 //void main() => runApp(
 //  BlocProvider<TabBloc>(
@@ -21,7 +21,7 @@ import 'package:flutter_notebook/model/coin_market.dart';
 //  )
 //);
 
-void main(){
+void main() {
 //  getPlaces(33.9850, -118.4695);
 //  final gridList = rootBundle.loadString('assets/elements/elementsGrid.json')
 //  .then((source)=> jsonDecode(source)['elements'] as List)
@@ -31,7 +31,10 @@ void main(){
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(CupertinoStoreApp());
+  runApp(Provider<AppStateModel>(
+    builder: (context) => AppStateModel()..loadProducts(),
+    child: CupertinoStoreApp(),
+  ));
 
 //  runApp(BasicForBasic());
 }
@@ -109,30 +112,26 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text('Coin Tracker'),
           actions: <Widget>[
             IconButton(
-              icon: Icon(Icons.refresh,
+              icon: Icon(
+                Icons.refresh,
               ),
               onPressed: refreshListCoin,
             )
           ],
         ),
         drawer: Drawer(
-          
           child: ListView(
             children: <Widget>[
               UserAccountsDrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Colors.red
-                  ),
+                  decoration: BoxDecoration(color: Colors.red),
                   accountName: Text("Dreamwalker"),
                   accountEmail: Text("aristojeff@gmail.com")),
-
               ListTile(
                 leading: Icon(Icons.monetization_on),
                 title: Text("Currence"),
-                onTap: (){
-                  Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context)=>CurrencyAppPage())
-                  );
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => CurrencyAppPage()));
                 },
               )
             ],
@@ -149,8 +148,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       return ListView(
                           children: coins
                               .map((coin) => Padding(
-                            padding: EdgeInsets.all(16.0),
-                                      child: Column(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: <Widget>[
                                       Row(

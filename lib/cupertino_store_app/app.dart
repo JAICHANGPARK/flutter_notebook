@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_notebook/cupertino_store_app/ui/product_list_tab.dart';
+import 'package:flutter_notebook/cupertino_store_app/ui/search_tab.dart';
 
 class CupertinoStoreApp extends StatelessWidget {
   @override
@@ -33,9 +35,7 @@ class CupertinoStoreHomePage extends StatelessWidget {
             return CupertinoTabView(
               builder: (context) {
                 return CupertinoPageScaffold(
-                  child: Center(
-                    child: Text("Product"),
-                  ),
+                  child: ProductListTab(),
                 );
               },
             );
@@ -44,9 +44,7 @@ class CupertinoStoreHomePage extends StatelessWidget {
             return CupertinoTabView(
               builder: (context) {
                 return CupertinoPageScaffold(
-                  child: Center(
-                    child: Text("Search"),
-                  ),
+                  child: SearchTab()
                 );
               },
             );
