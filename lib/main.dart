@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/cupertino_store_app/app.dart';
 import 'package:flutter_notebook/funiture_app_study/main_page.dart';
 
 import 'package:flutter_notebook/pizza_app_study/main_page.dart';
@@ -22,18 +23,15 @@ import 'package:flutter_notebook/model/coin_market.dart';
 
 void main(){
 //  getPlaces(33.9850, -118.4695);
+//  final gridList = rootBundle.loadString('assets/elements/elementsGrid.json')
+//  .then((source)=> jsonDecode(source)['elements'] as List)
+//  .then((list)=> list.map((json) => json != null ? ElementData.fromJson(json) : null).toList());
+//  runApp(ElementsApp(gridList));
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  
-//  final gridList = rootBundle.loadString('assets/elements/elementsGrid.json')
-//  .then((source)=> jsonDecode(source)['elements'] as List)
-//  .then((list)=> list.map((json) => json != null ? ElementData.fromJson(json) : null).toList());
-//
-  
-//  runApp(ElementsApp(gridList));
-  runApp(FunitureAppStudy());
+  runApp(CupertinoStoreApp());
 
 //  runApp(BasicForBasic());
 }
