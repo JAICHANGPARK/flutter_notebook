@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_notebook/cupertino_store_app/model/app_state_model.dart';
+import 'package:flutter_notebook/cupertino_store_app/styles/app_styles.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class ShoppingCartTab extends StatefulWidget {
@@ -86,6 +88,50 @@ class _ShoppingCartTabState extends State<ShoppingCartTab> {
     );
   }
 
+  Widget _buildDateAndTimePicker(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Icon(
+                  CupertinoIcons.clock,
+                  color: CupertinoColors.lightBackgroundGray,
+                  size: 28,
+                ),
+                SizedBox(
+                  width: 6,
+                ),
+                Text(
+                  'Delivery Time',
+                  style: Styles.deliveryTimeLabel,
+                )
+              ],
+            ),
+            Text(
+              DateFormat.yMMMd().add_jm().format(dateTime),
+              style: Styles.deliveryTime,
+            )
+          ],
+        ),
+        Container(
+          height: 216,
+          child: CupertinoDatePicker(
+              mode: CupertinoDatePickerMode.dateAndTime,
+              initialDateTime: dateTime,
+              onDateTimeChanged: (newDateTime) {
+                setState(() {
+                  dateTime = newDateTime;
+                });
+              }),
+        )
+      ],
+    );
+  }
+
   SliverChildBuilderDelegate _buildSliverChildBuilderDelegate(
       AppStateModel model) {
     return SliverChildBuilderDelegate((context, index) {
@@ -105,12 +151,16 @@ class _ShoppingCartTabState extends State<ShoppingCartTab> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: _buildLocationField(),
           );
+        case 3:
+          return Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+            child: _buildDateAndTimePicker(context),
+          );
         default:
       }
       return null;
     });
   }
-  
 
   @override
   Widget build(BuildContext context) {
