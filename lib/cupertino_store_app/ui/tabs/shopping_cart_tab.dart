@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_notebook/cupertino_store_app/model/app_state_model.dart';
 import 'package:flutter_notebook/cupertino_store_app/styles/app_styles.dart';
+import 'package:flutter_notebook/cupertino_store_app/ui/widgets/shopping_cart_item.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -15,6 +16,7 @@ class _ShoppingCartTabState extends State<ShoppingCartTab> {
   String location;
   String pin;
   DateTime dateTime = DateTime.now();
+  final _currencyFormat = NumberFormat.currency(symbol: '\$');
 
   Widget _buildNameField() {
     return CupertinoTextField(
@@ -135,6 +137,7 @@ class _ShoppingCartTabState extends State<ShoppingCartTab> {
   SliverChildBuilderDelegate _buildSliverChildBuilderDelegate(
       AppStateModel model) {
     return SliverChildBuilderDelegate((context, index) {
+      final productIndex = index - 4;
       switch (index) {
         case 0:
           return Padding(
@@ -157,6 +160,46 @@ class _ShoppingCartTabState extends State<ShoppingCartTab> {
             child: _buildDateAndTimePicker(context),
           );
         default:
+          if (model.productsInCart.length > productIndex) {
+            return ShoppingCartItem(
+              index: index,
+              product: model.getProductById(
+                  model.productsInCart.keys.toList()[productIndex]),
+              quantity: model.productsInCart.values.toList()[productIndex],
+              lastItem: productIndex == model.productsInCart.length - 1,
+              formatter: _currencyFormat,
+            );
+          } else if (model.productsInCart.keys.length == productIndex &&
+              model.productsInCart.isNotEmpty) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      Text(
+                        'Shipping'
+                        '${_currencyFormat.format(model.shippingCost)}',
+                        style: Styles.productRowItemPrice,
+                      ),
+                      SizedBox(height: 6,),
+                      Text(
+                        'Tax ${_currencyFormat.format(model.tax)}',
+                        style: Styles.productRowItemPrice,
+                      ),
+                      SizedBox(height: 6,),
+                      Text(
+                        'Total ${_currencyFormat.format(model.totalCost)}',
+                        style: Styles.productRowTotal,
+                      )
+                    ],
+                  )
+                ],
+              ),
+            );
+          }
       }
       return null;
     });
