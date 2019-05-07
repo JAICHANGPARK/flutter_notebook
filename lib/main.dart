@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_notebook/cupertino_store_app/app.dart';
 import 'package:flutter_notebook/cupertino_store_app/model/app_state_model.dart';
 import 'package:flutter_notebook/funiture_app_study/main_page.dart';
+import 'package:flutter_notebook/nart_app/main_page.dart';
 
 import 'package:flutter_notebook/pizza_app_study/main_page.dart';
 
@@ -32,11 +33,11 @@ void main() {
     DeviceOrientation.portraitUp,
   ]);
   
-  runApp(Provider<AppStateModel>(
-    builder: (context) => AppStateModel()..loadProducts(),
-    child: CupertinoStoreApp(),
-  ));
-
+//  runApp(Provider<AppStateModel>(
+//    builder: (context) => AppStateModel()..loadProducts(),
+//    child: CupertinoStoreApp(),
+//  ));
+  runApp(NartApp());
 //  runApp(BasicForBasic());
 }
 //void main() => runApp(MyApp());
