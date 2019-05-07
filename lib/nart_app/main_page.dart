@@ -21,8 +21,8 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(
-      fit: StackFit.expand,
-      children: <Widget>[
+        fit: StackFit.expand,
+        children: <Widget>[
         Positioned(
           top: 0,
           left: 0,
@@ -70,25 +70,26 @@ class _MainPageState extends State<MainPage> {
             child: Center(
               child: Hero(
                 tag: "nart_start",
-                child: InkWell(
-                  onTap: (){
-                    Navigator.push(context,
-                    MaterialPageRoute(builder: (_)=>NartHomePage())
-                    );
-                  },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width - 60,
-                    height: 60,
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(30)),
-                    child: Center(
-                      child: Text(
-                        "START",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontFamily: 'Montserrat'),
+                child: Material(
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => NartHomes()));
+                    },
+                    child: Container(
+                      width: MediaQuery.of(context).size.width - 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(30)),
+                      child: Center(
+                        child: Text(
+                          "START",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontFamily: 'Montserrat'),
+                        ),
                       ),
                     ),
                   ),

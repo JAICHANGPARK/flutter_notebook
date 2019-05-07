@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+class NartHomes extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: NartHomePage(),
+    );
+  }
+}
 
 class NartHomePage extends StatefulWidget {
   @override
@@ -123,28 +131,34 @@ class _HomePageState extends State<NartHomePage> {
                   ),
                   Hero(
                     tag: "nart_start",
-                    child: InkWell(
-                      child: Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 16),
-                        height: 60,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                            color: Colors.black,
-                            borderRadius: BorderRadius.circular(30),
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.black12,
-                                  spreadRadius: 1.2,
-                                  blurRadius: 2,
-                                  offset: Offset(0.0, 1.0))
-                            ]),
-                        child: Center(
-                          child: Text(
-                            "I'M A MEMBER",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontFamily: 'Montserrat'),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 16, right: 16),
+                      child: Material(
+                        borderRadius: BorderRadius.circular(30),
+                        child: InkWell(
+                          child: Container(
+
+                            width: MediaQuery.of(context).size.width,
+                            height: 60,
+                            decoration: BoxDecoration(
+                                color: Colors.black,
+                                borderRadius: BorderRadius.circular(30),
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Colors.black12,
+                                      spreadRadius: 1.2,
+                                      blurRadius: 2,
+                                      offset: Offset(0.0, 1.0))
+                                ]),
+                            child: Center(
+                              child: Text(
+                                "I'M A MEMBER",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontFamily: 'Montserrat'),
+                              ),
+                            ),
                           ),
                         ),
                       ),
