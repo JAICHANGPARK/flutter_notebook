@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/nart_app/lobby_pagew.dart';
 class NartHomes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -136,6 +137,10 @@ class _HomePageState extends State<NartHomePage> {
                       child: Material(
                         borderRadius: BorderRadius.circular(30),
                         child: InkWell(
+                          onTap: (){
+                            Navigator.push(context,
+                            MaterialPageRoute(builder: (context)=>LobbyPage()));
+                          },
                           child: Container(
 
                             width: MediaQuery.of(context).size.width,
