@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/nart_app/illustration_page.dart';
 import 'package:flutter_notebook/nart_app/model/art.dart';
 
 class LobbyPage extends StatefulWidget {
@@ -110,75 +111,84 @@ class _LobbyPageState extends State<LobbyPage> {
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 380,
-                          width: 210,
-                          decoration: BoxDecoration(
-                              color: Colors.red,
-                              borderRadius: BorderRadius.circular(16)),
-                          child: Stack(
-                            children: <Widget>[
-                              Positioned(
-                                top: 0,
-                                left: 0,
-                                right: 0,
-                                child: Container(
-                                  height: 250,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(16),
-                                        topLeft: Radius.circular(16)),
-                                    image: DecorationImage(
-                                        image: NetworkImage(
-                                            artItems[index].imgPath),
-                                        fit: BoxFit.cover),
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                left: 0,
-                                bottom: 0,
-                                right: 0,
-                                child: Container(
-                                  height: 120,
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
+                        child: InkWell(
+                          onTap: (){
+                            if(index == 2){
+                              Navigator.push(context, MaterialPageRoute(builder:
+                              (context)=> IllustrationPage()));
+                            }
+                          },
+
+                          child: Container(
+                            height: 380,
+                            width: 210,
+                            decoration: BoxDecoration(
+                                color: Colors.red,
+                                borderRadius: BorderRadius.circular(16)),
+                            child: Stack(
+                              children: <Widget>[
+                                Positioned(
+                                  top: 0,
+                                  left: 0,
+                                  right: 0,
+                                  child: Container(
+                                    height: 250,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
                                       borderRadius: BorderRadius.only(
-                                          bottomLeft: Radius.circular(16),
-                                          bottomRight: Radius.circular(16)),
-                                      color: Colors.black),
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 24),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(
-                                          artItems[index].title,
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 24),
-                                        ),
-                                        SizedBox(
-                                          height: 8,
-                                        ),
-                                        Text(
-                                          artItems[index].subTitle,
-                                          style: TextStyle(
-                                              color:
-                                                  Colors.white.withOpacity(0.7),
-                                              fontSize: 14),
-                                        )
-                                      ],
+                                          topRight: Radius.circular(16),
+                                          topLeft: Radius.circular(16)),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                              artItems[index].imgPath),
+                                          fit: BoxFit.cover),
                                     ),
                                   ),
                                 ),
-                              )
-                            ],
+                                Positioned(
+                                  left: 0,
+                                  bottom: 0,
+                                  right: 0,
+                                  child: Container(
+                                    height: 120,
+                                    width: double.infinity,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                            bottomLeft: Radius.circular(16),
+                                            bottomRight: Radius.circular(16)),
+                                        color: Colors.black),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 24),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            artItems[index].title,
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 24),
+                                          ),
+                                          SizedBox(
+                                            height: 8,
+                                          ),
+                                          Text(
+                                            artItems[index].subTitle,
+                                            style: TextStyle(
+                                                color:
+                                                    Colors.white.withOpacity(0.7),
+                                                fontSize: 14),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       );
