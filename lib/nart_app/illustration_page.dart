@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/nart_app/illustration_detail.dart';
 import 'package:flutter_notebook/nart_app/model/artist.dart';
 
 class IllustrationPage extends StatefulWidget {
@@ -80,57 +81,63 @@ class _IllustrationPageState extends State<IllustrationPage> {
                 child: ListView.builder(
                     itemCount: partnersLists.length,
                     itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: 240,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(17),
-                            color: Colors.blue,
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.black12,
-                                  spreadRadius: 3,
-                                  blurRadius: 3,
-                                  offset: Offset(0, 5))
-                            ],
-                          ),
-                          child: Stack(
-                            fit: StackFit.expand,
-                            children: <Widget>[
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(17),
-                                child: Image.network(
-                                  partnersLists[index].imgPath,
-                                  fit: BoxFit.cover,
-                                  color: Colors.black.withOpacity(0.3),
-                                  colorBlendMode: BlendMode.darken,
+                      return InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                          IllustrationDetailPage()));
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 240,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17),
+                              color: Colors.blue,
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.black12,
+                                    spreadRadius: 3,
+                                    blurRadius: 3,
+                                    offset: Offset(0, 5))
+                              ],
+                            ),
+                            child: Stack(
+                              fit: StackFit.expand,
+                              children: <Widget>[
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(17),
+                                  child: Image.network(
+                                    partnersLists[index].imgPath,
+                                    fit: BoxFit.cover,
+                                    color: Colors.black.withOpacity(0.3),
+                                    colorBlendMode: BlendMode.darken,
+                                  ),
                                 ),
-                              ),
-                              Positioned(
-                                left: 24,
-                                bottom: 24,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text(partnersLists[index].title,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold
-                                    ),),
-                                    Text(partnersLists[index].subTitle,
+                                Positioned(
+                                  left: 24,
+                                  bottom: 24,
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: <Widget>[
+                                      Text(partnersLists[index].title,
                                       style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w600
+                                        color: Colors.white,
+                                        fontSize: 24,
+                                        fontWeight: FontWeight.bold
                                       ),),
+                                      Text(partnersLists[index].subTitle,
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w600
+                                        ),),
 
-                                  ],
-                                ),
-                              )
-                            ],
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       );
