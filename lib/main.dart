@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/bbc_channel_app/main_page.dart';
 import 'package:flutter_notebook/cupertino_store_app/app.dart';
 import 'package:flutter_notebook/cupertino_store_app/model/app_state_model.dart';
 import 'package:flutter_notebook/funiture_app_study/main_page.dart';
@@ -15,31 +16,31 @@ import 'package:flutter_notebook/currence_ui/main_page.dart';
 import 'package:flutter_notebook/model/coin_market.dart';
 import 'package:provider/provider.dart';
 
+
+void main() {
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitDown,
+    DeviceOrientation.portraitUp,
+  ]);
+  runApp(BBCChannelApp());
+}
+
 //void main() => runApp(
 //  BlocProvider<TabBloc>(
 //    bloc: TabBloc(),
 //    child: DroidKnightHomePage(),
 //  )
 //);
-
-void main() {
 //  getPlaces(33.9850, -118.4695);
 //  final gridList = rootBundle.loadString('assets/elements/elementsGrid.json')
 //  .then((source)=> jsonDecode(source)['elements'] as List)
 //  .then((list)=> list.map((json) => json != null ? ElementData.fromJson(json) : null).toList());
 //  runApp(ElementsApp(gridList));
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitDown,
-    DeviceOrientation.portraitUp,
-  ]);
-  
 //  runApp(Provider<AppStateModel>(
 //    builder: (context) => AppStateModel()..loadProducts(),
 //    child: CupertinoStoreApp(),
 //  ));
-  runApp(NartApp());
 //  runApp(BasicForBasic());
-}
 //void main() => runApp(MyApp());
 //void main() => runApp(CupertinoAlertDemo());
 //void main() => runApp(MyAppPlanet());
