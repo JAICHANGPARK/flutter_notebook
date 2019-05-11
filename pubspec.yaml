@@ -42,12 +42,12 @@ dependencies:
   webfeed: ^0.4.2
   url_launcher:
 
-  firebase_core: 0.3.1+1
-  firebase_ml_vision:
-  firebase_storage: any
-  firebase_database: any
-  firebase_auth: any
-  google_sign_in: any
+#  firebase_core: 0.3.1+1
+#  firebase_ml_vision:
+#  firebase_storage: any
+#  firebase_database: any
+#  firebase_auth: any
+#  google_sign_in: any
 
 #  flare_flutter: any
 #  flare_dart: any
@@ -70,6 +70,7 @@ dependencies:
   rect_getter: ^0.0.1
   gradient_text: ^1.0.2
   flutter_statusbarcolor: any
+  carousel_slider: ^1.3.0
 
 
 dev_dependencies:
