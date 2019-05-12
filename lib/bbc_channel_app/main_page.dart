@@ -3,6 +3,33 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_notebook/bbc_channel_app/model/features.dart';
 import 'package:flutter_notebook/bbc_channel_app/model/lobby.dart';
 
+enum MenuState { open, close }
+
+class MenuController extends ChangeNotifier {
+  MenuState state = MenuState.close;
+  double percentOpen = 0.0;
+
+  open() {
+    state = MenuState.open;
+    percentOpen = 1.0;
+    notifyListeners();
+  }
+
+  close() {
+    state = MenuState.close;
+    percentOpen = 0.0;
+    notifyListeners();
+  }
+
+  toggle() {
+    if (state == MenuState.open) {
+      close();
+    } else if (state == MenuState.close) {
+      open();
+    }
+  }
+}
+
 class BBCChannelApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -13,9 +40,13 @@ class BBCChannelApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  Widget homeContents(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -59,7 +90,7 @@ class HomePage extends StatelessWidget {
                         margin: const EdgeInsets.symmetric(horizontal: 6),
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(8),
                             color: Colors.red,
                             image: DecorationImage(
                                 image: NetworkImage(lobby.imgPath),
@@ -74,7 +105,6 @@ class HomePage extends StatelessWidget {
                                 height: 60,
                                 width: double.infinity,
                                 decoration: BoxDecoration(
-                                  
                                     color: Colors.black.withOpacity(0.4)),
                                 child: Center(
                                   child: Row(
@@ -154,25 +184,28 @@ class HomePage extends StatelessWidget {
             Container(
               height: 240,
               width: MediaQuery.of(context).size.width,
-              child:ListView.builder(
-                scrollDirection: Axis.horizontal,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
                   itemCount: featuredLists.length,
-                  itemBuilder: (context, index){
+                  itemBuilder: (context, index) {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(left: 24, top: 16,),
+                          padding: const EdgeInsets.only(
+                            left: 24,
+                            top: 16,
+                          ),
                           child: Container(
                             height: 120,
                             width: 240,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(17),
-                              color: Colors.red,
-                              image: DecorationImage(image:
-                              NetworkImage(featuredLists[index].imgPath),
-                              fit: BoxFit.cover)
-                            ),
+                                borderRadius: BorderRadius.circular(17),
+                                color: Colors.red,
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        featuredLists[index].imgPath),
+                                    fit: BoxFit.cover)),
                           ),
                         ),
                         SizedBox(
@@ -180,12 +213,14 @@ class HomePage extends StatelessWidget {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 32),
-                          child: Text(featuredLists[index].title,
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                          ),),
+                          child: Text(
+                            featuredLists[index].title,
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                            ),
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 32),
@@ -194,37 +229,100 @@ class HomePage extends StatelessWidget {
                               Text(
                                 featuredLists[index].channel,
                                 style: TextStyle(
-                                  color: Colors.white.withOpacity(0.5),
-                                  fontSize: 16
-                                ),
+                                    color: Colors.white.withOpacity(0.5),
+                                    fontSize: 16),
                               ),
                               Text(
                                 featuredLists[index].ep,
-                                style: TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 16
-                                ),
+                                style:
+                                    TextStyle(color: Colors.red, fontSize: 16),
                               )
                             ],
                           ),
                         )
                       ],
                     );
-              }),
+                  }),
             )
-            
           ],
         ),
       ),
     );
   }
+
+  @override
+  Widget build(BuildContext context) {
+    return MenuPage();
+  }
 }
 
+class MenuPage extends StatefulWidget {
+  @override
+  _MenuPageState createState() => _MenuPageState();
+}
 
-
-
-
-
+class _MenuPageState extends State<MenuPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.red,
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        elevation: 0.0,
+        actions: <Widget>[],
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(right: 4),
+              child: Container(
+                height: 26,
+                width: 26,
+                color: Colors.white,
+                child: Text("B", style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 24
+                ),
+                textAlign: TextAlign.center,),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 4),
+              child: Container(
+                height: 26,
+                width: 26,
+                color: Colors.white,
+                child: Text("B", style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 24
+                ),
+                  textAlign: TextAlign.center,),
+              ),
+            ),
+            Container(
+              height: 26,
+              width: 26,
+              color: Colors.white,
+              child: Text("C", style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 24
+              ),
+                textAlign: TextAlign.center,),
+            )
+          ],
+        ),
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_forward,
+              color: Colors.white,
+            ),
+            onPressed: () {}),
+      ),
+      body: ,
+    );
+  }
+}
 
 
 
