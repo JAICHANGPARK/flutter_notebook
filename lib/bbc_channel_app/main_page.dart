@@ -22,6 +22,7 @@ class MenuController extends ChangeNotifier {
   }
 
   toggle() {
+    print(state);
     if (state == MenuState.open) {
       close();
     } else if (state == MenuState.close) {
@@ -46,7 +47,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Widget homeContents(BuildContext context) {
+  MenuController menuController;
+
+  Widget homeContents(BuildContext context, MenuController controller) {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -57,7 +60,13 @@ class _HomePageState extends State<HomePage> {
           fit: BoxFit.fitWidth,
         ),
         centerTitle: true,
-        leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
+        leading: IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () {
+              setState(() {
+                controller.toggle();
+              });
+            }),
         actions: <Widget>[
           IconButton(
             icon: Icon(
@@ -250,15 +259,15 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  MenuController menuController;
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     menuController = MenuController()
       ..addListener(() {
-        setState(() {});
+        setState(() {
+          print(menuController.state);
+        });
       });
   }
 
@@ -269,16 +278,30 @@ class _HomePageState extends State<HomePage> {
   }
 
   zoomedSlideContent(Widget _widget) {
+    var slidePercent, scalePercent;
+    switch (menuController.state) {
+      case MenuState.open:
+        slidePercent = 1.0;
+        scalePercent = 1.0;
+        break;
+      case MenuState.close:
+        slidePercent = 0.0;
+        scalePercent = 0.0;
+        break;
+    }
+    final slideAmount = 275 * slidePercent;
+    final contentScale = 1.0 - (0.3 * scalePercent);
     return Transform(
-      transform: Matrix4.translationValues(275, 0, 0)..scale(0.6, 0.7),
+      transform: Matrix4.translationValues(slideAmount, 0, 0)
+        ..scale(contentScale, contentScale),
       alignment: Alignment.centerLeft,
       child: Container(
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(
               color: Colors.black,
-              offset: Offset(-5, 0.0),
-              blurRadius: 20,
-              spreadRadius: 10.0)
+              offset: Offset(-10, 0.0),
+              blurRadius: 50,
+              spreadRadius: 5.0)
         ]),
         child: _widget,
       ),
@@ -290,7 +313,7 @@ class _HomePageState extends State<HomePage> {
     return Stack(
       children: <Widget>[
         MenuPage(),
-        zoomedSlideContent(homeContents(context)),
+        zoomedSlideContent(homeContents(context, menuController)),
       ],
     );
   }
