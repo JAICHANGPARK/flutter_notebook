@@ -250,9 +250,49 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  MenuController menuController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    menuController = MenuController()
+      ..addListener(() {
+        setState(() {});
+      });
+  }
+
+  @override
+  void dispose() {
+    menuController.dispose();
+    super.dispose();
+  }
+
+  zoomedSlideContent(Widget _widget) {
+    return Transform(
+      transform: Matrix4.translationValues(275, 0, 0)..scale(0.6, 0.7),
+      alignment: Alignment.centerLeft,
+      child: Container(
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+              color: Colors.black,
+              offset: Offset(-5, 0.0),
+              blurRadius: 20,
+              spreadRadius: 10.0)
+        ]),
+        child: _widget,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MenuPage();
+    return Stack(
+      children: <Widget>[
+        MenuPage(),
+        zoomedSlideContent(homeContents(context)),
+      ],
+    );
   }
 }
 
@@ -265,9 +305,9 @@ class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Color(0xff8F0302),
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xff8F0302),
         elevation: 0.0,
         actions: <Widget>[],
         title: Row(
@@ -280,11 +320,11 @@ class _MenuPageState extends State<MenuPage> {
                 height: 26,
                 width: 26,
                 color: Colors.white,
-                child: Text("B", style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 24
+                child: Text(
+                  "B",
+                  style: TextStyle(color: Colors.red, fontSize: 24),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,),
               ),
             ),
             Padding(
@@ -293,22 +333,22 @@ class _MenuPageState extends State<MenuPage> {
                 height: 26,
                 width: 26,
                 color: Colors.white,
-                child: Text("B", style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 24
+                child: Text(
+                  "B",
+                  style: TextStyle(color: Colors.red, fontSize: 24),
+                  textAlign: TextAlign.center,
                 ),
-                  textAlign: TextAlign.center,),
               ),
             ),
             Container(
               height: 26,
               width: 26,
               color: Colors.white,
-              child: Text("C", style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 24
+              child: Text(
+                "C",
+                style: TextStyle(color: Colors.red, fontSize: 24),
+                textAlign: TextAlign.center,
               ),
-                textAlign: TextAlign.center,),
             )
           ],
         ),
@@ -319,19 +359,210 @@ class _MenuPageState extends State<MenuPage> {
             ),
             onPressed: () {}),
       ),
-      body: ,
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Stack(
+          children: <Widget>[
+            Transform(
+              transform: Matrix4.translationValues(0.0, 80.0, 0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    height: 60,
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: 5,
+                          color: Colors.black,
+                        ),
+                        SizedBox(
+                          width: 32,
+                        ),
+                        Text(
+                          "Home",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 26,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Container(
+                    height: 60,
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: 5,
+                          color: Colors.transparent,
+                        ),
+                        SizedBox(
+                          width: 32,
+                        ),
+                        Text(
+                          "Channels",
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 26,
+                              fontWeight: FontWeight.w300),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Container(
+                    height: 60,
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: 5,
+                          color: Colors.transparent,
+                        ),
+                        SizedBox(
+                          width: 32,
+                        ),
+                        Text(
+                          "Categories",
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 26,
+                              fontWeight: FontWeight.w300),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Container(
+                    height: 60,
+                    width: MediaQuery.of(context).size.width / 2,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: 5,
+                          color: Colors.transparent,
+                        ),
+                        SizedBox(
+                          width: 32,
+                        ),
+                        Text(
+                          "TV Guide",
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 26,
+                              fontWeight: FontWeight.w300),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Container(
+                    height: 60,
+                    width: MediaQuery.of(context).size.width / 1.5,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: 5,
+                          color: Colors.transparent,
+                        ),
+                        SizedBox(
+                          width: 32,
+                        ),
+                        Text(
+                          "My Programmes",
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 26,
+                              fontWeight: FontWeight.w300),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Positioned(
+              bottom: 24,
+              left: 32,
+              right: 32,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    height: 40,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        border: Border.all(color: Colors.white)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(
+                          Icons.settings,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        Text(
+                          "Setting",
+                          style: TextStyle(color: Colors.white),
+                        )
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Text(
+                            "Customer Service",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(top: 8),
+                        height: 0.5,
+                        width: 120,
+                        color: Colors.white,
+                      )
+                    ],
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
