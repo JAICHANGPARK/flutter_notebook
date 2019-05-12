@@ -1,56 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
-class Lobby {
-  String imgPath;
-  String time;
-
-  Lobby({this.imgPath, this.time});
-}
-
-class Featured {
-  String imgPath;
-  String title;
-  String channel;
-  String ep;
-
-  Featured({this.imgPath, this.title, this.channel, this.ep});
-}
-
-var mainList = [
-  Lobby(
-      imgPath: "https://ichef.bbci.co.uk/images/ic/1536x864/p0779sm0.jpg",
-      time: "1 hour before live"),
-  Lobby(
-      imgPath: "https://ichef.bbci.co.uk/images/ic/1536x864/p078v8vy.jpg",
-      time: "1 hour before live"),
-  Lobby(
-      imgPath: "https://ichef.bbci.co.uk/images/ic/1536x864/p0761lhj.jpg",
-      time: "1 hour before live")
-];
-
-var featuredLists = [
-  Featured(
-      imgPath: "https://ichef.bbci.co.uk/images/ic/1536x864/p0779sm0.jpg",
-      title: "Line of Duty",
-      channel: "BBC One",
-      ep: "Series5: Episode 1"),
-  Featured(
-      imgPath: "https://ichef.bbci.co.uk/images/ic/1536x864/p0779sm0.jpg",
-      title: "Line of Duty",
-      channel: "BBC One",
-      ep: "Series5: Episode 1"),
-  Featured(
-      imgPath: "https://ichef.bbci.co.uk/images/ic/1536x864/p0779sm0.jpg",
-      title: "Line of Duty",
-      channel: "BBC One",
-      ep: "Series5: Episode 1"),
-  Featured(
-      imgPath: "https://ichef.bbci.co.uk/images/ic/1536x864/p0779sm0.jpg",
-      title: "Line of Duty",
-      channel: "BBC One",
-      ep: "Series5: Episode 1")
-];
+import 'package:flutter_notebook/bbc_channel_app/model/features.dart';
+import 'package:flutter_notebook/bbc_channel_app/model/lobby.dart';
 
 class BBCChannelApp extends StatelessWidget {
   @override
