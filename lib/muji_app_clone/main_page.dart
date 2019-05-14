@@ -3,6 +3,47 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 const Color MujiColor = Color(0xff7f0019);
 
+class TopItem{
+  String imgPath;
+  String title;
+  String times;
+  String likes;
+
+  TopItem({this.imgPath, this.title, this.times, this.likes});
+}
+List<TopItem> topLists = [
+  TopItem(imgPath: "https://www.muji.com/jp/img/panel/main/190510_t-shirt_pc.jpg",
+    title: "オーガニックコットン１００％",
+    times: "1 hours ago",
+    likes: "60"
+  ),
+  TopItem(imgPath: "https://www.muji.com/jp/img/store/panel/weeklymuji_640_190510.jpg",
+      title: "基本の、白いTシャツ",
+      times: "3 hours ago",
+      likes: "63"
+  ),
+  TopItem(imgPath: "https://www.muji.com/jp/img/store/panel/tax_640.png",
+      title: "無印良品はこれからも消費税込み価格をつづけます",
+      times: "1 hours ago",
+      likes: "60"
+  ),
+  TopItem(imgPath: "https://www.muji.com/jp/img/store/panel/curry_18ss_640.png",
+      title: "無印良品のカレーとは",
+      times: "1 hours ago",
+      likes: "60"
+  ),
+  TopItem(imgPath: "https://www.muji.com/img/flagship/ginza/ginza_main.jpg",
+      title: "「無印良品 銀座」は、東京・銀座の並木通りに位置する世界旗艦店。",
+      times: "1 hours ago",
+      likes: "60"
+  ),
+  TopItem(imgPath: "https://www.muji.com/jp/img/panel/main/190510_t-shirt_pc.jpg",
+      title: "オーガニックコットン１００％",
+      times: "1 hours ago",
+      likes: "60"
+  ),
+];
+
 class FlutterMujiApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -29,14 +70,8 @@ class _HomePageState extends State<HomePage>
     switch (index) {
       case 0:
         return Container(
-          height: MediaQuery
-              .of(context)
-              .size
-              .height,
-          width: MediaQuery
-              .of(context)
-              .size
-              .width,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: Column(
             children: <Widget>[
               Container(
@@ -84,14 +119,8 @@ class _HomePageState extends State<HomePage>
                 ),
               ),
               Container(
-                height: MediaQuery
-                    .of(context)
-                    .size
-                    .height * 0.8,
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width,
+                height: MediaQuery.of(context).size.height * 0.8,
+                width: MediaQuery.of(context).size.width,
                 child: TabBarView(
                   controller: _tabController,
                   children: <Widget>[
@@ -112,30 +141,88 @@ class _HomePageState extends State<HomePage>
                           );
                         },
                         staggeredTileBuilder: (index) =>
-
-                      StaggeredTile.count(2, index.isEven ? 2 : 1),
+                            StaggeredTile.count(2, index.isEven ? 2 : 1),
                         mainAxisSpacing: 4.0,
                         crossAxisSpacing: 4.0,
                       ),
                     ),
-                    StaggeredGridView.countBuilder(
-                      crossAxisCount: 4,
-                      itemCount: 8,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          color: MujiColor,
-                          child: Center(
-                            child: CircleAvatar(
-                              backgroundColor: Colors.white,
-                              child: Text('$index'),
-                            ),
-                          ),
-                        );
-                      },
-                      staggeredTileBuilder: (index) =>
-                          StaggeredTile.count(4, index.isEven ? 2 : 1),
-                      mainAxisSpacing: 4.0,
-                      crossAxisSpacing: 4.0,
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      child: StaggeredGridView.countBuilder(
+                        crossAxisCount: 4,
+                        itemCount: topLists.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: const EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+
+                                borderRadius: BorderRadius.circular(8),
+                                color: Colors.white,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black12,
+                                    blurRadius: 0.2,
+                                    spreadRadius: 1.5,
+                                    offset: Offset(0, 2)
+                                  )
+                                ]
+                              ),
+                              child: Column(
+                                children: <Widget>[
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(8),
+                                      topRight: Radius.circular(8)
+                                    ),
+                                    child: Image.network(topLists[index].imgPath,
+                                    fit: BoxFit.cover,
+                                    width: MediaQuery.of(context).size.width /2,
+                                    height: 200,),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(topLists[index].title,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16
+                                      ),
+                                    ),
+                                  ),
+                                  Divider(
+                                    color: Colors.black,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 8, right: 8,
+                                    bottom: 8),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Text(topLists[index].times),
+                                        Icon(Icons.favorite_border,
+                                        size: 16,),
+                                        Text(topLists[index].likes),
+                                        Expanded(
+                                          child: Container(),
+                                        ),
+                                        IconButton(
+                                          icon: Icon(Icons.favorite_border,
+                                          color: MujiColor,
+                                          size: 40,),
+                                          onPressed: (){},
+                                        )
+                                      ],
+                                    ),
+                                  )
+
+                                ],
+                              ));
+                        },
+                        staggeredTileBuilder: (index) =>
+                        StaggeredTile.fit(2),
+//                            StaggeredTile.count(2, 3.5),
+                        mainAxisSpacing: 16.0,
+                        crossAxisSpacing: 6.0,
+
+                      ),
                     ),
                     StaggeredGridView.countBuilder(
                       crossAxisCount: 4,
@@ -156,8 +243,6 @@ class _HomePageState extends State<HomePage>
                       mainAxisSpacing: 4.0,
                       crossAxisSpacing: 4.0,
                     ),
-
-
                   ],
                 ),
               )
@@ -168,14 +253,8 @@ class _HomePageState extends State<HomePage>
 
       case 1:
         return Container(
-          height: MediaQuery
-              .of(context)
-              .size
-              .height,
-          width: MediaQuery
-              .of(context)
-              .size
-              .width,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: Center(
             child: Text("Page1"),
           ),
@@ -183,14 +262,8 @@ class _HomePageState extends State<HomePage>
         break;
       case 2:
         return Container(
-          height: MediaQuery
-              .of(context)
-              .size
-              .height,
-          width: MediaQuery
-              .of(context)
-              .size
-              .width,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: Center(
             child: Text("Page 2"),
           ),
@@ -198,14 +271,8 @@ class _HomePageState extends State<HomePage>
         break;
       case 3:
         return Container(
-          height: MediaQuery
-              .of(context)
-              .size
-              .height,
-          width: MediaQuery
-              .of(context)
-              .size
-              .width,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: Center(
             child: Text("Page 3"),
           ),
@@ -213,14 +280,8 @@ class _HomePageState extends State<HomePage>
         break;
       case 4:
         return Container(
-          height: MediaQuery
-              .of(context)
-              .size
-              .height,
-          width: MediaQuery
-              .of(context)
-              .size
-              .width,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: Center(
             child: Text("Page 4"),
           ),
@@ -232,10 +293,7 @@ class _HomePageState extends State<HomePage>
   Widget _buildAppBar() {
     return Container(
       height: 80,
-      width: MediaQuery
-          .of(context)
-          .size
-          .width,
+      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: Color(0xfffafafa),
       ),
@@ -279,7 +337,7 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xffeeeeee),
       body: Stack(
         children: <Widget>[
           Positioned(
