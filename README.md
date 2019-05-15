@@ -23,6 +23,7 @@
 18. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/login_sample_app
 19. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/video_game_app
 20. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/starbucks_app
+21. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/muji_app_clone
 
 # Flutter Live Coding 
 
