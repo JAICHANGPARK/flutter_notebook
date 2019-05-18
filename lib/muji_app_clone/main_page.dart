@@ -3,7 +3,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 const Color MujiColor = Color(0xff7f0019);
 
-class TopItem{
+class TopItem {
   String imgPath;
   String title;
   String times;
@@ -11,37 +11,39 @@ class TopItem{
 
   TopItem({this.imgPath, this.title, this.times, this.likes});
 }
+
 List<TopItem> topLists = [
-  TopItem(imgPath: "https://www.muji.com/jp/img/panel/main/190510_t-shirt_pc.jpg",
-    title: "オーガニックコットン１００％",
-    times: "1 hours ago",
-    likes: "60"
-  ),
-  TopItem(imgPath: "https://www.muji.com/jp/img/store/panel/weeklymuji_640_190510.jpg",
-      title: "基本の、白いTシャツ",
-      times: "3 hours ago",
-      likes: "63"
-  ),
-  TopItem(imgPath: "https://www.muji.com/jp/img/store/panel/tax_640.png",
-      title: "無印良品はこれからも消費税込み価格をつづけます",
-      times: "1 hours ago",
-      likes: "60"
-  ),
-  TopItem(imgPath: "https://www.muji.com/jp/img/store/panel/curry_18ss_640.png",
-      title: "無印良品のカレーとは",
-      times: "1 hours ago",
-      likes: "60"
-  ),
-  TopItem(imgPath: "https://www.muji.com/img/flagship/ginza/ginza_main.jpg",
-      title: "「無印良品 銀座」は、東京・銀座の並木通りに位置する世界旗艦店。",
-      times: "1 hours ago",
-      likes: "60"
-  ),
-  TopItem(imgPath: "https://www.muji.com/jp/img/panel/main/190510_t-shirt_pc.jpg",
+  TopItem(
+      imgPath: "https://www.muji.com/jp/img/panel/main/190510_t-shirt_pc.jpg",
       title: "オーガニックコットン１００％",
       times: "1 hours ago",
-      likes: "60"
-  ),
+      likes: "60"),
+  TopItem(
+      imgPath:
+          "https://www.muji.com/jp/img/store/panel/weeklymuji_640_190510.jpg",
+      title: "基本の、白いTシャツ",
+      times: "3 hours ago",
+      likes: "63"),
+  TopItem(
+      imgPath: "https://www.muji.com/jp/img/store/panel/tax_640.png",
+      title: "無印良品はこれからも消費税込み価格をつづけます",
+      times: "1 hours ago",
+      likes: "60"),
+  TopItem(
+      imgPath: "https://www.muji.com/jp/img/store/panel/curry_18ss_640.png",
+      title: "無印良品のカレーとは",
+      times: "1 hours ago",
+      likes: "60"),
+  TopItem(
+      imgPath: "https://www.muji.com/img/flagship/ginza/ginza_main.jpg",
+      title: "「無印良品 銀座」は、東京・銀座の並木通りに位置する世界旗艦店。",
+      times: "1 hours ago",
+      likes: "60"),
+  TopItem(
+      imgPath: "https://www.muji.com/jp/img/panel/main/190510_t-shirt_pc.jpg",
+      title: "オーガニックコットン１００％",
+      times: "1 hours ago",
+      likes: "60"),
 ];
 
 class FlutterMujiApp extends StatelessWidget {
@@ -94,7 +96,6 @@ class _HomePageState extends State<HomePage>
                   controller: _tabController,
                   indicatorSize: TabBarIndicatorSize.label,
                   tabs: <Widget>[
-
                     Tab(
 //                  text: "Top",
                       child: Text(
@@ -102,7 +103,6 @@ class _HomePageState extends State<HomePage>
                         style: TextStyle(fontSize: 10),
                       ),
                     ),
-                    
                     Tab(
 //                  text: "Camp",
                       child: Text(
@@ -155,75 +155,75 @@ class _HomePageState extends State<HomePage>
                         itemCount: topLists.length,
                         itemBuilder: (context, index) {
                           return Container(
-                            margin: const EdgeInsets.all(4),
+                              margin: const EdgeInsets.all(4),
                               decoration: BoxDecoration(
-
-                                borderRadius: BorderRadius.circular(8),
-                                color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black12,
-                                    blurRadius: 0.2,
-                                    spreadRadius: 1.5,
-                                    offset: Offset(0, 2)
-                                  )
-                                ]
-                              ),
+                                  borderRadius: BorderRadius.circular(8),
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                        color: Colors.black12,
+                                        blurRadius: 0.2,
+                                        spreadRadius: 1.5,
+                                        offset: Offset(0, 2))
+                                  ]),
                               child: Column(
                                 children: <Widget>[
                                   ClipRRect(
                                     borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(8),
-                                      topRight: Radius.circular(8)
+                                        topLeft: Radius.circular(8),
+                                        topRight: Radius.circular(8)),
+                                    child: Image.network(
+                                      topLists[index].imgPath,
+                                      fit: BoxFit.cover,
+                                      width:
+                                          MediaQuery.of(context).size.width / 2,
+                                      height: 200,
                                     ),
-                                    child: Image.network(topLists[index].imgPath,
-                                    fit: BoxFit.cover,
-                                    width: MediaQuery.of(context).size.width /2,
-                                    height: 200,),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Text(topLists[index].title,
+                                    child: Text(
+                                      topLists[index].title,
                                       style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16
-                                      ),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16),
                                     ),
                                   ),
                                   Divider(
                                     color: Colors.black,
                                   ),
                                   Padding(
-                                    padding: const EdgeInsets.only(left: 8, right: 8,
-                                    bottom: 8),
+                                    padding: const EdgeInsets.only(
+                                        left: 8, right: 8, bottom: 8),
                                     child: Row(
                                       children: <Widget>[
                                         Text(topLists[index].times),
-                                        Icon(Icons.favorite_border,
-                                        size: 16,),
+                                        Icon(
+                                          Icons.favorite_border,
+                                          size: 16,
+                                        ),
                                         Text(topLists[index].likes),
                                         Expanded(
                                           child: Container(),
                                         ),
                                         IconButton(
-                                          icon: Icon(Icons.favorite_border,
-                                          color: MujiColor,
-                                          size: 40,),
-                                          onPressed: (){},
+                                          icon: Icon(
+                                            Icons.favorite_border,
+                                            color: MujiColor,
+                                            size: 40,
+                                          ),
+                                          onPressed: () {},
                                         )
                                       ],
                                     ),
                                   )
-
                                 ],
                               ));
                         },
-                        staggeredTileBuilder: (index) =>
-                        StaggeredTile.fit(2),
+                        staggeredTileBuilder: (index) => StaggeredTile.fit(2),
 //                            StaggeredTile.count(2, 3.5),
                         mainAxisSpacing: 16.0,
                         crossAxisSpacing: 6.0,
-
                       ),
                     ),
                     StaggeredGridView.countBuilder(
@@ -255,12 +255,85 @@ class _HomePageState extends State<HomePage>
 
       case 1:
         return Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Center(
-            child: Text("Page1"),
-          ),
-        );
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(),
+                  height: MediaQuery.of(context).size.height * 0.25,
+                  width: MediaQuery.of(context).size.width,
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(left: 8, right: 8, top: 8),
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.05,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              color: Colors.white70,
+                              borderRadius: BorderRadius.circular(4)),
+                          child: TextField(
+                            decoration: InputDecoration(
+                              prefixIcon: Icon(Icons.search),
+                              suffixIcon: Icon(Icons.code),
+                              hintText: "商品名、商品番号を入力",
+                            ),
+                          ),
+                        ),
+                      ),
+                      Divider(),
+                      Container(
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        width: double.infinity,
+                        child: Row(
+
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8,left: 16.0, right: 8),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    "お近くの店舗",
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  Text("Found MUJI 青山",
+                                  style: TextStyle(
+                                    fontSize: 20
+                                  ),)
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Container(),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(0,8,16,8),
+                              child: Align(
+
+                                alignment: Alignment.bottomCenter,
+                                child: Text("806m",
+                                style: TextStyle(
+                                  color: MujiColor,
+                                  fontSize: 34,
+                                  fontWeight: FontWeight.normal
+                                ),),
+                              ),
+                            ),
+                            
+                          ],
+                        ),
+                      ),
+                      Divider(),
+                    ],
+                  ),
+                )
+              ],
+            ));
         break;
       case 2:
         return Container(
