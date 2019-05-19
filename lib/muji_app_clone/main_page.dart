@@ -255,107 +255,114 @@ class _HomePageState extends State<HomePage>
         break;
       // Shopping
       case 1:
-        return Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              children: <Widget>[
-                Container(
-                  decoration: BoxDecoration(color: Colors.white70),
-                  height: MediaQuery.of(context).size.height * 0.28,
-                  width: MediaQuery.of(context).size.width,
-                  child: Column(
-                    children: <Widget>[
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(left: 8, right: 8, top: 8),
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.05,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                              color: Colors.white70,
-                              borderRadius: BorderRadius.circular(4)),
-                          child: TextField(
-                            decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.search),
-                              suffixIcon: Icon(Icons.code),
-                              hintText: "商品名、商品番号を入力",
+        return SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Container(
+              height: MediaQuery.of(context).size.height,
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    decoration: BoxDecoration(color: Colors.white70),
+                    height: MediaQuery.of(context).size.height * 0.28,
+                    width: MediaQuery.of(context).size.width,
+                    child: Column(
+                      children: <Widget>[
+                        Padding(
+                          padding:
+                              const EdgeInsets.only(left: 8, right: 8, top: 8),
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.05,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                                color: Colors.white70,
+                                borderRadius: BorderRadius.circular(4)),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                prefixIcon: Icon(Icons.search),
+                                suffixIcon: Icon(Icons.code),
+                                hintText: "商品名、商品番号を入力",
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Divider(),
-                      Container(
-                        decoration: BoxDecoration(color: Colors.white70),
-                        height: MediaQuery.of(context).size.height * 0.1,
-                        width: double.infinity,
-                        child: Row(
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  top: 8, left: 16.0, right: 8),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    "お近くの店舗",
-                                    style: TextStyle(
-                                      color: Colors.grey,
+                        Divider(),
+                        Container(
+                          decoration: BoxDecoration(),
+                          height: MediaQuery.of(context).size.height * 0.1,
+                          width: double.infinity,
+                          child: Row(
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 8, left: 16.0, right: 8),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      "お近くの店舗",
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    "Found MUJI 青山",
-                                    style: TextStyle(fontSize: 20),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(0, 8, 16, 8),
-                              child: Align(
-                                alignment: Alignment.bottomCenter,
-                                child: Text(
-                                  "806m",
-                                  style: TextStyle(
-                                      color: MujiColor,
-                                      fontSize: 34,
-                                      fontWeight: FontWeight.normal),
+                                    Text(
+                                      "Found MUJI 青山",
+                                      style: TextStyle(fontSize: 20),
+                                    )
+                                  ],
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Divider(),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                            "店舗を探す",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
+                              Expanded(
+                                child: Container(),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(0, 8, 16, 8),
+                                child: Align(
+                                  alignment: Alignment.bottomCenter,
+                                  child: Text(
+                                    "806m",
+                                    style: TextStyle(
+                                        color: MujiColor,
+                                        fontSize: 34,
+                                        fontWeight: FontWeight.normal),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          IconButton(
-                            icon: Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.grey,
-                            ),
-                            onPressed: () {},
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ));
+                        ),
+                        Divider(color: Colors.grey,),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text(
+                                "店舗を探す",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              IconButton(
+                                icon: Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: Colors.grey,
+                                  size: 16,
+                                ),
+                                onPressed: () {},
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              )),
+        );
         break;
       case 2:
         return Container(
