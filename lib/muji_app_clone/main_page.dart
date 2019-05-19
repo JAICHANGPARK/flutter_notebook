@@ -288,9 +288,7 @@ class _HomePageState extends State<HomePage>
                       ),
                       Divider(),
                       Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white
-                        ),
+                        decoration: BoxDecoration(color: Colors.white),
                         height: MediaQuery.of(context).size.height * 0.1,
                         width: double.infinity,
                         child: Row(
@@ -365,24 +363,25 @@ class _HomePageState extends State<HomePage>
                     ],
                   ),
                 ),
-                SizedBox(height: 16,),
+                SizedBox(
+                  height: 16,
+                ),
                 Container(
                   height: 140,
                   width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      color: Colors.white
-
-                  ),
+                  decoration: BoxDecoration(color: Colors.white),
                   child: Stack(
                     children: <Widget>[
                       Positioned(
-                        top: 50 ,
+                        top: 50,
                         left: 16,
-                        child: Text("新商品",style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold
-                        ),),
+                        child: Text(
+                          "新商品",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                       Positioned(
                         top: 8,
@@ -391,18 +390,213 @@ class _HomePageState extends State<HomePage>
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: <Widget>[
-                            Image.network("https://img.muji.net/img/item/4550002965730_01_180.jpg",
-                            fit: BoxFit.cover,),
-                            Image.network("https://img.muji.net/img/item/4550182213652_01_180.jpg",
-                            fit: BoxFit.cover,),
+                            Image.network(
+                              "https://img.muji.net/img/item/4550002965730_01_180.jpg",
+                              fit: BoxFit.cover,
+                            ),
+                            Image.network(
+                              "https://img.muji.net/img/item/4550182213652_01_180.jpg",
+                              fit: BoxFit.cover,
+                            ),
                           ],
                         ),
                       )
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: 8,
+                ),
+                Container(
+                  height: 140,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(color: Colors.white),
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned(
+                        top: 8,
+                        right: 8,
+                        bottom: 8,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: <Widget>[
+                            Image.network(
+                              "https://img.muji.net/img/item/4550002201661_180.jpg",
+                              fit: BoxFit.fitWidth,
+                              width: 80,
+                              height: 100,
+                            ),
+                            Image.network(
+                              "https://img.muji.net/img/item/4549738979159_180.jpg",
+                              fit: BoxFit.fitWidth,
+                              width: 80,
+                              height: 100,
+                            ),
+                            Image.network(
+                              "https://img.muji.net/img/item/4547315259625_180.jpg",
+                              fit: BoxFit.fitWidth,
+                              width: 80,
+                              height: 100,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: 50,
+                        left: 16,
+                        child: Text(
+                          "毎日使うものを便利に",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Positioned(
+                        top: 78,
+                        left: 32,
+                        child: Text(
+                          "ネットストア限定",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Positioned(
+                        top: 98,
+                        left: 32,
+                        child: Text(
+                          "配送料無料",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Container(
+                  height: 140,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(color: Colors.white),
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned(
+                        top: 8,
+                        right: 8,
+                        bottom: 8,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: <Widget>[
+                            Image.network(
+                              "https://img.muji.net/img/item/4550182046786_01_180.jpg",
+                              fit: BoxFit.fitWidth,
+                              width: 100,
+                              height: 100,
+                            ),
+                            Image.network(
+                              "https://img.muji.net/img/item/4550002992163_01_180.jpg",
+                              fit: BoxFit.fitWidth,
+                              width: 100,
+                              height: 100,
+                            ),
 
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: 50,
+                        left: 16,
+                        child: Text(
+                          "衣料品",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
 
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                Container(
+                  height: 140,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(color: Colors.white),
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned(
+                        top: 8,
+                        right: 8,
+                        bottom: 8,
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: <Widget>[
+                            Image.network(
+                              "https://img.muji.net/img/item/4550002201661_180.jpg",
+                              fit: BoxFit.fitWidth,
+                              width: 80,
+                              height: 100,
+                            ),
+                            Image.network(
+                              "https://img.muji.net/img/item/4549738979159_180.jpg",
+                              fit: BoxFit.fitWidth,
+                              width: 80,
+                              height: 100,
+                            ),
+                            Image.network(
+                              "https://img.muji.net/img/item/4547315259625_180.jpg",
+                              fit: BoxFit.fitWidth,
+                              width: 80,
+                              height: 100,
+                            ),
+                          ],
+                        ),
+                      ),
+                      Positioned(
+                        top: 50,
+                        left: 16,
+                        child: Text(
+                          "衣料品",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Positioned(
+                        top: 78,
+                        left: 32,
+                        child: Text(
+                          "ネットストア限定",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      Positioned(
+                        top: 98,
+                        left: 32,
+                        child: Text(
+                          "配送料無料",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ));
         break;
