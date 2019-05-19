@@ -331,11 +331,14 @@ class _HomePageState extends State<HomePage>
                             ],
                           ),
                         ),
-                        Divider(color: Colors.grey,),
+                        Divider(
+                          color: Colors.grey,
+                          height: 8,
+                        ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          padding: const EdgeInsets.only(left: 8, right: 8),
                           child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Text(
