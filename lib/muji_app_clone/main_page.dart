@@ -70,6 +70,7 @@ class _HomePageState extends State<HomePage>
 
   Widget _buildMainPageWidget(index) {
     switch (index) {
+      //From Muji
       case 0:
         return Container(
           height: MediaQuery.of(context).size.height,
@@ -252,7 +253,7 @@ class _HomePageState extends State<HomePage>
           ),
         );
         break;
-
+      // Shopping
       case 1:
         return Container(
             height: MediaQuery.of(context).size.height,
@@ -260,8 +261,8 @@ class _HomePageState extends State<HomePage>
             child: Column(
               children: <Widget>[
                 Container(
-                  decoration: BoxDecoration(),
-                  height: MediaQuery.of(context).size.height * 0.25,
+                  decoration: BoxDecoration(color: Colors.white70),
+                  height: MediaQuery.of(context).size.height * 0.28,
                   width: MediaQuery.of(context).size.width,
                   child: Column(
                     children: <Widget>[
@@ -285,13 +286,14 @@ class _HomePageState extends State<HomePage>
                       ),
                       Divider(),
                       Container(
+                        decoration: BoxDecoration(color: Colors.white70),
                         height: MediaQuery.of(context).size.height * 0.1,
                         width: double.infinity,
                         child: Row(
-
                           children: <Widget>[
                             Padding(
-                              padding: const EdgeInsets.only(top: 8,left: 16.0, right: 8),
+                              padding: const EdgeInsets.only(
+                                  top: 8, left: 16.0, right: 8),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
@@ -301,10 +303,10 @@ class _HomePageState extends State<HomePage>
                                       color: Colors.grey,
                                     ),
                                   ),
-                                  Text("Found MUJI 青山",
-                                  style: TextStyle(
-                                    fontSize: 20
-                                  ),)
+                                  Text(
+                                    "Found MUJI 青山",
+                                    style: TextStyle(fontSize: 20),
+                                  )
                                 ],
                               ),
                             ),
@@ -312,23 +314,43 @@ class _HomePageState extends State<HomePage>
                               child: Container(),
                             ),
                             Padding(
-                              padding: const EdgeInsets.fromLTRB(0,8,16,8),
+                              padding: const EdgeInsets.fromLTRB(0, 8, 16, 8),
                               child: Align(
-
                                 alignment: Alignment.bottomCenter,
-                                child: Text("806m",
-                                style: TextStyle(
-                                  color: MujiColor,
-                                  fontSize: 34,
-                                  fontWeight: FontWeight.normal
-                                ),),
+                                child: Text(
+                                  "806m",
+                                  style: TextStyle(
+                                      color: MujiColor,
+                                      fontSize: 34,
+                                      fontWeight: FontWeight.normal),
+                                ),
                               ),
                             ),
-
                           ],
                         ),
                       ),
                       Divider(),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(
+                            "店舗を探す",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          IconButton(
+                            icon: Icon(
+                              Icons.arrow_forward_ios,
+                              color: Colors.grey,
+                            ),
+                            onPressed: () {},
+                          )
+                        ],
+                      )
                     ],
                   ),
                 )
@@ -392,9 +414,12 @@ class _HomePageState extends State<HomePage>
           ),
           InkWell(
             onTap: () {},
-            child: Text(
-              "ヘルプ",
-              style: TextStyle(color: MujiColor, fontSize: 18),
+            child: Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: Text(
+                "ヘルプ",
+                style: TextStyle(color: MujiColor, fontSize: 18),
+              ),
             ),
           )
         ],
@@ -415,14 +440,7 @@ class _HomePageState extends State<HomePage>
       backgroundColor: Color(0xffeeeeee),
       body: Stack(
         children: <Widget>[
-          Positioned(
-              left: 0,
-              right: 0,
-              top: 0,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: _buildAppBar(),
-              )),
+          Positioned(left: 0, right: 0, top: 0, child: _buildAppBar()),
           Positioned(
               top: 80,
               left: 0,
