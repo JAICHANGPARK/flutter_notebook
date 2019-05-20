@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/muji_app_clone/detail_page.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 const Color MujiColor = Color(0xff7f0019);
@@ -53,6 +54,7 @@ class FlutterMujiApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (BuildContext context) => HomePage(),
+        '/detail/food' : (BuildContext context) => DetailFoodPage()
       },
     );
   }
@@ -366,42 +368,47 @@ class _HomePageState extends State<HomePage>
                 SizedBox(
                   height: 16,
                 ),
-                Container(
-                  height: 140,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(color: Colors.white),
-                  child: Stack(
-                    children: <Widget>[
-                      Positioned(
-                        top: 50,
-                        left: 16,
-                        child: Text(
-                          "新商品",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
+                InkWell(
+                  onTap: (){
+                    Navigator.pushNamed(context, '/detail/food');
+                  },
+                  child: Container(
+                    height: 140,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(color: Colors.white),
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned(
+                          top: 50,
+                          left: 16,
+                          child: Text(
+                            "新商品",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
-                      ),
-                      Positioned(
-                        top: 8,
-                        right: 8,
-                        bottom: 8,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: <Widget>[
-                            Image.network(
-                              "https://img.muji.net/img/item/4550002965730_01_180.jpg",
-                              fit: BoxFit.cover,
-                            ),
-                            Image.network(
-                              "https://img.muji.net/img/item/4550182213652_01_180.jpg",
-                              fit: BoxFit.cover,
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
+                        Positioned(
+                          top: 8,
+                          right: 8,
+                          bottom: 8,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: <Widget>[
+                              Image.network(
+                                "https://img.muji.net/img/item/4550002965730_01_180.jpg",
+                                fit: BoxFit.cover,
+                              ),
+                              Image.network(
+                                "https://img.muji.net/img/item/4550182213652_01_180.jpg",
+                                fit: BoxFit.cover,
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(
