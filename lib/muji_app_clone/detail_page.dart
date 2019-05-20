@@ -1,5 +1,6 @@
 
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class DetailFoodPage extends StatefulWidget {
@@ -49,15 +50,62 @@ class _DetailFoodPageState extends State<DetailFoodPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: _buildAppBar(),
-          )
-        ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Stack(
+            children: <Widget>[
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: _buildAppBar(),
+              ),
+              Positioned(
+                top: 70,
+                left: 0,
+                right: 0,
+                child: CarouselSlider(
+                  autoPlay: true,
+                  viewportFraction: 1.0,
+                  items: <Widget>[
+                    Builder(
+                      builder: (context){
+                        return Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 400,
+                          decoration: BoxDecoration(
+                            color: MujiColor,
+                            image: DecorationImage(image:
+                            NetworkImage("https://img.muji.net/img/item/4550182150841_1260.jpg"),
+                            fit: BoxFit.cover)
+                          ),
+                        );
+                      },
+                    ),
+                    Builder(
+                      builder: (context){
+                        return Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 400,
+                          decoration: BoxDecoration(
+                              color: MujiColor,
+                              image: DecorationImage(image:
+                              NetworkImage("https://img.muji.net/img/item/4550002861308_1260.jpg"),
+                                  fit: BoxFit.cover)
+                          ),
+                        );
+                      },
+                    )
+                  ],
+                ),
+              )
+
+            ],
+          ),
+        ),
       ),
     );
   }
