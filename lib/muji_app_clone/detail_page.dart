@@ -39,10 +39,7 @@ class _DetailFoodPageState extends State<DetailFoodPage> {
             onTap: () {},
             child: Padding(
               padding: const EdgeInsets.only(right: 8.0),
-              child: Text(
-                "ヘルプ",
-                style: TextStyle(color: MujiColor, fontSize: 18),
-              ),
+              child: IconButton(icon: Icon(Icons.shopping_cart,color: MujiColor,), onPressed: (){})
             ),
           )
         ],
@@ -51,6 +48,37 @@ class _DetailFoodPageState extends State<DetailFoodPage> {
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Stack(
+        children: <Widget>[
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: _buildAppBar(),
+          )
+        ],
+      ),
+    );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
