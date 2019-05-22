@@ -234,7 +234,7 @@ class _DetailFoodPageState extends State<DetailFoodPage> {
                 ],
               ),
             ),
-          ),
+          );
         },
 
       ),

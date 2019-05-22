@@ -4,6 +4,7 @@ import 'package:flutter_notebook/bbc_channel_app/main_page.dart';
 import 'package:flutter_notebook/cupertino_store_app/app.dart';
 import 'package:flutter_notebook/cupertino_store_app/model/app_state_model.dart';
 import 'package:flutter_notebook/funiture_app_study/main_page.dart';
+import 'package:flutter_notebook/io_2019/main_page.dart';
 import 'package:flutter_notebook/muji_app_clone/main_page.dart';
 import 'package:flutter_notebook/nart_app/main_page.dart';
 
@@ -23,7 +24,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(FlutterMujiApp());
+  runApp(MyIO2019StudyApp());
 }
 
 //void main() => runApp(
