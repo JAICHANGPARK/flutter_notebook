@@ -213,7 +213,7 @@ class _DetailFoodPageState extends State<DetailFoodPage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Container(
-                                height: 30
+                                height: 30,
                                 width: 300,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
