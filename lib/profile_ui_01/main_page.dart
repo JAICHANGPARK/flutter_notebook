@@ -51,6 +51,7 @@ class _HomePageState extends State<HomePage> {
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Row(
                     children: <Widget>[
@@ -78,6 +79,32 @@ class _HomePageState extends State<HomePage> {
                         icon: Icon(Icons.more_vert,
                         size: 30,),
                       )
+                    ],
+                  ),
+                  SizedBox(height: 8,),
+                  Text("your balance"),
+                  SizedBox(height:32,),
+                  Row(
+                    children: <Widget>[
+                      Container(
+                        height: 40,
+                        width: 40,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.lightBlueAccent,
+                        ),
+                        child: Center(
+                          child: Icon(Icons.credit_card, color:
+                            Colors.blueAccent,),
+                        ),
+                      ),
+                      SizedBox(width: 16,),
+                      Text("**** **** 2897", style:
+                        TextStyle(
+                          color: Colors.blueGrey,
+                          letterSpacing: 2,
+                          fontSize: 32
+                        ),)
                     ],
                   )
                 ],
