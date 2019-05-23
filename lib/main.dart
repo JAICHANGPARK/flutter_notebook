@@ -9,6 +9,7 @@ import 'package:flutter_notebook/muji_app_clone/main_page.dart';
 import 'package:flutter_notebook/nart_app/main_page.dart';
 
 import 'package:flutter_notebook/pizza_app_study/main_page.dart';
+import 'package:flutter_notebook/profile_ui_01/main_page.dart';
 
 import 'dart:async';
 import 'dart:convert';
@@ -24,7 +25,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(MyIO2019StudyApp());
+  runApp(DeibbbleProfileApp01());
 }
 
 //void main() => runApp(
