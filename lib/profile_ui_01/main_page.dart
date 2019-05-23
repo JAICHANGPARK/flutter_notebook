@@ -29,86 +29,113 @@ class _HomePageState extends State<HomePage> {
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                   color: Colors.white70,
-                  image: DecorationImage(image:
-                  AssetImage("assets/undraw_modern_professional_yt9h.png"))
-              ),
+                  image: DecorationImage(
+                      image: AssetImage(
+                          "assets/undraw_modern_professional_yt9h.png"))),
             ),
           ),
+
           Positioned(
-            top: (MediaQuery.of(context).size.height / 2) - 100 ,
+            top: (MediaQuery.of(context).size.height / 2) - 100,
             left: 0,
             right: 0,
             child: Container(
-              height: (MediaQuery.of(context).size.height / 2 ) + 100,
+              height: (MediaQuery.of(context).size.height / 2) + 100,
               width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
+              decoration: BoxDecoration(
                   color: Color(0xFFE1E2EA),
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(30),
-                    topLeft: Radius.circular(30)
-                  )
-                ),
+                      topRight: Radius.circular(30),
+                      topLeft: Radius.circular(30))),
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Row(
-                    children: <Widget>[
-                      Align(
-                      alignment: Alignment.topCenter,
-                      child: Text("\$", textAlign: TextAlign.start,)),
-                      Text("798.19", style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 38,
-                        fontWeight: FontWeight.bold
-                      ),),
-                      Expanded(
-                        child: Container(),
-                      ),
-                      Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(12),
-                          color: Colors.blue,
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Align(
+                            alignment: Alignment.topCenter,
+                            child: Text(
+                              "\$",
+                              textAlign: TextAlign.start,
+                            )),
+                        Text(
+                          "798.19",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 38,
+                              fontWeight: FontWeight.bold),
                         ),
-                      ),
-                      IconButton(
-                        onPressed: (){},
-                        icon: Icon(Icons.more_vert,
-                        size: 30,),
-                      )
-                    ],
-                  ),
-                  SizedBox(height: 8,),
-                  Text("your balance"),
-                  SizedBox(height:32,),
-                  Row(
-                    children: <Widget>[
-                      Container(
-                        height: 40,
-                        width: 40,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.lightBlueAccent,
+                        Expanded(
+                          child: Container(),
                         ),
-                        child: Center(
-                          child: Icon(Icons.credit_card, color:
-                            Colors.blueAccent,),
+                        Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            color: Colors.blue,
+                          ),
                         ),
-                      ),
-                      SizedBox(width: 16,),
-                      Text("**** **** 2897", style:
-                        TextStyle(
-                          color: Colors.blueGrey,
-                          letterSpacing: 2,
-                          fontSize: 32
-                        ),)
-                    ],
-                  )
-                ],
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.more_vert,
+                            size: 30,
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 8,
+                    ),
+                    Text("your balance"),
+                    SizedBox(
+                      height: 32,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Container(
+                          height: 40,
+                          width: 40,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: Colors.lightBlueAccent,
+                          ),
+                          child: Center(
+                            child: Icon(
+                              Icons.credit_card,
+                              color: Colors.blueAccent,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 16,
+                        ),
+                        Text(
+                          "**** **** 2897",
+                          style: TextStyle(
+                              color: Colors.blueGrey,
+                              letterSpacing: 2,
+                              fontSize: 32),
+                        )
+                      ],
+                    )
+                  ],
                 ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 400,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 120,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                  color: Colors.white
               ),
             ),
           ),
