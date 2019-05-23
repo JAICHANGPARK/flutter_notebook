@@ -128,14 +128,163 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Positioned(
-            top: 400,
+            top: MediaQuery.of(context).size.height - 240,
             left: 0,
             right: 0,
             child: Container(
-              height: 120,
+              height: 300,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30)
+                ),
                   color: Colors.white
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 32,
+                  left: 32,
+                  bottom: 32
+                ),
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      children: <Widget>[
+                        Text("Shared", style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24
+                        ),),
+                        SizedBox(width: 8,),
+                        Text("Members",style: TextStyle(
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24
+                        ),),
+                      ],
+                    ),
+                    SizedBox(height: 16,),
+                    Container(
+                      padding: const EdgeInsets.all(16),
+                      height: 180,
+                      width: double.infinity,
+
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: <Widget>[
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                height: 80,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors.orangeAccent,
+
+                                ),
+                              ),
+                              SizedBox(height: 16,),
+                              Text("Dash D.", style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24
+                              ),),
+                              SizedBox(width: 8,),
+                              Text("Card Owner",style: TextStyle(
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16
+                              ),),
+                            ],
+                          ),
+                          SizedBox(width: 16,),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                height: 80,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors.orangeAccent,
+
+                                ),
+                              ),
+                              SizedBox(height: 16,),
+                              Text("Dash D.", style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24
+                              ),),
+                              SizedBox(width: 8,),
+                              Text("Card Owner",style: TextStyle(
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16
+                              ),),
+                            ],
+                          ),
+                          SizedBox(width: 16,),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                height: 80,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors.orangeAccent,
+
+                                ),
+                              ),
+                              SizedBox(height: 16,),
+                              Text("Dash D.", style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24
+                              ),),
+                              SizedBox(width: 8,),
+                              Text("Card Owner",style: TextStyle(
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16
+                              ),),
+                            ],
+                          ),
+                          SizedBox(width: 16,),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Container(
+                                height: 80,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors.orangeAccent,
+
+                                ),
+                              ),
+                              SizedBox(height: 16,),
+                              Text("Dash D.", style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24
+                              ),),
+                              SizedBox(width: 8,),
+                              Text("Card Owner",style: TextStyle(
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16
+                              ),),
+                            ],
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
