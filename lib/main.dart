@@ -1,15 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_notebook/bbc_channel_app/main_page.dart';
-import 'package:flutter_notebook/cupertino_store_app/app.dart';
-import 'package:flutter_notebook/cupertino_store_app/model/app_state_model.dart';
-import 'package:flutter_notebook/funiture_app_study/main_page.dart';
-import 'package:flutter_notebook/io_2019/main_page.dart';
-import 'package:flutter_notebook/muji_app_clone/main_page.dart';
-import 'package:flutter_notebook/nart_app/main_page.dart';
-
-import 'package:flutter_notebook/pizza_app_study/main_page.dart';
-import 'package:flutter_notebook/profile_ui_01/main_page.dart';
+import 'package:flutter_notebook/split_order/main_page.dart';
 
 import 'dart:async';
 import 'dart:convert';
@@ -17,7 +8,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter_notebook/currence_ui/main_page.dart';
 import 'package:flutter_notebook/model/coin_market.dart';
-import 'package:provider/provider.dart';
+
 
 
 void main() {
@@ -25,7 +16,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(DeibbbleProfileApp01());
+  runApp(SplitOrder());
 }
 
 //void main() => runApp(
