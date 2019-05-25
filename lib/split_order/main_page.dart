@@ -241,8 +241,10 @@ class _MainPageState extends State<MainPage> {
               child: Container(
                 height: 300,
                 width: MediaQuery.of(context).size.width,
-                color: Colors.red,
+                color: Color(0xffDEDEE0),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: <Widget>[
                     Container(
                       height: 300,
@@ -253,11 +255,136 @@ class _MainPageState extends State<MainPage> {
                       ),
                       child: Column(
                         children: <Widget>[
+                          SizedBox(height: 16,),
                           CircleAvatar(
-                            child: Image.network(""),
-                          )
+                            backgroundImage: NetworkImage("https://avatars2.githubusercontent.com/u/19484515?s=460&v=4"),
+                          ),
+                          SizedBox(height: 8,),
+                          Text(
+                            "you",
+                            style: TextStyle(
+                              color: Colors.white
+                            ),
+                          ),
+                          SizedBox(height: 8,),
+                          Text("\$18.99",
+                            style: TextStyle(
+                                color: Colors.white
+                            ),),
+                          SizedBox(height: 8,),
+                          Container(
+                            height: 40,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(8),
+                              image: DecorationImage(
+                                  image: NetworkImage("https://cdn.pixabay.com/photo/2015/03/11/21/32/food-669249_960_720.jpg")),
+                            ),
+                          ),
+                          SizedBox(height: 8,),
+                          Container(
+                            height: 40,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(8),
+                              image: DecorationImage(
+                                  image: NetworkImage("https://cdn.pixabay.com/photo/2015/03/11/21/32/food-669249_960_720.jpg")),
+                            ),
+                          ),
+
                         ],
                       ),
+                    ),
+                    SizedBox(width: 16,),
+                    Container(
+                      height: 280,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(17),
+                      ),
+                      child: Column(
+                        children: <Widget>[
+                          SizedBox(height: 16,),
+                          CircleAvatar(
+                            backgroundImage: NetworkImage("https://avatars2.githubusercontent.com/u/19484515?s=460&v=4"),
+                          ),
+                          SizedBox(height: 8,),
+                          Text(
+                            "you",
+                            style: TextStyle(
+                                color: Colors.black
+                            ),
+                          ),
+                          SizedBox(height: 8,),
+                          Text("\$18.99",
+                            style: TextStyle(
+                                color: Colors.black
+                            ),),
+                          SizedBox(height: 8,),
+                          Container(
+                            height: 40,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(8),
+                              image: DecorationImage(
+                                  image: NetworkImage("https://cdn.pixabay.com/photo/2015/03/11/21/32/food-669249_960_720.jpg")),
+                            ),
+                          ),
+                          SizedBox(height: 8,),
+                          Container(
+                            height: 40,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(8),
+                              image: DecorationImage(
+                                  image: NetworkImage("https://cdn.pixabay.com/photo/2015/03/11/21/32/food-669249_960_720.jpg")),
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    ),
+                    Expanded(child: Container(),),
+                    Column(
+                      children: <Widget>[
+                        Container(
+                          height: 80,
+                          width: 80,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(8),
+                              bottomLeft: Radius.circular(8),
+                            ),
+                          ),
+                          child: Center(
+                            child: Icon(Icons.person_add,color: Colors.black,),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(),
+                        ),
+                        Container(
+                          height: 80,
+                          width: 80,
+                          decoration: BoxDecoration(
+                            color: Colors.teal,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(8),
+                              bottomLeft: Radius.circular(8),
+                            ),
+                          ),
+                          child: Center(
+                            child: Icon(Icons.check,),
+                          ),
+                        ),
+
+                      ],
                     )
                   ],
                 ),
