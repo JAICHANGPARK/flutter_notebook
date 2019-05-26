@@ -52,7 +52,7 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.only(top: 16, left: 16),
         child: ListView(
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
@@ -67,7 +67,32 @@ class _MainPageState extends State<MainPage> {
               color: Colors.black,
               fontSize: 18,
               fontWeight: FontWeight.bold
-            ),)
+            ),),
+            SizedBox(height: 16,),
+            Container(
+              height: 80,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(16)
+                ),
+                color: Colors.grey.withOpacity(0.1)
+              ),
+              child: Center(
+                child: TextField(
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.search, size: 32,),
+                    disabledBorder: InputBorder.none,
+                    hintText: "Search your favorite drinks",
+                    hintStyle: TextStyle(
+                      fontSize: 20,
+                      color: Colors.grey
+                    ),
+                    border: InputBorder.none
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
