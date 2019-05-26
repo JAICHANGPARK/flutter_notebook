@@ -92,7 +92,320 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ),
               ),
+            ),
+            SizedBox(height: 32,),
+            Text("Most Popular", style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),),
+            SizedBox(height: 8,),
+            Container(
+              height: 300,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+//                color: Colors.blue
+              ),
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  Container(
+                    height: 300,
+                    width: 220,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(17),
+                      color: Color(0xff27428F)
+                    ),
+                    child: Stack(
+                      children: <Widget>[
+                        Container(
+                          height: 200,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(17),
+                            color: Color(0xff708FE0),
+                            image: DecorationImage(image: NetworkImage("https://img.pngio.com/pepsi-bottle-png-image-pepsi-png-2400_3328.png"))
+                          ),
+                        ),
+                        Positioned(
+                          top: 210,
+                          left: 8,
+                          right: 8,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Tasty Watermelon",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white
+                              ),),
+
+                              Row(
+                                mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text("\$34.99",style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold
+                                  ),),
+                                  FloatingActionButton(
+                                    backgroundColor: Colors.white,
+                                    child: Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.black,
+                                    ),
+                                    onPressed: (){},
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 16,),
+                  Container(
+                    height: 300,
+                    width: 220,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(17),
+                        color: Colors.teal
+                    ),
+                    child: Stack(
+                      children: <Widget>[
+                        Container(
+                          height: 200,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17),
+                              color: Colors.tealAccent,
+                              image: DecorationImage(image: NetworkImage("https://img.pngio.com/pepsi-bottle-png-image-pepsi-png-2400_3328.png"))
+                          ),
+                        ),
+                        Positioned(
+                          top: 210,
+                          left: 8,
+                          right: 8,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Tasty Watermelon",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white
+                                ),),
+
+                              Row(
+                                mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text("\$34.99",style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold
+                                  ),),
+                                  FloatingActionButton(
+                                    backgroundColor: Colors.white,
+                                    child: Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.black,
+                                    ),
+                                    onPressed: (){},
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 16,),
+                  Container(
+                    height: 300,
+                    width: 220,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(17),
+                        color: Color(0xff27428F)
+                    ),
+                    child: Stack(
+                      children: <Widget>[
+                        Container(
+                          height: 200,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(17),
+                              color: Color(0xff708FE0),
+                              image: DecorationImage(image: NetworkImage("https://img.pngio.com/pepsi-bottle-png-image-pepsi-png-2400_3328.png"))
+                          ),
+                        ),
+                        Positioned(
+                          top: 210,
+                          left: 8,
+                          right: 8,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text("Tasty Watermelon",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.white
+                                ),),
+
+                              Row(
+                                mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Text("\$34.99",style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold
+                                  ),),
+                                  FloatingActionButton(
+                                    backgroundColor: Colors.white,
+                                    child: Icon(
+                                      Icons.arrow_forward,
+                                      color: Colors.black,
+                                    ),
+                                    onPressed: (){},
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 16,),
+            Text("Browse by categories",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18
+            ),),
+            SizedBox(height: 8,),
+            Container(
+              height: 120,
+              width: MediaQuery.of(context).size.width,
+              decoration: BoxDecoration(
+//                color: Colors.teal
+              ),
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  Container(
+                    height: 120,
+                    width: 180,
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned(
+                          left: 0,
+                          top: 0,
+                          child: Container(
+                            height: 60,
+                            width: 60,
+                            color: Colors.orange,
+                            child: Center(
+                              child: Icon(Icons.http,
+                              size: 40,),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          right: 8,
+                          bottom: 8,
+                          child: Text("Watermelon",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold
+                          ),),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 16,),
+                  Container(
+                    height: 120,
+                    width: 180,
+                    decoration: BoxDecoration(
+                      color: Colors.yellow,
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned(
+                          left: 0,
+                          top: 0,
+                          child: Container(
+                            height: 60,
+                            width: 60,
+                            color: Colors.orange,
+                            child: Center(
+                              child: Icon(Icons.http,
+                                size: 40,),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          right: 8,
+                          bottom: 8,
+                          child: Text("Tangy Lemon",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold
+                            ),),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 16,),
+                  Container(
+                    height: 120,
+                    width: 180,
+                    decoration: BoxDecoration(
+                      color: Colors.redAccent,
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    child: Stack(
+                      children: <Widget>[
+                        Positioned(
+                          left: 0,
+                          top: 0,
+                          child: Container(
+                            height: 60,
+                            width: 60,
+                            color: Colors.orange,
+                            child: Center(
+                              child: Icon(Icons.http,
+                                size: 40,),
+                            ),
+                          ),
+                        ),
+                        Positioned(
+                          right: 8,
+                          bottom: 8,
+                          child: Text("Wild ...",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold
+                            ),),
+                        )
+                      ],
+                    ),
+                  ),
+                  SizedBox(width: 16,),
+                ],
+              ),
             )
+
           ],
         ),
       ),
