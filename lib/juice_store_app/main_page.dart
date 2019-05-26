@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class JuiceStoreApp extends StatelessWidget {
@@ -8,11 +6,12 @@ class JuiceStoreApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/' : (BuildContext context) => MainPage(),
+        '/': (BuildContext context) => MainPage(),
       },
     );
   }
 }
+
 class MainPage extends StatefulWidget {
   @override
   _MainPageState createState() => _MainPageState();
@@ -25,10 +24,57 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
+        iconTheme: IconThemeData(color: Colors.black),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: 40,
+              width: 40,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  image: DecorationImage(
+                      image: NetworkImage(
+                          "https://avatars2.githubusercontent.com/u/19484515?s=460&v=4"),
+                      fit: BoxFit.cover)),
+            ),
+          )
+//          CircleAvatar(
+//            backgroundImage: NetworkImage("https://avatars2.githubusercontent.com/u/19484515?s=460&v=4")
+//            ,
+//            radius: 30,
+//          )
+        ],
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: <Widget>[],
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          children: <Widget>[
+            Text("Hi Dreamwalker", style: TextStyle(
+              fontSize: 18,
+              color: Colors.grey
+            ),),
+            SizedBox(height: 8,),
+            Text("What would you like to drink?",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 18,
+              fontWeight: FontWeight.bold
+            ),)
+          ],
+        ),
       ),
     );
   }
 }
+
 
 
 
