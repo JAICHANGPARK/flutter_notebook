@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/family_ppets_app/main_page.dart';
 import 'package:flutter_notebook/juice_store_app/main_page.dart';
 import 'package:flutter_notebook/split_order/main_page.dart';
 
@@ -17,7 +18,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(JuiceStoreApp());
+  runApp(FamilyPetsApp());
 }
 
 //void main() => runApp(
