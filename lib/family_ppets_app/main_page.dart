@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class FamilyPetsApp extends StatelessWidget {
   @override
@@ -45,7 +46,77 @@ class _MainPageState extends State<MainPage> {
                     color: Colors.black,
                     fontWeight: FontWeight.bold),
               ),
-            )
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 24),
+              height: 60,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.grey.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Center(
+                child: TextField(
+                  decoration: InputDecoration(
+                      hintText: "Enter pet name",
+                      hintStyle: TextStyle(fontSize: 20),
+                      disabledBorder: InputBorder.none,
+                      border: InputBorder.none,
+                      prefixIcon: Icon(
+                        CupertinoIcons.search,
+                        size: 40,
+                      )),
+                ),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(top: 24, right: 8),
+              height: 220,
+              width: 30,
+              decoration: BoxDecoration(),
+              child: Stack(
+                children: <Widget>[
+                  Positioned(
+                    left: 24,
+                    top: 16,
+                    right: 0,
+                    bottom: 0,
+                    child: Container(
+                      height: 200,
+                      width: 30,
+                      decoration: BoxDecoration(color: Colors.pink,
+                      borderRadius: BorderRadius.circular(16)),
+                    ),
+                  ),
+                  Positioned(
+                    left: 16,
+                    top: 8,
+                    right: 8,
+                    bottom: 8,
+                    child: Container(
+                      height: 200,
+                      width: 30,
+                      decoration: BoxDecoration(color: Colors.orange,
+                          borderRadius: BorderRadius.circular(16)),
+                    ),
+                  ),
+                  Positioned(
+                    left: 8,
+                    top: 0,
+                    right: 16,
+                    bottom: 16,
+                    child: Container(
+                      height: 200,
+                      width: 30,
+                      decoration: BoxDecoration(color: Colors.blue,
+                          borderRadius: BorderRadius.circular(16)),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Text("Popular")
+
           ],
         ),
       ),
