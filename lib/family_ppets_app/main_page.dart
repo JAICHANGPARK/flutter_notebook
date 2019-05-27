@@ -84,8 +84,9 @@ class _MainPageState extends State<MainPage> {
                     child: Container(
                       height: 200,
                       width: 30,
-                      decoration: BoxDecoration(color: Colors.pink,
-                      borderRadius: BorderRadius.circular(16)),
+                      decoration: BoxDecoration(
+                          color: Colors.pink,
+                          borderRadius: BorderRadius.circular(16)),
                     ),
                   ),
                   Positioned(
@@ -96,7 +97,8 @@ class _MainPageState extends State<MainPage> {
                     child: Container(
                       height: 200,
                       width: 30,
-                      decoration: BoxDecoration(color: Colors.orange,
+                      decoration: BoxDecoration(
+                          color: Colors.orange,
                           borderRadius: BorderRadius.circular(16)),
                     ),
                   ),
@@ -108,7 +110,8 @@ class _MainPageState extends State<MainPage> {
                     child: Container(
                       height: 200,
                       width: 30,
-                      decoration: BoxDecoration(color: Colors.blue,
+                      decoration: BoxDecoration(
+                          color: Colors.blue,
                           borderRadius: BorderRadius.circular(16)),
                     ),
                   ),
@@ -117,14 +120,14 @@ class _MainPageState extends State<MainPage> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 24, bottom: 24),
-              child: Text("Popular",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 24,
-                fontWeight: FontWeight.bold
-              ),),
+              child: Text(
+                "Popular",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -134,33 +137,27 @@ class _MainPageState extends State<MainPage> {
                     Container(
                       height: MediaQuery.of(context).size.height / 5,
                       width: MediaQuery.of(context).size.width / 2.5,
-                      decoration: BoxDecoration(
-                        border: Border.all()
-                      ),
+                      decoration: BoxDecoration(border: Border.all()),
                     ),
-                    SizedBox(height: 16,),
+                    SizedBox(
+                      height: 16,
+                    ),
                     Container(
                       height: MediaQuery.of(context).size.height / 5,
                       width: MediaQuery.of(context).size.width / 2.5,
-                      decoration: BoxDecoration(
-                          border: Border.all()
-                      ),
+                      decoration: BoxDecoration(border: Border.all()),
                     )
                   ],
                 ),
-
                 Container(
                   height: MediaQuery.of(context).size.height / 2.4,
                   width: MediaQuery.of(context).size.width / 2.5,
                   decoration: BoxDecoration(
-                    border:
-                      Border(
-                        top: BorderSide(width: 2, color: Colors.black),
-                        bottom: BorderSide(width: 2),
-                        left: BorderSide(width: 2),
-                        right: BorderSide(width: 2)
-                      )
-                  ),
+                      border: Border(
+                          top: BorderSide(width: 2, color: Colors.black),
+                          bottom: BorderSide(width: 2),
+                          left: BorderSide(width: 2),
+                          right: BorderSide(width: 2))),
                 )
               ],
             )
@@ -170,12 +167,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
