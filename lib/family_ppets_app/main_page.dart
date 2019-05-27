@@ -115,11 +115,67 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
             ),
-            Text("Popular")
+            Padding(
+              padding: const EdgeInsets.only(top: 24, bottom: 24),
+              child: Text("Popular",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 24,
+                fontWeight: FontWeight.bold
+              ),),
+            ),
 
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Column(
+                  children: <Widget>[
+                    Container(
+                      height: MediaQuery.of(context).size.height / 5,
+                      width: MediaQuery.of(context).size.width / 2.5,
+                      decoration: BoxDecoration(
+                        border: Border.all()
+                      ),
+                    ),
+                    SizedBox(height: 16,),
+                    Container(
+                      height: MediaQuery.of(context).size.height / 5,
+                      width: MediaQuery.of(context).size.width / 2.5,
+                      decoration: BoxDecoration(
+                          border: Border.all()
+                      ),
+                    )
+                  ],
+                ),
+
+                Container(
+                  height: MediaQuery.of(context).size.height / 2.4,
+                  width: MediaQuery.of(context).size.width / 2.5,
+                  decoration: BoxDecoration(
+                    border:
+                      Border(
+                        top: BorderSide(width: 2, color: Colors.black),
+                        bottom: BorderSide(width: 2),
+                        left: BorderSide(width: 2),
+                        right: BorderSide(width: 2)
+                      )
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
