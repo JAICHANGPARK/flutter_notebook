@@ -5,6 +5,7 @@ import 'package:flutter_notebook/family_ppets_app/main_page.dart';
 import 'package:flutter_notebook/image_sharing_community/main_page.dart';
 import 'package:flutter_notebook/juice_store_app/main_page.dart';
 import 'package:flutter_notebook/split_order/main_page.dart';
+import 'package:flutter_notebook/thanos_cooking/main_page.dart';
 
 import 'dart:async';
 import 'dart:convert';
@@ -20,7 +21,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(CraftWorkDesign());
+  runApp(ThanosCooking());
 }
 
 //void main() => runApp(
