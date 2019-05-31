@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/apartment_finder/main_page.dart';
 import 'package:flutter_notebook/craftwork_design/main_page.dart';
 import 'package:flutter_notebook/family_ppets_app/main_page.dart';
 import 'package:flutter_notebook/image_sharing_community/main_page.dart';
@@ -21,7 +22,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(ThanosCooking());
+  runApp(ApartmentFinder());
 }
 
 //void main() => runApp(
