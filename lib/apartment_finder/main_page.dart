@@ -33,6 +33,40 @@ class _MainPageState extends State<MainPage> {
                 decoration: BoxDecoration(
                   color: Colors.red,
                 ),
+                child: Stack(
+                  children: <Widget>[
+                    Positioned(
+                      top: 70,
+                      left: 16,
+                      right: 16,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          IconButton(
+                            icon: Icon(Icons.arrow_back, color: Colors.white,
+                            size: 32,),
+                            onPressed: (){},
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.more_vert, color: Colors.white,
+                                size: 32),
+                            onPressed: (){},
+                          ),
+                        ],
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 70,
+                      left: 0,
+                      right: 0,
+                      child: Row(
+                        children: <Widget>[
+                          
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             Positioned(
