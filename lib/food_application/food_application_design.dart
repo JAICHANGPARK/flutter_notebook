@@ -180,9 +180,65 @@ class _MainPageState extends State<MainPage> {
         ),
         Positioned(
           bottom: 0,
-          left: 16,
+          left: 32,
+          child: Container(
+            height: 120,
+            width: MediaQuery.of(context).size.width,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: <Widget>[
+                FloatingActionButton(
+                  backgroundColor: Colors.white,
+                  child: Icon(Icons.shopping_basket),
+                  foregroundColor: Colors.black, onPressed: () {},
+                ),
+                SizedBox(width: 32,),
+                Align(child: Text("Burger",
+                style: TextStyle(
+                  fontSize: 20,
+                  letterSpacing: 1.21
+                ),),alignment: Alignment.center,
+                ),
+                SizedBox(width: 32,),
+                Align(child: Text("Pizza",
+                  style: TextStyle(
+                      fontSize: 20,
+                      letterSpacing: 1.21,
+                    color: Colors.grey
+                  ),),alignment: Alignment.center,
+                ),
+                SizedBox(width: 32,),
+                Align(child: Text("French fry",
+                  style: TextStyle(
+                      fontSize: 20,
+                      letterSpacing: 1.21,
+                      color: Colors.grey
+                  ),),alignment: Alignment.center,
+                )
+              ],
+            ),
+          ),
         )
       ]),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
