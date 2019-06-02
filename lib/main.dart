@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_notebook/apartment_finder/main_page.dart';
-import 'package:flutter_notebook/craftwork_design/main_page.dart';
-import 'package:flutter_notebook/family_ppets_app/main_page.dart';
-import 'package:flutter_notebook/image_sharing_community/main_page.dart';
-import 'package:flutter_notebook/juice_store_app/main_page.dart';
-import 'package:flutter_notebook/split_order/main_page.dart';
-import 'package:flutter_notebook/thanos_cooking/main_page.dart';
+
 
 import 'dart:async';
 import 'dart:convert';
@@ -14,7 +9,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter_notebook/currence_ui/main_page.dart';
 import 'package:flutter_notebook/model/coin_market.dart';
-
+import 'package:flutter_notebook/food_application/food_application_design.dart';
 
 
 void main() {
@@ -22,7 +17,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(ApartmentFinder());
+  runApp(FoodApplicationDesign());
 }
 
 //void main() => runApp(
