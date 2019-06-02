@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/adventure_app/main_page.dart';
 import 'package:flutter_notebook/apartment_finder/main_page.dart';
 
 
@@ -17,7 +18,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(FoodApplicationDesign());
+  runApp(AdventureApp());
 }
 
 //void main() => runApp(
