@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_notebook/adventure_app/main_page.dart';
 import 'package:flutter_notebook/apartment_finder/main_page.dart';
+import 'package:flutter_notebook/travel_app_01/main_page.dart';
 
 
 import 'dart:async';
@@ -18,7 +19,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(AdventureApp());
+  runApp(TravelApp());
 }
 
 //void main() => runApp(
