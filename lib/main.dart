@@ -6,6 +6,7 @@ import 'package:flutter_notebook/cinema_ticket_app/main_page.dart';
 import 'package:flutter_notebook/credit_card_banking_app/main_page.dart';
 import 'package:flutter_notebook/flower_shop_app/main_page.dart';
 import 'package:flutter_notebook/travel_app_01/main_page.dart';
+import 'package:flutter_notebook/travel_application/main_page.dart';
 
 
 import 'dart:async';
@@ -22,7 +23,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(FlowerOnlineShop());
+  runApp(TravelApplication());
 }
 
 //void main() => runApp(
