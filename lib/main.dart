@@ -4,6 +4,7 @@ import 'package:flutter_notebook/adventure_app/main_page.dart';
 import 'package:flutter_notebook/apartment_finder/main_page.dart';
 import 'package:flutter_notebook/cinema_ticket_app/main_page.dart';
 import 'package:flutter_notebook/credit_card_banking_app/main_page.dart';
+import 'package:flutter_notebook/flower_shop_app/main_page.dart';
 import 'package:flutter_notebook/travel_app_01/main_page.dart';
 
 
@@ -21,7 +22,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(CreditCardApp());
+  runApp(FlowerOnlineShop());
 }
 
 //void main() => runApp(
