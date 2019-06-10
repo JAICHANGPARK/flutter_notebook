@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/bidding_artifacts/detail_page.dart';
 
 class BiddingArtifacts extends StatelessWidget {
   @override
@@ -57,8 +58,11 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
                   InkWell(
-                    onTap: (){
-                      
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return CoinDetailPage();
+                      }));
                     },
                     child: Container(
                       margin: const EdgeInsets.all(16),
@@ -78,40 +82,46 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(
                             height: 16,
                           ),
-                          Container(
-                            height: 140,
-                            width: 140,
-                            child: Image.network(
-                              "https://www.preciousmetals.com/media/catalog/product/cache/1/image/326x/9df78eab33525d08d6e5fb8d27136e95/a/t/atg-stater-obv-trans_1.png",
-                              fit: BoxFit.cover,
-                              width: 120,
+                          Hero(
+                            tag: "coin",
+                            child: Container(
+                              height: 140,
+                              width: 140,
+                              child: Image.network(
+                                "https://www.preciousmetals.com/media/catalog/product/cache/1/image/326x/9df78eab33525d08d6e5fb8d27136e95/a/t/atg-stater-obv-trans_1.png",
+                                fit: BoxFit.cover,
+                                width: 120,
+                              ),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(16.0),
                             child: Align(
                               alignment: Alignment.centerLeft,
-                              child: Text("ancient coins", style: TextStyle(
-                                color: Colors.red
-                              ),),
+                              child: Text(
+                                "ancient coins",
+                                style: TextStyle(color: Colors.red),
+                              ),
                             ),
                           ),
                           Container(
                             padding: const EdgeInsets.only(left: 16),
                             width: double.infinity,
                             height: 90,
-                            child: Text("Alexander the Molossian",style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 38
-                            ),),
+                            child: Text(
+                              "Alexander the Molossian",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 38),
+                            ),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(16.0),
                             child: Align(
                               alignment: Alignment.centerLeft,
-                              child: Text("BC 334-322", style: TextStyle(
-                                fontSize: 18
-                              ),),
+                              child: Text(
+                                "BC 334-322",
+                                style: TextStyle(fontSize: 18),
+                              ),
                             ),
                           ),
                           Spacer(),
@@ -121,15 +131,17 @@ class _HomePageState extends State<HomePage> {
                             child: Row(
                               children: <Widget>[
                                 Padding(
-                                  padding: const EdgeInsets.only(left:16.0),
+                                  padding: const EdgeInsets.only(left: 16.0),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: <Widget>[
                                       Text('current bid'),
-                                      Text('43K', style: TextStyle(
-                                        fontSize: 28
-                                      ),)
+                                      Text(
+                                        '43K',
+                                        style: TextStyle(fontSize: 28),
+                                      )
                                     ],
                                   ),
                                 ),
@@ -138,13 +150,12 @@ class _HomePageState extends State<HomePage> {
                                   padding: const EdgeInsets.only(right: 16),
                                   child: IconButton(
                                     icon: Icon(Icons.favorite_border),
-                                    onPressed: (){},
+                                    onPressed: () {},
                                   ),
                                 )
                               ],
                             ),
                           )
-
                         ],
                       ),
                     ),
@@ -180,27 +191,29 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.all(16.0),
                           child: Align(
                             alignment: Alignment.centerLeft,
-                            child: Text("ancient coins", style: TextStyle(
-                                color: Colors.red
-                            ),),
+                            child: Text(
+                              "ancient coins",
+                              style: TextStyle(color: Colors.red),
+                            ),
                           ),
                         ),
                         Container(
                           padding: const EdgeInsets.only(left: 16),
                           width: double.infinity,
                           height: 90,
-                          child: Text("Alexander the Molossian",style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 38
-                          ),),
+                          child: Text(
+                            "Alexander the Molossian",
+                            style: TextStyle(color: Colors.black, fontSize: 38),
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Align(
                             alignment: Alignment.centerLeft,
-                            child: Text("BC 334-322", style: TextStyle(
-                                fontSize: 18
-                            ),),
+                            child: Text(
+                              "BC 334-322",
+                              style: TextStyle(fontSize: 18),
+                            ),
                           ),
                         ),
                         Spacer(),
@@ -210,15 +223,16 @@ class _HomePageState extends State<HomePage> {
                           child: Row(
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.only(left:16.0),
+                                padding: const EdgeInsets.only(left: 16.0),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
                                     Text('current bid'),
-                                    Text('43K', style: TextStyle(
-                                        fontSize: 28
-                                    ),)
+                                    Text(
+                                      '43K',
+                                      style: TextStyle(fontSize: 28),
+                                    )
                                   ],
                                 ),
                               ),
@@ -227,13 +241,12 @@ class _HomePageState extends State<HomePage> {
                                 padding: const EdgeInsets.only(right: 16),
                                 child: IconButton(
                                   icon: Icon(Icons.favorite_border),
-                                  onPressed: (){},
+                                  onPressed: () {},
                                 ),
                               )
                             ],
                           ),
                         )
-
                       ],
                     ),
                   ),
@@ -268,27 +281,29 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.all(16.0),
                           child: Align(
                             alignment: Alignment.centerLeft,
-                            child: Text("ancient coins", style: TextStyle(
-                                color: Colors.red
-                            ),),
+                            child: Text(
+                              "ancient coins",
+                              style: TextStyle(color: Colors.red),
+                            ),
                           ),
                         ),
                         Container(
                           padding: const EdgeInsets.only(left: 16),
                           width: double.infinity,
                           height: 90,
-                          child: Text("Alexander the Molossian",style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 38
-                          ),),
+                          child: Text(
+                            "Alexander the Molossian",
+                            style: TextStyle(color: Colors.black, fontSize: 38),
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Align(
                             alignment: Alignment.centerLeft,
-                            child: Text("BC 334-322", style: TextStyle(
-                                fontSize: 18
-                            ),),
+                            child: Text(
+                              "BC 334-322",
+                              style: TextStyle(fontSize: 18),
+                            ),
                           ),
                         ),
                         Spacer(),
@@ -298,15 +313,16 @@ class _HomePageState extends State<HomePage> {
                           child: Row(
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.only(left:16.0),
+                                padding: const EdgeInsets.only(left: 16.0),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: <Widget>[
                                     Text('current bid'),
-                                    Text('43K', style: TextStyle(
-                                        fontSize: 28
-                                    ),)
+                                    Text(
+                                      '43K',
+                                      style: TextStyle(fontSize: 28),
+                                    )
                                   ],
                                 ),
                               ),
@@ -315,13 +331,12 @@ class _HomePageState extends State<HomePage> {
                                 padding: const EdgeInsets.only(right: 16),
                                 child: IconButton(
                                   icon: Icon(Icons.favorite_border),
-                                  onPressed: (){},
+                                  onPressed: () {},
                                 ),
                               )
                             ],
                           ),
                         )
-
                       ],
                     ),
                   ),
