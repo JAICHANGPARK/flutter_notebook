@@ -7,6 +7,7 @@ import 'package:flutter_notebook/cinema_ticket_app/main_page.dart';
 import 'package:flutter_notebook/credit_card_banking_app/main_page.dart';
 import 'package:flutter_notebook/detailed_biography/main_page.dart';
 import 'package:flutter_notebook/flower_shop_app/main_page.dart';
+import 'package:flutter_notebook/online_cosmetic_delicery_shop/home_page.dart';
 import 'package:flutter_notebook/plant_app/music_page.dart';
 import 'package:flutter_notebook/travel_app_01/main_page.dart';
 import 'package:flutter_notebook/travel_application/main_page.dart';
@@ -26,7 +27,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(BiddingArtifacts());
+  runApp(OnlineCosmeticDeliveryShop());
 }
 
 //void main() => runApp(
