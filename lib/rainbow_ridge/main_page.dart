@@ -100,7 +100,7 @@ class _MainPageState extends State<MainPage> {
                 child: Transform.scale(
                   scale: 1.2,
                   child: CarouselSlider(
-                    
+
                     height:  MediaQuery.of(context).size.height/ 2.6,
 
                     viewportFraction: 0.55,
