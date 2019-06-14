@@ -74,19 +74,21 @@ class _HomePageState extends State<HomePage> {
                         top: 16,
                         child: Row(
                           children: <Widget>[
-                            Hero(
-                              tag: "user_icon",
-                              child: Container(
-                                height: 48,
-                                width: 48,
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    border: Border.all()),
+                            InkWell(
+                              child: Hero(
+                                tag: "",
                                 child: Container(
-                                  margin: const EdgeInsets.all(4),
+                                  height: 48,
+                                  width: 48,
                                   decoration: BoxDecoration(
-                                      border: Border.all(),
-                                      shape: BoxShape.circle),
+                                      shape: BoxShape.circle,
+                                      border: Border.all()),
+                                  child: Container(
+                                    margin: const EdgeInsets.all(4),
+                                    decoration: BoxDecoration(
+                                        border: Border.all(),
+                                        shape: BoxShape.circle),
+                                  ),
                                 ),
                               ),
                             ),
@@ -101,23 +103,29 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ),
                             Spacer(),
-                            Hero(
-                              tag: "user_add",
-                              child: InkWell(
-                                child: Container(
-                                  height: 42,
-                                  width: 42,
-                                  decoration: BoxDecoration(
-                                    border: Border.all(),
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Center(
-                                    child: Icon(Icons.add),
-                                  ),
-                                ),
-                              ),
-                            )
+
                           ],
+                        ),
+                      ),
+                      Positioned(
+                        right: 16,
+                        top: 16,
+                        child: Hero(
+                          tag: "aa",
+                          child: InkWell(
+
+                            child: Container(
+                              height: 42,
+                              width: 42,
+                              decoration: BoxDecoration(
+                                border: Border.all(),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Center(
+                                child: Icon(Icons.add),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                       Positioned(
