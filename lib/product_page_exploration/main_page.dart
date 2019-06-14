@@ -28,10 +28,7 @@ class _MainPageState extends State<MainPage>
 
   @override
   Widget build(BuildContext context) {
-    var centerHeight = MediaQuery
-        .of(context)
-        .size
-        .height / 2;
+    var centerHeight = MediaQuery.of(context).size.height / 2;
     return Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -40,14 +37,11 @@ class _MainPageState extends State<MainPage>
           children: <Widget>[
             Container(
               height: centerHeight,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
+              width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                   border: Border.all(),
                   borderRadius:
-                  BorderRadius.only(bottomLeft: Radius.circular(60))),
+                      BorderRadius.only(bottomLeft: Radius.circular(60))),
               child: Stack(
                 children: <Widget>[
                   Positioned(
@@ -132,179 +126,127 @@ class _MainPageState extends State<MainPage>
             ),
             Container(
               height: 320,
-              width: MediaQuery
-                  .of(context)
-                  .size
-                  .width,
+              width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
 //                border: Border.all(),
-              ),
+                  ),
               child: Row(
                 children: <Widget>[
-                Expanded(
-                flex: 2,
-                child: Container(
-                  padding: const EdgeInsets.only(top: 24, bottom: 24),
-                  decoration: BoxDecoration(
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      padding: const EdgeInsets.only(top: 24, bottom: 24),
+                      decoration: BoxDecoration(
 //                        border: Border.all(),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: <Widget>[
-                      Transform.rotate(
-
-                        angle: -1.58,
-                        child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              selectedTabIndex = 0;
-                            });
-                          },
-                          child: Text("Bracelet",
-                            style: selectedTabIndex == 0
-                                ? TextStyle(
-                                color: Colors.green,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18
-                            )
-                                : TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18
-                            ),),
-                        ),
-                      ),
-                      Transform.rotate(
-                        angle: -1.58,
-                        child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              selectedTabIndex = 1;
-                            });
-                          },
-                          child: Text("Necklace",
-                            style: selectedTabIndex == 1
-                                ? TextStyle(
-                                color: Colors.green,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18
-                            )
-                                : TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18
-                            ),),
-                        ),
-                      ),
-                      Transform.rotate(
-                        angle: -1.58,
-                        child: InkWell(
-                          onTap: () {
-                            setState(() {
-                              selectedTabIndex = 2;
-                            });
-                          },
-                          child: Text(
-                            "Ring",
-                            style: selectedTabIndex == 2
-                                ? TextStyle(
-                                color: Colors.green,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18
-                            )
-                                : TextStyle(
-                                color: Colors.grey,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18
+                          ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: <Widget>[
+                          Transform.rotate(
+                            angle: -1.58,
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  selectedTabIndex = 0;
+                                });
+                              },
+                              child: Text(
+                                "Bracelet",
+                                style: selectedTabIndex == 0
+                                    ? TextStyle(
+                                        color: Colors.green,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18)
+                                    : TextStyle(
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                              ),
                             ),
                           ),
-                        ),
-                      )
-                    ],
+                          Transform.rotate(
+                            angle: -1.58,
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  selectedTabIndex = 1;
+                                });
+                              },
+                              child: Text(
+                                "Necklace",
+                                style: selectedTabIndex == 1
+                                    ? TextStyle(
+                                        color: Colors.green,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18)
+                                    : TextStyle(
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                              ),
+                            ),
+                          ),
+                          Transform.rotate(
+                            angle: -1.58,
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  selectedTabIndex = 2;
+                                });
+                              },
+                              child: Text(
+                                "Ring",
+                                style: selectedTabIndex == 2
+                                    ? TextStyle(
+                                        color: Colors.green,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18)
+                                    : TextStyle(
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Expanded(
-                flex: 8,
-                child: Container(
-                  decoration: BoxDecoration(
+                  Expanded(
+                      flex: 8,
+                      child: Container(
+                        decoration: BoxDecoration(
 //                          border: Border.all()
-                  ),
-                  child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                  Container(
-                  margin: const EdgeInsets.symmetric(vertical: 48,
-                      horizontal: 16),
-                  height: 180,
-                  width: 180,
-                  decoration: BoxDecoration(
-                      border: Border.all(),
-                      borderRadius: BorderRadius.circular(32)
-                  ),
-
-                ),
-
-                Container(
-                  margin: const EdgeInsets.symmetric(
-                      vertical: 48, horizontal: 16),
-                  height: 180,
-                  width: 180,
-                  decoration: BoxDecoration(
-                      border: Border.all(),
-                      borderRadius: BorderRadius.circular(32)
-                  ), ],
-                ),
+                            ),
+                        child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: <Widget>[
+                              Container(
+                                margin: const EdgeInsets.symmetric(
+                                    vertical: 48, horizontal: 16),
+                                height: 180,
+                                width: 180,
+                                decoration: BoxDecoration(
+                                    border: Border.all(),
+                                    borderRadius: BorderRadius.circular(32)),
+                              ),
+                              Container(
+                                margin: const EdgeInsets.symmetric(
+                                    vertical: 48, horizontal: 16),
+                                height: 180,
+                                width: 180,
+                                decoration: BoxDecoration(
+                                    border: Border.all(),
+                                    borderRadius: BorderRadius.circular(32)),
+                              ),
+                            ]),
+                      ))
+                ],
               ),
             )
           ],
         ),
-//                child: Row(
-//                  children: <Widget>[
-//                    Container(
-//                      height: 240,
-//                      width: 60,
-//                      child: Transform.rotate(angle: 180,
-//                      child: TabBar(
-//                          controller: _tabController,
-//                          tabs: [
-//                        Tab(text: "Bracelet",),
-//                        Tab(text: "Necklace",),
-//                        Tab(text: "Ring",),
-//                      ]),),
-//                    ),
-//                    TabBarView(
-//                      controller: _tabController,
-//                      children: <Widget>[
-//                        ListView(
-//                          shrinkWrap: true,
-//                       scrollDirection: Axis.horizontal,
-//                       children: <Widget>[
-//
-//                       ],
-//                        ),
-//                        ListView(
-//                          shrinkWrap: true,
-//                          scrollDirection: Axis.horizontal,
-//                          children: <Widget>[
-//
-//                          ],
-//                        ),
-//                        ListView(
-//                          shrinkWrap: true,
-//                          scrollDirection: Axis.horizontal,
-//                          children: <Widget>[
-//
-//                          ],
-//                        ),
-//                      ],
-//                    ),
-//                  ],
-//                ),
-      )
-      ],
-    ),)
-    ,
+      ),
     );
   }
 }
