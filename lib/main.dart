@@ -14,6 +14,7 @@ import 'package:flutter_notebook/product_page_exploration/main_page.dart';
 import 'package:flutter_notebook/rainbow_ridge/main_page.dart';
 import 'package:flutter_notebook/travel_app_01/main_page.dart';
 import 'package:flutter_notebook/travel_application/main_page.dart';
+import 'package:flutter_notebook/ui_challenge_user_profile/main_page.dart';
 
 
 import 'dart:async';
@@ -30,7 +31,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(MusicPlayListAppInteraction());
+  runApp(UIChallengeDay05UserProfile());
 }
 
 //void main() => runApp(
