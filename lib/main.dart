@@ -7,6 +7,7 @@ import 'package:flutter_notebook/cinema_ticket_app/main_page.dart';
 import 'package:flutter_notebook/credit_card_banking_app/main_page.dart';
 import 'package:flutter_notebook/detailed_biography/main_page.dart';
 import 'package:flutter_notebook/flower_shop_app/main_page.dart';
+import 'package:flutter_notebook/luxury_shopping_ui/main_page.dart';
 import 'package:flutter_notebook/music_playlist_app_interaction/home_page.dart';
 import 'package:flutter_notebook/online_cosmetic_delicery_shop/home_page.dart';
 import 'package:flutter_notebook/plant_app/music_page.dart';
@@ -31,7 +32,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(UIChallengeDay05UserProfile());
+  runApp(LuxuryShoppingApp());
 }
 
 //void main() => runApp(
