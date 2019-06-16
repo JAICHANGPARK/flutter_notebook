@@ -108,13 +108,14 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 200,
                     width: 160,
+                    margin: const EdgeInsets.only(right: 8, top: 8,left: 8, bottom: 8),
                     decoration: BoxDecoration(
                      color: Colors.white,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          blurRadius: 10,
-                          spreadRadius: 10
+                          color: Colors.black.withOpacity(0.15),
+                          blurRadius: 5,
+                          spreadRadius: 5
                         )
                       ]
                     ),
@@ -155,13 +156,14 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 200,
                     width: 160,
+                    margin: const EdgeInsets.only(right: 8, top: 8,left: 8, bottom: 8),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
-                              blurRadius: 10,
-                              spreadRadius: 10
+                              color: Colors.black.withOpacity(0.15),
+                              blurRadius: 5,
+                              spreadRadius: 5
                           )
                         ]
                     ),
@@ -202,13 +204,14 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 200,
                     width: 160,
+                    margin: const EdgeInsets.only(right: 8, top: 8,left: 8, bottom: 8),
                     decoration: BoxDecoration(
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
-                              color: Colors.black.withOpacity(0.2),
-                              blurRadius: 10,
-                              spreadRadius: 10
+                              color: Colors.black.withOpacity(0.15),
+                              blurRadius: 5,
+                              spreadRadius: 5
                           )
                         ]
                     ),
@@ -245,11 +248,25 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
             SizedBox(height: 16,),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        height: 60,
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Icon(Icons.home, color: Colors.grey,),
+            Icon(Icons.search, color: Colors.grey,),
+            Icon(Icons.settings,  color: Colors.grey,),
+            Icon(Icons.stars,  color: Colors.grey,),
+            Icon(Icons.person_outline,  color: Colors.grey,)
           ],
         ),
       ),
