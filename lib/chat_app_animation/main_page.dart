@@ -362,9 +362,397 @@ class _MainPageState extends State<MainPage> {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8, top: 16),
+              child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Recent Conversation",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  )),
+            ),
+            Container(
+              height: 400,
+              child: ListView(
+                children: <Widget>[
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            border: Border.all(),
+                            shape: BoxShape.circle
+                          ),
+                        ),
+                        SizedBox(width: 16,),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text("Lisa"),
+                                SizedBox(width: 200,),
+
+                                Text("8:45AM")
+                              ],
+                            ),
+                            Text("What's up? ")
+                          ],
+                        )
+
+                      ],
+                    ),
+                  ),
+                  Divider(),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              border: Border.all(),
+                              shape: BoxShape.circle
+                          ),
+                        ),
+                        SizedBox(width: 16,),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text("Lisa"),
+                                SizedBox(width: 200,),
+
+                                Text("8:45AM")
+                              ],
+                            ),
+                            Text("What's up? ")
+                          ],
+                        )
+
+                      ],
+                    ),
+                  ),
+                  Divider(),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              border: Border.all(),
+                              shape: BoxShape.circle
+                          ),
+                        ),
+                        SizedBox(width: 16,),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text("Lisa"),
+                                SizedBox(width: 200,),
+
+                                Text("8:45AM")
+                              ],
+                            ),
+                            Text("What's up? ")
+                          ],
+                        )
+
+                      ],
+                    ),
+                  ),
+                  Divider(),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              border: Border.all(),
+                              shape: BoxShape.circle
+                          ),
+                        ),
+                        SizedBox(width: 16,),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text("Lisa"),
+                                SizedBox(width: 200,),
+
+                                Text("8:45AM")
+                              ],
+                            ),
+                            Text("What's up? ")
+                          ],
+                        )
+
+                      ],
+                    ),
+                  ),
+                  Divider(),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              border: Border.all(),
+                              shape: BoxShape.circle
+                          ),
+                        ),
+                        SizedBox(width: 16,),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text("Lisa"),
+                                SizedBox(width: 200,),
+
+                                Text("8:45AM")
+                              ],
+                            ),
+                            Text("What's up? ")
+                          ],
+                        )
+
+                      ],
+                    ),
+                  ),
+                  Divider(),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              border: Border.all(),
+                              shape: BoxShape.circle
+                          ),
+                        ),
+                        SizedBox(width: 16,),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text("Lisa"),
+                                SizedBox(width: 200,),
+
+                                Text("8:45AM")
+                              ],
+                            ),
+                            Text("What's up? ")
+                          ],
+                        )
+
+                      ],
+                    ),
+                  ),
+                  Divider(),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              border: Border.all(),
+                              shape: BoxShape.circle
+                          ),
+                        ),
+                        SizedBox(width: 16,),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text("Lisa"),
+                                SizedBox(width: 200,),
+
+                                Text("8:45AM")
+                              ],
+                            ),
+                            Text("What's up? ")
+                          ],
+                        )
+
+                      ],
+                    ),
+                  ),
+                  Divider(),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              border: Border.all(),
+                              shape: BoxShape.circle
+                          ),
+                        ),
+                        SizedBox(width: 16,),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text("Lisa"),
+                                SizedBox(width: 200,),
+
+                                Text("8:45AM")
+                              ],
+                            ),
+                            Text("What's up? ")
+                          ],
+                        )
+
+                      ],
+                    ),
+                  ),
+                  Divider(),
+                  Container(
+                    margin: const EdgeInsets.symmetric(vertical: 8),
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    height: 60,
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                              border: Border.all(),
+                              shape: BoxShape.circle
+                          ),
+                        ),
+                        SizedBox(width: 16,),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text("Lisa"),
+                                SizedBox(width: 200,),
+
+                                Text("8:45AM")
+                              ],
+                            ),
+                            Text("What's up? ")
+                          ],
+                        )
+
+                      ],
+                    ),
+                  ),
+                  Divider(),
+                  
+                ],
+              ),
+            )
+//            Container(
+//              height: MediaQuery.of(context).size.height,
+//              width: MediaQuery.of(context).size.width,
+//              child: ListView(
+//                scrollDirection: Axis.vertical,
+//                shrinkWrap: true,
+//                children: <Widget>[
+//                  Container(
+//                    height: 60,
+//                    child:
+//                    Row(
+//                      children: <Widget>[
+//                        CircleAvatar(
+//                          backgroundColor: Colors.grey,
+//                          radius: 30,
+//                        ),
+//                        Column(
+//                          children: <Widget>[
+//                            Row(
+//                              children: <Widget>[
+//                                Text("Lisa"),
+//                                Expanded(
+//                                  child: Container(),
+//                                ),
+//                                Text("8:45AM"),
+//                              ],
+//                            )
+//                          ],
+//                        )
+//                      ],
+//                    ),
+//                  )
+//                ],
+//              ),
+//            )
 
 
-            
+
 
 
 
