@@ -25,6 +25,7 @@
 20. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/starbucks_app
 21. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/muji_app_clone
 22. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/profile_ui_01
+23. https://github.com/JAICHANGPARK/flutter_notebook/tree/master/lib/ui_challenge_user_profile
 
 # Flutter Live Coding 
 
