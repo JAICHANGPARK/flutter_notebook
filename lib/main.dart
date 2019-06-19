@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_notebook/adventure_app/main_page.dart';
 import 'package:flutter_notebook/apartment_finder/main_page.dart';
+import 'package:flutter_notebook/app_freelancers/main_page.dart';
 import 'package:flutter_notebook/bidding_artifacts/main_page.dart';
 import 'package:flutter_notebook/chat_app_animation/main_page.dart';
 import 'package:flutter_notebook/cinema_ticket_app/main_page.dart';
@@ -33,7 +34,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(ChatAppUI());
+  runApp(AppFreelancers());
 }
 
 //void main() => runApp(
