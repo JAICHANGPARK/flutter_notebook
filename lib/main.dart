@@ -4,6 +4,7 @@ import 'package:flutter_notebook/adventure_app/main_page.dart';
 import 'package:flutter_notebook/apartment_finder/main_page.dart';
 import 'package:flutter_notebook/app_freelancers/main_page.dart';
 import 'package:flutter_notebook/bidding_artifacts/main_page.dart';
+import 'package:flutter_notebook/calculator_004/main_page.dart';
 import 'package:flutter_notebook/chat_app_animation/main_page.dart';
 import 'package:flutter_notebook/cinema_ticket_app/main_page.dart';
 import 'package:flutter_notebook/credit_card_banking_app/main_page.dart';
@@ -34,7 +35,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(AppFreelancers());
+  runApp(CalculatorApp());
 }
 
 //void main() => runApp(
