@@ -1,24 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_notebook/adventure_app/main_page.dart';
-import 'package:flutter_notebook/apartment_finder/main_page.dart';
-import 'package:flutter_notebook/app_freelancers/main_page.dart';
-import 'package:flutter_notebook/bidding_artifacts/main_page.dart';
-import 'package:flutter_notebook/calculator_004/main_page.dart';
-import 'package:flutter_notebook/chat_app_animation/main_page.dart';
-import 'package:flutter_notebook/cinema_ticket_app/main_page.dart';
-import 'package:flutter_notebook/credit_card_banking_app/main_page.dart';
-import 'package:flutter_notebook/detailed_biography/main_page.dart';
-import 'package:flutter_notebook/flower_shop_app/main_page.dart';
-import 'package:flutter_notebook/luxury_shopping_ui/main_page.dart';
-import 'package:flutter_notebook/music_playlist_app_interaction/home_page.dart';
-import 'package:flutter_notebook/online_cosmetic_delicery_shop/home_page.dart';
-import 'package:flutter_notebook/plant_app/music_page.dart';
-import 'package:flutter_notebook/product_page_exploration/main_page.dart';
-import 'package:flutter_notebook/rainbow_ridge/main_page.dart';
-import 'package:flutter_notebook/travel_app_01/main_page.dart';
-import 'package:flutter_notebook/travel_application/main_page.dart';
-import 'package:flutter_notebook/ui_challenge_user_profile/main_page.dart';
+import 'package:flutter_notebook/real_estate_booking_app/main_page.dart';
+
 
 
 import 'dart:async';
@@ -27,7 +10,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter_notebook/currence_ui/main_page.dart';
 import 'package:flutter_notebook/model/coin_market.dart';
-import 'package:flutter_notebook/food_application/food_application_design.dart';
+
 
 
 void main() {
@@ -35,7 +18,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(CalculatorApp());
+  runApp(RealEstateBookingApp());
 }
 
 //void main() => runApp(
