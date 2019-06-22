@@ -263,7 +263,7 @@ class _MainPageState extends State<MainPage> {
                   Container(
                     margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                     height: double.infinity,
-                    width: 72
+                    width: 72,
                     decoration: BoxDecoration(
                         color: Colors.blueGrey,
                         borderRadius: BorderRadius.circular(8),
