@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/cosmetic_service_app/main_page.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_notebook/currence_ui/main_page.dart';
 import 'package:flutter_notebook/model/coin_market.dart';
-import 'package:flutter_notebook/furniture_app_experience/main_page.dart';
+
 
 
 void main() {
@@ -13,7 +14,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(FurnitureAppExperience());
+  runApp(CosmeticServiceApp());
 }
 
 //void main() => runApp(
