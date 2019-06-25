@@ -45,7 +45,7 @@ class _MainPageState extends State<MainPage> {
                     image: NetworkImage(
                         "https://media.npr.org/assets/img/2017/02/10/norsemythology_wide-28d9ef0ce63ed549c9a4010ae41db366cec8463a.jpg?s=6"),
                     fit: BoxFit.cover,
-                colorFilter: ColorFilter.srgbToLinearGamma()),
+                    colorFilter: ColorFilter.srgbToLinearGamma()),
               ),
             ),
           ),
@@ -107,7 +107,6 @@ class _MainPageState extends State<MainPage> {
                     height: 16,
                   ),
                   Row(
-
                     children: <Widget>[
                       RaisedButton(
                         shape: RoundedRectangleBorder(
@@ -125,22 +124,22 @@ class _MainPageState extends State<MainPage> {
                       Container(
                         height: 36,
                         width: 120,
-                        decoration: BoxDecoration(color: Colors.transparent,
-                        borderRadius: BorderRadius.circular(4),
-                        backgroundBlendMode: BlendMode.colorBurn,
-                        border: Border.all(
-                          color: Color(0xffd4af37),
-                          width: 3,
-                        )),
+                        decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(4),
+                            backgroundBlendMode: BlendMode.colorBurn,
+                            border: Border.all(
+                              color: Color(0xffd4af37),
+                              width: 3,
+                            )),
                         child: Center(
-                          child: Text("Buy Subscription",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold
-                          ),),
+                          child: Text(
+                            "Buy Subscription",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ),
-
-
                       ),
                     ],
                   )
@@ -148,21 +147,127 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
           ),
-
+          Positioned(
+            left: 24,
+            right: 24,
+            top: deviceHeight / 1.7,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  "Discover:SciFi & Fantasy",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                ),
+                Text(
+                  "See all",
+                  style: TextStyle(
+                    color: CupertinoColors.activeBlue,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              height: 60,
+              width: deviceWidth,
+              decoration: BoxDecoration(
+                color: CupertinoColors.white,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  IconButton(
+                    padding: EdgeInsets.zero,
+                    icon: Icon(
+                      CupertinoIcons.book,
+                      color: CupertinoColors.activeBlue,
+                      size: 38,
+                    ),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    padding: EdgeInsets.zero,
+                    icon: Icon(
+                      CupertinoIcons.shopping_cart,
+                      color: CupertinoColors.inactiveGray,
+                      size: 38,
+                    ),
+                    onPressed: () {},
+                  ),
+                  SizedBox(width: 36,),
+                  IconButton(
+                    padding: EdgeInsets.zero,
+                    icon: Icon(
+                      CupertinoIcons.folder,
+                      color: CupertinoColors.inactiveGray,
+                      size: 38,
+                    ),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    padding: EdgeInsets.zero,
+                    icon: Icon(
+                      CupertinoIcons.profile_circled,
+                      color: CupertinoColors.inactiveGray,
+                      size: 38,
+                    ),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: deviceWidth / 2.5,
+            child: Transform.translate(
+              offset: Offset(0, 8),
+              child: Container(
+                height: 76,
+                width: 76,
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.blue,
+                    gradient: LinearGradient(
+                        colors: [
+                          Colors.lightBlueAccent,
+                          Colors.blue,
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        stops: [0.1, 0.6])),
+                child: Center(
+                  child: Container(
+                    height: 32,
+                    width: 32,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.white, width: 3)),
+                    child: Center(
+                      child: Icon(
+                        Icons.play_arrow,
+                        color: Colors.white,
+                        size: 21,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
