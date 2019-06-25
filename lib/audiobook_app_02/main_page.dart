@@ -17,7 +17,34 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageState extends State<MainPage> with
+SingleTickerProviderStateMixin{
+ AnimationController _animationController;
+ Animation<double> animation;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _animationController = AnimationController(vsync: this, duration:
+    Duration(minutes: 1));
+    animation = Tween<double>(begin: 0, end: 1.5).animate(_animationController);
+    _animationController.addListener((){
+      setState(() {
+
+      });
+    });
+    _animationController.addStatusListener((a){
+      setState(() {
+
+      });
+    });
+//    animation..addStatusListener((s){
+//      setState(() {
+//
+//      });
+//    });
+    _animationController.forward();
+  }
   @override
   Widget build(BuildContext context) {
     var deviceHeight = MediaQuery.of(context).size.height;
@@ -174,6 +201,28 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
           Positioned(
+            bottom: 60,
+            left: 0,
+            right: 0,
+            child: Column(
+              children: <Widget>[
+                Container(height: 24,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                ),
+                child: Center(
+                  child: Text("Chapter 01. - Winter is comming",
+                  style: TextStyle(
+                    color: Colors.white
+                  ),),
+                ),),
+                LinearProgressIndicator(value: animation.value,
+               valueColor: AlwaysStoppedAnimation<Color>(Color(0xffd4af37)),
+               backgroundColor: Colors.black,),
+              ],
+            ),
+          ),
+          Positioned(
             bottom: 0,
             left: 0,
             right: 0,
@@ -205,7 +254,9 @@ class _MainPageState extends State<MainPage> {
                     ),
                     onPressed: () {},
                   ),
-                  SizedBox(width: 36,),
+                  SizedBox(
+                    width: 36,
+                  ),
                   IconButton(
                     padding: EdgeInsets.zero,
                     icon: Icon(
