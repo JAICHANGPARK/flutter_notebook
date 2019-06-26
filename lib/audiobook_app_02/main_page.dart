@@ -17,26 +17,23 @@ class MainPage extends StatefulWidget {
   _MainPageState createState() => _MainPageState();
 }
 
-class _MainPageState extends State<MainPage> with
-SingleTickerProviderStateMixin{
- AnimationController _animationController;
- Animation<double> animation;
+class _MainPageState extends State<MainPage>
+    with SingleTickerProviderStateMixin {
+  AnimationController _animationController;
+  Animation<double> animation;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _animationController = AnimationController(vsync: this, duration:
-    Duration(minutes: 1));
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(minutes: 1));
     animation = Tween<double>(begin: 0, end: 1.5).animate(_animationController);
-    _animationController.addListener((){
-      setState(() {
-
-      });
+    _animationController.addListener(() {
+      setState(() {});
     });
-    _animationController.addStatusListener((a){
-      setState(() {
-
-      });
+    _animationController.addStatusListener((a) {
+      setState(() {});
     });
 //    animation..addStatusListener((s){
 //      setState(() {
@@ -45,6 +42,7 @@ SingleTickerProviderStateMixin{
 //    });
     _animationController.forward();
   }
+
   @override
   Widget build(BuildContext context) {
     var deviceHeight = MediaQuery.of(context).size.height;
@@ -58,7 +56,7 @@ SingleTickerProviderStateMixin{
             right: 0,
             top: 0,
             child: Container(
-              height: deviceHeight / 1.6,
+              height: deviceHeight / 1.8,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                     colors: [
@@ -77,7 +75,7 @@ SingleTickerProviderStateMixin{
             ),
           ),
           Positioned(
-            top: deviceHeight / 3,
+            top: deviceHeight / 4.4,
             left: 24,
             right: 24,
             child: Container(
@@ -177,48 +175,196 @@ SingleTickerProviderStateMixin{
           Positioned(
             left: 24,
             right: 24,
-            top: deviceHeight / 1.7,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            top: deviceHeight / 2.1,
+            child: Column(
               children: <Widget>[
-                Text(
-                  "Discover:SciFi & Fantasy",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ),
-                Text(
-                  "See all",
-                  style: TextStyle(
-                    color: CupertinoColors.activeBlue,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      "Discover:SciFi & Fantasy",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                    Text(
+                      "See all",
+                      style: TextStyle(
+                        color: CupertinoColors.activeBlue,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
           Positioned(
-            bottom: 60,
+            left: 24,
+            right: 0,
+            top: deviceHeight / 1.87,
+            child: Container(
+              height: deviceHeight / 2.5,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                shrinkWrap: true,
+                children: <Widget>[
+                  Container(
+                    width: deviceWidth / 2.2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          height: deviceWidth / 2.5,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    "https://images-na.ssl-images-amazon.com/images/I/51gufgkrH7L.jpg"),
+                                fit: BoxFit.cover),
+                          ),
+                        ),
+                        SizedBox(height: 8,),
+                        Text("The Wincher:Season of Storms",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),),
+                        Text("Andrzej Sapkowski",
+                          style: TextStyle(
+                            color: CupertinoColors.activeBlue,
+                          ),),
+                        SizedBox(height: 8,),
+                        Container(
+                          height: 1,
+                          width: 32,
+                          color: Colors.blueGrey,
+                        ),
+                        SizedBox(height: 8,),
+                        Text("Wojciech Zoladkowicz",
+                          style: TextStyle(
+                            color: Colors.blueGrey,
+                          ),),
+
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 16,
+                  ),
+                  Container(
+                    width: deviceWidth / 2.2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          height: deviceWidth / 2.5,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    "https://images-na.ssl-images-amazon.com/images/I/51gufgkrH7L.jpg"),
+                                fit: BoxFit.cover),
+                          ),
+                        ),
+                        SizedBox(height: 8,),
+                        Text("The Wincher:Season of Storms",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),),
+                        Text("Andrzej Sapkowski",
+                          style: TextStyle(
+                            color: CupertinoColors.activeBlue,
+                          ),),
+                        SizedBox(height: 8,),
+                        Container(
+                          height: 1,
+                          width: 32,
+                          color: Colors.blueGrey,
+                        ),
+                        SizedBox(height: 8,),
+                        Text("Wojciech Zoladkowicz",
+                          style: TextStyle(
+                            color: Colors.blueGrey,
+                          ),),
+
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 16,
+                  ),
+                  Container(
+                    width: deviceWidth / 2.2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          height: deviceWidth / 2.5,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    "https://images-na.ssl-images-amazon.com/images/I/51gufgkrH7L.jpg"),
+                                fit: BoxFit.cover),
+                          ),
+                        ),
+                        SizedBox(height: 8,),
+                        Text("The Wincher:Season of Storms",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),),
+                        Text("Andrzej Sapkowski",
+                          style: TextStyle(
+                            color: CupertinoColors.activeBlue,
+                          ),),
+                        SizedBox(height: 8,),
+                        Container(
+                          height: 1,
+                          width: 32,
+                          color: Colors.blueGrey,
+                        ),
+                        SizedBox(height: 8,),
+                        Text("Wojciech Zoladkowicz",
+                          style: TextStyle(
+                            color: Colors.blueGrey,
+                          ),),
+
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    width: 16,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 54,
             left: 0,
             right: 0,
             child: Column(
               children: <Widget>[
-                Container(height: 24,
-                decoration: BoxDecoration(
-                  color: Colors.black,
+                Container(
+                  height: 24,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Chapter 01. - Winter is comming",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
                 ),
-                child: Center(
-                  child: Text("Chapter 01. - Winter is comming",
-                  style: TextStyle(
-                    color: Colors.white
-                  ),),
-                ),),
-                LinearProgressIndicator(value: animation.value,
-               valueColor: AlwaysStoppedAnimation<Color>(Color(0xffd4af37)),
-               backgroundColor: Colors.black,),
+                LinearProgressIndicator(
+                  value: animation.value,
+                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xffd4af37)),
+                  backgroundColor: Colors.black,
+                ),
               ],
             ),
           ),
@@ -228,7 +374,7 @@ SingleTickerProviderStateMixin{
             right: 0,
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 16),
-              height: 60,
+              height: 54,
               width: deviceWidth,
               decoration: BoxDecoration(
                 color: CupertinoColors.white,
