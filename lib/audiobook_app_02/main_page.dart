@@ -35,11 +35,7 @@ class _MainPageState extends State<MainPage>
     _animationController.addStatusListener((a) {
       setState(() {});
     });
-//    animation..addStatusListener((s){
-//      setState(() {
-//
-//      });
-//    });
+
     _animationController.forward();
   }
 
@@ -265,16 +261,16 @@ class _MainPageState extends State<MainPage>
                           decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: NetworkImage(
-                                    "https://images-na.ssl-images-amazon.com/images/I/51gufgkrH7L.jpg"),
+                                    "https://kbimages1-a.akamaihd.net/db1b24c5-f64c-4fd3-bdef-5717817dc636/1200/1200/False/harry-potter-and-the-order-of-the-phoenix-5.jpg"),
                                 fit: BoxFit.cover),
                           ),
                         ),
                         SizedBox(height: 8,),
-                        Text("The Wincher:Season of Storms",
+                        Text("harry potter and the order of the phoenix",
                           style: TextStyle(
                             color: Colors.white,
                           ),),
-                        Text("Andrzej Sapkowski",
+                        Text("J.K.Rowling",
                           style: TextStyle(
                             color: CupertinoColors.activeBlue,
                           ),),
