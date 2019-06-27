@@ -214,6 +214,86 @@ class _MainPageState extends State<MainPage> {
                       ),
                     ),
                   ),
+                  Positioned(
+                    right: 0,
+                    top: 0,
+                    bottom: 0,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width/ 2,
+
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+
+                        children: <Widget>[
+                          Container(
+                            margin: const EdgeInsets.only(right: 16),
+                            width: MediaQuery.of(context).size.width/ 2.3,
+                            decoration: BoxDecoration(
+                              color: sexyColor,
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 8,
+                                  child: Container(
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 2,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(12),
+                                    color: Colors.blueGrey,
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Row(
+                                          children: <Widget>[
+                                            Text(""
+                                                "Silver Wing",
+                                            style: TextStyle(
+                                              color: Colors.white
+                                            ),),
+                                            SizedBox(
+                                              width: 8,
+                                            ),
+                                            Container(
+                                              height: 8,
+                                              width: 8,
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                shape: BoxShape.circle,
+                                                border: Border.all(
+                                                  color: Colors.grey,
+                                                  width: 2
+                                                )
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        Text("White",
+                                          style: TextStyle(
+                                              color: Colors.white
+                                          ),),
+                                      ],
+                                    )
+                                  ),
+
+                                )
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 16),
+                            width: MediaQuery.of(context).size.width/ 2.5,
+                            color: Colors.yellow,
+                          )
+                        ],
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
