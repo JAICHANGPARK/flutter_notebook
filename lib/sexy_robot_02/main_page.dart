@@ -105,14 +105,15 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
           ),
-          SizedBox(height: 24,),
+          SizedBox(
+            height: 24,
+          ),
           //TODO Implement mechanical center
           Expanded(
             flex: 7,
             child: Container(
               child: Stack(
                 children: <Widget>[
-
                   Positioned(
                     right: 0,
                     top: 0,
@@ -124,7 +125,8 @@ class _MainPageState extends State<MainPage> {
                         shrinkWrap: true,
                         children: <Widget>[
                           Container(
-                            margin: const EdgeInsets.only(right: 16),
+                            margin: const EdgeInsets.only(
+                                right: 16, bottom: 4, top: 4),
                             width: MediaQuery.of(context).size.width / 2.3,
                             decoration: BoxDecoration(
                               color: sexyColor,
@@ -148,7 +150,7 @@ class _MainPageState extends State<MainPage> {
                                 Expanded(
                                   flex: 2,
                                   child: Container(
-                                      padding: const EdgeInsets.all(12),
+                                      padding: const EdgeInsets.all(8),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -199,8 +201,10 @@ class _MainPageState extends State<MainPage> {
                   Positioned(
                     left: 140,
                     top: 24,
-                    child: Image.network("https://i.pinimg.com/originals/e5/c2/27/e5c2276a61605f6c3def9d617f5b5498.png",
-                      width: 180,),
+                    child: Image.network(
+                      "https://i.pinimg.com/originals/e5/c2/27/e5c2276a61605f6c3def9d617f5b5498.png",
+                      width: 180,
+                    ),
                   ),
                   Positioned(
                     left: 16,
@@ -312,9 +316,11 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
           //TODO Implement spec
-          SizedBox(height: 8,),
+          SizedBox(
+            height: 8,
+          ),
           Expanded(
-            flex: 4,
+            flex: 3,
             child: Container(
               padding: const EdgeInsets.only(top: 16, left: 16),
               child: Row(
@@ -324,24 +330,30 @@ class _MainPageState extends State<MainPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text("ENDURANCE",
-                        style: TextStyle(
-                          color: sexyColor,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16,
-                        ),),
-                        Text("ERGONOMICS",
+                        Text(
+                          "ENDURANCE",
                           style: TextStyle(
                             color: sexyColor,
                             fontWeight: FontWeight.w700,
                             fontSize: 16,
-                          ),),
-                        Text("NOISE",
+                          ),
+                        ),
+                        Text(
+                          "ERGONOMICS",
                           style: TextStyle(
                             color: sexyColor,
                             fontWeight: FontWeight.w700,
                             fontSize: 16,
-                          ),),
+                          ),
+                        ),
+                        Text(
+                          "NOISE",
+                          style: TextStyle(
+                            color: sexyColor,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -351,50 +363,59 @@ class _MainPageState extends State<MainPage> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: <Widget>[
                         Padding(
-                          padding:EdgeInsets.only(right: 16),
+                          padding: EdgeInsets.only(right: 16),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: <Widget>[
-                              Text("60 YEARS",
+                              Text(
+                                "60 YEARS",
                                 style: TextStyle(
-                                    color: sexyColor.withOpacity(0.5)
-                                ),),
-                              Icon(Icons.arrow_forward_ios, size: 16,
-                                  color: sexyColor.withOpacity(0.5))
+                                    color: sexyColor.withOpacity(0.5)),
+                              ),
+                              Icon(Icons.arrow_forward_ios,
+                                  size: 16, color: sexyColor.withOpacity(0.5))
                             ],
                           ),
                         ),
-                        Divider(color: sexyColor,),
+                        Divider(
+                          color: sexyColor,
+                        ),
                         Padding(
-                          padding:EdgeInsets.only(right: 16),
-
+                          padding: EdgeInsets.only(right: 16),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: <Widget>[
-                              Text("PATENT PROTECTION",
+                              Text(
+                                "PATENT PROTECTION",
                                 style: TextStyle(
-                                    color: sexyColor.withOpacity(0.5)
-                                ),),
-                              Icon(Icons.arrow_forward_ios, size: 16,
-                                  color: sexyColor.withOpacity(0.5))
+                                    color: sexyColor.withOpacity(0.5)),
+                              ),
+                              Icon(Icons.arrow_forward_ios,
+                                  size: 16, color: sexyColor.withOpacity(0.5))
                             ],
                           ),
                         ),
-                        Divider(color: sexyColor,),
+                        Divider(
+                          color: sexyColor,
+                        ),
                         Padding(
-                          padding:EdgeInsets.only(right: 16),
+                          padding: EdgeInsets.only(right: 16),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: <Widget>[
-                              Text("SILENT",style: TextStyle(
-                                color: sexyColor.withOpacity(0.5)
-                              ),),
-                              Icon(Icons.arrow_forward_ios, size: 16,
-                                color: sexyColor.withOpacity(0.5) ,)
+                              Text(
+                                "SILENT",
+                                style: TextStyle(
+                                    color: sexyColor.withOpacity(0.5)),
+                              ),
+                              Icon(
+                                Icons.arrow_forward_ios,
+                                size: 16,
+                                color: sexyColor.withOpacity(0.5),
+                              )
                             ],
                           ),
                         ),
-
                       ],
                     ),
                   ),
@@ -402,11 +423,48 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
           ),
+          SizedBox(
+            height: 8,
+          ),
           //TODO Implement price ui
           Expanded(
             flex: 2,
             child: Container(
-              decoration: BoxDecoration(border: Border.all()),
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                  color: sexyColor.withOpacity(0.1)),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+
+                  Text("\$", style: TextStyle(
+                      color: sexyColor
+                  ),),
+                  SizedBox(width: 8,),
+                  Text("89.99", style: TextStyle(
+                      color:sexyColor,
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold
+                  ),),
+                  Spacer(),
+                  Container(
+                    height: 46,
+                    width: 120,
+                    decoration: BoxDecoration(
+                      color: sexyColor,
+                      borderRadius: BorderRadius.circular(8)
+                    ),
+                    child: Center(
+                      child: Text("ADD TO CART",
+                      style: TextStyle(
+                        color: Colors.white
+                      ),),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ],
@@ -414,3 +472,18 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
