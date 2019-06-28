@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:dotted_border/dotted_border.dart';
 
 class AppForCollector extends StatelessWidget {
   @override
@@ -132,43 +133,769 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                     children: <Widget>[
                       Draggable(
                         child: Container(
-                          color: Colors.white,
-                        ),
-                        feedback: Container(
-                          height: 180,
-                          width: 180,
+                          margin: EdgeInsets.all(4),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            color: Colors.orange,
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(32),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.indigo.withOpacity(0.1),
+                                  blurRadius: 5,
+                                  spreadRadius: 2)
+                            ],
+                          ),
+                          child: Stack(
+                            children: <Widget>[
+                              Positioned(
+                                top: 16,
+                                left: 16,
+                                child: Container(
+                                  height: 24,
+                                  width: 48,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(color: Colors.indigo),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                left: 16,
+                                bottom: 16,
+                                right: 32,
+                                child: Text(
+                                  "Nintendo\nSwitch",
+                                  style: TextStyle(
+                                      color: Colors.indigo, letterSpacing: 1.2),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        feedback: Material(
+                          child: Container(
+                            height: 180,
+                            width: 180,
+                            margin: EdgeInsets.all(4),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(32),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.indigo.withOpacity(0.1),
+                                    blurRadius: 5,
+                                    spreadRadius: 2)
+                              ],
+                            ),
+                            child: Stack(
+                              children: <Widget>[
+                                Positioned(
+                                  top: 16,
+                                  left: 16,
+                                  child: Container(
+                                    height: 24,
+                                    width: 48,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      border: Border.all(color: Colors.indigo),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 16,
+                                  bottom: 16,
+                                  right: 32,
+                                  child: Text(
+                                    "Nintendo\nSwitch",
+                                    style: TextStyle(
+                                        color: Colors.indigo,
+                                        letterSpacing: 1.2),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                         childWhenDragging: Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(),
-                              borderRadius: BorderRadius.circular(16)),
-                          child: Center(
-                            child: Icon(Icons.add),
+                          margin: EdgeInsets.all(8),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(32)),
+                          child: DottedBorder(
+                            gap: 3,
+                            strokeWidth: 1,
+                            child: Center(
+                              child: Icon(Icons.add),
+                            ),
                           ),
                         ),
                       ),
                       Draggable(
                         child: Container(
-                          color: Colors.white,
-                        ),
-                        feedback: Container(
-                          height: 180,
-                          width: 180,
+                          margin: EdgeInsets.all(4),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            color: Colors.orange,
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(32),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.indigo.withOpacity(0.1),
+                                  blurRadius: 5,
+                                  spreadRadius: 2)
+                            ],
+                          ),
+                          child: Stack(
+                            children: <Widget>[
+                              Positioned(
+                                top: 16,
+                                left: 16,
+                                child: Container(
+                                  height: 24,
+                                  width: 48,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(color: Colors.indigo),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                left: 16,
+                                bottom: 16,
+                                right: 32,
+                                child: Text(
+                                  "Nintendo\nSwitch",
+                                  style: TextStyle(
+                                      color: Colors.indigo, letterSpacing: 1.2),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        feedback: Material(
+                          child: Container(
+                            height: 180,
+                            width: 180,
+                            margin: EdgeInsets.all(4),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(32),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.indigo.withOpacity(0.1),
+                                    blurRadius: 5,
+                                    spreadRadius: 2)
+                              ],
+                            ),
+                            child: Stack(
+                              children: <Widget>[
+                                Positioned(
+                                  top: 16,
+                                  left: 16,
+                                  child: Container(
+                                    height: 24,
+                                    width: 48,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      border: Border.all(color: Colors.indigo),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 16,
+                                  bottom: 16,
+                                  right: 32,
+                                  child: Text(
+                                    "Nintendo\nSwitch",
+                                    style: TextStyle(
+                                        color: Colors.indigo,
+                                        letterSpacing: 1.2),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         ),
                         childWhenDragging: Container(
+                          margin: EdgeInsets.all(8),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(32)),
+                          child: DottedBorder(
+                            gap: 3,
+                            strokeWidth: 1,
+                            child: Center(
+                              child: Icon(Icons.add),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Draggable(
+                        child: Container(
+                          margin: EdgeInsets.all(4),
                           decoration: BoxDecoration(
-                              border: Border.all(),
-                              borderRadius: BorderRadius.circular(16)),
-                          child: Center(
-                            child: Icon(Icons.add),
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(32),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.indigo.withOpacity(0.1),
+                                  blurRadius: 5,
+                                  spreadRadius: 2)
+                            ],
+                          ),
+                          child: Stack(
+                            children: <Widget>[
+                              Positioned(
+                                top: 16,
+                                left: 16,
+                                child: Container(
+                                  height: 24,
+                                  width: 48,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(color: Colors.indigo),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                left: 16,
+                                bottom: 16,
+                                right: 32,
+                                child: Text(
+                                  "Nintendo\nSwitch",
+                                  style: TextStyle(
+                                      color: Colors.indigo, letterSpacing: 1.2),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        feedback: Material(
+                          child: Container(
+                            height: 180,
+                            width: 180,
+                            margin: EdgeInsets.all(4),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(32),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.indigo.withOpacity(0.1),
+                                    blurRadius: 5,
+                                    spreadRadius: 2)
+                              ],
+                            ),
+                            child: Stack(
+                              children: <Widget>[
+                                Positioned(
+                                  top: 16,
+                                  left: 16,
+                                  child: Container(
+                                    height: 24,
+                                    width: 48,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      border: Border.all(color: Colors.indigo),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 16,
+                                  bottom: 16,
+                                  right: 32,
+                                  child: Text(
+                                    "Nintendo\nSwitch",
+                                    style: TextStyle(
+                                        color: Colors.indigo,
+                                        letterSpacing: 1.2),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        childWhenDragging: Container(
+                          margin: EdgeInsets.all(8),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(32)),
+                          child: DottedBorder(
+                            gap: 3,
+                            strokeWidth: 1,
+                            child: Center(
+                              child: Icon(Icons.add),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Draggable(
+                        child: Container(
+                          margin: EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(32),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.indigo.withOpacity(0.1),
+                                  blurRadius: 5,
+                                  spreadRadius: 2)
+                            ],
+                          ),
+                          child: Stack(
+                            children: <Widget>[
+                              Positioned(
+                                top: 16,
+                                left: 16,
+                                child: Container(
+                                  height: 24,
+                                  width: 48,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(color: Colors.indigo),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                left: 16,
+                                bottom: 16,
+                                right: 32,
+                                child: Text(
+                                  "Nintendo\nSwitch",
+                                  style: TextStyle(
+                                      color: Colors.indigo, letterSpacing: 1.2),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        feedback: Material(
+                          child: Container(
+                            height: 180,
+                            width: 180,
+                            margin: EdgeInsets.all(4),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(32),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.indigo.withOpacity(0.1),
+                                    blurRadius: 5,
+                                    spreadRadius: 2)
+                              ],
+                            ),
+                            child: Stack(
+                              children: <Widget>[
+                                Positioned(
+                                  top: 16,
+                                  left: 16,
+                                  child: Container(
+                                    height: 24,
+                                    width: 48,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      border: Border.all(color: Colors.indigo),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 16,
+                                  bottom: 16,
+                                  right: 32,
+                                  child: Text(
+                                    "Nintendo\nSwitch",
+                                    style: TextStyle(
+                                        color: Colors.indigo,
+                                        letterSpacing: 1.2),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        childWhenDragging: Container(
+                          margin: EdgeInsets.all(8),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(32)),
+                          child: DottedBorder(
+                            gap: 3,
+                            strokeWidth: 1,
+                            child: Center(
+                              child: Icon(Icons.add),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Draggable(
+                        child: Container(
+                          margin: EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(32),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.indigo.withOpacity(0.1),
+                                  blurRadius: 5,
+                                  spreadRadius: 2)
+                            ],
+                          ),
+                          child: Stack(
+                            children: <Widget>[
+                              Positioned(
+                                top: 16,
+                                left: 16,
+                                child: Container(
+                                  height: 24,
+                                  width: 48,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(color: Colors.indigo),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                left: 16,
+                                bottom: 16,
+                                right: 32,
+                                child: Text(
+                                  "Nintendo\nSwitch",
+                                  style: TextStyle(
+                                      color: Colors.indigo, letterSpacing: 1.2),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        feedback: Material(
+                          child: Container(
+                            height: 180,
+                            width: 180,
+                            margin: EdgeInsets.all(4),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(32),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.indigo.withOpacity(0.1),
+                                    blurRadius: 5,
+                                    spreadRadius: 2)
+                              ],
+                            ),
+                            child: Stack(
+                              children: <Widget>[
+                                Positioned(
+                                  top: 16,
+                                  left: 16,
+                                  child: Container(
+                                    height: 24,
+                                    width: 48,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      border: Border.all(color: Colors.indigo),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 16,
+                                  bottom: 16,
+                                  right: 32,
+                                  child: Text(
+                                    "Nintendo\nSwitch",
+                                    style: TextStyle(
+                                        color: Colors.indigo,
+                                        letterSpacing: 1.2),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        childWhenDragging: Container(
+                          margin: EdgeInsets.all(8),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(32)),
+                          child: DottedBorder(
+                            gap: 3,
+                            strokeWidth: 1,
+                            child: Center(
+                              child: Icon(Icons.add),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Draggable(
+                        child: Container(
+                          margin: EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(32),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.indigo.withOpacity(0.1),
+                                  blurRadius: 5,
+                                  spreadRadius: 2)
+                            ],
+                          ),
+                          child: Stack(
+                            children: <Widget>[
+                              Positioned(
+                                top: 16,
+                                left: 16,
+                                child: Container(
+                                  height: 24,
+                                  width: 48,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(color: Colors.indigo),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                left: 16,
+                                bottom: 16,
+                                right: 32,
+                                child: Text(
+                                  "Nintendo\nSwitch",
+                                  style: TextStyle(
+                                      color: Colors.indigo, letterSpacing: 1.2),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        feedback: Material(
+                          child: Container(
+                            height: 180,
+                            width: 180,
+                            margin: EdgeInsets.all(4),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(32),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.indigo.withOpacity(0.1),
+                                    blurRadius: 5,
+                                    spreadRadius: 2)
+                              ],
+                            ),
+                            child: Stack(
+                              children: <Widget>[
+                                Positioned(
+                                  top: 16,
+                                  left: 16,
+                                  child: Container(
+                                    height: 24,
+                                    width: 48,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      border: Border.all(color: Colors.indigo),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 16,
+                                  bottom: 16,
+                                  right: 32,
+                                  child: Text(
+                                    "Nintendo\nSwitch",
+                                    style: TextStyle(
+                                        color: Colors.indigo,
+                                        letterSpacing: 1.2),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        childWhenDragging: Container(
+                          margin: EdgeInsets.all(8),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(32)),
+                          child: DottedBorder(
+                            gap: 3,
+                            strokeWidth: 1,
+                            child: Center(
+                              child: Icon(Icons.add),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Draggable(
+                        child: Container(
+                          margin: EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(32),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.indigo.withOpacity(0.1),
+                                  blurRadius: 5,
+                                  spreadRadius: 2)
+                            ],
+                          ),
+                          child: Stack(
+                            children: <Widget>[
+                              Positioned(
+                                top: 16,
+                                left: 16,
+                                child: Container(
+                                  height: 24,
+                                  width: 48,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(color: Colors.indigo),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                left: 16,
+                                bottom: 16,
+                                right: 32,
+                                child: Text(
+                                  "Nintendo\nSwitch",
+                                  style: TextStyle(
+                                      color: Colors.indigo, letterSpacing: 1.2),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        feedback: Material(
+                          child: Container(
+                            height: 180,
+                            width: 180,
+                            margin: EdgeInsets.all(4),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(32),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.indigo.withOpacity(0.1),
+                                    blurRadius: 5,
+                                    spreadRadius: 2)
+                              ],
+                            ),
+                            child: Stack(
+                              children: <Widget>[
+                                Positioned(
+                                  top: 16,
+                                  left: 16,
+                                  child: Container(
+                                    height: 24,
+                                    width: 48,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      border: Border.all(color: Colors.indigo),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 16,
+                                  bottom: 16,
+                                  right: 32,
+                                  child: Text(
+                                    "Nintendo\nSwitch",
+                                    style: TextStyle(
+                                        color: Colors.indigo,
+                                        letterSpacing: 1.2),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        childWhenDragging: Container(
+                          margin: EdgeInsets.all(8),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(32)),
+                          child: DottedBorder(
+                            gap: 3,
+                            strokeWidth: 1,
+                            child: Center(
+                              child: Icon(Icons.add),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Draggable(
+                        child: Container(
+                          margin: EdgeInsets.all(4),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(32),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: Colors.indigo.withOpacity(0.1),
+                                  blurRadius: 5,
+                                  spreadRadius: 2)
+                            ],
+                          ),
+                          child: Stack(
+                            children: <Widget>[
+                              Positioned(
+                                top: 16,
+                                left: 16,
+                                child: Container(
+                                  height: 24,
+                                  width: 48,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(color: Colors.indigo),
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                left: 16,
+                                bottom: 16,
+                                right: 32,
+                                child: Text(
+                                  "Nintendo\nSwitch",
+                                  style: TextStyle(
+                                      color: Colors.indigo, letterSpacing: 1.2),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        feedback: Material(
+                          child: Container(
+                            height: 180,
+                            width: 180,
+                            margin: EdgeInsets.all(4),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(32),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Colors.indigo.withOpacity(0.1),
+                                    blurRadius: 5,
+                                    spreadRadius: 2)
+                              ],
+                            ),
+                            child: Stack(
+                              children: <Widget>[
+                                Positioned(
+                                  top: 16,
+                                  left: 16,
+                                  child: Container(
+                                    height: 24,
+                                    width: 48,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16),
+                                      border: Border.all(color: Colors.indigo),
+                                    ),
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 16,
+                                  bottom: 16,
+                                  right: 32,
+                                  child: Text(
+                                    "Nintendo\nSwitch",
+                                    style: TextStyle(
+                                        color: Colors.indigo,
+                                        letterSpacing: 1.2),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        childWhenDragging: Container(
+                          margin: EdgeInsets.all(8),
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(32)),
+                          child: DottedBorder(
+                            gap: 3,
+                            strokeWidth: 1,
+                            child: Center(
+                              child: Icon(Icons.add),
+                            ),
                           ),
                         ),
                       ),
@@ -183,9 +910,58 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                 ),
               ]),
             ),
+          ),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Container(
+              height: 60,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24
+              ),
+
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Icon(Icons.star_border,
+                  color: Colors.indigo,),
+                  Icon(Icons.apps,
+                    color: Colors.indigo,),
+                  Icon(Icons.person_outline,
+                    color: Colors.indigo,)
+                ],
+              ),
+            ),
           )
+
         ],
       ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
