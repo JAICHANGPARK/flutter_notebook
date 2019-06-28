@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/app_for_collectors.dart';
 import 'package:flutter_notebook/audiobook_app_02/main_page.dart';
 import 'package:flutter_notebook/cosmetic_service_app/main_page.dart';
 import 'package:flutter_notebook/job_listing/home_page.dart';
@@ -17,7 +18,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(SexyRobotApp());
+  runApp(AppForCollector());
 }
 
 //void main() => runApp(
