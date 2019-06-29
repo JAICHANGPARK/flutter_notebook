@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_notebook/app_for_collectors.dart';
 import 'package:flutter_notebook/audiobook_app_02/main_page.dart';
 import 'package:flutter_notebook/cosmetic_service_app/main_page.dart';
+import 'package:flutter_notebook/electric_scooter_app/main_page.dart';
 import 'package:flutter_notebook/job_listing/home_page.dart';
 import 'package:flutter_notebook/sexy_robot_02/main_page.dart';
 import 'dart:async';
@@ -18,7 +19,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(AppForCollector());
+  runApp(ElectricScooter());
 }
 
 //void main() => runApp(
