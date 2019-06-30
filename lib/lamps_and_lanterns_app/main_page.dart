@@ -128,13 +128,17 @@ class _MainPageState extends State<MainPage> {
                             style: TextStyle(
                                 color: Colors.grey, fontFamily: 'Montserrat'),
                           ),
-                          SizedBox(height: 4,),
+                          SizedBox(
+                            height: 4,
+                          ),
                           Text(
                             "Olivia",
                             style: TextStyle(
                                 fontSize: 24, fontFamily: 'Montserrat'),
                           ),
-                          SizedBox(height: 4,),
+                          SizedBox(
+                            height: 16,
+                          ),
                           Row(
                             children: <Widget>[
                               Container(
@@ -174,12 +178,221 @@ class _MainPageState extends State<MainPage> {
                   ),
                   Positioned(
                     right: 32,
-                    top: 140,
+                    top: 160,
                     bottom: 120,
                     child: Container(
                       width: 240,
-                      color: Colors.greenAccent,
+                      decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              colors: [
+                                Colors.black,
+                                Colors.white.withOpacity(0.5),
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.center,
+                              tileMode: TileMode.repeated,
+                              stops: [0, 0.1]),
+                          image: DecorationImage(
+                            image: NetworkImage(
+                                "https://www.marcosvillatoro.com/m/2018/11/hanging-light-png-hanging-light-png-images-hanging-light-png-modern-hanging-lamps-fiona-modern-lamp-eurway.png"),
+                            fit: BoxFit.cover,
+                          )),
                     ),
+                  ),
+                  Positioned(
+                    right: 32,
+                    top: 160,
+                    bottom: 120,
+                    child: Container(
+                      width: 240,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: [
+                              Colors.white.withOpacity(0.9),
+                              Colors.white.withOpacity(0.1),
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.center,
+                            tileMode: TileMode.clamp,
+                            stops: [0, 0.45]),
+                      ),
+//                      child: Image.network(
+//                        "https://www.marcosvillatoro.com/m/2018/11/hanging-light-png-hanging-light-png-images-hanging-light-png-modern-hanging-lamps-fiona-modern-lamp-eurway.png",
+//                        fit: BoxFit.cover,
+//                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 32,
+              ),
+              height: 320,
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Text(
+                    "Function",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontFamily: 'Montserrat',
+                    ),
+                  ),
+                  Container(
+                    height: 180,
+                    width: MediaQuery.of(context).size.width,
+                    child: GridView.count(crossAxisCount: 2,
+                    crossAxisSpacing: 16,
+                    mainAxisSpacing: 16,
+                    children: <Widget>[
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(16)
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text("11",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                      fontWeight: FontWeight.bold
+                                  ),),
+                                  SizedBox(width: 8,),
+                                  Text("speed",
+                                      style: TextStyle(
+                                          color: Colors.white,
+//                                          fontSize: 24
+                                      ))
+                                ],
+                              ),
+                              Text("photometric",
+                                  style: TextStyle(
+                                    color: Colors.white,
+//                                          fontSize: 24
+                                  ))
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(16)
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text("60",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 24,
+                                      fontWeight: FontWeight.bold
+                                    ),),
+                                  SizedBox(width: 8,),
+                                  Text("cm",
+                                      style: TextStyle(
+                                        color: Colors.white,
+//                                          fontSize: 24
+                                      ))
+                                ],
+                              ),
+                              Text("telecontrol",
+                                  style: TextStyle(
+                                    color: Colors.white,
+//                                          fontSize: 24
+                                  ))
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(16)
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text("11",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 24
+                                    ),),
+                                  Text("speed",
+                                      style: TextStyle(
+                                        color: Colors.white,
+//                                          fontSize: 24
+                                      ))
+                                ],
+                              ),
+                              Text("photometric",
+                                  style: TextStyle(
+                                    color: Colors.white,
+//                                          fontSize: 24
+                                  ))
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(16)
+                        ),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text("11",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 24
+                                    ),),
+                                  Text("speed",
+                                      style: TextStyle(
+                                        color: Colors.white,
+//                                          fontSize: 24
+                                      ))
+                                ],
+                              ),
+                              Text("photometric",
+                                  style: TextStyle(
+                                    color: Colors.white,
+//                                          fontSize: 24
+                                  ))
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],),
                   )
                 ],
               ),
@@ -190,13 +403,6 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-
-
-
-
-
-
-
 
 
 
