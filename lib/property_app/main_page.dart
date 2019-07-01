@@ -67,7 +67,70 @@ class _HomePageState extends State<HomePage> {
                         backgroundImage:NetworkImage("https://avatars2.githubusercontent.com/u/19484515?s=460&v=4"),
                       ),
                     )
-                    
+                  ],
+                ),
+              ),
+              SizedBox(height: 24,),
+              Container(
+                height: 280,
+                width: deviceWidth,
+                padding: const EdgeInsets.only(left: 16),
+                decoration: BoxDecoration(
+                  border: Border.all(),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text("Top Picks",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold
+                    ),),
+                    SizedBox(height: 16,),
+                    Container(
+                      height: 224,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        children: <Widget>[
+                          Container(
+                            margin: const EdgeInsets.only(right: 24,
+                            top: 4, bottom: 4, left: 4),
+                            width: 190,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(18),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.1),
+                                  blurRadius: 3,
+                                  spreadRadius: 1,
+                                )
+                              ]
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 24,
+                                top: 4, bottom: 4, left: 4),
+                            width: 190,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(18),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.1),
+                                    blurRadius: 3,
+                                    spreadRadius: 1,
+                                  )
+                                ]
+                            ),
+                          ),
+
+                        ],
+                      ),
+                    )
+
                   ],
                 ),
               )
