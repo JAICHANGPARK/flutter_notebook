@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_notebook/app_for_collectors.dart';
-import 'package:flutter_notebook/audiobook_app_02/main_page.dart';
-import 'package:flutter_notebook/cosmetic_service_app/main_page.dart';
-import 'package:flutter_notebook/electric_scooter_app/main_page.dart';
-import 'package:flutter_notebook/job_listing/home_page.dart';
-import 'package:flutter_notebook/lamps_and_lanterns_app/main_page.dart';
-import 'package:flutter_notebook/sexy_robot_02/main_page.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_notebook/currence_ui/main_page.dart';
 import 'package:flutter_notebook/model/coin_market.dart';
+
+import 'package:flutter_notebook/property_app/main_page.dart';
 
 
 
@@ -20,7 +15,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(LampsAndLanternsApp());
+  runApp(PropertyApp());
 }
 
 //void main() => runApp(
