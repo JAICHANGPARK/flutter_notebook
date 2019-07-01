@@ -27,9 +27,6 @@ class _HomePageState extends State<HomePage> {
               Container(
                 height: 120,
                 width: deviceWidth,
-                decoration: BoxDecoration(
-                  border: Border.all()
-                ),
                 child: Stack(
                   children: <Widget>[
                     Positioned(
@@ -75,9 +72,7 @@ class _HomePageState extends State<HomePage> {
                 height: 280,
                 width: deviceWidth,
                 padding: const EdgeInsets.only(left: 16),
-                decoration: BoxDecoration(
-                  border: Border.all(),
-                ),
+
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -106,8 +101,57 @@ class _HomePageState extends State<HomePage> {
                                   color: Colors.black.withOpacity(0.1),
                                   blurRadius: 3,
                                   spreadRadius: 1,
-                                )
+                                ),
                               ]
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topLeft: 
+                                      Radius.circular(16),
+                                      topRight: Radius.circular(16)),
+                                      image: DecorationImage(image: 
+                                      NetworkImage("https://cdn.pixabay.com/photo/2017/03/30/04/14/house-2187170_960_720.jpg"),
+                                      fit: BoxFit.cover),
+                                    ),
+                                    child: Stack(
+                                      children: <Widget>[
+                                        Positioned(
+                                          right: 16,
+                                          top: 16,
+                                          child: Icon(Icons.bookmark_border,
+                                          color: Colors.white,),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 16, top: 16),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text("Camden Town Road Family home",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 18
+                                        ),),
+                                        SizedBox(
+                                          height: 16,
+                                        ),
+                                        Text("\$420-600",style: TextStyle(
+                                          color: Colors.grey
+                                        ),)
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           Container(
@@ -122,10 +166,385 @@ class _HomePageState extends State<HomePage> {
                                     color: Colors.black.withOpacity(0.1),
                                     blurRadius: 3,
                                     spreadRadius: 1,
-                                  )
+                                  ),
                                 ]
                             ),
+                            child: Column(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topLeft:
+                                      Radius.circular(16),
+                                          topRight: Radius.circular(16)),
+                                      image: DecorationImage(image:
+                                      NetworkImage("https://cdn.pixabay.com/photo/2017/03/30/04/14/house-2187170_960_720.jpg"),
+                                          fit: BoxFit.cover),
+                                    ),
+                                    child: Stack(
+                                      children: <Widget>[
+                                        Positioned(
+                                          right: 16,
+                                          top: 16,
+                                          child: Icon(Icons.bookmark_border,
+                                            color: Colors.white,),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 16, top: 16),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text("Camden Town Road Family home",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 18
+                                          ),),
+                                        SizedBox(
+                                          height: 16,
+                                        ),
+                                        Text("\$420-600",style: TextStyle(
+                                            color: Colors.grey
+                                        ),)
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 24,
+                                top: 4, bottom: 4, left: 4),
+                            width: 190,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(18),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.1),
+                                    blurRadius: 3,
+                                    spreadRadius: 1,
+                                  ),
+                                ]
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topLeft:
+                                      Radius.circular(16),
+                                          topRight: Radius.circular(16)),
+                                      image: DecorationImage(image:
+                                      NetworkImage("https://cdn.pixabay.com/photo/2017/03/30/04/14/house-2187170_960_720.jpg"),
+                                          fit: BoxFit.cover),
+                                    ),
+                                    child: Stack(
+                                      children: <Widget>[
+                                        Positioned(
+                                          right: 16,
+                                          top: 16,
+                                          child: Icon(Icons.bookmark_border,
+                                            color: Colors.white,),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 16, top: 16),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text("Camden Town Road Family home",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 18
+                                          ),),
+                                        SizedBox(
+                                          height: 16,
+                                        ),
+                                        Text("\$420-600",style: TextStyle(
+                                            color: Colors.grey
+                                        ),)
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 24,
+                                top: 4, bottom: 4, left: 4),
+                            width: 190,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(18),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.1),
+                                    blurRadius: 3,
+                                    spreadRadius: 1,
+                                  ),
+                                ]
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topLeft:
+                                      Radius.circular(16),
+                                          topRight: Radius.circular(16)),
+                                      image: DecorationImage(image:
+                                      NetworkImage("https://cdn.pixabay.com/photo/2017/03/30/04/14/house-2187170_960_720.jpg"),
+                                          fit: BoxFit.cover),
+                                    ),
+                                    child: Stack(
+                                      children: <Widget>[
+                                        Positioned(
+                                          right: 16,
+                                          top: 16,
+                                          child: Icon(Icons.bookmark_border,
+                                            color: Colors.white,),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 16, top: 16),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text("Camden Town Road Family home",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 18
+                                          ),),
+                                        SizedBox(
+                                          height: 16,
+                                        ),
+                                        Text("\$420-600",style: TextStyle(
+                                            color: Colors.grey
+                                        ),)
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 24,
+                                top: 4, bottom: 4, left: 4),
+                            width: 190,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(18),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.1),
+                                    blurRadius: 3,
+                                    spreadRadius: 1,
+                                  ),
+                                ]
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topLeft:
+                                      Radius.circular(16),
+                                          topRight: Radius.circular(16)),
+                                      image: DecorationImage(image:
+                                      NetworkImage("https://cdn.pixabay.com/photo/2017/03/30/04/14/house-2187170_960_720.jpg"),
+                                          fit: BoxFit.cover),
+                                    ),
+                                    child: Stack(
+                                      children: <Widget>[
+                                        Positioned(
+                                          right: 16,
+                                          top: 16,
+                                          child: Icon(Icons.bookmark_border,
+                                            color: Colors.white,),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 16, top: 16),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text("Camden Town Road Family home",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 18
+                                          ),),
+                                        SizedBox(
+                                          height: 16,
+                                        ),
+                                        Text("\$420-600",style: TextStyle(
+                                            color: Colors.grey
+                                        ),)
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 24,
+                                top: 4, bottom: 4, left: 4),
+                            width: 190,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(18),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.1),
+                                    blurRadius: 3,
+                                    spreadRadius: 1,
+                                  ),
+                                ]
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topLeft:
+                                      Radius.circular(16),
+                                          topRight: Radius.circular(16)),
+                                      image: DecorationImage(image:
+                                      NetworkImage("https://cdn.pixabay.com/photo/2017/03/30/04/14/house-2187170_960_720.jpg"),
+                                          fit: BoxFit.cover),
+                                    ),
+                                    child: Stack(
+                                      children: <Widget>[
+                                        Positioned(
+                                          right: 16,
+                                          top: 16,
+                                          child: Icon(Icons.bookmark_border,
+                                            color: Colors.white,),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 16, top: 16),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text("Camden Town Road Family home",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 18
+                                          ),),
+                                        SizedBox(
+                                          height: 16,
+                                        ),
+                                        Text("\$420-600",style: TextStyle(
+                                            color: Colors.grey
+                                        ),)
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(right: 24,
+                                top: 4, bottom: 4, left: 4),
+                            width: 190,
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(18),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.black.withOpacity(0.1),
+                                    blurRadius: 3,
+                                    spreadRadius: 1,
+                                  ),
+                                ]
+                            ),
+                            child: Column(
+                              children: <Widget>[
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(topLeft:
+                                      Radius.circular(16),
+                                          topRight: Radius.circular(16)),
+                                      image: DecorationImage(image:
+                                      NetworkImage("https://cdn.pixabay.com/photo/2017/03/30/04/14/house-2187170_960_720.jpg"),
+                                          fit: BoxFit.cover),
+                                    ),
+                                    child: Stack(
+                                      children: <Widget>[
+                                        Positioned(
+                                          right: 16,
+                                          top: 16,
+                                          child: Icon(Icons.bookmark_border,
+                                            color: Colors.white,),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Container(
+                                    padding: EdgeInsets.only(left: 16, top: 16),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Text("Camden Town Road Family home",
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 18
+                                          ),),
+                                        SizedBox(
+                                          height: 16,
+                                        ),
+                                        Text("\$420-600",style: TextStyle(
+                                            color: Colors.grey
+                                        ),)
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
 
                         ],
                       ),
