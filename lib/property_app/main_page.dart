@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/property_app/detail_page.dart';
 
 class PropertyApp extends StatelessWidget {
   @override
@@ -629,26 +630,34 @@ class _HomePageState extends State<HomePage> {
                      scrollDirection: Axis.vertical,
                      shrinkWrap: true,
                      children: <Widget>[
-                       Container(
-                         height: 240,
-                         margin: const EdgeInsets.only(bottom: 16),
-                         decoration: BoxDecoration(
-                           image: DecorationImage(image: 
-                           NetworkImage("https://cdn.pixabay.com/photo/2016/06/24/10/47/architecture-1477041_960_720.jpg"),
-                           fit: BoxFit.cover),
-                           borderRadius: BorderRadius.circular(16),
+                       InkWell(
+                         onTap: (){
+                           Navigator.of(context).push(
+                             MaterialPageRoute(builder: (context)=>PropertyDetailPage())
+                           );
+                         },
+                         child: Hero(
+                           child: Container(
+                             height: 240,
+                             margin: const EdgeInsets.only(bottom: 16),
+                             decoration: BoxDecoration(
+                               image: DecorationImage(image:
+                               NetworkImage("https://cdn.pixabay.com/photo/2016/06/24/10/47/architecture-1477041_960_720.jpg"),
+                               fit: BoxFit.cover),
+                               borderRadius: BorderRadius.circular(16),
+                             ),
+                             child: Stack(
+                               children: <Widget>[
+                                 Positioned(
+                                   right: 16,
+                                   top: 16,
+                                   child: Icon(Icons.bookmark_border,
+                                   color: Colors.white,),
+                                 )
+                               ],
+                             ),
+                           ), tag: "my_house",
                          ),
-                         child: Stack(
-                           children: <Widget>[
-                             Positioned(
-                               right: 16,
-                               top: 16,
-                               child: Icon(Icons.bookmark_border,
-                               color: Colors.white,),
-                             )
-                           ],
-                         ),
-                         
                        ),
                        Container(
                          height: 240,
