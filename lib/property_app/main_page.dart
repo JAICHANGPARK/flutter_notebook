@@ -596,29 +596,128 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            Placeholder(
-              fallbackHeight: 280,
-              fallbackWidth: deviceWidth,
-            )
+           Container(
+             height: 380,
+             width: deviceWidth,
+             margin: const EdgeInsets.only(left: 24, right: 16, top: 16),
+             child: Column(
+               children: <Widget>[
+                 Row(
+                   children: <Widget>[
+                     CircleAvatar(
+                       backgroundImage: NetworkImage(
+                           "https://avatars2.githubusercontent.com/u/19484515?s=460&v=4"),
+                     ),
+                     SizedBox(
+                       width: 16,
+                     ),
+                     Text("Dreamwalker",
+                     style: TextStyle(
+                       fontSize: 18,
+                       fontWeight: FontWeight.bold
+                     ),),
+                     Spacer(),
+                     Text("5 min ago",
+                     style: TextStyle(
+                       color: Colors.grey
+                     ),)
+                   ],
+                 ),
+                 Container(
+                   height: 300,
+                   child: ListView(
+                     scrollDirection: Axis.vertical,
+                     shrinkWrap: true,
+                     children: <Widget>[
+                       Container(
+                         height: 240,
+                         margin: const EdgeInsets.only(bottom: 16),
+                         decoration: BoxDecoration(
+                           image: DecorationImage(image: 
+                           NetworkImage("https://cdn.pixabay.com/photo/2016/06/24/10/47/architecture-1477041_960_720.jpg"),
+                           fit: BoxFit.cover),
+                           borderRadius: BorderRadius.circular(16),
+                         ),
+                         child: Stack(
+                           children: <Widget>[
+                             Positioned(
+                               right: 16,
+                               top: 16,
+                               child: Icon(Icons.bookmark_border,
+                               color: Colors.white,),
+                             )
+                           ],
+                         ),
+                         
+                       ),
+                       Container(
+                         height: 240,
+                         margin: const EdgeInsets.only(bottom: 16),
+                         decoration: BoxDecoration(
+                           image: DecorationImage(image:
+                           NetworkImage("https://cdn.pixabay.com/photo/2016/06/24/10/47/architecture-1477041_960_720.jpg"),
+                               fit: BoxFit.cover),
+                           borderRadius: BorderRadius.circular(16),
+                         ),
+                         child: Stack(
+                           children: <Widget>[
+                             Positioned(
+                               right: 16,
+                               top: 16,
+                               child: Icon(Icons.bookmark_border,
+                                 color: Colors.white,),
+                             )
+                           ],
+                         ),
+
+                       ),
+                       Container(
+                         height: 240,
+                         margin: const EdgeInsets.only(bottom: 16),
+                         decoration: BoxDecoration(
+                           image: DecorationImage(image:
+                           NetworkImage("https://cdn.pixabay.com/photo/2016/06/24/10/47/architecture-1477041_960_720.jpg"),
+                               fit: BoxFit.cover),
+                           borderRadius: BorderRadius.circular(16),
+                         ),
+                         child: Stack(
+                           children: <Widget>[
+                             Positioned(
+                               right: 16,
+                               top: 16,
+                               child: Icon(Icons.bookmark_border,
+                                 color: Colors.white,),
+                             )
+                           ],
+                         ),
+
+                       )
+                     ],
+                   ),
+                 )
+               ],
+             ),
+           )
           ],
         ),
       ),
-      
-//      bottomNavigationBar: BottomNavigationBar(
-//
-//          selectedItemColor: Colors.blue,
-//          unselectedItemColor: Colors.grey,
-//          type: BottomNavigationBarType.fixed,
-//          items: [
-//            BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("")),
-//            BottomNavigationBarItem(icon: Icon(Icons.message), title: Text("")),
-//            BottomNavigationBarItem(icon: Icon(Icons.search), title: Text("")),
-//            BottomNavigationBarItem(
-//                icon: Icon(
-//                  Icons.bookmark_border,
-//                ),
-//                title: Text("")),
-//          ]),
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            IconButton(icon: Icon(Icons.home),
+            onPressed: (){},),
+            IconButton(icon: Icon(Icons.message),
+              onPressed: (){},),
+            IconButton(icon: Icon(Icons.search),
+              onPressed: (){},),
+            IconButton(icon: Icon(Icons.bookmark_border),
+              onPressed: (){},),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Icon(Icons.add),
