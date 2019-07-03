@@ -6,6 +6,9 @@ class AuctionKawsApp extends StatelessWidget {
     return MaterialApp(
       home: MainPage(),
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primaryColor: Colors.pink
+      ),
     );
   }
 }
@@ -44,7 +47,7 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                 height: 48,
                 width: deviceWidth,
                 margin: const EdgeInsets.only(
-                    left: 24, right: 24, top: 24, bottom: 24),
+                    left: 16, right: 24, top: 24, bottom: 16),
                 padding: EdgeInsets.only(left: 16, right: 16),
                 decoration: BoxDecoration(
                     color: Colors.white, borderRadius: BorderRadius.circular(8)),
@@ -89,9 +92,9 @@ class _MainPageState extends State<MainPage> with TickerProviderStateMixin {
                 controller: _tabController,
                 children: <Widget>[
                   DiscoverPage(),
-                  Container(),
-                  Container(),
-                  Container(),
+                  DiscoverPage(),
+                  DiscoverPage(),
+                  DiscoverPage(),
                 ],
               ),
             )
@@ -396,7 +399,7 @@ class DiscoverPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(16),
                 image: DecorationImage(
                     image: NetworkImage(
-                        "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2018%2F11%2Fkaws-dior-kim-jones-menswear-capsule-release-date-details-1.jpg?q=75&w=800&cbr=1&fit=max"),
+                        "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2018%2F11%2Fkaws-dior-kim-jones-menswear-capsule-release-date-details-2.jpg?q=75&w=800&cbr=1&fit=max"),
                     fit: BoxFit.cover)),
             child: Stack(
               children: <Widget>[
@@ -484,7 +487,7 @@ class DiscoverPage extends StatelessWidget {
                           width: 72,
                           color: Colors.indigo,
                           child: Center(
-                            child: Text("\$10,000",
+                            child: Text("\$950",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold
