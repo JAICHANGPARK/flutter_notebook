@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/auction_ios_app/main_page.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_notebook/currence_ui/main_page.dart';
 import 'package:flutter_notebook/model/coin_market.dart';
 
-import 'package:flutter_notebook/property_app/main_page.dart';
-
-
-
 void main() {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(PropertyApp());
+  runApp(AuctionKawsApp());
 }
 
 //void main() => runApp(
