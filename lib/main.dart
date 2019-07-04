@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_notebook/auction_ios_app/main_page.dart';
+import 'package:flutter_notebook/book_story_app/main_page.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
@@ -12,7 +13,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(AuctionKawsApp());
+  runApp(BookStoryApp());
 }
 
 //void main() => runApp(
