@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parallax_image/parallax_image.dart';
 
 class BookStoryApp extends StatelessWidget {
   @override
@@ -90,7 +91,26 @@ class _MainPageState extends State<MainPage>
           ),
           Container(
             height: MediaQuery.of(context).size.height / 1.5,
-            child: Placeholder(),
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: <Widget>[
+                Container(
+                  margin: const EdgeInsets.all(7),
+                  width: MediaQuery.of(context).size.width - 16,
+                  child: ParallaxImage(
+                    image: NetworkImage("https://t3.ftcdn.net/jpg/01/21/39/24/240_F_121392436_TyJ0RrKUxTni7ADl2tEmxhiWB3DQpa99.jpg"),
+                    extent: 100.0,
+
+                  ),
+                ),
+                SizedBox(width: 16,),
+                Container(
+                  margin: const EdgeInsets.all(7),
+                  width: MediaQuery.of(context).size.width - 16,
+                  color: Colors.redAccent,
+                ),
+              ],
+            ),
           )
         ],
       ),
