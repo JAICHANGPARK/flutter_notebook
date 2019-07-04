@@ -5,6 +5,7 @@ class BookStoryApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: MainPage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -35,6 +36,7 @@ class _MainPageState extends State<MainPage>
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           SizedBox(
             height: 24,
@@ -42,14 +44,49 @@ class _MainPageState extends State<MainPage>
           Container(
             height: 60,
             width: MediaQuery.of(context).size.width,
-            child: Placeholder(),
+            padding: EdgeInsets.only(left: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                CircleAvatar(
+                  backgroundImage: NetworkImage("https://avatars2.githubusercontent.com/u/19484515?s=460&v=4"),
+                ),
+                Spacer(),
+                Text("Story Books", style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold
+                ),),
+                Spacer(),
+                Icon(Icons.search, color: Colors.white,),
+                SizedBox(width: 16,),
+                Icon(Icons.list, color: Colors.white,)
+              ],
+            ),
           ),
           SizedBox(
             height: 32,
           ),
           Container(
             height: 38,
-            child: Placeholder(),
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text("The Magic",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18
+                ),),
+                SizedBox(height: 4,),
+                Container(
+                  height: 2,
+                  width: 16,
+                  color: Colors.white,
+                )
+              ],
+            ),
           ),
           Container(
             height: MediaQuery.of(context).size.height / 1.5,
@@ -103,3 +140,20 @@ class _MainPageState extends State<MainPage>
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
