@@ -8,11 +8,71 @@ class BookStoryApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MainPage(),
+      home: TestPage(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
+class HmmPage extends StatefulWidget {
+  @override
+  _HmmPageState createState() => _HmmPageState();
+}
+
+class _HmmPageState extends State<HmmPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child: TestPage()),
+    );
+  }
+}
+
+
+class TestPage extends StatefulWidget {
+  @override
+  _TestPageState createState() => _TestPageState();
+}
+
+class _TestPageState extends State<TestPage> with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+  Animation<double> _animation;
+  double _fraction = 0.0;
+  @override
+  void initState() {
+    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 3000));
+    super.initState();
+    Timer(Duration(milliseconds: 3000), (){
+      reveal();
+    });
+  }
+  void reveal() {
+    _controller = AnimationController(
+        duration: const Duration(milliseconds: 3000), vsync: this);
+    _animation = Tween(begin: 0.0, end: 1.0).animate(_controller)
+      ..addListener(() {
+        setState(() {
+          _fraction = _animation.value;
+        });
+      });
+
+    _controller.forward();
+  }
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+        painter: RevealProgressPainter(_fraction, MediaQuery.of(context).size),
+    );
+  }
+}
+
+
+
 
 class RevealProgressPainter extends CustomPainter {
   double _fraction = 0.0;
@@ -23,7 +83,7 @@ class RevealProgressPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
-      ..color = Colors.pink
+      ..color = Colors.redAccent
       ..style = PaintingStyle.fill;
     final finalRadius =
         sqrt(pow(_screenSize.width / 2, 2) + pow(_screenSize.height / 2, 2));
@@ -244,3 +304,22 @@ class _MainPageState extends State<MainPage>
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
