@@ -9,6 +9,7 @@ class UserProfile05 extends StatelessWidget {
     );
   }
 }
+
 List<String> photoData = [
   "https://cdn.pixabay.com/photo/2017/01/28/02/24/japan-2014619__340.jpg",
   "https://cdn.pixabay.com/photo/2019/03/29/10/14/sports-4088899__340.jpg",
@@ -28,7 +29,18 @@ class UserPage extends StatefulWidget {
   _UserPageState createState() => _UserPageState();
 }
 
-class _UserPageState extends State<UserPage> {
+class _UserPageState extends State<UserPage> with TickerProviderStateMixin{
+  AnimationController animationController;
+  Animation<double> animation;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+        animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 2000));
+        animation = CurvedAnimation(parent: animationController, curve: Curves.easeIn);
+        animationController.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,12 +59,15 @@ class _UserPageState extends State<UserPage> {
                     child: Transform.scale(
                       scale: 1.5,
                       child: Container(
-                        height: MediaQuery.of(context).size.height * 2,
+                        height: MediaQuery
+                            .of(context)
+                            .size
+                            .height * 2,
                         decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(color: Colors.black.withOpacity(0.2),
-                            blurRadius: 3, spreadRadius: 3)
-                          ],
+                            boxShadow: [
+                              BoxShadow(color: Colors.black.withOpacity(0.2),
+                                  blurRadius: 3, spreadRadius: 3)
+                            ],
                             shape: BoxShape.circle,
                             gradient: LinearGradient(
                                 colors: [
@@ -95,16 +110,18 @@ class _UserPageState extends State<UserPage> {
                 Positioned(
                   bottom: 0,
                   left: 116,
-                  child: Container(
-                    height: 160,
-                    width: 160,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.redAccent,
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                "https://avatars2.githubusercontent.com/u/19484515?s=460&v=4"),
-                            fit: BoxFit.cover)),
+                  child: ScaleTransition(
+                    child: Container(
+                      height: 160,
+                      width: 160,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.blue,
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                  "https://avatars2.githubusercontent.com/u/19484515?s=460&v=4"),
+                              fit: BoxFit.cover)),
+                    ), scale: animation,
                   ),
                 )
               ],
@@ -114,7 +131,6 @@ class _UserPageState extends State<UserPage> {
             flex: 3,
             child: Padding(
               padding: const EdgeInsets.only(left: 48, right: 48),
-
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -130,20 +146,22 @@ class _UserPageState extends State<UserPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Icon(Icons.location_on,color: Colors.grey,
-                      size: 18,),
-                      Text('Tokyo, Japan | Seoul, Republic of Korea', style: TextStyle(
-                        color: Colors.grey,
-                      ),),
+                      Icon(Icons.location_on, color: Colors.grey,
+                        size: 18,),
+                      Text('Tokyo, Japan | Seoul, Republic of Korea',
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),),
                     ],
                   ),
                   SizedBox(height: 16,),
-                  Text("I'm Flutter Lover, Keep Study Flutter blahblah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah ",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 10
-                  ),)
+                  Text(
+                    "I'm Flutter Lover, Keep Study Flutter blahblah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah ",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 10
+                    ),)
                 ],
               ),
             ),
@@ -161,9 +179,9 @@ class _UserPageState extends State<UserPage> {
                     children: <Widget>[
                       Text("1.2k",
                         style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold
-                      ),),
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold
+                        ),),
                       Text("shots", style: TextStyle(
                           color: Colors.grey,
                           fontSize: 12
@@ -189,7 +207,7 @@ class _UserPageState extends State<UserPage> {
                     ],
                   ),
                   SizedBox(width: 16),
-                  VerticalDivider(  color: Colors.grey,),
+                  VerticalDivider(color: Colors.grey,),
                   SizedBox(width: 16),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -199,10 +217,10 @@ class _UserPageState extends State<UserPage> {
                           fontWeight: FontWeight.bold
                       ),),
                       Text("Following",
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 12
-                      ),)
+                        style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 12
+                        ),)
                     ],
                   ),
 
@@ -217,27 +235,67 @@ class _UserPageState extends State<UserPage> {
               child: Row(
                 children: <Widget>[
                   Text("Shots", style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold
                   ),),
                   Spacer(),
-                  Icon(Icons.menu,size: 28,
+                  Icon(Icons.menu, size: 28,
                   ),
-                  Icon(Icons.apps,size: 28,
-                  color: Colors.green,)
+                  Icon(Icons.apps, size: 28,
+                    color: Colors.green,)
                 ],
               ),
             ),
           ),
           Expanded(
             flex: 5,
-            child: Placeholder(),
+            child: GridView.builder(
+              shrinkWrap: true,
+
+                itemCount: photoData.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                  crossAxisSpacing: 2,
+                  mainAxisSpacing: 2
+                ), itemBuilder: (context, index) {
+              return Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(image: NetworkImage(photoData[index]),
+                    fit: BoxFit.cover)
+                  ),
+              );
+            }),
           ),
         ],
       ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
