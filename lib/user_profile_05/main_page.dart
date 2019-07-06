@@ -9,6 +9,19 @@ class UserProfile05 extends StatelessWidget {
     );
   }
 }
+List<String> photoData = [
+  "https://cdn.pixabay.com/photo/2017/01/28/02/24/japan-2014619__340.jpg",
+  "https://cdn.pixabay.com/photo/2019/03/29/10/14/sports-4088899__340.jpg",
+  "https://cdn.pixabay.com/photo/2016/10/03/09/21/cute-1711129__340.jpg",
+  "https://cdn.pixabay.com/photo/2017/08/19/05/43/dotonbori-2657500__340.jpg",
+  "https://cdn.pixabay.com/photo/2016/06/10/05/08/japan-1447467_960_720.jpg",
+  "https://cdn.pixabay.com/photo/2016/11/14/03/44/asia-1822521__340.jpg",
+  "https://cdn.pixabay.com/photo/2014/07/24/05/25/pedestrians-400811__340.jpg",
+  "https://cdn.pixabay.com/photo/2019/06/23/01/56/cityscape-4292702__340.jpg",
+  "https://cdn.pixabay.com/photo/2019/04/04/18/29/hamburg-4103406__340.jpg",
+  "https://cdn.pixabay.com/photo/2018/12/16/20/46/wave-3879331__340.jpg",
+  "https://cdn.pixabay.com/photo/2015/07/27/22/55/girl-863686__340.jpg",
+];
 
 class UserPage extends StatefulWidget {
   @override
@@ -199,7 +212,22 @@ class _UserPageState extends State<UserPage> {
           ),
           Expanded(
             flex: 1,
-            child: Placeholder(),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                children: <Widget>[
+                  Text("Shots", style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold
+                  ),),
+                  Spacer(),
+                  Icon(Icons.menu,size: 28,
+                  ),
+                  Icon(Icons.apps,size: 28,
+                  color: Colors.green,)
+                ],
+              ),
+            ),
           ),
           Expanded(
             flex: 5,
