@@ -36,6 +36,10 @@ class _UserPageState extends State<UserPage> {
                       child: Container(
                         height: MediaQuery.of(context).size.height * 2,
                         decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(color: Colors.black.withOpacity(0.2),
+                            blurRadius: 3, spreadRadius: 3)
+                          ],
                             shape: BoxShape.circle,
                             gradient: LinearGradient(
                                 colors: [
@@ -95,30 +99,103 @@ class _UserPageState extends State<UserPage> {
           ),
           Expanded(
             flex: 3,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  "Dreamwalker",
+            child: Padding(
+              padding: const EdgeInsets.only(left: 48, right: 48),
+
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    "Dreamwalker",
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 8,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(Icons.location_on,color: Colors.grey,
+                      size: 18,),
+                      Text('Tokyo, Japan | Seoul, Republic of Korea', style: TextStyle(
+                        color: Colors.grey,
+                      ),),
+                    ],
+                  ),
+                  SizedBox(height: 16,),
+                  Text("I'm Flutter Lover, Keep Study Flutter blahblah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah ",
+                  textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 24,
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.bold),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(Icons.location_on),
-                    Text('Tokyo, Japan'),
-                  ],
-                )
-              ],
+                    color: Colors.grey,
+                    fontSize: 10
+                  ),)
+                ],
+              ),
             ),
           ),
           Expanded(
             flex: 2,
-            child: Placeholder(),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 16, bottom: 16),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text("1.2k",
+                        style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold
+                      ),),
+                      Text("shots", style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 12
+                      ),)
+                    ],
+                  ),
+                  SizedBox(width: 16),
+                  VerticalDivider(
+                    color: Colors.grey,
+                  ),
+                  SizedBox(width: 16),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text("10.2k", style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold
+                      ),),
+                      Text("Followers", style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 12
+                      ),)
+                    ],
+                  ),
+                  SizedBox(width: 16),
+                  VerticalDivider(  color: Colors.grey,),
+                  SizedBox(width: 16),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text("1", style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold
+                      ),),
+                      Text("Following",
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 12
+                      ),)
+                    ],
+                  ),
+
+                ],
+              ),
+            ),
           ),
           Expanded(
             flex: 1,
@@ -133,3 +210,21 @@ class _UserPageState extends State<UserPage> {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
