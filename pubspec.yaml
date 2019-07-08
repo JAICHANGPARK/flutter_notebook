@@ -20,7 +20,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   intl: any
-  provider: ^2.0.0+1
+  provider: ^3.0.0+1
   shrine_images:
   json_annotation: ^2.2.0
 
