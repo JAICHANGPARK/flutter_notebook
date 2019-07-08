@@ -111,6 +111,1278 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           _buildTopLabel(),
           _buildTopCardList(),
           _buildTabBarWidget(),
+          Container(
+            height: 360,
+            child: TabBarView(
+              controller: _tabController,
+              children: <Widget>[
+                ListView(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  children: <Widget>[
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+
+                  ],
+                ),
+                ListView(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  children: <Widget>[
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+
+                  ],
+                ),
+                ListView(
+                  scrollDirection: Axis.vertical,
+                  shrinkWrap: true,
+                  children: <Widget>[
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 120,
+                      margin: EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                      decoration: BoxDecoration(),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            height: 100,
+                            width: 100,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        "https://cdn.pixabay.com/photo/2016/10/15/19/14/japan-1743370__340.jpg"),
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 16,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
+                                  "Veg Delux Thali",
+                                  style: TextStyle(
+                                      fontSize: 14, fontWeight: FontWeight.bold),
+                                ),
+                                Text(
+                                  "Paneer veg, seasonal veg, dal, roti,",
+                                  style: TextStyle(fontSize: 12, color: Colors.grey),
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Text("INR 189"),
+                                    SizedBox(
+                                      width: 84,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: OutlineButton(
+                                        onPressed: () {},
+                                        shape: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(8)),
+                                        borderSide: BorderSide(color: Colors.red),
+                                        child: Text(
+                                          "ADD",
+                                          style: TextStyle(
+                                              color: Colors.red,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                Container(
+                                  height: 1,
+                                  width: 240,
+                                  decoration: BoxDecoration(color: Colors.grey),
+                                )
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+
+                  ],
+                )
+              ],
+            ),
+          ),
+         
         ],
       ),
     );
@@ -303,8 +1575,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       ),
     );
   }
-  Widget _buildTabBarWidget(){
-    return    Container(
+
+  Widget _buildTabBarWidget() {
+    return Container(
       height: 48,
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey),
@@ -318,10 +1591,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 labelColor: Colors.red,
                 unselectedLabelColor: Colors.grey,
                 controller: _tabController,
-                labelStyle: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.bold
-                ),
+                labelStyle:
+                    TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
                 tabs: [
                   Tab(
                     text: "Thali Meals",
