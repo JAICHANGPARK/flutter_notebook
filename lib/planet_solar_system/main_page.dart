@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/planet_solar_system/model/planet.dart';
+import 'package:flutter_notebook/planet_solar_system/planet_name.dart';
 
 class SolarSystem extends StatelessWidget {
   @override
@@ -19,7 +21,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
+  final List<Planet> _planets = planets;
   int _currentPlanetIndex = 2;
   final StreamController _navigationStreamController =
       StreamController.broadcast();
@@ -27,8 +29,51 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    final Size screenSize = MediaQuery.of(context).size;
+
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Stack(
+        children: <Widget>[
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: FractionalTranslation(translation: Offset(0.0, 0.65),
+            child: Container(
+              //TODO Implement PlanetSelector
+              child: Placeholder(),
+            ),
+            ),
+          ),
+          Container(
+            height: screenSize.height * 0.8,
+            width: double.infinity,
+            child: Stack(
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: RotatedBox(quarterTurns: 1,
+                  child: Container(
+                    width: 400.0,
+                    padding: EdgeInsets.only(left: 50.0),
+                    //TODO Implement PlanetName
+                    child: PlanetName(
+                        name: _planets[_currentPlanetIndex].name.toUpperCase(),),
+                  ),),
+                ),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  //TODO Implement Astronaut
+                  child: Placeholder(),
+                )
+              ],
+            ),
+
+          )
+        ],
+      ),
+    );
   }
+
   @override
   void dispose() {
     // TODO: implement dispose
