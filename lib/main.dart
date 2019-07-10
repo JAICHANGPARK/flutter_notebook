@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_notebook/event_management_app/main_page.dart';
+import 'package:flutter_notebook/planet_solar_system/main_page.dart';
 import 'package:flutter_notebook/railyatri/main_page.dart';
 import 'package:flutter_notebook/reminder_app/main_page.dart';
 import 'dart:async';
@@ -16,7 +17,7 @@ void main() {
     DeviceOrientation.portraitDown,
     DeviceOrientation.portraitUp,
   ]);
-  runApp(ReminderApp());
+  runApp(SolarSystem());
 }
 
 //void main() => runApp(
