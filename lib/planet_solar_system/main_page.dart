@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_notebook/planet_solar_system/astronaut.dart';
 import 'package:flutter_notebook/planet_solar_system/model/planet.dart';
 import 'package:flutter_notebook/planet_solar_system/planet_name.dart';
 
@@ -63,7 +64,12 @@ class _MainPageState extends State<MainPage> {
                 Align(
                   alignment: Alignment.bottomCenter,
                   //TODO Implement Astronaut
-                  child: Placeholder(),
+                  child: Astronaut(
+                    size: screenSize,
+                    planets: _planets,
+                    currentPlanetIndex: _currentPlanetIndex,
+                    shouldNavigate: _navigationStreamController.stream,
+                  ),
                 )
               ],
             ),
@@ -81,6 +87,23 @@ class _MainPageState extends State<MainPage> {
     super.dispose();
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
