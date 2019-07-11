@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_notebook/planet_solar_system/astronaut.dart';
 import 'package:flutter_notebook/planet_solar_system/model/planet.dart';
 import 'package:flutter_notebook/planet_solar_system/planet_name.dart';
+import 'package:flutter_notebook/planet_solar_system/planet_selector.dart';
 
 class SolarSystem extends StatelessWidget {
   @override
@@ -16,6 +17,7 @@ class SolarSystem extends StatelessWidget {
     );
   }
 }
+
 class MainPage extends StatefulWidget {
   @override
   _MainPageState createState() => _MainPageState();
@@ -27,6 +29,19 @@ class _MainPageState extends State<MainPage> {
   final StreamController _navigationStreamController =
       StreamController.broadcast();
 
+  _handleArrowClick(ClickDirection direction) {
+    setState(() {
+      switch (direction) {
+        case ClickDirection.Left:
+          _currentPlanetIndex--;
+          break;
+        case ClickDirection.Right:
+          // TODO: Handle this case.
+          _currentPlanetIndex++;
+          break;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +53,17 @@ class _MainPageState extends State<MainPage> {
         children: <Widget>[
           Align(
             alignment: Alignment.bottomCenter,
-            child: FractionalTranslation(translation: Offset(0.0, 0.65),
-            child: Container(
+            child: FractionalTranslation(
+              translation: Offset(0.0, 0.65),
               //TODO Implement PlanetSelector
-              child: Placeholder(),
-            ),
+              child: PlanetSelector(
+                screenSize: screenSize,
+                planets: _planets,
+                currentPlanetIndex: _currentPlanetIndex,
+                onArrowClick: _handleArrowClick,
+                onPlanetClicked: () => _navigationStreamController.sink.add(null),
+                
+              ),
             ),
           ),
           Container(
@@ -52,14 +73,17 @@ class _MainPageState extends State<MainPage> {
               children: <Widget>[
                 Align(
                   alignment: Alignment.topCenter,
-                  child: RotatedBox(quarterTurns: 1,
-                  child: Container(
-                    width: 400.0,
-                    padding: EdgeInsets.only(left: 50.0),
-                    //TODO Implement PlanetName
-                    child: PlanetName(
-                        name: _planets[_currentPlanetIndex].name.toUpperCase(),),
-                  ),),
+                  child: RotatedBox(
+                    quarterTurns: 1,
+                    child: Container(
+                      width: 400.0,
+                      padding: EdgeInsets.only(left: 50.0),
+                      //TODO Implement PlanetName
+                      child: PlanetName(
+                        name: _planets[_currentPlanetIndex].name.toUpperCase(),
+                      ),
+                    ),
+                  ),
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
@@ -73,7 +97,6 @@ class _MainPageState extends State<MainPage> {
                 )
               ],
             ),
-
           )
         ],
       ),
@@ -87,57 +110,3 @@ class _MainPageState extends State<MainPage> {
     super.dispose();
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

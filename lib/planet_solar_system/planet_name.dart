@@ -1,16 +1,19 @@
 import 'dart:math' as Math;
+
 import 'package:flutter/material.dart';
 
 class PlanetName extends StatefulWidget {
   final String name;
 
-  PlanetName({this.name});
+  const PlanetName({Key key, this.name}) : super(key: key);
 
   @override
-  _PlanetNameState createState() => _PlanetNameState();
+  PlanetNameState createState() {
+    return new PlanetNameState();
+  }
 }
 
-class _PlanetNameState extends State<PlanetName> with TickerProviderStateMixin {
+class PlanetNameState extends State<PlanetName> with TickerProviderStateMixin {
   static const List<String> alphabets = const [
     'A',
     'B',
@@ -34,68 +37,18 @@ class _PlanetNameState extends State<PlanetName> with TickerProviderStateMixin {
     'T',
     'U',
     'V',
-    'W',
     'X',
     'Y',
-    'Z',
+    'Z'
   ];
   List<Map<String, dynamic>> textChars = <Map<String, dynamic>>[];
 
-  void _setupController(List<String> newLetters, List<String> oldLetters) {
-    for (int i = 0; i < newLetters.length; i++) {
-      AnimationController cntrllr = AnimationController(
-          vsync: this, duration: Duration(milliseconds: 1000))
-        ..addListener(() {
-          setState(() {});
-        });
-      StepTween tween = StepTween(
-        begin: alphabets.indexOf(oldLetters[i]),
-        end:  alphabets.indexOf(newLetters[i]),
-      );
-      textChars.add({'cntrllr' : cntrllr, 'tween': tween});
-      cntrllr.forward();
-    }
-  }
-  void _cleanControllers(){
-    textChars.forEach((f){
-      f['cntrllr'].dispose();
-    });
-    textChars = [];
-  }
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    _cleanControllers();
-    super.dispose();
-  }
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _setupController(widget.name.split(''), widget.name.split(''));
+    _setUpControllers(widget.name.split(''), widget.name.split(''));
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return RichText(
-      overflow: TextOverflow.ellipsis,
-      text: TextSpan(
-        style: Theme.of(context).textTheme.display3.copyWith(
-          letterSpacing: 10.0,
-          fontWeight: FontWeight.w200,
-          fontSize: 85.0,
-          color: Colors.grey.shade400
-        ),
-        children: textChars.length == 0? [] : textChars.map((Map<String, dynamic> f){
-          final i = f['tween'].animate(f['cntrllr']).value;
-          return TextSpan(
-            text: alphabets[i],
-          );
-        }
-        ).toList()
-      ),
-    );
-  }
   @override
   void didUpdateWidget(PlanetName oldWidget) {
     if (widget.name != oldWidget.name) {
@@ -110,33 +63,63 @@ class _PlanetNameState extends State<PlanetName> with TickerProviderStateMixin {
       final List<String> newTextChars = []
         ..addAll(widget.name.substring(0, min).split(''));
 
-      _cleanControllers();
-      _setupController(newTextChars, oldTextChars);
+      _cleanUpControllers();
+      _setUpControllers(newTextChars, oldTextChars);
     }
     super.didUpdateWidget(oldWidget);
   }
+
+  @override
+  void dispose() {
+    _cleanUpControllers();
+    super.dispose();
+  }
+
+  void _setUpControllers(List<String> newLetters, List<String> oldLetters) {
+    for (int i = 0; i < newLetters.length; i++) {
+      AnimationController cntrllr = AnimationController(
+          duration: Duration(milliseconds: 1000), vsync: this)
+        ..addListener(() {
+          setState(() {});
+        });
+
+      StepTween tween = StepTween(
+        begin: alphabets.indexOf(oldLetters[i]),
+        end: alphabets.indexOf(newLetters[i]),
+      );
+
+      textChars.add({'cntrllr': cntrllr, 'tween': tween});
+      cntrllr.forward();
+    }
+  }
+
+  void _cleanUpControllers() {
+    textChars.forEach((f) {
+      f['cntrllr'].dispose();
+    });
+    textChars = [];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return RichText(
+      overflow: TextOverflow.ellipsis,
+      text: TextSpan(
+        style: Theme.of(context).textTheme.display3.copyWith(
+          letterSpacing: 10.0,
+          fontWeight: FontWeight.w200,
+          fontSize: 85.0,
+          color: Colors.grey.shade400,
+        ),
+        children: textChars.length == 0
+            ? []
+            : textChars.map((Map<String, dynamic> f) {
+          final i = f['tween'].animate(f['cntrllr']).value;
+          return TextSpan(
+            text: alphabets[i],
+          );
+        }).toList(),
+      ),
+    );
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
