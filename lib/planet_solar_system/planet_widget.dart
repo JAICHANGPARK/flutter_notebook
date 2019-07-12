@@ -43,16 +43,12 @@ class _PlanetWidgetState extends State<PlanetWidget>
     _moonOrbitLengthController.forward();
   }
 
-  Widget _buildCelestialBody({@required CelestialBody body}){
+  Widget _buildCelestialBody({@required CelestialBody body}) {
     return Center(
       child: Container(
         width: body.diameter * constDiameter,
         height: body.diameter * constDiameter,
-        decoration: BoxDecoration(
-          color: body.color,
-          shape: BoxShape.circle
-        ),
-
+        decoration: BoxDecoration(color: body.color, shape: BoxShape.circle),
       ),
     );
   }
@@ -61,8 +57,31 @@ class _PlanetWidgetState extends State<PlanetWidget>
   Widget build(BuildContext context) {
     final Planet planet = widget.planet;
     final List<Moon> moons = planet.moons;
-    final ListM
-    return Container();
+    final List<Widget> bodies = [_buildCelestialBody(body: planet)];
+
+    if (moons.length > 0 && widget.currentlyInMainPos) {
+      for (int i = 0; i < moons.length; i++) {
+        final double radians = (2 * pi / moons.length) * i;
+        final double dx = _moonOrbitLength.value * cos(radians);
+        final double dy = _moonOrbitLength.value * sin(radians);
+        bodies.add(Transform.translate(
+          offset: Offset(dx, dy),
+          child: _buildCelestialBody(body: moons[i]),
+        ));
+      }
+    }
+
+    return RotationTransition(
+      turns: _rotationController,
+      child: Container(
+        width: 100.0,
+        height: 100,
+        child: Stack(
+          overflow: Overflow.visible,
+          children: bodies,
+        ),
+      ),
+    );
   }
 
   @override
@@ -72,57 +91,3 @@ class _PlanetWidgetState extends State<PlanetWidget>
     super.dispose();
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

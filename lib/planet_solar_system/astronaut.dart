@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_notebook/planet_solar_system/custom_page_routes.dart';
 import 'package:flutter_notebook/planet_solar_system/model/planet.dart';
+import 'package:flutter_notebook/planet_solar_system/planet_page.dart';
 
 class Astronaut extends StatefulWidget {
   final Size size;
@@ -9,61 +11,104 @@ class Astronaut extends StatefulWidget {
   final int currentPlanetIndex;
   final Stream shouldNavigate;
 
-  Astronaut(
-      {this.size, this.planets, this.currentPlanetIndex, this.shouldNavigate});
-
+  const Astronaut(
+      {Key key,
+        this.size,
+        this.planets,
+        this.currentPlanetIndex,
+        this.shouldNavigate})
+      : super(key: key);
   @override
-  _AstronautState createState() => _AstronautState();
+  AstronautState createState() {
+    return new AstronautState();
+  }
 }
 
-class _AstronautState extends State<Astronaut> with TickerProviderStateMixin {
+class AstronautState extends State<Astronaut> with TickerProviderStateMixin {
   AnimationController _smokeAnimController;
   AnimationController _scaleAnimController;
   AnimationController _floatingAnimController;
-  Animation<Offset> _floaingAnim;
+  Animation<Offset> _floatingAnim;
   TabController _tabController;
   StreamSubscription _navigationSubscription;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _smokeAnimController =
-        AnimationController(vsync: this, duration: Duration(seconds: 35));
+        AnimationController(duration: Duration(seconds: 35), vsync: this);
 
-    _floatingAnimController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 1700))
-          ..addStatusListener((status) {
-            if (status == AnimationStatus.completed) {
-              _floatingAnimController.reverse();
-            } else if (status == AnimationStatus.dismissed) {
-              _floatingAnimController.forward();
-            }
-          });
-    _floaingAnim = Tween<Offset>(begin: Offset.zero, end: Offset(0.0, 0.025))
+    _floatingAnimController = AnimationController(
+        duration: Duration(milliseconds: 1700), vsync: this);
+
+    _floatingAnim = Tween<Offset>(begin: Offset.zero, end: Offset(0.0, 0.025))
         .animate(_floatingAnimController);
+
     _smokeAnimController.repeat();
 
+    _floatingAnimController.addStatusListener((AnimationStatus status) {
+      if (status == AnimationStatus.completed) {
+        _floatingAnimController.reverse();
+      } else if (status == AnimationStatus.dismissed) {
+        _floatingAnimController.forward();
+      }
+    });
+
+    _floatingAnimController.forward();
+
     _tabController = TabController(
+        initialIndex: widget.currentPlanetIndex,
         length: widget.planets.length,
-        vsync: this,
-        initialIndex: widget.currentPlanetIndex);
+        vsync: this);
 
     _navigationSubscription = widget.shouldNavigate.listen((_) async {
-      //TODO Implement Custom Router
+      Navigator.of(context)
+          .push(
+        MyPageRoute(
+          transDuation: Duration(milliseconds: 700),
+          builder: (BuildContext context) {
+            return PlanetPage(
+//              currentPlanet: widget.planets[widget.currentPlanetIndex],
+            );
+          },
+        ),
+      )
+          .then((_) {
+        _scaleAnimController.reverse();
+      });
+
+      await _scaleAnimController.forward();
     });
+
     _scaleAnimController = AnimationController(
-        vsync: this,
         lowerBound: 1.0,
         upperBound: 7.0,
-        duration: Duration(milliseconds: 700));
+        duration: Duration(milliseconds: 700),
+        vsync: this);
+  }
+
+  @override
+  void didUpdateWidget(Astronaut oldWidget) {
+    if (widget.currentPlanetIndex != oldWidget.currentPlanetIndex) {
+      _tabController.animateTo(widget.currentPlanetIndex);
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _smokeAnimController.dispose();
+    _floatingAnimController.dispose();
+    _tabController.dispose();
+    _navigationSubscription.cancel();
   }
 
   @override
   Widget build(BuildContext context) {
     final double size = widget.size.width * 0.86;
     return SlideTransition(
-      position: _floaingAnim,
+      position: _floatingAnim,
       child: ScaleTransition(
         scale: _scaleAnimController,
         child: Container(
@@ -83,24 +128,28 @@ class _AstronautState extends State<Astronaut> with TickerProviderStateMixin {
                   width: size * 0.5,
                   height: size * 0.5,
                   decoration: BoxDecoration(
-                      shape: BoxShape.circle, color: Colors.black),
+                    shape: BoxShape.circle,
+                    color: Colors.black,
+                  ),
                   foregroundDecoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      gradient: LinearGradient(
-                          begin: Alignment.center,
-                          end: Alignment.bottomCenter,
-                          stops: [0.1, 0.8],
-                          colors: [Colors.transparent, Colors.black])),
+                    shape: BoxShape.circle,
+                    gradient: LinearGradient(
+                        begin: Alignment.center,
+                        end: Alignment.bottomCenter,
+                        colors: <Color>[Colors.transparent, Colors.black],
+                        stops: [0.1, 0.8]),
+                  ),
                   child: ClipOval(
                     child: TabBarView(
-                        controller: _tabController,
-                        children: widget.planets.map((p) {
-                          //TODO Implement Planet View Page
-                          return PlanetViewImg(
-                            p.imgAssetPath,
-                            planetName: p.name,
-                          );
-                        }).toList()),
+                      controller: _tabController,
+                      physics: NeverScrollableScrollPhysics(),
+                      children: widget.planets.map((Planet p) {
+                        return PlanetViewImg(
+                          p.imgAssetPath,
+                          planetName: p.name,
+                        );
+                      }).toList(),
+                    ),
                   ),
                 ),
               ),
@@ -116,41 +165,23 @@ class _AstronautState extends State<Astronaut> with TickerProviderStateMixin {
                     height: size,
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
       ),
     );
   }
-
-  @override
-  void didUpdateWidget(Astronaut oldWidget) {
-    if (widget.currentPlanetIndex != oldWidget.currentPlanetIndex) {
-      _tabController.animateTo(widget.currentPlanetIndex);
-    }
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    _smokeAnimController.dispose();
-    _floatingAnimController.dispose();
-    _tabController.dispose();
-    _navigationSubscription.cancel();
-    super.dispose();
-  }
 }
 
 class PlanetViewImg extends StatelessWidget {
   final String planetName;
   final String imgAssetPath;
-
   const PlanetViewImg(
-    this.imgAssetPath, {
-    this.planetName,
-  });
+      this.imgAssetPath, {
+        Key key,
+        this.planetName,
+      }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -168,7 +199,7 @@ class PlanetViewImg extends StatelessWidget {
         }
       },
       child: Container(
-        padding: const EdgeInsets.only(bottom: 20),
+        padding: EdgeInsets.only(bottom: 20.0),
         alignment: Alignment.bottomCenter,
         child: Image.asset(
           imgAssetPath,
