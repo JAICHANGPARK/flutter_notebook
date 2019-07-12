@@ -26,8 +26,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   final List<Planet> _planets = planets;
   int _currentPlanetIndex = 2;
-  final StreamController _navigationStreamController =
-      StreamController.broadcast();
+  final StreamController  _navigationStreamCntrllr = StreamController.broadcast();
 
   _handleArrowClick(ClickDirection direction) {
     setState(() {
@@ -55,14 +54,12 @@ class _MainPageState extends State<MainPage> {
             alignment: Alignment.bottomCenter,
             child: FractionalTranslation(
               translation: Offset(0.0, 0.65),
-              //TODO Implement PlanetSelector
               child: PlanetSelector(
                 screenSize: screenSize,
                 planets: _planets,
                 currentPlanetIndex: _currentPlanetIndex,
                 onArrowClick: _handleArrowClick,
-                onPlanetClicked: () => _navigationStreamController.sink.add(null),
-                
+                onPlanetClicked: () => _navigationStreamCntrllr.sink.add(null),
               ),
             ),
           ),
@@ -78,7 +75,6 @@ class _MainPageState extends State<MainPage> {
                     child: Container(
                       width: 400.0,
                       padding: EdgeInsets.only(left: 50.0),
-                      //TODO Implement PlanetName
                       child: PlanetName(
                         name: _planets[_currentPlanetIndex].name.toUpperCase(),
                       ),
@@ -87,26 +83,24 @@ class _MainPageState extends State<MainPage> {
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
-                  //TODO Implement Astronaut
                   child: Astronaut(
                     size: screenSize,
                     planets: _planets,
                     currentPlanetIndex: _currentPlanetIndex,
-                    shouldNavigate: _navigationStreamController.stream,
+                    shouldNavigate: _navigationStreamCntrllr.stream,
                   ),
-                )
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
   }
-
   @override
   void dispose() {
     // TODO: implement dispose
-    _navigationStreamController.close();
+    _navigationStreamCntrllr.close();
     super.dispose();
   }
 }
