@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 import 'package:flutter_notebook/planet_solar_system/model/planet.dart';
+import 'package:flutter_notebook/planet_solar_system/planet_widget.dart';
 
 enum ClickDirection { Left, Right }
 
@@ -124,7 +125,7 @@ class _PlanetSelectorState extends State<PlanetSelector>
       _buildRightArrowButton(),
     ];
 
-    for(int i = 0; i<widget.planets.length; i++){
+    for (int i = 0; i < widget.planets.length; i++) {
       final double radialOffset = _widgetHeight / 2;
       final double radianDiff = (2 * pi) / planets.length;
       final double rotationFactor = _rotationTween.animate(_controller).value;
@@ -133,11 +134,14 @@ class _PlanetSelectorState extends State<PlanetSelector>
       final double dx = radialOffset * cos(radians);
       final double dy = radialOffset * sin(radians);
 
-      stackChildren.add(
-        Transform.translate(offset:
-        Offset(dx, dy),
-        child: Placeholder(),)
-      );
+      stackChildren.add(Transform.translate(
+        offset: Offset(dx, dy),
+        //Implement Planet Widget
+        child: PlanetWidget(
+          planet: planets[i],
+          currentlyInMainPos: i == widget.currentPlanetIndex,
+        ),
+      ));
     }
 
     return Container(
@@ -167,16 +171,3 @@ class _PlanetSelectorState extends State<PlanetSelector>
     super.dispose();
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
